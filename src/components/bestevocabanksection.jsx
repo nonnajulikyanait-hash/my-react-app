@@ -36,7 +36,7 @@ function BestEvocabankSection() {
                 className="w-[380px] lg:w-[440px] h-auto object-contain relative z-10"
                 onError={(e) => {
                   // Եթե լինի լոդինգի խնդիր, կարող ես փոխարինել կամ թողնել այս հղումը
-                  e.target.src = "https://www.evoca.am/img/temp/biometric/face1.png"; 
+                  e.target.src = ""; 
                 }}
               />
             </div>

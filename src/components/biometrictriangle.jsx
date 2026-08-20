@@ -20,7 +20,7 @@ function BiometricTriangle() {
           {/* Կետավոր պտտվող շրջանագիծ */}
           <div className="absolute w-[420px] h-[420px] rounded-full border-2 border-dotted border-white/40 animate-spin-slow pointer-events-none"></div>
 
-          {/* Մանուշակագույն ետնամասի կոր կտրվածքով ձևը (պատկերին համապատասխան) */}
+          {/* Մանուշակագույն ետնամասի կոր կտրվածքով ձևը */}
           <div 
             className="absolute w-[380px] h-[340px] bg-[#5300B8] z-0"
             style={{
@@ -29,12 +29,11 @@ function BiometricTriangle() {
             }}
           ></div>
 
-          {/* Ճիշտ անտիկ արձանի նկարը (որը փոխարինում է դեմքին) */}
+          {/* Հստակ անտիկ արձանի նկարը */}
           <img 
-            src="https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=600&auto=format&fit=crop" 
+            src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=800&auto=format&fit=crop" 
             alt="Evocabank Statue" 
             className="relative z-10 h-[460px] object-contain filter drop-shadow-2xl"
-            // Եթե ունես տեղային նկար (օրինակ՝ public ֆոլդերում), կարողես փոխել սա src="/statue.png"-ի
           />
         </div>
 
@@ -47,7 +46,7 @@ function BiometricTriangle() {
               <span className="inline-block bg-[#F3E8FF] text-[#6400DC] text-xs font-bold px-3 py-1 rounded-full mb-3">
                 Թվային քարտեր
               </span>
-              <h3 className="text-xl font-bold text-gray-900 mb-2">Evocabank Digital քարտ</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Evoca Digital քարտ</h3>
               <p className="text-gray-600 text-sm leading-relaxed">
                 Evocabank Digital քարտն արդեն հասանելի է EvocaTOUCH հավելվածով: Ակտիվացրու այն հիմա և ընտրիր քո սիրելի դիզայնը:
               </p>
