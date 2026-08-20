@@ -29,27 +29,27 @@ function BiometricSection() {
     <section className="py-20 lg:py-32 bg-white overflow-hidden mt-6">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between">
         
-        {/* Ձախ մաս (Մանուշակագույն եռանկյունի ֆոնը + կետերի ցանցը + դեմքը) */}
+        {/* Ձախ մաս (Օրիգինալի չափսերով 455x455 կոնտեյներ) */}
         <div className="lg:w-1/2 flex justify-center items-center relative mb-12 lg:mb-0">
-          <div className="relative flex justify-center items-center w-[460px] h-[460px]">
+          <div className="relative flex justify-center items-center w-[455px] h-[455px]">
             
             {/* Հետնամասի կետավոր շրջանագիծը */}
-            <div className="absolute w-[440px] h-[440px] rounded-full border border-dashed border-neutral-200/60 pointer-events-none"></div>
+            <div className="absolute w-[440px] h-[440px] rounded-full border border-dashed border-neutral-200/55 pointer-events-none"></div>
 
-            {/* Մանուշակագույն կլորացված եռանկյունի ֆոնը */}
+            {/* Մանուշակագույն եռանկյունի ֆոնը՝ օրիգինալ բռնվածքով */}
             <div 
-              className="absolute w-[380px] h-[340px] bg-[#6400DC] pointer-events-none"
+              className="absolute w-[370px] h-[340px] bg-[#6400DC] pointer-events-none"
               style={{
-                borderRadius: "48px",
-                clipPath: "polygon(50% 100%, 3% 5%, 97% 5%)"
+                borderRadius: "45px",
+                clipPath: "polygon(50% 100%, 5% 4%, 95% 4%)"
               }}
             ></div>
 
-            {/* Դեմքի նկարը (անցումային էֆեկտով) */}
+            {/* Դեմքի նկարը՝ օրիգինալ 455px լայնությամբ և ֆեյդ էֆեկտով */}
             <img 
               src={faces[faceIndex]} 
-              alt="Biometric Identification" 
-              className={`w-[410px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
+              alt="person" 
+              className={`w-[455px] h-[455px] object-contain relative z-10 transition-opacity duration-500 ${
                 isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             />
