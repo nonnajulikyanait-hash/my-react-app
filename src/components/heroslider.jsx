@@ -7,10 +7,10 @@ const slides = [
     title: "Evoca Travel Card",
     description: "Այս քարտն իր բազմաթիվ առավելություններով կդառնա քո ճամփորդական անբաժան ընկերը",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-neutral-100 text-neutral-900",
+    bgColor: "#333333",
     textColor: "text-neutral-600",
     btnColor: "bg-purple-700 hover:bg-purple-800 text-white",
-    cardImage: "https://images.unsplash.com/photo-1544717305-2782549b5136?w=600&auto=format&fit=crop&q=80"
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/17480089224912/4012c7541d8db15b5666bb0e4f4bdf7a-576x486.png"
   },
   {
     id: 2,
