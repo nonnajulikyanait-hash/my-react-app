@@ -40,15 +40,15 @@ function HeroSlider() {
         </div>
       </div>
 
-      {/* Նավիգացիա */}
-      <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center space-x-4">
-        <button onClick={() => setCurrentIndex(prev => (prev === 0 ? slides.length - 1 : prev - 1))} className="text-current opacity-60 hover:opacity-100 text-3xl font-bold cursor-pointer">←</button>
+      {/* Նավիգացիա - Սպիտակ գույներով */}
+      <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center space-x-4 text-white">
+        <button onClick={() => setCurrentIndex(prev => (prev === 0 ? slides.length - 1 : prev - 1))} className="opacity-80 hover:opacity-100 text-3xl font-bold cursor-pointer">←</button>
         <div className="flex space-x-2">
           {slides.map((_, i) => (
-            <button key={i} onClick={() => setCurrentIndex(i)} className={`h-2.5 rounded-full transition-all ${currentIndex === i ? 'w-8 bg-current' : 'w-2.5 bg-current opacity-30'}`} />
+            <button key={i} onClick={() => setCurrentIndex(i)} className={`h-2.5 rounded-full transition-all bg-white ${currentIndex === i ? 'w-8' : 'w-2.5 opacity-40'}`} />
           ))}
         </div>
-        <button onClick={() => setCurrentIndex(prev => (prev + 1) % slides.length)} className="text-current opacity-60 hover:opacity-100 text-3xl font-bold cursor-pointer">→</button>
+        <button onClick={() => setCurrentIndex(prev => (prev + 1) % slides.length)} className="opacity-80 hover:opacity-100 text-3xl font-bold cursor-pointer">→</button>
       </div>
     </div>
   );
