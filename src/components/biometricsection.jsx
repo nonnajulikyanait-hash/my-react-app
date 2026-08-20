@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-// Բոլոր 3 դեմքերի նկարների զանգվածը
+// Բոլոր 3 դեմքերի նկարների զանգվածը (որոնք արդեն իրենց մեջ ունեն ճիշտ ֆոնը)
 const faces = [
   "https://www.evoca.am/img/temp/biometric/face1.png",
   "https://www.evoca.am/img/temp/biometric/face2.png",
@@ -29,24 +29,13 @@ function BiometricSection() {
     <section className="py-20 lg:py-32 bg-white overflow-hidden mt-6">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between">
         
-        {/* Ձախ մաս (Իդեալական վզի և եռանկյան համադրությամբ) */}
+        {/* Ձախ մաս (Միայն դեմքի նկարը, որն ունի իր մեջ եռանկյունին) */}
         <div className="lg:w-1/2 flex justify-center items-center relative mb-12 lg:mb-0">
           <div className="relative flex justify-center items-center w-[460px] h-[460px]">
-            
-            {/* Հետնամասի մանուշակագույն եռանկյունի՝ բարձրացված ու կլորացված վզի հատվածով */}
-            <div 
-              className="absolute w-[380px] h-[340px] bg-[#6400DC] pointer-events-none"
-              style={{
-                borderRadius: "36px",
-                clipPath: "polygon(50% 95%, 4% 4%, 96% 4%)"
-              }}
-            ></div>
-            
-            {/* Դեմքի նկարը */}
             <img 
               src={faces[faceIndex]} 
               alt="Biometric Identification" 
-              className={`w-[390px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
+              className={`w-full max-w-[400px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
                 isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             />
