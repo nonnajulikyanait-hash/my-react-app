@@ -9,12 +9,22 @@ const faces = [
 
 function BiometricSection() {
   const [faceIndex, setFaceIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState(true);
 
-  // Անընդհատ փոխելու համար նախատեսված useEffect (ամեն 3 վայրկյանը մեկ)
   useEffect(() => {
     const interval = setInterval(() => {
-      setFaceIndex((prevIndex) => (prevIndex + 1) % faces.length);
-    }, 3000);
+      // Սկզբում մարում ենք նկարը (fade out)
+      setIsVisible(false);
+
+      setTimeout(() => {
+        // Փոխում ենք ինդեքսը
+        setFaceIndex((prevIndex) => (prevIndex + 1) % faces.length);
+        // Հայտնում ենք նոր նկարը (fade in)
+        setIsVisible(true);
+      }, 400); // Կիսաթափանցիկության փոփոխման ժամանակը
+
+    }, 3500); // Ամեն 3.5 վայրկյանը մեկ
+
     return () => clearInterval(interval);
   }, []);
 
@@ -28,11 +38,13 @@ function BiometricSection() {
             {/* Հետնամասի մանուշակագույն եռանկյունի ֆոն */}
             <div className="absolute w-[320px] h-[320px] bg-[#6400DC] rounded-[40px] rotate-45 opacity-10 pointer-events-none"></div>
             
-            {/* Անընդհատ փոխվող դեմքի նկարը */}
+            {/* Անընդհատ հայտնվող և փոխվող դեմքի նկարը */}
             <img 
               src={faces[faceIndex]} 
               alt="Biometric Identification" 
-              className="w-full max-w-[380px] h-auto object-contain transition-opacity duration-700 relative z-10"
+              className={`w-full max-w-[380px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
+                isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+              }`}
             />
           </div>
         </div>
