@@ -30,11 +30,11 @@ function BestEvocabankSection() {
               {/* Կետավոր շրջանագիծ */}
               <div className="absolute w-[360px] h-[360px] border-2 border-dotted border-white/40 rounded-full animate-spin-slow pointer-events-none"></div>
               
-              {/* Անտիկ արձանի նկարը */}
+              {/* Արձանի նկարը բնօրինակ հղումով */}
               <img 
-                src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=800&auto=format&fit=crop" 
+                src="https://www.evoca.am/images-cache/histories/1/16448252170155/450x330.png" 
                 alt="Լավագույնը Evocabank-ից" 
-                className="w-[320px] lg:w-[380px] h-[420px] object-cover rounded-2xl relative z-10 shadow-2xl"
+                className="w-[320px] lg:w-[380px] h-[420px] object-contain relative z-10 filter drop-shadow-2xl"
               />
             </div>
           </div>
