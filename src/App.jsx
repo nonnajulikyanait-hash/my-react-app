@@ -3,7 +3,8 @@ import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
-import BiometricSection from './components/biometricsection'; // Ավելացված նոր կոմպոնենտը
+import BiometricSection from './components/biometricsection';
+import BestEvocabankSection from './components/bestevocabanksection'; // Նոր ստեղծված բաղադրիչը
 
 function App() {
   useEffect(() => {
@@ -30,8 +31,11 @@ function App() {
       {/* Գլխավոր սլայդեր բաժինը */}
       <HeroSlider />
 
-      {/* Բիոմետրիկ նույնականացման բաժինը (դեմքերի փոփոխությամբ) */}
+      {/* Բիոմետրիկ նույնականացման բաժինը */}
       <BiometricSection />
+
+      {/* "Լավագույնը Evocabank-ից" նոր բաժինը */}
+      <BestEvocabankSection />
     </div>
   );
 }
