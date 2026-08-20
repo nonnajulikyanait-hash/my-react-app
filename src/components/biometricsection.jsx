@@ -29,24 +29,24 @@ function BiometricSection() {
     <section className="py-20 lg:py-32 bg-white overflow-hidden mt-6">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between">
         
-        {/* Ձախ մաս (Իդեալական համաչափված եռանկյուն և դեմք) */}
+        {/* Ձախ մաս (Իդեալական համադրված եռանկյուն և դեմք) */}
         <div className="lg:w-1/2 flex justify-center items-center relative mb-12 lg:mb-0">
           <div className="relative flex justify-center items-center w-[460px] h-[460px]">
             
-            {/* Հետնամասի մանուշակագույն եռանկյունի՝ նեղացված վզի հատվածով */}
+            {/* Հետնամասի մանուշակագույն լայն և կլորացված եռանկյունի */}
             <div 
-              className="absolute w-[390px] h-[390px] bg-[#6400DC] pointer-events-none"
+              className="absolute w-[400px] h-[360px] bg-[#6400DC] pointer-events-none"
               style={{
-                borderRadius: "44px",
-                clipPath: "polygon(50% 100%, 6% 2%, 94% 2%)"
+                borderRadius: "52px",
+                clipPath: "polygon(50% 100%, 0% 0%, 100% 0%)"
               }}
             ></div>
             
-            {/* Անընդհատ հայտնվող և փոխվող դեմքի նկարը */}
+            {/* Դեմքի նկարը՝ ճիշտ չափերով, առանց ավելորդ շեղումների */}
             <img 
               src={faces[faceIndex]} 
               alt="Biometric Identification" 
-              className={`absolute w-[420px] h-[420px] object-cover object-top z-10 transition-opacity duration-500 ${
+              className={`w-[410px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
                 isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             />
