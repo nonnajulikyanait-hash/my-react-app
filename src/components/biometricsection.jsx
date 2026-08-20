@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-// Բոլոր 3 դեմքերի նկարների զանգվածը (որոնք արդեն իրենց մեջ ունեն ճիշտ ֆոնը)
+// Բոլոր 3 դեմքերի նկարների զանգվածը
 const faces = [
   "https://www.evoca.am/img/temp/biometric/face1.png",
   "https://www.evoca.am/img/temp/biometric/face2.png",
@@ -29,13 +29,27 @@ function BiometricSection() {
     <section className="py-20 lg:py-32 bg-white overflow-hidden mt-6">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between">
         
-        {/* Ձախ մաս (Միայն դեմքի նկարը, որն ունի իր մեջ եռանկյունին) */}
+        {/* Ձախ մաս (Մանուշակագույն եռանկյունի ֆոնը + կետերի ցանցը + դեմքը) */}
         <div className="lg:w-1/2 flex justify-center items-center relative mb-12 lg:mb-0">
           <div className="relative flex justify-center items-center w-[460px] h-[460px]">
+            
+            {/* Հետնամասի կետավոր շրջանագիծը */}
+            <div className="absolute w-[440px] h-[440px] rounded-full border border-dashed border-neutral-200/60 pointer-events-none"></div>
+
+            {/* Մանուշակագույն կլորացված եռանկյունի ֆոնը */}
+            <div 
+              className="absolute w-[380px] h-[340px] bg-[#6400DC] pointer-events-none"
+              style={{
+                borderRadius: "48px",
+                clipPath: "polygon(50% 100%, 3% 5%, 97% 5%)"
+              }}
+            ></div>
+
+            {/* Դեմքի նկարը (անցումային էֆեկտով) */}
             <img 
               src={faces[faceIndex]} 
               alt="Biometric Identification" 
-              className={`w-full max-w-[400px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
+              className={`w-[410px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
                 isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             />
