@@ -144,13 +144,13 @@ function HeroSlider() {
           </div>
         </div>
 
-        {/* Աջ մաս (Նկարը) */}
-        <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center lg:justify-end relative">
-          <div className="relative w-full max-w-md lg:max-w-lg transform hover:scale-105 transition-transform duration-500">
+        {/* Աջ մաս (Նկարը - չափսերը հավասարակշռված են) */}
+        <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center items-center relative">
+          <div className="relative w-full max-w-sm lg:max-w-md transition-transform duration-500">
             <img 
               src={currentSlide.cardImage} 
               alt={currentSlide.title} 
-              className="w-full h-auto object-cover rounded-3xl shadow-2xl border border-white/20"
+              className="w-full max-h-[380px] object-contain rounded-3xl"
             />
           </div>
         </div>
