@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import BiometricTriangle from './BiometricTriangle';
+import BiometricTriangle from './biometrictriangle';
 
 // Բոլոր 3 դեմքերի նկարների զանգվածը
 const faces = [
