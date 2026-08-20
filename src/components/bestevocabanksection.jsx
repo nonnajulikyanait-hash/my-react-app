@@ -3,7 +3,7 @@ import React from 'react';
 function BestEvocabankSection() {
   return (
     <section className="relative bg-[#6400DC] py-20 lg:py-28 overflow-hidden text-white mt-6">
-      {/* Ֆոնային դեկորատիվ տարրեր և երկրաչափական պատկերներ (ինչպես օրիգինալում) */}
+      {/* Ֆոնային դեկորատիվ տարրեր */}
       <div className="absolute top-12 left-16 w-8 h-8 border-2 border-white/20 rotate-45 pointer-events-none"></div>
       <div className="absolute top-24 right-32 w-6 h-6 bg-yellow-300 rounded-sm rotate-12 pointer-events-none"></div>
       <div className="absolute bottom-16 right-20 w-10 h-10 border-4 border-pink-400 rounded-full pointer-events-none"></div>
@@ -11,7 +11,7 @@ function BestEvocabankSection() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 relative z-10">
         
-        {/* Վերնագիր և Արձան / Ձախ մաս */}
+        {/* Վերնագիրը */}
         <div className="flex flex-col lg:flex-row items-center justify-between mb-12">
           <div className="text-center lg:text-left w-full lg:w-1/2 mb-8 lg:mb-0">
             <h2 className="text-4xl lg:text-6xl font-black tracking-tight text-white">
@@ -23,21 +23,18 @@ function BestEvocabankSection() {
         {/* Հիմնական բովանդակություն՝ Արձանը ձախում և 4 քարտերը աջում */}
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
-          {/*Ձախ կողմ՝ Արձանի նկարը և մանուշակագույն ալիքաձև հետնամասը*/}
+          {/* Ձախ կողմ՝ Անտիկ արձանը և հետևի շրջանագիծը */}
           <div className="lg:w-5/12 relative flex justify-center items-center">
-            <div className="relative w-full flex justify-center items-center">
-              {/* Հետնամասի կետավոր ցանցը */}
-              <div className="absolute -left-6 top-10 w-48 h-64 border border-dashed border-white/30 rounded-full pointer-events-none"></div>
+            <div className="relative w-full flex justify-center items-center h-[450px]">
               
-              {/* Արձանի նկարը */}
+              {/* Կետավոր շրջանագիծ */}
+              <div className="absolute w-[360px] h-[360px] border-2 border-dotted border-white/40 rounded-full animate-spin-slow pointer-events-none"></div>
+              
+              {/* Անտիկ արձանի նկարը */}
               <img 
-                src="https://www.evoca.am/img/temp/best/best-evocabank.png" 
+                src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=800&auto=format&fit=crop" 
                 alt="Լավագույնը Evocabank-ից" 
-                className="w-[380px] lg:w-[440px] h-auto object-contain relative z-10"
-                onError={(e) => {
-                  // Եթե լինի լոդինգի խնդիր, կարող ես փոխարինել կամ թողնել այս հղումը
-                  e.target.src = ""; 
-                }}
+                className="w-[320px] lg:w-[380px] h-[420px] object-cover rounded-2xl relative z-10 shadow-2xl"
               />
             </div>
           </div>
@@ -45,7 +42,7 @@ function BestEvocabankSection() {
           {/* Աջ կողմ՝ 4 սպիտակ ինտերակտիվ քարտերը (2x2 գրիդով) */}
           <div className="lg:w-7/12 grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
             
-            {/* Քարտ 1: Evoca Digital քարտ */}
+            {/* Քարտ 1 */}
             <div className="bg-white text-neutral-900 p-8 rounded-[28px] shadow-xl flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
               <div>
                 <span className="inline-block px-3 py-1 bg-purple-100 text-[#6400DC] text-xs font-bold rounded-full mb-4">
@@ -60,7 +57,7 @@ function BestEvocabankSection() {
               </div>
             </div>
 
-            {/* Քարտ 2: Evoca Gift Card */}
+            {/* Քարտ 2 */}
             <div className="bg-white text-neutral-900 p-8 rounded-[28px] shadow-xl flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
               <div>
                 <span className="inline-block px-3 py-1 bg-purple-100 text-[#6400DC] text-xs font-bold rounded-full mb-4">
@@ -75,7 +72,7 @@ function BestEvocabankSection() {
               </div>
             </div>
 
-            {/* Քարտ 3: EvocaTOUCH 2 */}
+            {/* Քարտ 3 */}
             <div className="bg-white text-neutral-900 p-8 rounded-[28px] shadow-xl flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
               <div>
                 <span className="inline-block px-3 py-1 bg-purple-100 text-[#6400DC] text-xs font-bold rounded-full mb-4">
@@ -90,7 +87,7 @@ function BestEvocabankSection() {
               </div>
             </div>
 
-            {/* Քարտ 4: Արագ online վճարումներ */}
+            {/* Քարտ 4 */}
             <div className="bg-white text-neutral-900 p-8 rounded-[28px] shadow-xl flex flex-col justify-between transition-transform duration-300 hover:-translate-y-1">
               <div>
                 <span className="inline-block px-3 py-1 bg-purple-100 text-[#6400DC] text-xs font-bold rounded-full mb-4">
