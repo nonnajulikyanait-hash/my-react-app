@@ -67,8 +67,8 @@ const slides = [
     title: "UnionPay Gold",
     description: "Ամբողջ աշխարհում քո արագ և հարմար վճարումների ուղեկիցը",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-amber-100 text-neutral-900",
-    textColor: "text-neutral-700",
+    bgColor: "bg-amber-600 text-white", // Ավելի մոտիկ բաց դեղնավուն/ոսկեգույն իրական կայքին
+    textColor: "text-amber-100",
     btnColor: "bg-purple-700 hover:bg-purple-800 text-white",
     cardImage: "https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=600&auto=format&fit=crop&q=80"
   },
@@ -107,7 +107,6 @@ const slides = [
 function HeroSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Ավտոմատ փոխվելու ֆունկցիա (ամեն 6 վայրկյանը մեկ)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % slides.length);
@@ -126,7 +125,8 @@ function HeroSlider() {
   };
 
   return (
-    <div className={`relative w-full py-16 lg:py-24 overflow-hidden rounded-b-[40px] shadow-sm transition-colors duration-700 ${currentSlide.bgColor}`}>
+    // Ավելացվել է rounded-br-[120px]՝ աջ ներքևի անկյունում կորություն ստեղծելու համար (ինչպես իրական կայքում)
+    <div className={`relative w-full py-16 lg:py-24 overflow-hidden rounded-bl-[40px] rounded-br-[140px] shadow-sm transition-colors duration-700 ${currentSlide.bgColor}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between min-h-[350px]">
         
         {/* Ձախ մաս (Վերնագիր, նկարագրություն, կոճակ) */}
@@ -144,7 +144,7 @@ function HeroSlider() {
           </div>
         </div>
 
-        {/* Աջ մաս (Նկարը - չափսերը հավասարակշռված են) */}
+        {/* Աջ մաս (Նկարը) */}
         <div className="lg:w-1/2 mt-10 lg:mt-0 flex justify-center items-center relative">
           <div className="relative w-full max-w-sm lg:max-w-md transition-transform duration-500">
             <img 
@@ -159,7 +159,6 @@ function HeroSlider() {
 
       {/* Ներքևի նավիգացիա (Սլաքներ և բոլոր 10 կետերը) */}
       <div className="absolute bottom-6 left-0 right-0 flex items-center justify-center space-x-4">
-        {/*Ձախ սլաք*/}
         <button 
           onClick={prevSlide}
           className="text-current opacity-80 hover:opacity-100 text-2xl font-bold cursor-pointer transition-opacity"
@@ -167,7 +166,6 @@ function HeroSlider() {
           ←
         </button>
 
-        {/*10 հատ կետերը (dots)*/}
         <div className="flex items-center space-x-1.5 overflow-x-auto px-2 py-1">
           {slides.map((_, index) => (
             <button
@@ -180,7 +178,6 @@ function HeroSlider() {
           ))}
         </div>
 
-        {/*Աջ սլաք*/}
         <button 
           onClick={nextSlide}
           className="text-current opacity-80 hover:opacity-100 text-2xl font-bold cursor-pointer transition-opacity"
