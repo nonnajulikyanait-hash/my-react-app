@@ -7,9 +7,9 @@ const slides = [
     title: "Evoca Travel Card",
     description: "Այս քարտն իր բազմաթիվ առավելություններով կդառնա քո ճամփորդական անբաժան ընկերը",
     buttonText: "Իմանալ ավելին",
-    bgColor: "#333333",
-    textColor: "text-neutral-600",
-    btnColor: "bg-purple-700 hover:bg-purple-800 text-white",
+    bgColor: "#dadada",
+    textColor: "#333333",
+    btnColor: "#6400DC",
     cardImage: "https://www.evoca.am/images-cache/sliders/1/17480089224912/4012c7541d8db15b5666bb0e4f4bdf7a-576x486.png"
   },
   {
@@ -17,90 +17,70 @@ const slides = [
     title: "Evoca Աշխատավարձային նախագիծ",
     description: "Բեր աշխատավարձդ Evoca: Տար շատ ավելին...",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-purple-700 text-white",
-    textColor: "text-purple-100",
-    btnColor: "bg-white text-purple-900 hover:bg-neutral-100",
-    cardImage: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?w=600&auto=format&fit=crop&q=80"
+    bgColor: "#6539aa",
+    textColor: "#CCCCCC",
+    btnColor: "#FFFFFF",
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/17740137222872/7152cafab4609e8483a365f79ecf04cb-577x486.png"
   },
   {
     id: 3,
     title: "Կարճ հեռախոսահամար՝ 8444",
     description: "Բարի գալուստ, Evocabank: Մենք սպասում ենք Ձեր զանգին...",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-neutral-900 text-white",
-    textColor: "text-neutral-300",
-    btnColor: "bg-white text-neutral-900 hover:bg-neutral-200",
-    cardImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&auto=format&fit=crop&q=80"
+    bgColor: "#000000",
+    textColor: "CCCCCC",
+    btnColor: "#FFFFFF",
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/17612202124044/b74e87ec0e83aa10cb128d41f0ada026-577x486.png"
   },
   {
     id: 4,
     title: "Visa Vision",
     description: "Ձեռք բեր Visa Vision քարտ քո նախընտրած գույնով, դիզայնով ու ոճով և օգտվիր բազմաթիվ առավելություններից",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-neutral-900 text-white",
-    textColor: "text-neutral-300",
-    btnColor: "bg-white text-neutral-900 hover:bg-neutral-200",
-    cardImage: "https://images.unsplash.com/photo-1556742049-0a67d553c2ec?w=600&auto=format&fit=crop&q=80"
+    bgColor: "#27292b;",
+    textColor: "#CCCCCC",
+    btnColor: "#FFFFFF",
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/16856146843579/345dd727d7ee28e2cd6ec180e5d65740-577x486.jpg"
   },
   {
     id: 5,
     title: "Visa Infinite",
     description: "Ձեռք բեր Visa վճարային համակարգի ամենաբարձր դասի քարտը հենց հիմա",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-neutral-900 text-white",
-    textColor: "text-neutral-300",
-    btnColor: "bg-white text-neutral-900 hover:bg-neutral-200",
-    cardImage: "https://images.unsplash.com/photo-1607604276583-eef5d076aa5f?w=600&auto=format&fit=crop&q=80"
+    bgColor: "#000000",
+    textColor: "#CCCCCC",
+    btnColor: "#FFFFFF",
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/168561…3579/345dd727d7ee28e2cd6ec180e5d65740-577x486.jpg"
   },
   {
     id: 6,
     title: "Հիփոթեքային վարկեր Evocabank-ում՝ ամենահարմար պայմաններով",
     description: "Ձեռք բեր քո երազանքի բնակարանը՝ ցածր տոկոսադրույքով:",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-purple-200 text-neutral-900",
+    bgColor: "#e6d2ff",
     textColor: "text-neutral-700",
-    btnColor: "bg-purple-700 hover:bg-purple-800 text-white",
-    cardImage: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&auto=format&fit=crop&q=80"
+    btnColor: "#6400DC",
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/16178035964191/79381d3e68fdf7ec25c5837a19ce5821-577x486.jpg"
   },
   {
     id: 7,
     title: "UnionPay Gold",
     description: "Ամբողջ աշխարհում քո արագ և հարմար վճարումների ուղեկիցը",
     buttonText: "Իմանալ ավելին",
-    bgColor: "bg-amber-600 text-white", // Ավելի մոտիկ բաց դեղնավուն/ոսկեգույն իրական կայքին
+    bgColor: "#b6a44f", 
     textColor: "text-amber-100",
-    btnColor: "bg-purple-700 hover:bg-purple-800 text-white",
-    cardImage: "https://images.unsplash.com/photo-1589758438368-0ad531db3366?w=600&auto=format&fit=crop&q=80"
+    btnColor: "#6400Dc",
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/17262130779724/2fee1054871280f57daf5204f901c563-577x486.png"
   },
   {
     id: 8,
     title: "Օնլայն ավանդ EvocaTOUCH հավելվածով",
-    description: "Դի'ր ավանդ Evocabank-ում՝ բարձր, շա'տ բարձր տոկոսներով:",
+    description: "Դի’ր ավանդ Evocabank-ում` բարձր, շա՜տ բարձր տոկոսներով:",
     buttonText: "Ծանոթանալ պայմաններին",
-    bgColor: "bg-pink-100 text-neutral-900",
+    bgColor: "FFDCFB",
     textColor: "text-neutral-700",
-    btnColor: "bg-purple-700 hover:bg-purple-800 text-white",
-    cardImage: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&auto=format&fit=crop&q=80"
-  },
-  {
-    id: 9,
-    title: "Evoca Digital",
-    description: "Կառավարիր քո ֆինանսներն առցանց՝ ցանկացած պահի, ցանկացած վայրում",
-    buttonText: "Ներբեռնել հավելվածը",
-    bgColor: "bg-purple-900 text-white",
-    textColor: "text-purple-200",
-    btnColor: "bg-white text-purple-900 hover:bg-neutral-100",
-    cardImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&auto=format&fit=crop&q=80"
-  },
-  {
-    id: 10,
-    title: "Բիզնես լուծումներ Evoca-ից",
-    description: "Զարգացրու քո բիզնեսը մեր նորարարական բանկային պրոդուկտների հետ",
-    buttonText: "Սկսել հիմա",
-    bgColor: "bg-blue-900 text-white",
-    textColor: "text-blue-200",
-    btnColor: "bg-white text-blue-900 hover:bg-neutral-100",
-    cardImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80"
+    btnColor: "#6400DC",
+    cardImage: "https://www.evoca.am/images-cache/sliders/1/16178037539626/79381d3e68fdf7ec25c5837a19ce5821-577x486.jpg"
   }
 ];
 
