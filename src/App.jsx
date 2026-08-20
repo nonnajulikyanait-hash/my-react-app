@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
-import Header from './components/header'; // Համոզվեք, որ ֆայլի անունը (Header.jsx) մեծատառով է
+import Header from './components/header';
+import HeroSlider from './components/heroslider';
 
 function App() {
   useEffect(() => {
@@ -24,6 +25,9 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       {/* Evoca բանկի վերնամասը */}
       <Header />
+      
+      {/* Գլխավոր սլայդեր բաժինը */}
+      <HeroSlider />
     </div>
   );
 }
