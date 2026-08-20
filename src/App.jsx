@@ -3,6 +3,7 @@ import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
+import BiometricSection from './components/biometricsection'; // Ավելացված նոր կոմպոնենտը
 
 function App() {
   useEffect(() => {
@@ -28,6 +29,9 @@ function App() {
       
       {/* Գլխավոր սլայդեր բաժինը */}
       <HeroSlider />
+
+      {/* Բիոմետրիկ նույնականացման բաժինը (դեմքերի փոփոխությամբ) */}
+      <BiometricSection />
     </div>
   );
 }
