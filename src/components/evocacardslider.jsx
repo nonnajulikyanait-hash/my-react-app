@@ -19,7 +19,7 @@ const cardsData = [
   },
   { 
     id: 3, 
-    name: "Evoca Touch 2", 
+    name: "Evoca Touch", 
     text: "Արագ և ապահով վճարումներ քո ամենօրյա գնումների համար:",
     img: "https://www.evoca.am/images-cache/cards/1/17815131185095/415x261.png" 
   },
@@ -131,6 +131,16 @@ const cardsData = [
     text: "Ժամանակակից և նորարարական լուծումներ ձեր առօրյայի համար։",
     img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" 
   },
+  { id: 22, name: "Evoca Card 22", text: "Բարձրակարգ հարմարավետություն և անվտանգություն։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 23, name: "Evoca Card 23", text: "Արագ և հուսալի վճարային գործիք։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 24, name: "Evoca Card 24", text: "Ձեր առօրյայի անփոխարինելի օգնականը։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 25, name: "Evoca Card 25", text: "Նախագծված է հատուկ ձեր կարիքների համար։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 26, name: "Evoca Card 26", text: "Ժամանակակից տեխնոլոգիաներ և անվտանգություն։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 27, name: "Evoca Card 27", text: "Ստացեք առավելագույնը բանկային ծառայություններից։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 28, name: "Evoca Card 28", text: "Բացառիկ հնարավորություններ ամեն օր։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 29, name: "Evoca Card 29", text: "Վստահություն և արագություն ցանկացած պահի։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 30, name: "Evoca Card 30", text: "Հարմարավետ և շահավետ լուծումներ։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 31, name: "Evoca Card 31", text: "Ձեր ընտրած լավագույն բանկային քարտը։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" }
 ];
 
 function EvocaCardsSlider() {
@@ -207,29 +217,29 @@ function EvocaCardsSlider() {
           </button>
         </div>
 
-        {/* Աջ մաս՝ մեծ քարտ, անուն և տեքստ */}
+        {/* Աջ մաս՝ Մեծացված քարտ, ձախ հավասարեցված տեքստ և վերնագիր */}
         <div className="w-full lg:w-7/12 flex flex-col lg:flex-row items-center justify-between gap-8 p-4">
           
-          {/* Մեծ նկար */}
+          {/* Մեծ քարտի նկար (ավելի մեծ չափով) */}
           <div className="w-full lg:w-6/12 flex justify-center">
             <img 
               src={cardsData[activeIndex]?.img} 
               alt={cardsData[activeIndex]?.name} 
-              className="max-w-full h-[240px] object-contain drop-shadow-xl transition-all duration-500"
+              className="w-full max-w-[420px] h-[280px] object-contain drop-shadow-2xl transition-all duration-500"
             />
           </div>
 
-          {/* Անուն, տեքստ և կոճակ */}
-          <div className="w-full lg:w-6/12 text-center lg:text-left flex flex-col items-center lg:items-start">
-            <h3 className="text-2xl lg:text-3xl font-black text-neutral-900 mb-4">
+          {/* Անուն, տեքստ և կոճակ՝ հավասարեցված ձախ (text-left, items-start) */}
+          <div className="w-full lg:w-6/12 text-left flex flex-col items-start">
+            <h3 className="text-3xl lg:text-4xl font-black text-neutral-900 mb-4">
               {cardsData[activeIndex]?.name}
             </h3>
-            <p className="text-sm text-neutral-600 mb-6 leading-relaxed">
+            <p className="text-base text-neutral-600 mb-8 leading-relaxed">
               {cardsData[activeIndex]?.text}
             </p>
             <a 
               href="#details"
-              className="inline-block bg-[#6400DC] hover:bg-[#5200b3] text-white font-bold px-8 py-3.5 rounded-full shadow-lg transition-transform hover:scale-105"
+              className="inline-block bg-[#6400DC] hover:bg-[#5200b3] text-white font-bold px-9 py-4 rounded-full shadow-lg transition-transform hover:scale-105"
             >
               Մանրամասն
             </a>
