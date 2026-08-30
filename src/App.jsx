@@ -4,7 +4,8 @@ import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
-import BestEvocabankSection from './components/bestevocabanksection'; // Նոր ստեղծված բաղադրիչը
+import BestEvocabankSection from './components/bestevocabanksection'; 
+import EvocaCardsSlider from './components/evocacardsslider'; // Նոր քարտերի սլայդեր բաղադրիչը
 
 function App() {
   useEffect(() => {
@@ -34,8 +35,11 @@ function App() {
       {/* Բիոմետրիկ նույնականացման բաժինը */}
       <BiometricSection />
 
-      {/* "Լավագույնը Evocabank-ից" նոր բաժինը */}
+      {/* "Լավագույնը Evocabank-ից" բաժինը */}
       <BestEvocabankSection />
+
+      {/* Քարտերի սլայդեր բաժինը 17 նկարներով և Swiper-ով */}
+      <EvocaCardsSlider />
     </div>
   );
 }
