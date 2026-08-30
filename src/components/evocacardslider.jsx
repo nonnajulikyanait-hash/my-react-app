@@ -130,7 +130,17 @@ const cardsData = [
     name: "Evoca Card Special", 
     text: "Ժամանակակից և նորարարական լուծումներ ձեր առօրյայի համար։",
     img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" 
-  }
+  },
+  { id: 22, name: "Evoca Card 22", text: "Բարձրակարգ հարմարավետություն և անվտանգություն։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 23, name: "Evoca Card 23", text: "Արագ և հուսալի վճարային գործիք։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 24, name: "Evoca Card 24", text: "Ձեր առօրյայի անփոխարինելի օգնականը։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 25, name: "Evoca Card 25", text: "Նախագծված է հատուկ ձեր կարիքների համար։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 26, name: "Evoca Card 26", text: "Ժամանակակից տեխնոլոգիաներ և անվտանգություն։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 27, name: "Evoca Card 27", text: "Ստացեք առավելագույնը բանկային ծառայություններից։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 28, name: "Evoca Card 28", text: "Բացառիկ հնարավորություններ ամեն օր։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 29, name: "Evoca Card 29", text: "Վստահություն և արագություն ցանկացած պահի։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
+  { id: 30, name: "Evoca Card 30", text: "Հարմարավետ և շահավետ լուծումներ։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
+  { id: 31, name: "Evoca Card 31", text: "Ձեր ընտրած լավագույն բանկային քարտը։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" }
 ];
 
 function EvocaCardsSlider() {
@@ -139,10 +149,10 @@ function EvocaCardsSlider() {
 
   return (
     <section className="relative bg-[#f0f7fe] py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-16">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
         
         {/* Ձախ մաս՝ Ուղղահայաց Swiper սլայդեր */}
-        <div className="flex flex-col items-center w-full lg:w-4/12">
+        <div className="flex flex-col items-center w-full lg:w-3/12">
           
           {/* Վերևի սլաք */}
           <button 
@@ -207,20 +217,20 @@ function EvocaCardsSlider() {
           </button>
         </div>
 
-        {/* Աջ մաս՝ Մեծացված քարտ, ձախ հավասարեցված տեքստ և վերնագիր */}
-        <div className="w-full lg:w-7/12 flex flex-col lg:flex-row items-center justify-between gap-8 p-4">
+        {/* Աջ մաս՝ Մեծացված քարտ և ազատ տարածությամբ տեքստ */}
+        <div className="w-full lg:w-8/12 flex flex-col lg:flex-row items-center justify-between gap-10">
           
           {/* Մեծ քարտի նկար (ավելի մեծ չափով) */}
           <div className="w-full lg:w-6/12 flex justify-center">
             <img 
               src={cardsData[activeIndex]?.img} 
               alt={cardsData[activeIndex]?.name} 
-              className="w-full max-w-[420px] h-[280px] object-contain drop-shadow-2xl transition-all duration-500"
+              className="w-full max-w-[460px] h-[300px] object-contain drop-shadow-2xl transition-all duration-500"
             />
           </div>
 
-          {/* Անուն, տեքստ և կոճակ՝ հավասարեցված ձախ (text-left, items-start) */}
-          <div className="w-full lg:w-6/12 text-left flex flex-col items-start">
+          {/* Անուն, տեքստ և կոճակ՝ ձախ հավասարեցված և հեռացված քարտից */}
+          <div className="w-full lg:w-5/12 text-left flex flex-col items-start pr-4">
             <h3 className="text-3xl lg:text-4xl font-black text-neutral-900 mb-4">
               {cardsData[activeIndex]?.name}
             </h3>
