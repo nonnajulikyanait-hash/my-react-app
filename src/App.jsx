@@ -6,6 +6,7 @@ import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; // Նոր քարտերի սլայդեր բաղադրիչը
+import EvocaCalculator from './components/evocacalculator'; // Հաշվիչների բաղադրիչը
 
 function App() {
   useEffect(() => {
@@ -38,8 +39,11 @@ function App() {
       {/* "Լավագույնը Evocabank-ից" բաժինը */}
       <BestEvocabankSection />
 
-      {/* Քարտերի սլայդեր բաժինը 17 նկարներով և Swiper-ով */}
+      {/* Քարտերի սլայդեր բաժինը */}
       <EvocaCardsSlider />
+
+      {/* Հաշվիչների բաժինը */}
+      <EvocaCalculator />
     </div>
   );
 }
