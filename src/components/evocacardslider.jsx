@@ -130,17 +130,7 @@ const cardsData = [
     name: "Evoca Card Special", 
     text: "Ժամանակակից և նորարարական լուծումներ ձեր առօրյայի համար։",
     img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" 
-  },
-  { id: 22, name: "Evoca Card 22", text: "Բարձրակարգ հարմարավետություն և անվտանգություն։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
-  { id: 23, name: "Evoca Card 23", text: "Արագ և հուսալի վճարային գործիք։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
-  { id: 24, name: "Evoca Card 24", text: "Ձեր առօրյայի անփոխարինելի օգնականը։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
-  { id: 25, name: "Evoca Card 25", text: "Նախագծված է հատուկ ձեր կարիքների համար։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
-  { id: 26, name: "Evoca Card 26", text: "Ժամանակակից տեխնոլոգիաներ և անվտանգություն։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
-  { id: 27, name: "Evoca Card 27", text: "Ստացեք առավելագույնը բանկային ծառայություններից։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
-  { id: 28, name: "Evoca Card 28", text: "Բացառիկ հնարավորություններ ամեն օր։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
-  { id: 29, name: "Evoca Card 29", text: "Վստահություն և արագություն ցանկացած պահի։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" },
-  { id: 30, name: "Evoca Card 30", text: "Հարմարավետ և շահավետ լուծումներ։", img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" },
-  { id: 31, name: "Evoca Card 31", text: "Ձեր ընտրած լավագույն բանկային քարտը։", img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" }
+  }
 ];
 
 function EvocaCardsSlider() {
