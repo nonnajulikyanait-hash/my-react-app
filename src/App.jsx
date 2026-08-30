@@ -5,7 +5,7 @@ import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
-import EvocaCardsSlider from './components/evocacardsslider'; // Նոր քարտերի սլայդեր բաղադրիչը
+import EvocaCardsSlider from './components/evocacardslider'; // Նոր քարտերի սլայդեր բաղադրիչը
 
 function App() {
   useEffect(() => {
