@@ -5,9 +5,9 @@ import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
-import EvocaCardsSlider from './components/evocacardslider'; // Նոր քարտերի սլայդեր բաղադրիչը
-import EvocaCalculator from './components/evocacalculator'; // Հաշվիչների բաղադրիչը
-import EvocaOnlineMobile from './components/evocaonlinemobile'; // Օնլայն և մոբայլ բանկինգի բաժինը
+import EvocaCardsSlider from './components/evocacardslider'; 
+import EvocaCalculator from './components/evocacalculator'; 
+import EvocaOnlineMobile from './components/evocaonlinemobile'; 
 
 function App() {
   useEffect(() => {
