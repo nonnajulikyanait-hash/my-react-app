@@ -7,6 +7,7 @@ import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; // Նոր քարտերի սլայդեր բաղադրիչը
 import EvocaCalculator from './components/evocacalculator'; // Հաշվիչների բաղադրիչը
+import EvocaOnlineMobile from './components/evocaonlinemobile'; // Օնլայն և մոբայլ բանկինգի բաժինը
 
 function App() {
   useEffect(() => {
@@ -32,6 +33,9 @@ function App() {
       
       {/* Գլխավոր սլայդեր բաժինը */}
       <HeroSlider />
+
+      {/* Օնլայն և մոբայլ բանկինգի բաժինը */}
+      <EvocaOnlineMobile />
 
       {/* Բիոմետրիկ նույնականացման բաժինը */}
       <BiometricSection />
