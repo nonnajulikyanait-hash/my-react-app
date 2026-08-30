@@ -139,10 +139,10 @@ function EvocaCardsSlider() {
 
   return (
     <section className="relative bg-[#f0f7fe] py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-start gap-12">
         
-        {/* Ձախ մաս՝ Ուղղահայաց Swiper սլայդեր */}
-        <div className="flex flex-col items-center w-full lg:w-3/12">
+        {/* Ձախ մաս՝ Ուղղահայաց Swiper սլայդեր (ավելի լայն քարտերով) */}
+        <div className="flex flex-col items-center w-full lg:w-2/12">
           
           {/* Վերևի սլաք */}
           <button 
@@ -156,14 +156,14 @@ function EvocaCardsSlider() {
           </button>
 
           {/* Swiper բլոկ */}
-          <div className="h-[400px] w-full max-w-[240px] overflow-hidden relative flex justify-center">
+          <div className="h-[420px] w-full max-w-[200px] overflow-hidden relative flex justify-center">
             <Swiper
               direction={'vertical'}
               slidesPerView={3}
               centeredSlides={true}
               loop={true}
               mousewheel={true}
-              spaceBetween={2} 
+              spaceBetween={6} 
               modules={[Mousewheel, Navigation]}
               onBeforeInit={(swiper) => {
                 swiperRef.current = swiper;
@@ -179,8 +179,8 @@ function EvocaCardsSlider() {
                       onClick={() => swiperRef.current?.slideToLoop(index)}
                       className={`cursor-pointer transition-all duration-300 rounded-lg overflow-hidden shadow-sm bg-white ${
                         isCenter 
-                          ? "scale-100 opacity-100 border border-[#6400DC] z-10 w-[150px]" 
-                          : "scale-75 opacity-40 w-[120px]"
+                          ? "scale-100 opacity-100 border-2 border-[#6400DC] z-10 w-[180px]" 
+                          : "scale-75 opacity-40 w-[130px]"
                       }`}
                     >
                       <img src={card.img} alt={card.name} className="w-full h-auto object-cover" />
@@ -207,20 +207,20 @@ function EvocaCardsSlider() {
           </button>
         </div>
 
-        {/* Աջ մաս՝ Մեծացված քարտ և ազատ տարածությամբ տեքստ */}
-        <div className="w-full lg:w-8/12 flex flex-col lg:flex-row items-center justify-between gap-10">
+        {/* Աջ մաս՝ Մեծացված հսկա քարտ և ավելի ձախ տեղաշարժված տեքստ */}
+        <div className="w-full lg:w-9/12 flex flex-col lg:flex-row items-center justify-start gap-12">
           
-          {/* Մեծ քարտի նկար (ավելի մեծ չափով) */}
-          <div className="w-full lg:w-6/12 flex justify-center">
+          {/* Մեծ քարտի նկար (առավելագույնս մեծացված, ինչպես բնօրինակում) */}
+          <div className="w-full lg:w-7/12 flex justify-center">
             <img 
               src={cardsData[activeIndex]?.img} 
               alt={cardsData[activeIndex]?.name} 
-              className="w-full max-w-[460px] h-[300px] object-contain drop-shadow-2xl transition-all duration-500"
+              className="w-full max-w-[560px] h-[340px] object-contain drop-shadow-2xl transition-all duration-500"
             />
           </div>
 
-          {/* Անուն, տեքստ և կոճակ՝ ձախ հավասարեցված և հեռացված քարտից */}
-          <div className="w-full lg:w-5/12 text-left flex flex-col items-start pr-4">
+          {/* Անուն, տեքստ և կոճակ՝ ավելի ձախ հավասարեցված */}
+          <div className="w-full lg:w-5/12 text-left flex flex-col items-start">
             <h3 className="text-3xl lg:text-4xl font-black text-neutral-900 mb-4">
               {cardsData[activeIndex]?.name}
             </h3>
