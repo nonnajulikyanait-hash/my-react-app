@@ -116,7 +116,7 @@ function MerMasin() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
       
-      {/* 2-րդ նկարի հեդերը (Evoca-ի մասին, Սակագներ, Հաշվետվություններ, Հայտարարություններ) */}
+      {/* Միակ ճիշտ հեդերը (Evoca-ի մասին, Սակագներ, Հաշվետվություններ, Հայտարարություններ) */}
       <div className="bg-white py-3.5 px-6 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-10">
