@@ -37,7 +37,7 @@ function Footer() {
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Բանկի մասին</h3>
             <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="/mermasin.jsx" className="hover:text-[#6400dc]">Մեր մասին</a></li>
+              <li><a href="/about" className="hover:text-[#6400dc]">Մեր մասին</a></li>
               <li><a href="/management" className="hover:text-[#6400dc]">Ղեկավարություն</a></li>
               <li><a href="/shareholders" className="hover:text-[#6400dc]">Բաժնետերեր</a></li>
               <li><a href="/reports" className="hover:text-[#6400dc]">Հաշվետվություններ</a></li>
@@ -68,14 +68,14 @@ function Footer() {
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Այլ հղումներ</h3>
             <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="/evocaonline" className="hover:text-[#6400dc]">EvocaONLINE</a></li>
-              <li><a href="/safe-boxes" className="hover:text-[#6400dc]">Պահատուփեր</a></li>
-              <li><a href="/faq" className="hover:text-[#6400dc]">Հաճախ տրվող հարցեր</a></li>
-              <li><a href="/announcements" className="hover:text-[#6400dc]">Հայտարարություններ</a></li>
-              <li><a href="/dibrary" className="hover:text-[#6400dc]">Dibrary</a></li>
-              <li><a href="/booklets" className="hover:text-[#6400dc]">Բուկլետներ</a></li>
-              <li><a href="/contact" className="hover:text-[#6400dc]">Հետադարձ կապ</a></li>
-              <li><a href="/sitemap" className="hover:text-[#6400dc]">Կայքի քարտեզ</a></li>
+              <li><a href="/evocaonline.jsx" className="hover:text-[#6400dc]">EvocaONLINE</a></li>
+              <li><a href="/pahatuper.jsx" className="hover:text-[#6400dc]">Պահատուփեր</a></li>
+              <li><a href="/harcer.jsx" className="hover:text-[#6400dc]">Հաճախ տրվող հարցեր</a></li>
+              <li><a href="/haytararutyun.jsx" className="hover:text-[#6400dc]">Հայտարարություններ</a></li>
+              <li><a href="/dibrary.jsx" className="hover:text-[#6400dc]">Dibrary</a></li>
+              <li><a href="/bukletner.jsx" className="hover:text-[#6400dc]">Բուկլետներ</a></li>
+              <li><a href="/kap.jsx" className="hover:text-[#6400dc]">Հետադարձ կապ</a></li>
+              <li><a href="/qartez.jsx" className="hover:text-[#6400dc]">Կայքի քարտեզ</a></li>
             </ul>
           </div>
 

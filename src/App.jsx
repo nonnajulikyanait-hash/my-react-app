@@ -18,7 +18,8 @@ import Xekavarutyun from './components/xekavarutyun';
 import Online from './components/online';
 import Gortsyntrner from './components/gortsyntrner'; 
 import Review from './components/review';
-import Footer from './components/footer'; // <--- Ավելացվել է Footer-ի իմպորտը
+import Footer from './components/footer';
+import EvocaOnline from './components/evocaonline'; // <--- Ավելացվել է EvocaOnline-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -92,6 +93,8 @@ function App() {
 
         {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
 
+        {activeTab === 'evocaonline' && <EvocaOnline />} {/* <--- Ավելացվել է այստեղ */}
+
         {activeTab === 'mermasin' && (
           <>
             {activeSubTab === 'Ընդհանուր' && (
@@ -130,7 +133,7 @@ function App() {
       </div>
 
       {/* Ամենաներքևում՝ Footer-ը */}
-      <Footer />
+      <Footer setActiveTab={setActiveTab} />
     </div>
   );
 }
