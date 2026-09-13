@@ -7,8 +7,7 @@ import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; 
 import EvocaCalculator from './components/evocacalculator'; 
-import Biznes from './components/biznes'; 
-import Varker from './components/varker';
+import Varker from './components/varker'; // Վարկերի կոմպոնենտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -29,8 +28,10 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Հեդեր՝ փոխանցվող ֆունկցիայով և ընթացիկ թաբով */}
       <Header setActiveTab={setActiveTab} activeTab={activeTab} />
       
+      {/* Գլխավոր էջի բովանդակություն */}
       {activeTab === 'home' && (
         <>
           <HeroSlider />
@@ -41,8 +42,8 @@ function App() {
         </>
       )}
 
-      {activeTab === 'biznes' && <Biznes />}
-      {activeTab === 'varker' && <Varker />}
+      {/* Երբ սեղմում ես Բիզնես կամ Վարկեր, միանգամից բացվում է Varker-ը */}
+      {(activeTab === 'biznes' || activeTab === 'varker') && <Varker />}
     </div>
   );
 }
