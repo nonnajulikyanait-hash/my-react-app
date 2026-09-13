@@ -28,10 +28,8 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header-ին փոխանցում ենք setActiveTab ֆունկցիան */}
-      <Header setActiveTab={setActiveTab} />
+      <Header setActiveTab={setActiveTab} activeTab={activeTab} />
       
-      {/* Պայմանական ռենդեր՝ կախված սեղմված կոճակից */}
       {activeTab === 'home' ? (
         <>
           <HeroSlider />
