@@ -17,7 +17,8 @@ import Bajneterer from './components/bajneterer';
 import Xekavarutyun from './components/xekavarutyun'; 
 import Online from './components/online';
 import Gortsyntrner from './components/gortsyntrner'; 
-import Review from './components/review'; // <--- Փոքրատառով իմպորտ
+import Review from './components/review';
+import Footer from './components/footer'; // <--- Ավելացվել է Footer-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -67,64 +68,69 @@ function App() {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Header setActiveTab={setActiveTab} activeTab={activeTab} />
-      
-      {activeTab === 'home' && (
-        <>
-          <HeroSlider />
-          <BiometricSection />
-          <BestEvocabankSection />
-          <EvocaCardsSlider />
-          <EvocaCalculator /> 
-          <Online /> 
-          <Gortsyntrner /> 
-          <Review />         
-          <Calculator />     
-        </>
-      )}
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
+      <div>
+        <Header setActiveTab={setActiveTab} activeTab={activeTab} />
+        
+        {activeTab === 'home' && (
+          <>
+            <HeroSlider />
+            <BiometricSection />
+            <BestEvocabankSection />
+            <EvocaCardsSlider />
+            <EvocaCalculator /> 
+            <Online /> 
+            <Gortsyntrner /> 
+            <Calculator />     
+            <Review />         
+          </>
+        )}
 
-      {(activeTab === 'biznes' || activeTab === 'varker') && <Varker />}
+        {(activeTab === 'biznes' || activeTab === 'varker') && <Varker />}
 
-      {activeTab === 'karter' && <Karter />}
+        {activeTab === 'karter' && <Karter />}
 
-      {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
+        {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
 
-      {activeTab === 'mermasin' && (
-        <>
-          {activeSubTab === 'Ընդհանուր' && (
-            <Mermasin setActiveSubTab={setActiveSubTab} activeSubTab={activeSubTab} />
-          )}
-          
-          {activeSubTab === 'Կառուցվածք' && (
-            <>
-              {renderSubTabsNav()}
-              <Karucvacq />
-            </>
-          )}
+        {activeTab === 'mermasin' && (
+          <>
+            {activeSubTab === 'Ընդհանուր' && (
+              <Mermasin setActiveSubTab={setActiveSubTab} activeSubTab={activeSubTab} />
+            )}
+            
+            {activeSubTab === 'Կառուցվածք' && (
+              <>
+                {renderSubTabsNav()}
+                <Karucvacq />
+              </>
+            )}
 
-          {activeSubTab === 'Բաժնետերեր' && (
-            <>
-              {renderSubTabsNav()}
-              <Bajneterer />
-            </>
-          )}
+            {activeSubTab === 'Բաժնետերեր' && (
+              <>
+                {renderSubTabsNav()}
+                <Bajneterer />
+              </>
+            )}
 
-          {activeSubTab === 'Ղեկավարություն' && (
-            <>
-              {renderSubTabsNav()}
-              <Xekavarutyun />
-            </>
-          )}
+            {activeSubTab === 'Ղեկավարություն' && (
+              <>
+                {renderSubTabsNav()}
+                <Xekavarutyun />
+              </>
+            )}
 
-          {activeSubTab === 'Գործընկերներ' && (
-            <>
-              {renderSubTabsNav()}
-              <Gortsyntrner /> 
-            </>
-          )}
-        </>
-      )}
+            {activeSubTab === 'Գործընկերներ' && (
+              <>
+                {renderSubTabsNav()}
+                <Gortsyntrner /> 
+              </>
+            )}
+          </>
+        )}
+      </div>
+
+      {/* Ամենաներքևում՝ Footer-ը */}
+      <Footer />
     </div>
   );
 }
