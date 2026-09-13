@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 function MerMasin() {
   const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
   const [activeYear, setActiveYear] = useState('2026');
+  const scrollRef = useRef(null);
 
   const subTabs = [
     'Ընդհանուր',
@@ -15,31 +16,102 @@ function MerMasin() {
     'Էվոկա ֆինանսական խումբ',
   ];
 
-  // Տվյալներ տարեթվերի պատմության համար (կարող ես նկարներն ու տեքստերը փոխել ըստ ցանկության)
+  // Բանկի պատմության տարեթվերը ըստ պահանջի
+  const yearsList = [
+    '2026', '2025', '2024', '2023', '2022', '2021', 
+    '2020', '2019', '2018', '2017', '2016', '2015', 
+    '2012', '2008', '2006', '2005', '2000', '1993', '1990'
+  ];
+
+  // Տվյալներ տարեթվերի համար (կարող ես փոխել ըստ ցանկության)
   const historyData = {
     '2026': {
       text: 'Բանկը բացեց նոր «Աբովյան» մասնաճյուղը, կնքեց նոր միջազգային համագործակցության պայմանագրեր, մասնակցեց միջազգային կոնֆերանսների, արժանացավ հեղինակավոր մրցանակների և կյանքի կոչեց Երևանը գունավորող street art-երդ:',
       image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
     },
     '2025': {
-      text: '2025 թվականին բանկն ընդլայնեց իր թվային հարթակները, գործարկեց նոր պրոդուկտներ բիզնեսի և անհատների համար, և ամրապնդեց դիրքերը շուկայում։',
+      text: '2025 թվականին բանկն ընդլայնեց իր թվային հարթակները, գործարկեց նոր պրոդուկտներ բիզնեսի և անհատների համար:',
       image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
     },
     '2024': {
-      text: '2024-ին շեշտը դրվեց mobile-first լուծումների և հաճախորդների սպասարկման որակի բարելավման վրա՝ ներդնելով արհեստական բանականության գործիքներ։',
+      text: '2024-ին շեշտը դրվեց mobile-first լուծումների և հաճախորդների սպասարկման որակի բարելավման վրա:',
       image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
     },
     '2023': {
-      text: 'Բանկը ստացավ մի շարք հեղինակավոր միջազգային մրցանակներ տարվա լավագույն ֆինტեխ գործընկեր և նորարար բանկ անվանակարգերում։',
+      text: 'Բանկը ստացավ մի շարք հեղինակավոր միջազգային մրցանակներ լավագույն ֆինտեխ գործընկեր անվանակարգում:',
       image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
     },
     '2022': {
-      text: '2022 թվականին իրականացվեցին մասնաճյուղերի լայնածավալ արդիականացումներ և ներդրվեցին անվտանգության նորագույն ստանդարտներ։',
+      text: '2022 թվականին իրականացվեցին մասնաճյուղերի արդիականացումներ և ներդրվեցին անվտանգության նոր ստանդարտներ:',
       image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
     },
     '2021': {
-      text: 'Հիմնվեցին նոր ռազմավարական ուղղություններ, որոնք հիմք հանդիսացան բանկի հետագա արագ զարգացման և թվային հեղափոխության համար։',
+      text: 'Հիմնվեցին նոր ռազմավարական ուղղություններ բանկի արագ զարգացման և թվային հեղափոխության համար:',
       image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+    },
+    '2020': {
+      text: '2020 թվականին, չնայած մարտահրավերներին, բանկը լիովին անցավ հեռակա և թվային ծառայությունների մատուցմանը:',
+      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+    },
+    '2019': {
+      text: 'Գործարկվեցին նորարարական պրոդուկտներ և ընդլայնվեց սպասարկման ցանցը Հայաստանի ողջ տարածքով:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+    },
+    '2018': {
+      text: 'Բանկըր պաշտոնապես վերանվանվեց և ստացավ նոր բրենդային ուղղվածություն՝ դառնալով Evocabank:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+    },
+    '2017': {
+      text: 'Ներդրվեցին նոր տեխնոլոգիական լուծումներ հաճախորդների սպասարկման արագությունը մեծացնելու համար:',
+      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+    },
+    '2016': {
+      text: 'Կարևոր քայլեր կատարվեցին թվային բանկինգի զարգացման և հավելվածների արդիականացման ուղղությամբ:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+    },
+    '2015': {
+      text: 'Ընդլայնվեց կորպորատիվ հաճախորդների սպասարկման շրջանակը և առաջարկվեցին նոր ֆինանսական գործիքներ:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+    },
+    '2012': {
+      text: 'Բանկը նշեց հիմնադրման կարևոր հոբելյանական տարեդարձը՝ արձանագրելով աճող ցուցանիշներ:',
+      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+    },
+    '2008': {
+      text: 'Հաջողությամբ հաղթահարվեցին համաշխարհային ֆինանսական մարտահրավերները՝ պահպանելով կայունությունը:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+    },
+    '2006': {
+      text: 'Ընդլայնվեց մասնաճյուղային ցանցը մայրաքաղաքում և մարզերում:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+    },
+    '2005': {
+      text: 'Ներդրվեցին առաջին ժամանակակից քարտային համակարգերն ու պրոցեսինգային լուծումները:',
+      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+    },
+    '2000': {
+      text: 'Նոր հազարամյակի սկզբին բանկը ձևավորեց զարգացման երկարաժամկետ ռազմավարություն:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+    },
+    '1993': {
+      text: 'Բանկը հիմնադրվել է և սկսել իր գործունեությունը Հայաստանի ֆինանսական շուկայում:',
+      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+    },
+    '1990': {
+      text: 'Նախնական հիմքեր դրվեցին ապագա ֆինանսական համակարգի ձևավորման համար:',
+      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+    }
+  };
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -250, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 250, behavior: 'smooth' });
     }
   };
 
@@ -98,7 +170,7 @@ function MerMasin() {
             </p>
           </div>
 
-          {/* Առաքելությունը՝ նկարը վերևում, տեքստը տակը (1-ին նկարի նման) */}
+          {/* Առաքելությունը՝ նկարը վերևում, տեքստը տակը */}
           <div className="space-y-6 max-w-4xl mx-auto text-center">
             <h3 className="text-3xl font-bold text-neutral-900">Մեր առաքելությունը</h3>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
@@ -114,21 +186,30 @@ function MerMasin() {
           </div>
         </section>
 
-        {/* 3. Բանկի պատմությունը (Տարեթվերով սանդղակ, սեղմելիս փոխվում է) */}
+        {/* 3. Բանկի պատմությունը (Սլաքներով և սահող տարեթվերով) */}
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
           
-          {/* Տարեթվերի հորիզոնական ընտրացանկ */}
-          <div className="relative max-w-xl mx-auto py-4">
-            {/* Հորիզոնական գիծ հետևում */}
-            <div className="absolute top-1/2 left-0 right-0 h-0.5 bg-gray-200 -translate-y-1/2 z-0"></div>
-            
-            <div className="relative z-10 flex justify-between items-center px-4">
-              {Object.keys(historyData).map((year) => (
+          <div className="relative max-w-4xl mx-auto flex items-center">
+            {/* Ձախ սլաք */}
+            <button 
+              onClick={scrollLeft}
+              className="absolute -left-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              ←
+            </button>
+
+            {/* Տարեթվերի սահող կոնտեյներ */}
+            <div 
+              ref={scrollRef}
+              className="flex space-x-12 overflow-x-auto scrollbar-none px-12 py-4 items-center w-full scroll-smooth"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {yearsList.map((year) => (
                 <button
                   key={year}
                   onClick={() => setActiveYear(year)}
-                  className={`flex flex-col items-center bg-transparent border-0 cursor-pointer group focus:outline-none`}
+                  className="flex flex-col items-center bg-transparent border-0 cursor-pointer group flex-shrink-0 focus:outline-none"
                 >
                   <span className={`text-sm font-semibold mb-2 transition-colors ${activeYear === year ? 'text-[#6400dc]' : 'text-gray-400 group-hover:text-gray-600'}`}>
                     {year}
@@ -141,16 +222,24 @@ function MerMasin() {
                 </button>
               ))}
             </div>
+
+            {/* Աջ սլաք */}
+            <button 
+              onClick={scrollRight}
+              className="absolute -right-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              →
+            </button>
           </div>
 
-          {/* Ընտրված տարվա բովանդակություն (Տեքստ և Նկար) */}
+          {/* Ընտրված տարվա բովանդակություն */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 p-8 rounded-3xl border border-gray-100 mt-6">
             <p className="text-gray-700 leading-relaxed text-lg">
-              {historyData[activeYear].text}
+              {historyData[activeYear] ? historyData[activeYear].text : 'Տվյալ տարվա մասին տեղեկատվություն առայժմ չկա:'}
             </p>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
               <img 
-                src={historyData[activeYear].image} 
+                src={historyData[activeYear] ? historyData[activeYear].image : 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'} 
                 alt={`Բանկի պատմություն ${activeYear}`} 
                 className="w-full h-auto object-cover transition-all duration-300"
               />
