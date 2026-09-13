@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
@@ -7,9 +7,11 @@ import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; 
 import EvocaCalculator from './components/evocacalculator'; 
-import Biznes from './components/biznes'; // Ներմուծում ենք Biznes կոմպոնենտը
+import Biznes from './components/biznes'; 
 
 function App() {
+  const [activeTab, setActiveTab] = useState('home');
+
   useEffect(() => {
     const addData = async () => {
       try {
@@ -17,37 +19,30 @@ function App() {
           message: "Hello from React & Firebase!",
           time: new Date()
         });
-        console.log("Document successfully written!");
       } catch (e) {
         console.error("Error writing document: ", e);
       }
     };
-
     addData();
   }, []);
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Evoca բանկի վերնամասը */}
-      <Header />
+      {/* Header-ին փոխանցում ենք setActiveTab ֆունկցիան */}
+      <Header setActiveTab={setActiveTab} />
       
-      {/* Բիզնես վարկերի բաժինը */}
-      <Biznes />
-
-      {/* Գլխավոր սլայդեր բաժինը */}
-      <HeroSlider />
-
-      {/* Բիոմետրիկ նույնականացման բաժինը */}
-      <BiometricSection />
-
-      {/* "Լավագույնը Evocabank-ից" բաժինը */}
-      <BestEvocabankSection />
-
-      {/* Քարտերի սլայդեր բաժինը */}
-      <EvocaCardsSlider />
-
-      {/* Հաշվիչների բաժինը */}
-      <EvocaCalculator />
+      {/* Պայմանական ռենդեր՝ կախված սեղմված կոճակից */}
+      {activeTab === 'home' ? (
+        <>
+          <HeroSlider />
+          <BiometricSection />
+          <BestEvocabankSection />
+          <EvocaCardsSlider />
+          <EvocaCalculator />
+        </>
+      ) : (
+        <Biznes />
+      )}
     </div>
   );
 }
