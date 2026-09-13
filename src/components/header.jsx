@@ -1,20 +1,32 @@
 import React from 'react';
 
 function Header({ setActiveTab }) {
+  const handleBiznesClick = () => {
+    if (typeof setActiveTab === 'function') {
+      setActiveTab('biznes');
+    }
+  };
+
+  const handleHomeClick = () => {
+    if (typeof setActiveTab === 'function') {
+      setActiveTab('home');
+    }
+  };
+
   return (
     <header className="w-full font-sans bg-white border-b border-gray-200">
       {/* Վերին փոքր մենյու */}
       <div className="hidden lg:flex justify-between items-center px-10 py-3 text-sm text-gray-600 border-b border-gray-100">
         <div className="flex space-x-6 items-center">
           <button 
-            onClick={() => setActiveTab('home')}
+            onClick={handleHomeClick}
             className="font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5 cursor-pointer bg-transparent border-t-0 border-x-0"
           >
             Անհատ
           </button>
           <button 
-            onClick={() => setActiveTab('biznes')}
-            className="cursor-pointer hover:text-black transition-colors bg-transparent border-0"
+            onClick={handleBiznesClick}
+            className="cursor-pointer hover:text-purple-700 transition-colors bg-transparent border-0 font-medium text-gray-600"
           >
             Բիզնես
           </button>
@@ -38,7 +50,7 @@ function Header({ setActiveTab }) {
       <div className="flex justify-between items-center px-6 lg:px-10 py-5">
         <div className="flex items-center">
           <button 
-            onClick={() => setActiveTab('home')}
+            onClick={handleHomeClick}
             className="text-4xl font-black text-neutral-800 tracking-tighter m-0 bg-transparent border-0 cursor-pointer"
           >
             evoca
