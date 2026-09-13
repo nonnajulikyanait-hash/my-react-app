@@ -31,7 +31,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Հեդեր՝ փոխանցվող ֆունկցիայով և ընթացիկ թաբով */}
+      {/* Հեդերը մնում է բոլոր էջերի համար */}
       <Header setActiveTab={setActiveTab} activeTab={activeTab} />
       
       {/* Գլխավոր էջի բովանդակություն */}

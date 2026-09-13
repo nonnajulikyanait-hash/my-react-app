@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 
-function MerMasin() {
-  const [activeTopTab, setActiveTopTab] = useState('mermasin');
+function Mermasin() {
   const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
   const [activeYear, setActiveYear] = useState('2026');
   const scrollRef = useRef(null);
@@ -117,64 +116,7 @@ function MerMasin() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
       
-      {/* Վերին փոքր մենյու */}
-      <div className="hidden lg:flex justify-between items-center px-10 py-3 text-sm text-gray-600 border-b border-gray-100">
-        <div className="flex space-x-6 items-center">
-          <button 
-            onClick={() => setActiveTopTab('home')}
-            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
-              activeTopTab === 'home' 
-                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
-                : 'hover:text-purple-700'
-            }`}
-          >
-            Անհատ
-          </button>
-          <button 
-            onClick={() => setActiveTopTab('biznes')}
-            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
-              activeTopTab === 'biznes' 
-                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
-                : 'hover:text-purple-700'
-            }`}
-          >
-            Բիզնես
-          </button>
-          <button 
-            onClick={() => setActiveTopTab('akntartayinVcharumner')}
-            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
-              activeTopTab === 'akntartayinVcharumner' 
-                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
-                : 'hover:text-purple-700'
-            }`}
-          >
-            Ակնթարթային վճարումներ
-          </button>
-          <button 
-            onClick={() => setActiveTopTab('mermasin')}
-            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
-              activeTopTab === 'mermasin' 
-                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
-                : 'hover:text-purple-700'
-            }`}
-          >
-            Մեր մասին
-          </button>
-          <span className="cursor-pointer hover:text-black transition-colors" onClick={() => alert('Նորություններ')}>Նորություններ</span>
-          <span className="cursor-pointer hover:text-black transition-colors" onClick={() => alert('Բլոգ')}>Բլոգ</span>
-          <span className="cursor-pointer hover:text-black transition-colors" onClick={() => alert('Կարիերա')}>Կարիերա</span>
-        </div>
-        <div className="flex items-center space-x-5">
-          <span className="cursor-pointer hover:text-black">Առցանց հայտեր ▾</span>
-          <span className="cursor-pointer hover:text-black">Հետադարձ կապ ▾</span>
-          <span className="cursor-pointer">📍</span>
-          <span className="cursor-pointer">🌐</span>
-          <span className="cursor-pointer">🔍</span>
-          <span className="cursor-pointer">☰</span>
-        </div>
-      </div>
-
-      {/* Հիմնական լոգոն և EvocaONLINE կոճակը */}
+      {/* 1. Երկրորդ հեդեր՝ լոգո և EvocaONLINE կոճակ (նկարի միջին հատվածը) */}
       <div className="bg-white py-3.5 px-6 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-10">
@@ -183,6 +125,12 @@ function MerMasin() {
               alt="Evocabank Logo" 
               className="h-6 object-contain"
             />
+            <div className="hidden md:flex space-x-6 text-sm font-semibold text-neutral-800">
+              <a href="#" className="text-[#6400dc]">Evoca-ի մասին</a>
+              <a href="#" className="hover:text-[#6400dc]">Սակագներ</a>
+              <a href="#" className="hover:text-[#6400dc]">Հաշվետվություններ</a>
+              <a href="#" className="hover:text-[#6400dc]">Հայտարարություններ</a>
+            </div>
           </div>
           <div>
             <button className="bg-[#6400dc] text-white px-5 py-2 rounded-xl font-bold text-sm shadow-md hover:bg-purple-800 transition-colors cursor-pointer">
@@ -192,7 +140,7 @@ function MerMasin() {
         </div>
       </div>
 
-      {/* Մանուշակագույն Ենթաթաբերի Նավիգացիա */}
+      {/* 2. Մանուշակագույն ենթաթաբերի նավիգացիա (նկարի երրորդ մանուշակագույն տողը) */}
       <div className="bg-[#6400dc] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
           {subTabs.map((tab, index) => (
@@ -209,8 +157,19 @@ function MerMasin() {
         </div>
       </div>
 
+      {/* Բրեդքրամփս (Հղումների ուղին) */}
+      <div className="max-w-6xl mx-auto px-6 pt-6 text-xs text-gray-500 flex items-center space-x-2">
+        <span className="cursor-pointer hover:underline">🏠</span>
+        <span>›</span>
+        <span className="cursor-pointer hover:underline">Մեր մասին</span>
+        <span>›</span>
+        <span className="cursor-pointer hover:underline">Evoca-ի մասին</span>
+        <span>›</span>
+        <span className="text-gray-800 font-medium">Ընդհանուր</span>
+      </div>
+
       {/* Բովանդակություն */}
-      <div className="max-w-6xl mx-auto px-6 py-12 space-y-20">
+      <div className="max-w-6xl mx-auto px-6 py-10 space-y-20">
         
         {/* Ընդհանուր տեղեկատվություն */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -439,4 +398,4 @@ function MerMasin() {
   );
 }
 
-export default MerMasin;
+export default Mermasin;
