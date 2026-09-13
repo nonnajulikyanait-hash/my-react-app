@@ -11,9 +11,11 @@ import Varker from './components/varker';
 import Karter from './components/karter'; 
 import AkntartayinVcharumner from './components/akntartayinvcharumner';
 import Mermasin from './components/mermasin';
+import Karucvacq from './components/karucvacq'; // Ներմուծում ենք կառուցվածքի ֆայլը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
+  const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր'); // Ստեղծում ենք ենթաթաբերի state
 
   useEffect(() => {
     const addData = async () => {
@@ -55,7 +57,17 @@ function App() {
       {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
 
       {/* Երբ սեղմում ես Մեր մասին */}
-      {activeTab === 'mermasin' && <Mermasin />}
+      {activeTab === 'mermasin' && (
+        <>
+          {activeSubTab === 'Ընդհանուր' && (
+            <Mermasin setActiveSubTab={setActiveSubTab} activeSubTab={activeSubTab} />
+          )}
+          {activeSubTab === 'Կառուցվածք' && (
+            <Karucvacq setActiveSubTab={setActiveSubTab} />
+          )}
+          {/* Այստեղ հետագայում կարող եք ավելացնել մյուս ենթաթաբերը՝ Բաժնետերեր, Ղեկավարություն և այլն */}
+        </>
+      )}
     </div>
   );
 }
