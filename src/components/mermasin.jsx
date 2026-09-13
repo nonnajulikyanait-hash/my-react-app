@@ -116,14 +116,14 @@ function MerMasin() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
       
-      {/* 1. Վերին Գլխավոր Մենյու (Անհատ, Բիզնես, և այլն) */}
-      <div className="bg-white border-b border-gray-100 py-3 px-6 text-sm">
+      {/* 1. Վերին Գլխավոր Մենյու */}
+      <div className="bg-white border-b border-gray-100 py-2.5 px-6 text-sm">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex space-x-6 text-gray-600 font-medium">
             <a href="#" className="hover:text-[#6400dc]">Անհատ</a>
             <a href="#" className="hover:text-[#6400dc]">Բիզնես</a>
             <a href="#" className="hover:text-[#6400dc]">Ակնթարթային վճարումներ</a>
-            <span className="text-[#6400dc] font-bold border-b-2 border-[#6400dc] pb-1">Մեր մասին</span>
+            <span className="text-[#6400dc] font-bold border-b-2 border-[#6400dc] pb-0.5">Մեր մասին</span>
             <a href="#" className="hover:text-[#6400dc]">Նորություններ</a>
             <a href="#" className="hover:text-[#6400dc]">Բլոգ</a>
             <a href="#" className="hover:text-[#6400dc]">Կարիերա</a>
@@ -135,35 +135,31 @@ function MerMasin() {
         </div>
       </div>
 
-      {/* 2. Երկրորդ Մենյու (Լոգո + Վարկեր, Քարտեր և այլն) */}
-      <div className="bg-white py-4 px-6 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto flex justify-between items-center overflow-x-auto scrollbar-none">
+      {/* 2. Երկրորդ Մենյու (Լոգո + 4 հղում՝ Evoca-ի մասին, Սակագներ, Հաշվետվություններ, Հայտարարություններ) */}
+      <div className="bg-white py-3.5 px-6 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-10">
             <img 
               src="https://www.evoca.am/file_manager/icons/logo.png" 
               alt="Evocabank Logo" 
-              className="h-7 object-contain"
+              className="h-6 object-contain"
             />
-            <div className="hidden lg:flex space-x-6 text-sm font-semibold text-neutral-800 whitespace-nowrap">
-              <a href="#" className="hover:text-[#6400dc]">Վարկեր</a>
-              <a href="#" className="hover:text-[#6400dc]">Քարտեր</a>
-              <a href="#" className="hover:text-[#6400dc]">Ավանդներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Հաշիվներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Փոխանցումներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Արժեթղթեր</a>
-              <a href="#" className="hover:text-[#6400dc]">EvocaSALARY</a>
-              <a href="#" className="hover:text-[#6400dc]">EvocaTOUCH</a>
+            <div className="hidden md:flex space-x-6 text-sm font-semibold text-neutral-800">
+              <a href="#" className="text-[#6400dc]">Evoca-ի մասին</a>
+              <a href="#" className="hover:text-[#6400dc]">Սակագներ</a>
+              <a href="#" className="hover:text-[#6400dc]">Հաշվետվություններ</a>
+              <a href="#" className="hover:text-[#6400dc]">Հայտարարություններ</a>
             </div>
           </div>
           <div>
-            <button className="bg-[#6400dc] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:bg-purple-800 transition-colors">
+            <button className="bg-[#6400dc] text-white px-5 py-2 rounded-xl font-bold text-sm shadow-md hover:bg-purple-800 transition-colors">
               EvocaONLINE
             </button>
           </div>
         </div>
       </div>
 
-      {/* 3. Ենթաթաբերի Նավիգացիա (#6400dc գույնով) */}
+      {/* 3. Մանուշակագույն Ենթաթաբերի Նավիգացիա */}
       <div className="bg-[#6400dc] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
           {subTabs.map((tab, index) => (
@@ -211,7 +207,6 @@ function MerMasin() {
 
         {/* 2. Մեր տեսլականը և առաքելությունը */}
         <section className="space-y-16">
-          {/* Տեսլականը՝ ամբողջ լայնությամբ #6400dc բլոկ */}
           <div className="w-full bg-[#6400dc] text-white p-10 rounded-3xl shadow-md space-y-4">
             <h3 className="text-3xl font-bold">Մեր տեսլականը</h3>
             <p className="text-purple-100 leading-relaxed text-lg">
@@ -219,7 +214,6 @@ function MerMasin() {
             </p>
           </div>
 
-          {/* Առաքելությունը՝ նկարը վերևում, տեքստը տակը */}
           <div className="space-y-6 max-w-4xl mx-auto text-center">
             <h3 className="text-3xl font-bold text-neutral-900">Մեր առաքելությունը</h3>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
@@ -286,12 +280,11 @@ function MerMasin() {
           </div>
         </section>
 
-        {/* 5. Բանկի պատմությունը (Սլաքներով և սահող տարեթվերով) */}
+        {/* 5. Բանկի պատմությունը */}
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
           
           <div className="relative max-w-4xl mx-auto flex items-center">
-            {/* Ձախ սլաք */}
             <button 
               onClick={scrollLeft}
               className="absolute -left-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
@@ -299,7 +292,6 @@ function MerMasin() {
               ←
             </button>
 
-            {/* Տարեթվերի սահող կոնտեյներ */}
             <div 
               ref={scrollRef}
               className="flex space-x-12 overflow-x-auto scrollbar-none px-12 py-4 items-center w-full scroll-smooth"
@@ -323,7 +315,6 @@ function MerMasin() {
               ))}
             </div>
 
-            {/* Աջ սլաք */}
             <button 
               onClick={scrollRight}
               className="absolute -right-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
@@ -332,7 +323,6 @@ function MerMasin() {
             </button>
           </div>
 
-          {/* Ընտրված տարվա բովանդակություն */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 p-8 rounded-3xl border border-gray-100 mt-6">
             <p className="text-gray-700 leading-relaxed text-lg">
               {historyData[activeYear] ? historyData[activeYear].text : 'Տվյալ տարվա մասին տեղեկատվություն առայժմ չկա:'}
