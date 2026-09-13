@@ -6,7 +6,8 @@ import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; 
-import EvocaCalculator from './components/evocacalculator';  
+import EvocaCalculator from './components/evocacalculator'; 
+import Calculator from './components/calculator'; // <--- Հաշվիչ 2-ը
 import Varker from './components/varker'; 
 import Karter from './components/karter'; 
 import AkntartayinVcharumner from './components/akntartayinvcharumner';
@@ -16,7 +17,6 @@ import Bajneterer from './components/bajneterer';
 import Xekavarutyun from './components/xekavarutyun'; 
 import Online from './components/online';
 import Gortsyntrner from './components/gortsyntrner'; 
-import Calculator from './components/calculator';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -78,10 +78,10 @@ function App() {
           <BiometricSection />
           <BestEvocabankSection />
           <EvocaCardsSlider />
-          <EvocaCalculator /> {/* <--- Առաջին հաշվիչը */}
-          <Calculator />     {/* <--- Երկրորդ հաշվիչը (Calculator.jsx) */}
+          <EvocaCalculator /> 
           <Online /> 
           <Gortsyntrner /> 
+          <Calculator />     {/* <--- Ահա, հիմա սա գնաց ամենավերջը */}
         </>
       )}
 
