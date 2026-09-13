@@ -14,7 +14,7 @@ import Mermasin from './components/mermasin';
 import Karucvacq from './components/karucvacq';
 import Bajneterer from './components/bajneterer';
 import Xekavarutyun from './components/xekavarutyun'; 
-import Online from './online';
+import Online from './components/online';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
