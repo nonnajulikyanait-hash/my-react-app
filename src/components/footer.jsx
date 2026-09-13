@@ -37,16 +37,16 @@ function Footer() {
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Բանկի մասին</h3>
             <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="#" className="hover:text-[#6400dc]">Մեր մասին</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Ղեկավարություն</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Բաժնետերեր</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Հաշվետվություններ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Իրավական ակտեր</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Սակագներ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Օտարվող գույք</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Կառուցապատողներ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Գործընկեր ավտոսրահներ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Սակագների արխիվ</a></li>
+              <li><a href="/mermasin.jsx" className="hover:text-[#6400dc]">Մեր մասին</a></li>
+              <li><a href="/management" className="hover:text-[#6400dc]">Ղեկավարություն</a></li>
+              <li><a href="/shareholders" className="hover:text-[#6400dc]">Բաժնետերեր</a></li>
+              <li><a href="/reports" className="hover:text-[#6400dc]">Հաշվետվություններ</a></li>
+              <li><a href="/legal-acts" className="hover:text-[#6400dc]">Իրավական ակտեր</a></li>
+              <li><a href="/tariffs" className="hover:text-[#6400dc]">Սակագներ</a></li>
+              <li><a href="/properties" className="hover:text-[#6400dc]">Օտարվող գույք</a></li>
+              <li><a href="/developers" className="hover:text-[#6400dc]">Կառուցապատողներ</a></li>
+              <li><a href="/car-salons" className="hover:text-[#6400dc]">Գործընկեր ավտոսրահներ</a></li>
+              <li><a href="/tariffs-archive" className="hover:text-[#6400dc]">Սակագների արխիվ</a></li>
             </ul>
           </div>
 
@@ -54,13 +54,13 @@ function Footer() {
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Օգտակար հղումներ</h3>
             <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="#" className="hover:text-[#6400dc]">Հաճախորդի իրավունքները (Բողոքի ներկայացման կանոններ)</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Հաճախորդի ռեզիդենտության չափանիշներ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Կարգավորում</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Գաղտնիության քաղաքականություն</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Ֆին. հաշտարար</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Ֆինանսական հանցագործությունների կանխարգելում</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Հղումներ Բանկի քարտապանների համար</a></li>
+              <li><a href="/customer-rights" className="hover:text-[#6400dc]">Հաճախորդի իրավունքները (Բողոքի ներկայացման կանոններ)</a></li>
+              <li><a href="/residency-criteria" className="hover:text-[#6400dc]">Հաճախորդի ռեզիդենտության չափանիշներ</a></li>
+              <li><a href="/regulation" className="hover:text-[#6400dc]">Կարգավորում</a></li>
+              <li><a href="/privacy-policy" className="hover:text-[#6400dc]">Գաղտնիության քաղաքականություն</a></li>
+              <li><a href="/financial-ombudsman" className="hover:text-[#6400dc]">Ֆին. հաշտարար</a></li>
+              <li><a href="/fraud-prevention" className="hover:text-[#6400dc]">Ֆինանսական հանցագործությունների կանխարգելում</a></li>
+              <li><a href="/cardholders-links" className="hover:text-[#6400dc]">Հղումներ Բանկի քարտապանների համար</a></li>
             </ul>
           </div>
 
@@ -68,14 +68,14 @@ function Footer() {
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Այլ հղումներ</h3>
             <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="#" className="hover:text-[#6400dc]">EvocaONLINE</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Պահատուփեր</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Հաճախ տրվող հարցեր</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Հայտարարություններ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Dibrary</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Բուկլետներ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Հետադարձ կապ</a></li>
-              <li><a href="#" className="hover:text-[#6400dc]">Կայքի քարտեզ</a></li>
+              <li><a href="/evocaonline" className="hover:text-[#6400dc]">EvocaONLINE</a></li>
+              <li><a href="/safe-boxes" className="hover:text-[#6400dc]">Պահատուփեր</a></li>
+              <li><a href="/faq" className="hover:text-[#6400dc]">Հաճախ տրվող հարցեր</a></li>
+              <li><a href="/announcements" className="hover:text-[#6400dc]">Հայտարարություններ</a></li>
+              <li><a href="/dibrary" className="hover:text-[#6400dc]">Dibrary</a></li>
+              <li><a href="/booklets" className="hover:text-[#6400dc]">Բուկլետներ</a></li>
+              <li><a href="/contact" className="hover:text-[#6400dc]">Հետադարձ կապ</a></li>
+              <li><a href="/sitemap" className="hover:text-[#6400dc]">Կայքի քարտեզ</a></li>
             </ul>
           </div>
 
@@ -120,7 +120,7 @@ function Footer() {
           </p>
         </div>
 
-        {/* Ամենաներքևի գործընկերների պատկերները (հավասարաչափ տարածված) */}
+        {/* Ամենաներքևի գործընկերների պատկերները */}
         <div className="border-t border-gray-200 pt-6 mt-6 flex items-center justify-between flex-wrap gap-4 opacity-80">
           {partners.map((partner) => (
             <div key={partner.id} className="h-10 flex items-center justify-center flex-1 min-w-[80px] max-w-[130px]">
