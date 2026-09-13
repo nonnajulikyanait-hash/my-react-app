@@ -6,7 +6,7 @@ import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; 
-import EvocaCalculator2 from './components/evocacalculator2'; // <--- Թարմացված ներմուծումը
+import Calculator from './components/calculator'; // <--- Թարմացված ներմուծումը
 import Varker from './components/varker'; 
 import Karter from './components/karter'; 
 import AkntartayinVcharumner from './components/akntartayinvcharumner';
@@ -77,7 +77,7 @@ function App() {
           <BiometricSection />
           <BestEvocabankSection />
           <EvocaCardsSlider />
-          <EvocaCalculator2 /> {/* <--- Օգտագործվում է նոր բաղադրիչը */}
+          <Calculator /> {/* <--- Օգտագործվում է նոր բաղադրիչը */}
           <Online /> 
           <Gortsyntrner /> 
         </>

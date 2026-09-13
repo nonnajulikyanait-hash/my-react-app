@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function EvocaCalculator2() {
+function Calculator() {
   const [activeTab, setActiveTab] = useState('kantsik'); // 'kantsik', 'ankantsik', 'gold', 'terminal'
 
   // Արտարժույթի հաշվիչի վիճակներ (Կանխիկ / Անկանխիկ)
@@ -32,15 +32,12 @@ function EvocaCalculator2() {
     const val = parseFloat(haveAmount) || 0;
 
     if (haveCurrency === 'AMD' && wantCurrency !== 'AMD') {
-      // Դրամից փոխանակում արտարժույթի (օգտագործում ենք Վաճառքի գինը՝ sell)
       const rate = rates[wantCurrency]?.sell || 1;
       return (val / rate).toFixed(2);
     } else if (haveCurrency !== 'AMD' && wantCurrency === 'AMD') {
-      // Արտարժույթից փոխանակում Դրամի (օգտագործում ենք Գնման գինը՝ buy)
       const rate = rates[haveCurrency]?.buy || 1;
       return (val * rate).toFixed(2);
     } else if (haveCurrency !== 'AMD' && wantCurrency !== 'AMD') {
-      // Արտարժույթից այլ արտարժույթ
       const buyRate = rates[haveCurrency]?.buy || 1;
       const sellRate = rates[wantCurrency]?.sell || 1;
       const inAmd = val * buyRate;
@@ -53,7 +50,7 @@ function EvocaCalculator2() {
     <div className="w-full bg-[#f8f9fa] py-12 font-sans">
       <div className="max-w-7xl mx-auto px-6">
         
-        {/* Վերին տեքստային բլոկը և քարտը */}
+        {/* Վերին տեքստային բլոկը և հասցեների քարտը */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-8">
           
           {/* Ձախ կողմի տեքստ */}
@@ -67,8 +64,8 @@ function EvocaCalculator2() {
           <div className="lg:col-span-4 bg-white border border-gray-100 rounded-2xl p-6 shadow-sm flex items-center justify-between">
             <div className="space-y-1">
               <h3 className="text-lg font-bold text-neutral-900">Մեր հասցեները</h3>
-              <p className="text-xs text-gray-505">Բանկի հասցեները, աշխատաժամերը, բանկոմատները</p>
-              <button className="text-[#6400dc] font-bold text-sm hover:underline pt-2 inline-block">
+              <p className="text-xs text-gray-500">Բանկի հասցեները, աշխատաժամերը, բանկոմատները</p>
+              <button className="text-[#6400dc] font-bold text-sm hover:underline pt-2 inline-block bg-transparent border-0 cursor-pointer">
                 Դիտել քարտեզը &gt;
               </button>
             </div>
@@ -84,7 +81,6 @@ function EvocaCalculator2() {
 
         </div>
 
-
         {/* Հաշվիչի հիմնական կոնտեյներ */}
         <div className="bg-white border border-gray-100 rounded-3xl p-6 lg:p-8 shadow-sm">
           
@@ -92,7 +88,7 @@ function EvocaCalculator2() {
           <div className="flex space-x-8 border-b border-gray-100 pb-4 mb-6 overflow-x-auto scrollbar-none">
             <button 
               onClick={() => setActiveTab('kantsik')}
-              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative ${
+              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative bg-transparent border-0 ${
                 activeTab === 'kantsik' ? 'text-[#6400dc]' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
@@ -102,7 +98,7 @@ function EvocaCalculator2() {
 
             <button 
               onClick={() => setActiveTab('ankantsik')}
-              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative ${
+              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative bg-transparent border-0 ${
                 activeTab === 'ankantsik' ? 'text-[#6400dc]' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
@@ -112,7 +108,7 @@ function EvocaCalculator2() {
 
             <button 
               onClick={() => setActiveTab('gold')}
-              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative ${
+              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative bg-transparent border-0 ${
                 activeTab === 'gold' ? 'text-[#6400dc]' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
@@ -122,7 +118,7 @@ function EvocaCalculator2() {
 
             <button 
               onClick={() => setActiveTab('terminal')}
-              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative ${
+              className={`font-bold text-sm sm:text-base cursor-pointer pb-2 transition-colors relative bg-transparent border-0 ${
                 activeTab === 'terminal' ? 'text-[#6400dc]' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
@@ -131,18 +127,15 @@ function EvocaCalculator2() {
             </button>
           </div>
 
-
           {/* ԲԱԺԻՆ 1 & 2: ԿԱՆԽԻԿ / ԱՆԿԱՆԽԻԿ */}
           {(activeTab === 'kantsik' || activeTab === 'ankantsik') && (
             <div>
-              {/* Աղյուսակի գլխագիր */}
               <div className="grid grid-cols-3 text-xs sm:text-sm font-bold text-gray-400 pb-4 border-b border-gray-100">
                 <div>Արտարժույթ</div>
                 <div className="text-center">Գնում</div>
                 <div className="text-right">Վաճառք</div>
               </div>
 
-              {/* Տողեր USD, EUR, RUB */}
               {[
                 { code: 'USD', name: 'ԱՄՆ դոլար', icon: '🇺🇸', buy: rates.USD.buy, sell: activeTab === 'ankantsik' ? rates.USD.sell : 365.5 },
                 { code: 'EUR', name: 'Եվրո', icon: '🇪🇺', buy: rates.EUR.buy, sell: rates.EUR.sell },
@@ -164,10 +157,8 @@ function EvocaCalculator2() {
                 </div>
               ))}
 
-              {/* Հաշվիչի հատվածը ներքևում */}
+              {/* Հաշվիչի հատվածը */}
               <div className="mt-8 pt-6 border-t border-gray-100 grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                
-                {/* Ձախ մաս՝ Ունեմ */}
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
                   <label className="text-xs text-gray-500 block mb-1">Ունեմ</label>
                   <div className="flex items-center justify-between">
@@ -175,7 +166,7 @@ function EvocaCalculator2() {
                       type="number" 
                       value={haveAmount}
                       onChange={(e) => setHaveAmount(e.target.value)}
-                      className="bg-transparent text-xl font-bold text-neutral-900 outline-none w-1/2"
+                      className="bg-transparent text-xl font-bold text-neutral-900 outline-none w-1/2 border-0"
                     />
                     <select 
                       value={haveCurrency}
@@ -190,7 +181,6 @@ function EvocaCalculator2() {
                   </div>
                 </div>
 
-                {/* Աջ մաս՝ Կստանամ */}
                 <div className="bg-gray-50 p-4 rounded-2xl border border-gray-200">
                   <label className="text-xs text-gray-500 block mb-1">Կստանամ</label>
                   <div className="flex items-center justify-between">
@@ -209,12 +199,9 @@ function EvocaCalculator2() {
                     </select>
                   </div>
                 </div>
-
               </div>
-
             </div>
           )}
-
 
           {/* ԲԱԺԻՆ 3: ՈՍԿՈՒ ՓՈԽԱՐԺԵՔ */}
           {activeTab === 'gold' && (
@@ -233,7 +220,6 @@ function EvocaCalculator2() {
             </div>
           )}
 
-
           {/* ԲԱԺԻՆ 4: ՌՈԲՈՏՈՒ ԿԱՆԽԻԿ ՄՈՒՏՔ */}
           {activeTab === 'terminal' && (
             <div>
@@ -249,7 +235,7 @@ function EvocaCalculator2() {
             </div>
           )}
 
-          {/* Թարմացման ամսաթիվ ներքևում */}
+          {/* Թարմացման ամսաթիվ */}
           <div className="mt-6 pt-4 border-t border-gray-100 text-xs text-gray-400">
             Թարմացվել է՝ {new Date().toLocaleDateString()}
           </div>
@@ -261,4 +247,4 @@ function EvocaCalculator2() {
   );
 }
 
-export default EvocaCalculator2;
+export default Calculator; // (կամ export default Calculator;)
