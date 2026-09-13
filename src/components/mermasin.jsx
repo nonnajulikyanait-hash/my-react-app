@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import Karucvacq from './karucvacq';
 import Bajneterer from './bajneterer';
+import Xekavarutyun from './xekavarutyun';
 
 function Mermasin({ setActiveSubTab, activeSubTab }) {
   const [activeYear, setActiveYear] = useState('2026');
@@ -163,6 +164,9 @@ function Mermasin({ setActiveSubTab, activeSubTab }) {
 
       {/* Եթե ընտրված է Բաժնետերեր, ցուցադրել Bajneterer բաղադրիչը */}
       {activeSubTab === 'Բաժնետերեր' && <Bajneterer />}
+
+      {/* Եթե ընտրված է Ղեկավարություն, ցուցադրել Xekavarutyun բաղադրիչը */}
+      {activeSubTab === 'Ղեկավարություն' && <Xekavarutyun />}
 
       {/* Եթե ընտրված է Ընդհանուր, ցուցադրել հիմնական բովանդակությունը */}
       {activeSubTab === 'Ընդհանուր' && (
