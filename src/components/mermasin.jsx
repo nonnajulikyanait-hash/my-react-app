@@ -116,7 +116,7 @@ function MerMasin() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
       
-      {/* 1. Հիմնական Վերնագիր (Evoca Լոգո + Ծառայություններ + EvocaONLINE) */}
+      {/* Միակ ճիշտ վերնագրային հատվածը՝ ըստ 2-րդ նկարի */}
       <div className="bg-white py-3.5 px-6 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-10">
@@ -125,15 +125,11 @@ function MerMasin() {
               alt="Evocabank Logo" 
               className="h-6 object-contain"
             />
-            <div className="hidden md:flex space-x-8 text-sm font-semibold text-neutral-800">
-              <a href="#" className="hover:text-[#6400dc]">Վարկեր</a>
-              <a href="#" className="hover:text-[#6400dc]">Քարտեր</a>
-              <a href="#" className="hover:text-[#6400dc]">Ավանդներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Հաշիվներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Փոխանցումներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Արժեթղթեր</a>
-              <a href="#" className="hover:text-[#6400dc]">EvocaSALARY</a>
-              <a href="#" className="hover:text-[#6400dc]">EvocaTOUCH</a>
+            <div className="hidden md:flex space-x-6 text-sm font-semibold text-neutral-800">
+              <a href="#" className="text-[#6400dc]">Evoca-ի մասին</a>
+              <a href="#" className="hover:text-[#6400dc]">Սակագներ</a>
+              <a href="#" className="hover:text-[#6400dc]">Հաշվետվություններ</a>
+              <a href="#" className="hover:text-[#6400dc]">Հայտարարություններ</a>
             </div>
           </div>
           <div>
@@ -144,27 +140,7 @@ function MerMasin() {
         </div>
       </div>
 
-      {/* 2. Երկրորդ Վերնագիր (EvocaBANK + Evoca-ի մասին, Սակագներ ևն) */}
-      <div className="bg-white py-3 px-6 border-b border-gray-200">
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center space-x-10">
-            <span className="font-extrabold text-xl tracking-wider text-gray-700">evocaBANK</span>
-            <div className="hidden md:flex space-x-6 text-sm font-semibold text-neutral-700">
-              <a href="#" className="text-[#6400dc]">Evoca-ի մասին</a>
-              <a href="#" className="hover:text-[#6400dc]">Սակագներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Հաշվետվություններ</a>
-              <a href="#" className="hover:text-[#6400dc]">Հայտարարություններ</a>
-            </div>
-          </div>
-          <div>
-            <button className="bg-[#6400dc] text-white px-4 py-1.5 rounded-xl font-bold text-xs shadow-md hover:bg-purple-800 transition-colors md:hidden">
-              EvocaONLINE
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Մանուշակագույն Ենթաթաբերի Նավիգացիա */}
+      {/* Մանուշակագույն Ենթաթաբերի Նավիգացիա */}
       <div className="bg-[#6400dc] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
           {subTabs.map((tab, index) => (
