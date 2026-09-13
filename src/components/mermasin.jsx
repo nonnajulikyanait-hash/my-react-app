@@ -116,26 +116,7 @@ function MerMasin() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
       
-      {/* 1. Վերին Գլխավոր Մենյու */}
-      <div className="bg-white border-b border-gray-100 py-2.5 px-6 text-sm">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex space-x-6 text-gray-600 font-medium">
-            <a href="#" className="hover:text-[#6400dc]">Անհատ</a>
-            <a href="#" className="hover:text-[#6400dc]">Բիզնես</a>
-            <a href="#" className="hover:text-[#6400dc]">Ակնթարթային վճարումներ</a>
-            <span className="text-[#6400dc] font-bold border-b-2 border-[#6400dc] pb-0.5">Մեր մասին</span>
-            <a href="#" className="hover:text-[#6400dc]">Նորություններ</a>
-            <a href="#" className="hover:text-[#6400dc]">Բլոգ</a>
-            <a href="#" className="hover:text-[#6400dc]">Կարիերա</a>
-          </div>
-          <div className="flex items-center space-x-6 text-gray-600">
-            <a href="#" className="hover:text-[#6400dc]">Առցանց հայտեր</a>
-            <a href="#" className="hover:text-[#6400dc]">Հետադարձ կապ</a>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Երկրորդ Մենյու (Լոգո + 4 հղում՝ Evoca-ի մասին, Սակագներ, Հաշվետվություններ, Հայտարարություններ) */}
+      {/* Evoca լոգոն և նրա կողքի 4 հղումները (Միակ մնացած վերնագրային հատվածը) */}
       <div className="bg-white py-3.5 px-6 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-10">
@@ -159,7 +140,7 @@ function MerMasin() {
         </div>
       </div>
 
-      {/* 3. Մանուշակագույն Ենթաթաբերի Նավիգացիա */}
+      {/* Մանուշակագույն Ենթաթաբերի Նավիգացիա */}
       <div className="bg-[#6400dc] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
           {subTabs.map((tab, index) => (
