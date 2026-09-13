@@ -8,6 +8,7 @@ import BestEvocabankSection from './components/bestevocabanksection';
 import EvocaCardsSlider from './components/evocacardslider'; 
 import EvocaCalculator from './components/evocacalculator'; 
 import Biznes from './components/biznes'; 
+import Varker from './components/varker';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -30,7 +31,7 @@ function App() {
     <div className="min-h-screen bg-gray-50">
       <Header setActiveTab={setActiveTab} activeTab={activeTab} />
       
-      {activeTab === 'home' ? (
+      {activeTab === 'home' && (
         <>
           <HeroSlider />
           <BiometricSection />
@@ -38,9 +39,10 @@ function App() {
           <EvocaCardsSlider />
           <EvocaCalculator />
         </>
-      ) : (
-        <Biznes />
       )}
+
+      {activeTab === 'biznes' && <Biznes />}
+      {activeTab === 'varker' && <Varker />}
     </div>
   );
 }
