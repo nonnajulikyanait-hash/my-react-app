@@ -15,6 +15,7 @@ import Karucvacq from './components/karucvacq';
 import Bajneterer from './components/bajneterer';
 import Xekavarutyun from './components/xekavarutyun'; 
 import Online from './components/online';
+import Gortsyntrner from './components/Gortsyntrner'; // <--- Ավելացվել է Գործընկերների ներմուծումը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -77,7 +78,8 @@ function App() {
           <BestEvocabankSection />
           <EvocaCardsSlider />
           <EvocaCalculator />
-          <Online /> {/* Ավելացվել է Օնլայն և մոբայլ բանկինգ բլոկը գլխավոր էջում */}
+          <Online /> 
+          <Gortsyntrner /> {/* <--- Ավելացվել է Գործընկերների և Նորությունների բլոկը գլխավոր էջում */}
         </>
       )}
 
@@ -115,6 +117,13 @@ function App() {
             <>
               {renderSubTabsNav()}
               <Xekavarutyun />
+            </>
+          )}
+
+          {activeSubTab === 'Գործընկերներ' && (
+            <>
+              {renderSubTabsNav()}
+              <Gortsyntrner /> {/* <--- Ավելացվել է նաև Մեր մասին -> Գործընկերներ ենթաթաբում */}
             </>
           )}
         </>
