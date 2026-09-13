@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 function Mermasin() {
   const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
-  const [activeYear, setActiveYear] = useState('2025');
+  const [activeYear, setActiveYear] = useState('2026');
   const scrollRef = useRef(null);
 
   const subTabs = [
@@ -17,12 +17,16 @@ function Mermasin() {
   ];
 
   const yearsList = [
-    '2025', '2024', '2023', '2022', '2021', 
+    '2026', '2025', '2024', '2023', '2022', '2021', 
     '2020', '2019', '2018', '2017', '2016', '2015', 
     '2012', '2008', '2006', '2005', '2000', '1993', '1990'
   ];
 
   const historyData = {
+    '2026': {
+      text: 'Բանկը բացեց նոր «Աջափնյակ» մասնաճյուղը, կնքեց նոր միջազգային համագործակցության պայմանագրեր, մասնակցեց միջազգային կոնֆերանսների, արժանացավ հեղինակավոր մրցանակների և կյանքի կոչեց Երևանը գունավորող street art-երը:',
+      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+    },
     '2025': {
       text: 'Բանկը փոխեց իր կազմակերպաիրավական ձևը՝ ՓԲԸ-ից ԲԲԸ-ի: Evoca-ն և EBRD-ն ստորագրեցին համագործակցության համաձայնագիր։ Ներկայացվեց Evoca Travel Card-ը։ Մեկնարկեցին Evoca Partners Club-ն և Evoca Benefits նախագիծը։',
       image: 'https://www.evoca.am/images-cache/histories/1/17574211752061/450x330.png'
