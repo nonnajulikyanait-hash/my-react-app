@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
-import Karucvacq from './karucvacq.jsx'; // Ներմուծում ենք կառուցվածքի ֆայլը
+import Karucvacq from './karucvacq.jsx';
+import Bajneterer from './bajneterer.jsx'; // Ներմուծում ենք Բաժնետերերի ֆայլը
 
 function Mermasin() {
   const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
@@ -161,10 +162,11 @@ function Mermasin() {
       {/* Պայմանական ռենդեր՝ կախված ընտրված ենթաթաբից */}
       {activeSubTab === 'Կառուցվածք' ? (
         <Karucvacq setActiveSubTab={setActiveSubTab} />
+      ) : activeSubTab === 'Բաժնետերեր' ? (
+        <Bajneterer />
       ) : (
-        // Այստեղ կարող եք թողնել կամ տեղադրել «Ընդհանուր» բաժնի բովանդակությունը
+        // «Ընդհանուր» բաժնի բովանդակությունը
         <div className="max-w-6xl mx-auto px-6 py-10 space-y-20">
-          {/* Ընդհանուր տեղեկատվություն */}
           <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-4">
               <h2 className="text-3xl font-bold text-neutral-900">Ընդհանուր տեղեկատվություն</h2>
@@ -181,7 +183,6 @@ function Mermasin() {
             </div>
           </section>
 
-          {/* Բանկի պատմությունը */}
           <section className="space-y-8">
             <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
             
