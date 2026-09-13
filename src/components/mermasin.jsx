@@ -16,7 +16,6 @@ function MerMasin() {
     'Էվոկա ֆինանսական խումբ',
   ];
 
-  // Բանկի պատմության տարեթվերը
   const yearsList = [
     '2026', '2025', '2024', '2023', '2022', '2021', 
     '2020', '2019', '2018', '2017', '2016', '2015', 
@@ -116,7 +115,55 @@ function MerMasin() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
-      {/* Ենթաթաբերի Նավիգացիա (#6400dc գույնով) */}
+      
+      {/* 1. Վերին Գլխավոր Մենյու (Անհատ, Բիզնես, և այլն) */}
+      <div className="bg-white border-b border-gray-100 py-3 px-6 text-sm">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <div className="flex space-x-6 text-gray-600 font-medium">
+            <a href="#" className="hover:text-[#6400dc]">Անհատ</a>
+            <a href="#" className="hover:text-[#6400dc]">Բիզնես</a>
+            <a href="#" className="hover:text-[#6400dc]">Ակնթարթային վճարումներ</a>
+            <span className="text-[#6400dc] font-bold border-b-2 border-[#6400dc] pb-1">Մեր մասին</span>
+            <a href="#" className="hover:text-[#6400dc]">Նորություններ</a>
+            <a href="#" className="hover:text-[#6400dc]">Բլոգ</a>
+            <a href="#" className="hover:text-[#6400dc]">Կարիերա</a>
+          </div>
+          <div className="flex items-center space-x-6 text-gray-600">
+            <a href="#" className="hover:text-[#6400dc]">Առցանց հայտեր</a>
+            <a href="#" className="hover:text-[#6400dc]">Հետադարձ կապ</a>
+          </div>
+        </div>
+      </div>
+
+      {/* 2. Երկրորդ Մենյու (Լոգո + Վարկեր, Քարտեր և այլն) */}
+      <div className="bg-white py-4 px-6 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto flex justify-between items-center overflow-x-auto scrollbar-none">
+          <div className="flex items-center space-x-10">
+            <img 
+              src="https://www.evoca.am/file_manager/icons/logo.png" 
+              alt="Evocabank Logo" 
+              className="h-7 object-contain"
+            />
+            <div className="hidden lg:flex space-x-6 text-sm font-semibold text-neutral-800 whitespace-nowrap">
+              <a href="#" className="hover:text-[#6400dc]">Վարկեր</a>
+              <a href="#" className="hover:text-[#6400dc]">Քարտեր</a>
+              <a href="#" className="hover:text-[#6400dc]">Ավանդներ</a>
+              <a href="#" className="hover:text-[#6400dc]">Հաշիվներ</a>
+              <a href="#" className="hover:text-[#6400dc]">Փոխանցումներ</a>
+              <a href="#" className="hover:text-[#6400dc]">Արժեթղթեր</a>
+              <a href="#" className="hover:text-[#6400dc]">EvocaSALARY</a>
+              <a href="#" className="hover:text-[#6400dc]">EvocaTOUCH</a>
+            </div>
+          </div>
+          <div>
+            <button className="bg-[#6400dc] text-white px-5 py-2.5 rounded-xl font-bold text-sm shadow-md hover:bg-purple-800 transition-colors">
+              EvocaONLINE
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* 3. Ենթաթաբերի Նավիգացիա (#6400dc գույնով) */}
       <div className="bg-[#6400dc] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
           {subTabs.map((tab, index) => (
@@ -145,6 +192,9 @@ function MerMasin() {
             </p>
             <p className="text-gray-600 leading-relaxed">
               Մենք հատուկ ուշադրություն ենք դարձնում մոբայլ (mobile-first) ծառայությունների զարգացմանը:
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Մենք աշխատում ենք mobile-first ֆորմատով՝ յուրաքանչյուր նոր ծառայություն նախագծելիս նախառաջ հաշվի ենք առնելու դրա՝ հավելվածով օգտագործման հարմարավետությունը:
             </p>
             <p className="text-gray-600 leading-relaxed">
               Աշխարհը թվային է դառնում, և մենք պատրաստ ենք դրան:
