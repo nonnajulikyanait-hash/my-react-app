@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Online from './online'; // <--- Ներմուծեք Online բաղադրիչը (եթե ֆայլը այլ թղթապանակում է, փոխեք ուղին համապատասխանաբար)
 
 function EvocaOnline() {
   const [activeAccordion, setActiveAccordion] = useState('security');
@@ -190,6 +191,12 @@ function EvocaOnline() {
         </div>
 
       </div>
+
+      {/* Online բաղադրիչը ֆուտերից անմիջապես առաջ */}
+      <div className="mt-16">
+        <Online />
+      </div>
+
     </div>
   );
 }
