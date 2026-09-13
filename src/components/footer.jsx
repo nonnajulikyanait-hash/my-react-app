@@ -83,11 +83,11 @@ function Footer() {
           <div className="space-y-4">
             {/* Սոցցանցերի պատկերակներ */}
             <div className="flex space-x-3 text-gray-600 text-lg">
-              <a href="#" aria-label="Facebook" className="hover:text-[#6400dc]"><i className="fab fa-facebook-f">f</i></a>
-              <a href="#" aria-label="Instagram" className="hover:text-[#6400dc]"><i className="fab fa-instagram">ig</i></a>
-              <a href="#" aria-label="Pinterest" className="hover:text-[#6400dc]"><i className="fab fa-pinterest-p">p</i></a>
-              <a href="#" aria-label="YouTube" className="hover:text-[#6400dc]"><i className="fab fa-youtube">yt</i></a>
-              <a href="#" aria-label="LinkedIn" className="hover:text-[#6400dc]"><i className="fab fa-linkedin-in">in</i></a>
+              <a href="#" aria-label="Facebook" className="hover:text-[#6400dc]">f</a>
+              <a href="#" aria-label="Instagram" className="hover:text-[#6400dc]">ig</a>
+              <a href="#" aria-label="Pinterest" className="hover:text-[#6400dc]">p</a>
+              <a href="#" aria-label="YouTube" className="hover:text-[#6400dc]">yt</a>
+              <a href="#" aria-label="LinkedIn" className="hover:text-[#6400dc]">in</a>
             </div>
 
             {/* App Store / Google Play */}
@@ -120,14 +120,14 @@ function Footer() {
           </p>
         </div>
 
-        {/* Ամենաներքևի գործընկերների պատկերները (Partners) */}
-        <div className="border-t border-gray-200 pt-6 flex flex-wrap items-center justify-between gap-6 opacity-70 grayscale hover:grayscale-0 transition-all">
+        {/* Ամենաներքևի գործընկերների պատկերները (հավասարաչափ տարածված) */}
+        <div className="border-t border-gray-200 pt-6 mt-6 flex items-center justify-between flex-wrap gap-4 opacity-80">
           {partners.map((partner) => (
-            <div key={partner.id} className="h-8 flex items-center justify-center">
+            <div key={partner.id} className="h-10 flex items-center justify-center flex-1 min-w-[80px] max-w-[130px]">
               <img 
                 src={partner.url} 
                 alt={`Partner ${partner.id}`} 
-                className="max-h-full max-w-[120px] object-contain"
+                className="max-h-8 w-auto object-contain grayscale hover:grayscale-0 transition-all"
                 onError={(e) => { e.target.style.display = 'none'; }}
               />
             </div>
