@@ -26,11 +26,46 @@ function Header({ setActiveTab, activeTab }) {
           >
             Բիզնես
           </button>
-          <span className="cursor-pointer hover:text-black transition-colors">Ակնթարթային վճարումներ</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Մեր մասին</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Նորություններ</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Բլոգ</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Կարիերա</span>
+          <button 
+            onClick={() => setActiveTab('akntartayinVcharumner')}
+            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
+              activeTab === 'akntartayinVcharumner' ? 'text-purple-700 font-bold' : 'hover:text-black'
+            }`}
+          >
+            Ակնթարթային վճարումներ
+          </button>
+          <button 
+            onClick={() => setActiveTab('merMasin')}
+            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
+              activeTab === 'merMasin' ? 'text-purple-700 font-bold' : 'hover:text-black'
+            }`}
+          >
+            Մեր մասին
+          </button>
+          <button 
+            onClick={() => setActiveTab('norutyunner')}
+            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
+              activeTab === 'norutyunner' ? 'text-purple-700 font-bold' : 'hover:text-black'
+            }`}
+          >
+            Նորություններ
+          </button>
+          <button 
+            onClick={() => setActiveTab('blog')}
+            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
+              activeTab === 'blog' ? 'text-purple-700 font-bold' : 'hover:text-black'
+            }`}
+          >
+            Բլոգ
+          </button>
+          <button 
+            onClick={() => setActiveTab('kariera')}
+            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
+              activeTab === 'kariera' ? 'text-purple-700 font-bold' : 'hover:text-black'
+            }`}
+          >
+            Կարիերա
+          </button>
         </div>
         <div className="flex items-center space-x-5">
           <span className="cursor-pointer hover:text-black">Առցանց հայտեր ▾</span>
@@ -54,14 +89,54 @@ function Header({ setActiveTab, activeTab }) {
         </div>
         
         <nav className="hidden xl:flex space-x-7 text-lg font-medium text-neutral-800">
-          <a href="#loans" className="hover:text-purple-700 transition-colors">Վարկեր</a>
-          <a href="#cards" className="hover:text-purple-700 transition-colors">Քարտեր</a>
-          <a href="#deposits" className="hover:text-purple-700 transition-colors">Ավանդներ</a>
-          <a href="#accounts" className="hover:text-purple-700 transition-colors">Հաշիվներ</a>
-          <a href="#transfers" className="hover:text-purple-700 transition-colors">Փոխանցումներ</a>
-          <a href="#securities" className="hover:text-purple-700 transition-colors">Արժեթղթեր</a>
-          <a href="#salary" className="hover:text-purple-700 transition-colors">EvocaSALARY</a>
-          <a href="#touch" className="hover:text-purple-700 transition-colors">EvocaTOUCH</a>
+          <button 
+            onClick={() => setActiveTab('varker')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'varker' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            Վարկեր
+          </button>
+          <button 
+            onClick={() => setActiveTab('karter')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'karter' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            Քարտեր
+          </button>
+          <button 
+            onClick={() => setActiveTab('avandner')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'avandner' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            Ավանդներ
+          </button>
+          <button 
+            onClick={() => setActiveTab('hashivner')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'hashivner' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            Հաշիվներ
+          </button>
+          <button 
+            onClick={() => setActiveTab('poxancumner')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'poxancumner' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            Փոխանցումներ
+          </button>
+          <button 
+            onClick={() => setActiveTab('arjetxter')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'arjetxter' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            Արժեթղթեր
+          </button>
+          <button 
+            onClick={() => setActiveTab('evocasalary')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'evocasalary' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            EvocaSALARY
+          </button>
+          <button 
+            onClick={() => setActiveTab('evocatouch')} 
+            className={`bg-transparent border-0 cursor-pointer transition-colors ${activeTab === 'evocatouch' ? 'text-purple-700 font-bold' : 'hover:text-purple-700'}`}
+          >
+            EvocaTOUCH
+          </button>
         </nav>
 
         <div className="flex items-center space-x-4">
