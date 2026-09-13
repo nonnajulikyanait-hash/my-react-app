@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import Karucvacq from './karucvacq.jsx'; // Ներմուծում ենք կառուցվածքի ֆայլը
 
 function Mermasin() {
   const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
@@ -158,87 +157,250 @@ function Mermasin() {
         </div>
       </div>
 
-      {/* Պայմանական ռենդեր՝ կախված ընտրված ենթաթաբից */}
-      {activeSubTab === 'Կառուցվածք' ? (
-        <Karucvacq setActiveSubTab={setActiveSubTab} />
-      ) : (
-        // Այստեղ կարող եք թողնել կամ տեղադրել «Ընդհանուր» բաժնի բովանդակությունը
-        <div className="max-w-6xl mx-auto px-6 py-10 space-y-20">
-          {/* Ընդհանուր տեղեկատվություն */}
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-neutral-900">Ընդհանուր տեղեկատվություն</h2>
-              <p className="text-gray-600 leading-relaxed">
-                <strong>Evocabank</strong>-ը արագ, պարզ և նորարար ծառայություններ մատուցող բանկ է, որն առանձնանում է տեղեկատվական նորագույն տեխնոլոգիաների ակտիվ կիրառմամբ:
-              </p>
-            </div>
+      {/* Բրեդքրամփս (Հղումների ուղին) */}
+      <div className="max-w-6xl mx-auto px-6 pt-6 text-xs text-gray-500 flex items-center space-x-2">
+        <span className="cursor-pointer hover:underline">🏠</span>
+        <span>›</span>
+        <span className="cursor-pointer hover:underline">Մեր մասին</span>
+        <span>›</span>
+        <span className="cursor-pointer hover:underline">Evoca-ի մասին</span>
+        <span>›</span>
+        <span className="text-gray-800 font-medium">Ընդհանուր</span>
+      </div>
+
+      {/* Բովանդակություն */}
+      <div className="max-w-6xl mx-auto px-6 py-10 space-y-20">
+        
+        {/* Ընդհանուր տեղեկատվություն */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold text-neutral-900">Ընդհանուր տեղեկատվություն</h2>
+            <p className="text-gray-600 leading-relaxed">
+              <strong>Evocabank</strong>-ը արագ, պարզ և նորարար ծառայություններ մատուցող բանկ է, որն առանձնանում է տեղեկատվական նորագույն տեխնոլոգիաների ակտիվ կիրառմամբ:
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Մենք հատուկ ուշադրություն ենք դարձնում մոբայլ (mobile-first) ծառայությունների զարգացմանը:
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Մենք աշխատում ենք mobile-first ֆորմատով՝ յուրաքանչյուր նոր ծառայություն նախագծելիս նախառաջ հաշվի ենք առնելու դրա՝ հավելվածով օգտագործման հարմարավետությունը:
+            </p>
+            <p className="text-gray-600 leading-relaxed">
+              Աշխարհը թվային է դառնում, և մենք պատրաստ ենք դրան:
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+            <img 
+              src="https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png" 
+              alt="Evocabank Ընդհանուր" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </section>
+
+        {/* Տեսլական և առաքելություն */}
+        <section className="space-y-16">
+          <div className="w-full bg-[#6400dc] text-white p-10 rounded-3xl shadow-md space-y-4">
+            <h3 className="text-3xl font-bold">Մեր տեսլականը</h3>
+            <p className="text-purple-100 leading-relaxed text-lg">
+              Դառնալ գլոբալ ֆինտեխ գործընկեր, որը միավորում է լավագույն փորձն ու տեխնոլոգիական նորարարությունները հարմարավետ և ճկուն ծառայություններ ապահովելու համար:
+            </p>
+          </div>
+
+          <div className="space-y-6 max-w-4xl mx-auto text-center">
+            <h3 className="text-3xl font-bold text-neutral-900">Մեր առաքելությունը</h3>
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
               <img 
-                src="https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png" 
-                alt="Evocabank Ընդհանուր" 
-                className="w-full h-auto object-cover"
+                src="https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg" 
+                alt="Մեր առաքելությունը" 
+                className="w-full h-auto object-cover max-h-[450px]"
               />
             </div>
-          </section>
+            <p className="text-gray-600 leading-relaxed text-lg max-w-3xl mx-auto pt-2">
+              Որպես human-first և խելացի ֆինտեխ ընկերություն՝ մենք հնարավորություն ենք տալիս մարդկանց երազելու ավելի համարձակ, բիզնեսներին՝ բացահայտելու նոր հորիզոններ, և հասարակությանը՝ կառուցելու ավելի լավ ապագա:
+            </p>
+          </div>
+        </section>
 
-          {/* Բանկի պատմությունը */}
-          <section className="space-y-8">
-            <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
-            
-            <div className="relative max-w-4xl mx-auto flex items-center">
-              <button 
-                onClick={scrollLeft}
-                className="absolute -left-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                ←
-              </button>
-
-              <div 
-                ref={scrollRef}
-                className="flex space-x-12 overflow-x-auto scrollbar-none px-12 py-4 items-center w-full scroll-smooth"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-              >
-                {yearsList.map((year) => (
-                  <button
-                    key={year}
-                    onClick={() => setActiveYear(year)}
-                    className="flex flex-col items-center bg-transparent border-0 cursor-pointer group flex-shrink-0 focus:outline-none"
-                  >
-                    <span className={`text-sm font-semibold mb-2 transition-colors ${activeYear === year ? 'text-[#6400dc]' : 'text-gray-400 group-hover:text-gray-600'}`}>
-                      {year}
-                    </span>
-                    <div className={`w-4 h-4 rounded-full border-2 transition-all ${
-                      activeYear === year 
-                        ? 'bg-[#6400dc] border-[#6400dc] scale-125 shadow-md' 
-                        : 'bg-white border-gray-300 group-hover:border-gray-400'
-                    }`}></div>
-                  </button>
-                ))}
-              </div>
-
-              <button 
-                onClick={scrollRight}
-                className="absolute -right-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                →
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 p-8 rounded-3xl border border-gray-100 mt-6">
-              <p className="text-gray-700 leading-relaxed text-lg">
-                {historyData[activeYear] ? historyData[activeYear].text : 'Տվյալ տարվա մասին տեղեկատվություն առայժմ չկա:'}
+        {/* Արժեքներ և առաջնայնություններ */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold text-neutral-900">Արժեքներ և առաջնայնություններ</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 space-y-4">
+              <h3 className="text-xl font-bold text-neutral-900">Human-first</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Առաջին տեղում միշտ մարդիկ են՝ մեր հաճախորդները, էվոկատերերի թիմը և հասարակությունը: Չէ՞ որ աշխարհում ամեն ինչ արվում է մարդկանց կողմից՝ մարդկանց համար:
               </p>
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
-                <img 
-                  src={historyData[activeYear] ? historyData[activeYear].image : 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'} 
-                  alt={`Բանկի պատմություն ${activeYear}`} 
-                  className="w-full h-auto object-cover transition-all duration-300"
-                />
-              </div>
             </div>
-          </section>
-        </div>
-      )}
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 space-y-4">
+              <h3 className="text-xl font-bold text-neutral-900">Նորարարություն</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Նորարարությունը մեր ԴՆԹ-ի մասն է, իսկ փոփոխությունն այսօր միակ հաստատունն է: Մենք բաց ենք և պատրաստակամ՝ զարգանալու համար:
+              </p>
+            </div>
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 space-y-4">
+              <h3 className="text-xl font-bold text-neutral-900">Դրական ազդեցություն</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Մենք ձգտում ենք ունենալ դրական ազդեցություն և նպաստել աշխարհն ավելի լավը դարձնելուն:
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Կորպորատիվ սոցիալական պատասխանատվություն */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-neutral-900">Կորպորատիվ սոցիալական պատասխանատվություն</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Բանկը շարունակաբար աջակցություն է ցուցաբերում հանրության տարբեր խմբերին և հասարակական նախաձեռնություններին հետևյալ ոլորտներում.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Նորագույն տեխնոլոգիաների զարգացում, նորարար նախաձեռնություններ, startup-եր:</p>
+            </div>
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Երիտասարդության կրթական, գիտական և մշակութային նախաձեռնություններ:</p>
+            </div>
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Հասարակական կարևոր նշանակություն ունեցող նախաձեռնություններ:</p>
+            </div>
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Հասարակության առավել խոցելի խմբեր, մասնավորապես՝ ծնողազուրկ կամ հատուկ խնամքի տակ գտնվող երեխաներ:</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Բանկի պատմությունը */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
+          
+          <div className="relative max-w-4xl mx-auto flex items-center">
+            <button 
+              onClick={scrollLeft}
+              className="absolute -left-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              ←
+            </button>
+
+            <div 
+              ref={scrollRef}
+              className="flex space-x-12 overflow-x-auto scrollbar-none px-12 py-4 items-center w-full scroll-smooth"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {yearsList.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => setActiveYear(year)}
+                  className="flex flex-col items-center bg-transparent border-0 cursor-pointer group flex-shrink-0 focus:outline-none"
+                >
+                  <span className={`text-sm font-semibold mb-2 transition-colors ${activeYear === year ? 'text-[#6400dc]' : 'text-gray-400 group-hover:text-gray-600'}`}>
+                    {year}
+                  </span>
+                  <div className={`w-4 h-4 rounded-full border-2 transition-all ${
+                    activeYear === year 
+                      ? 'bg-[#6400dc] border-[#6400dc] scale-125 shadow-md' 
+                      : 'bg-white border-gray-300 group-hover:border-gray-400'
+                  }`}></div>
+                </button>
+              ))}
+            </div>
+
+            <button 
+              onClick={scrollRight}
+              className="absolute -right-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              →
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 p-8 rounded-3xl border border-gray-100 mt-6">
+            <p className="text-gray-700 leading-relaxed text-lg">
+              {historyData[activeYear] ? historyData[activeYear].text : 'Տվյալ տարվա մասին տեղեկատվություն առայժմ չկա:'}
+            </p>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
+              <img 
+                src={historyData[activeYear] ? historyData[activeYear].image : 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'} 
+                alt={`Բանկի պատմություն ${activeYear}`} 
+                className="w-full h-auto object-cover transition-all duration-300"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Բանկի լոգոտիպը */}
+        <section className="space-y-6 text-center max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-neutral-900">Բանկի լոգոտիպը</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Բանկի լոգոն կազմված է evolution՝ էվոլյուցիա բառի արմատից և նմանեցված է evoke՝ զարթնեցնել բառին: Բանկի ձգտումն է դեպի առաջընթաց:
+          </p>
+          <div className="py-6 flex justify-center">
+            <img 
+              src="https://www.evoca.am/file_manager/icons/logo.png" 
+              alt="Evocabank Logo" 
+              className="h-16 object-contain"
+            />
+          </div>
+        </section>
+
+        {/* Բանկի բրենդբուքը */}
+        <section className="space-y-6 text-center">
+          <h2 className="text-3xl font-bold text-neutral-900">ԲԱՆԿԻ ԲՐԵՆԴԲՈՒՔԸ</h2>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-w-4xl mx-auto bg-black">
+            <a 
+              href="https://www.evoca.am/file_manager/other/Evoca%20Brandbook%20(1).pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block cursor-pointer"
+            >
+              <img 
+                src="https://www.evoca.am/file_manager/other/52.png" 
+                alt="Brandbook Cover" 
+                className="w-full h-auto object-cover hover:opacity-95 transition-opacity"
+              />
+            </a>
+          </div>
+        </section>
+
+        {/* Բանկի կորպորատիվ գույները */}
+        <section className="space-y-6 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-neutral-900">Բանկի կորպորատիվ գույները</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Բանկի կորպորատիվ գույներն են՝ սպիտակը, մոխրագույնը և մանուշակագույնը:
+          </p>
+          <div className="space-y-4 pt-2">
+            <div className="flex items-center space-x-4">
+              <span className="w-5 h-5 rounded-full border border-gray-300 bg-white flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm"><strong>Սպիտակը</strong> խորհրդանշում է նորը:</p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <span className="w-5 h-5 rounded-full bg-gray-500 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm"><strong>Մոխրագույնը</strong> խորհրդանշում է նորագույն տեխնոլոգիաների կիրառումը:</p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <span className="w-5 h-5 rounded-full bg-[#6400dc] flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm"><strong>Մանուշակագույնը</strong> երիտասարդության, ստեղծարարության և նորարարության գույնն է:</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Տեսանյութ */}
+        <section className="space-y-6 bg-gray-50 p-8 rounded-3xl border border-gray-100">
+          <h3 className="text-xl font-bold text-neutral-900 text-center">Evocabank</h3>
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+            <iframe 
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/QTuqGz3USRE" 
+              title="Evocabank Video" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
+          </div>
+        </section>
+
+      </div>
     </div>
   );
 }
