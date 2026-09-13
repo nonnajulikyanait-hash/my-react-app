@@ -1,26 +1,8 @@
 import React from 'react';
 
-function Karucvacq({ setActiveSubTab }) {
-
+function Karucvacq() {
   return (
     <div>
-      {/* Մանուշակագույն ենթաթաբերի նավիգացիա */}
-      <div className="bg-[#6400dc] text-white shadow-md">
-        <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
-          {subTabs.map((tab, index) => (
-            <button
-              key={index}
-              onClick={() => setActiveSubTab(tab)}
-              className={`pb-1 transition-colors hover:text-purple-200 cursor-pointer bg-transparent border-0 ${
-                tab === 'Կառուցվածք' ? 'border-b-2 border-white font-bold' : ''
-              }`}
-            >
-              {tab}
-            </button>
-          ))}
-        </div>
-      </div>
-
       {/* Բրեդքրամփս (Հղումների ուղին) */}
       <div className="max-w-7xl mx-auto px-6 pt-6 text-xs text-gray-500 flex items-center space-x-2">
         <span className="cursor-pointer hover:underline">🏠</span>

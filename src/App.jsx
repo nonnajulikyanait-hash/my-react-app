@@ -11,11 +11,11 @@ import Varker from './components/varker';
 import Karter from './components/karter'; 
 import AkntartayinVcharumner from './components/akntartayinvcharumner';
 import Mermasin from './components/mermasin';
-import Karucvacq from './components/karucvacq'; // Ներմուծում ենք կառուցվածքի ֆայլը
+import Karucvacq from './components/karucvacq';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
-  const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր'); // Ստեղծում ենք ենթաթաբերի state
+  const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
 
   useEffect(() => {
     const addData = async () => {
@@ -63,9 +63,35 @@ function App() {
             <Mermasin setActiveSubTab={setActiveSubTab} activeSubTab={activeSubTab} />
           )}
           {activeSubTab === 'Կառուցվածք' && (
-            <Karucvacq setActiveSubTab={setActiveSubTab} />
+            <>
+              {/* Մանուշակագույն ենթաթաբերի նավիգացիան Կառուցվածքի էջում */}
+              <div className="bg-[#6400dc] text-white shadow-md">
+                <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
+                  {[
+                    'Ընդհանուր',
+                    'Կառուցվածք',
+                    'Բաժնետերեր',
+                    'Ղեկավարություն',
+                    'Գործընկերներ',
+                    'Մրցանակներ',
+                    'CSR',
+                    'Էվոկա ֆինանսական խումբ',
+                  ].map((tab, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setActiveSubTab(tab)}
+                      className={`pb-1 transition-colors hover:text-purple-200 cursor-pointer bg-transparent border-0 ${
+                        activeSubTab === tab ? 'border-b-2 border-white font-bold' : ''
+                      }`}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+              </div>
+              <Karucvacq />
+            </>
           )}
-          {/* Այստեղ հետագայում կարող եք ավելացնել մյուս ենթաթաբերը՝ Բաժնետերեր, Ղեկավարություն և այլն */}
         </>
       )}
     </div>
