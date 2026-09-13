@@ -81,7 +81,7 @@ function EvocaOnline() {
               <li>EvocaOnline հավելվածով գործարքներ կատարելիս գործում է միջնորդավճարների կիրառման շահավետ զեղչային համակարգ:</li>
               <li>Ծանոթացեք մեր Evoca Online ավանդատեսակին, որի ներդրման պարագայում գործում են ավելի բարձր տոկոսադրույքներ (մեր կողմից առաջարկվող այլ ավանդատեսակների համեմատ):</li>
               <li>
-                Մեր և ձեր պայմանագրային փոխհարաբերությունները կարգավորվում են <strong>ՀԱՄԱԼԻՐ ԲԱՆԿԱՅԻՆ ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԻ ՄԱՏՈՒՑՄԱՆ ՊԱՅՄԱՆՆԵՐՈՎ</strong>, որը հրապարակային առաջարկ (օֆերտա) է և ձեր կողմից համարվում է ընդունված այն պահից, երբ առձեռն կամ հեռակառավարման համակարգերի միջոցով մեզ եք ներկայացնում պատշաճ լրացված և վավերացված՝ բանկային ծառայություններից օգտվելու հայտ/դիմում: Համալիր բանկային ծառայությունների մատուցման պայմաններին կարող եք ծանոթանալ այստեղ:
+                Մեր և ձեր պայմանագրային փոխհարաբերությունները կարգավորվում են <strong>ՀԱՄԱԼԻՐ ԲԱՆԿԱՅԻՆ ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԻ ՄԱՏՈՒՑՄԱՆ ՊԱՅՄԱՆՆԵՐՈՎ</strong>, որը հրապարակային առաջարկ (օֆերտա) է և ձեր կողմից համարվում է ընդունված այն պահից, երբ առձեռն կամ հեռակառավարման համակարգերի միջոցով մեզ եք ներկայացնում պատշաճ լրացված և վավերացված՝ բանկային ծառայություններից օգտվելու հայտ/դիմում:
               </li>
             </ul>
           </div>
@@ -137,9 +137,8 @@ function EvocaOnline() {
               <div className="p-6 pt-0 border-t border-gray-100 space-y-3 text-xs lg:text-sm text-gray-700">
                 <ul className="space-y-3 list-disc pl-5 pt-4">
                   <li>Հավելվածը մեր հաճախորդներին տրամադրում ենք «Միայն դիտելու» կամ «Դիտելու և գործարքներ կատարելու» հնարավորությամբ:</li>
-                  <li>Մեր և ձեր միջև բանկային ծառայությունների մատուցման որևէ պայմանագիր կնքելու դեպքում (հաշիվների բացում, վարկերի տրամադրում, ավանդների ներգրավում և այլն), հավելվածն ակտիվանում է ավտոմատ կերպով՝ «Միայն դիտելու» հնարավորությամբ: Համակարգեր մուտք գործելու տվյալները (Login, Password) առկա են ծառայությունների մատուցման պայմանագրերում: Պայմանագրերում առկա է նաև QR կոդի տեսքով հղում՝ հավելվածը App Store-ից կամ Play-Store-ից ներբեռնելու համար:</li>
+                  <li>Մեր և ձեր միջև բանկային ծառայությունների մատուցման որևէ պայմանագիր կնքելու դեպքում հավելվածն ակտիվանում է ավտոմատ կերպով՝ «Միայն դիտելու» հնարավորությամբ:</li>
                   <li>Ցանկության դեպքում կարող եք ակտիվացնել հավելվածը՝ «Դիտելու և գործարքներ կատարելու» հնարավորությամբ:</li>
-                  <li>Եթե արդեն օգտվում եք մեր ծառայություններից, ապա կարող եք դիմել մեզ և ակտիվացնել հավելվածը՝ «Միայն դիտելու» կամ «Դիտելու և գործարքներ կատարելու» հնարավորությամբ:</li>
                 </ul>
               </div>
             )}
@@ -147,22 +146,45 @@ function EvocaOnline() {
 
         </div>
 
-        {/* Փաստաթղթեր բաժին */}
+        {/* Փաստաթղթեր բաժին (իրական հղումներով) */}
         <div className="mt-12 space-y-4">
           <h2 className="text-xl font-bold text-neutral-900">Փաստաթղթեր</h2>
           
           <div className="space-y-3">
-            <a href="#" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
+            <a 
+              href="https://www.evoca.am/files/global_files/1/provision-terms-for-general-banking-services-arm.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow"
+            >
               <span className="text-[#6400dc] text-lg">📄</span>
-              <span className="text-xs lg:text-sm font-medium text-neutral-800">Համալիր բանկային ծառայությունների մատուցման պայմաններ 16.05.2025</span>
+              <span className="text-xs lg:text-sm font-medium text-neutral-800">
+                Համալիր բանկային ծառայությունների մատուցման պայմաններ 16.05.2025
+              </span>
             </a>
-            <a href="#" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
+
+            <a 
+              href="https://www.evoca.am/files/global_files/1/evocaonline-eng.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow"
+            >
               <span className="text-[#6400dc] text-lg">📄</span>
-              <span className="text-xs lg:text-sm font-medium text-neutral-800">SWIFT Transfers (20.03.2026)</span>
+              <span className="text-xs lg:text-sm font-medium text-neutral-800">
+                SWIFT Transfers (20.03.2026)
+              </span>
             </a>
-            <a href="#" className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
+
+            <a 
+              href="https://www.evoca.am/files/global_files/1/evocaonline-rus.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="flex items-center gap-3 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow"
+            >
               <span className="text-[#6400dc] text-lg">📄</span>
-              <span className="text-xs lg:text-sm font-medium text-neutral-800">SWIFT переводы в РФ (20.03.2026)</span>
+              <span className="text-xs lg:text-sm font-medium text-neutral-800">
+                SWIFT переводы в РФ (20.03.2026)
+              </span>
             </a>
           </div>
         </div>
