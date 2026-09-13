@@ -15,7 +15,7 @@ import Karucvacq from './components/karucvacq';
 import Bajneterer from './components/bajneterer';
 import Xekavarutyun from './components/xekavarutyun'; 
 import Online from './components/online';
-import Gortsyntrner from './components/Gortsyntrner'; // <--- Ավելացվել է Գործընկերների ներմուծումը
+import Gortsyntrner from './components/gortsyntrner'; 
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -123,7 +123,7 @@ function App() {
           {activeSubTab === 'Գործընկերներ' && (
             <>
               {renderSubTabsNav()}
-              <Gortsyntrner /> {/* <--- Ավելացվել է նաև Մեր մասին -> Գործընկերներ ենթաթաբում */}
+              <Gortsyntrner /> 
             </>
           )}
         </>
