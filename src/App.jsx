@@ -12,7 +12,9 @@ import Karter from './components/karter';
 import AkntartayinVcharumner from './components/akntartayinvcharumner';
 import Mermasin from './components/mermasin';
 import Karucvacq from './components/karucvacq';
-import Bajneterer from './components/bajneterer'; // Ավելացվել է Բաժնետերերի ներմուծումը (ուղղեք ֆայլի ճանապարհը, եթե այն այլ թղթապանակում է)
+import Bajneterer from './components/bajneterer';
+import Xekavarutyun from './components/xekavarutyun'; // Ավելացվել է Ղեկավարության ներմուծումը
+import Online from './online'; // Ավելացվել է Online բաղադրիչի ներմուծումը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -75,6 +77,7 @@ function App() {
           <BestEvocabankSection />
           <EvocaCardsSlider />
           <EvocaCalculator />
+          <Online /> {/* Ավելացվել է Օնլայն և մոբայլ բանկինգ բլոկը գլխավոր էջում */}
         </>
       )}
 
@@ -105,6 +108,13 @@ function App() {
             <>
               {renderSubTabsNav()}
               <Bajneterer />
+            </>
+          )}
+
+          {activeSubTab === 'Ղեկավարություն' && (
+            <>
+              {renderSubTabsNav()}
+              <Xekavarutyun />
             </>
           )}
         </>
