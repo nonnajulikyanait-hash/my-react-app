@@ -122,7 +122,7 @@ function Calculator() {
                 activeTab === 'terminal' ? 'text-[#6400dc]' : 'text-gray-400 hover:text-gray-600'
               }`}
             >
-              Ռոբոտու կանխիկ մուտք
+              Ռուբլու կանխիկ մուտք
               {activeTab === 'terminal' && <div className="absolute -bottom-4 left-0 w-full h-1 bg-[#6400dc] rounded-t-md"></div>}
             </button>
           </div>
@@ -247,4 +247,4 @@ function Calculator() {
   );
 }
 
-export default Calculator; // (կամ export default Calculator;)
+export default Calculator;
