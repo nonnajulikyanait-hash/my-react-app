@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 
 function Mermasin() {
   const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
-  const [activeYear, setActiveYear] = useState('2026');
+  const [activeYear, setActiveYear] = useState('2025');
   const scrollRef = useRef(null);
 
   const subTabs = [
@@ -17,87 +17,83 @@ function Mermasin() {
   ];
 
   const yearsList = [
-    '2026', '2025', '2024', '2023', '2022', '2021', 
+    '2025', '2024', '2023', '2022', '2021', 
     '2020', '2019', '2018', '2017', '2016', '2015', 
     '2012', '2008', '2006', '2005', '2000', '1993', '1990'
   ];
 
   const historyData = {
-    '2026': {
-      text: 'Բանկը բացեց նոր «Աբովյան» մասնաճյուղը, կնքեց նոր միջազգային համագործակցության պայմանագրեր, մասնակցեց միջազգային կոնֆերանսների, արժանացավ հեղինակավոր մրցանակների և կյանքի կոչեց Երևանը գունավորող street art-երդ:',
-      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
-    },
     '2025': {
-      text: '2025 թվականին բանկն ընդլայնեց իր թվային հարթակները, գործարկեց նոր պրոդուկտներ բիզնեսի և անհատների համար:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+      text: 'Բանկը փոխեց իր կազմակերպաիրավական ձևը՝ ՓԲԸ-ից ԲԲԸ-ի: Evoca-ն և EBRD-ն ստորագրեցին համագործակցության համաձայնագիր։ Ներկայացվեց Evoca Travel Card-ը։ Մեկնարկեցին Evoca Partners Club-ն և Evoca Benefits նախագիծը։',
+      image: 'https://www.evoca.am/images-cache/histories/1/17574211752061/450x330.png'
     },
     '2024': {
-      text: '2024-ին շեշտը դրվեց mobile-first լուծումների և հաճախորդների սպասարկման որակի բարելավման վրա:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+      text: 'Evocabank-ը ձեռք է բերել նոր միջազգային գործընկերներ, այդ թվում՝ EIB Global-ը, հովանավորել մի շարք նախագծեր, ներկայացրել իր նոր EvocaHOME օվերդրաֆտը, ինչպես նաև արժանացել միջազգային մրցանակների։',
+      image: 'https://www.evoca.am/images-cache/histories/1/17240707281875/450x330.png'
     },
     '2023': {
-      text: 'Բանկը ստացավ մի շարք հեղինակավոր միջազգային մրցանակներ լավագույն ֆինտեխ գործընկեր անվանակարգում:',
-      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+      text: 'Evocabank-ը թողարկել է նոր, գերժամանակակից EvocaTOUCH 2 և EvocaINVEST հավելվածները։ Գործընկերներին է ներկայացրել Evoca Digital քարտը, Action օնլայն վարկը, Էլեկտրոնային ստորագրության e-Sign համակարգը։',
+      image: 'https://www.evoca.am/images-cache/histories/1/17001230844576/450x330.jpg'
     },
     '2022': {
-      text: '2022 թվականին իրականացվեցին մասնաճյուղերի արդիականացումներ և ներդրվեցին անվտանգության նոր ստանդարտներ:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+      text: 'Evoca-ն համալրել է կանոնադրական կապիտալը 3 մլրդ դրամով: Թողարկել է պարտատոմսեր։ Ներկայացրել է Visa Vision քարտը։ ՀայՓոստի հետ սկսել է համագործակցություն՝ հարմարավետ և հասանելի ֆինտեխ ծառայությունների գծով։ Գործարկել է Evoca mobile POS-ը։',
+      image: 'https://www.evoca.am/images-cache/histories/1/16542512333235/450x330.png'
     },
     '2021': {
-      text: 'Հիմնվեցին նոր ռազմավարական ուղղություններ բանկի արագ զարգացման և թվային հեղափոխության համար:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+      text: 'Evoca-ի նոր, կրեատիվ լուծումներով կայքը Awwwards թիմի կողմից արժանացել է 2 մրցանակի: Բանկը ներկայացրել է իր Evoca Gift Card-ը: Բանկը 2 փուլով թողարկել է պարտատոմսեր, այդ թվում՝ online տարբերակով:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16448252170155/450x330.png'
     },
     '2020': {
-      text: '2020 թվականին, չնայած մարտահրավերներին, բանկը լիովին անցավ հեռակա և թվային ծառայությունների մատուցմանը:',
-      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+      text: 'Evocabank-ը յուրահատուկ կերպով նշեց իր 3 և Բանկի հիմնադրման 30-ամյակը՝ առաջին անգամ Հայաստանում կազմակերպելով լուսային դրոն շոու: 300 դրոն միաժամանակ լուսավորեցին Երևանի երկինքը՝ շնորհավորելով Evocabank-ի տարեդարձը:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16328279547034/450x330.png'
     },
     '2019': {
-      text: 'Գործարկվեցին նորարարական պրոդուկտներ և ընդլայնվեց սպասարկման ցանցը Հայաստանի ողջ տարածքով:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+      text: 'Evocabank-ի Վարչության նախագահի տեղակալ Կարեն Եղիազարյանը նշանակվել է Բանկի Վարչության նախագահ: Ներկայացվել է Visa Infinite քարտը: Բանկը դարձել է Եվրատեսիլ 2019-ի հեռարձակման գլխավոր հովանավոր։',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099255150877/450x330.jpg'
     },
     '2018': {
-      text: 'Բանկը պաշտոնապես վերանվանվեց և ստացավ նոր բրենդային ուղղվածություն՝ դառնալով Evocabank:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+      text: 'Evocabank-ը երկրորդ տարին անընդմեջ Global Finance հեղինակավոր ամսագրի կողմից ճանաչվել է Լավագույն սպառողական թվային բանկը Հայաստանում: Ներկայացվել են ArCa-MIR և Shopping Card քարտերը:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099254755799/450x330.jpg'
     },
     '2017': {
-      text: 'Ներդրվեցին նոր տեխնոլոգիական լուծումներ հաճախորդների սպասարկման արագությունը մեծացնելու համար:',
-      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+      text: 'Բանկը վերանվանվել է Evocabank-ի՝ փոխելով իր ռազմավարությունը և բիզնես մոդելը՝ անցնելով mobile-first ֆորմատի: Անդամակցել է VISA վճարային համակարգին: Ներկայացրել է SingleTOUCH օնլայն վարկատեսակը:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099254320292/450x330.jpg'
     },
     '2016': {
-      text: 'Կարևոր քայլեր կատարվեցին թվային բանկինգի զարգացման և հավելվածների արդիականացման ուղղությամբ:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+      text: 'Բանկի նորմատիվային ընդհանուր կապիտալը գերազանցել է ԿԲ սահմանած 30 մլրդ. ՀՀ դրամ նվազագույն պահանջը: Բանկը փոխեց իր կազմակերպաիրավական ձևը՝ վերակազմավորվելով ՍՊԸ-ից ՓԲԸ-ի:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099253889356/450x330.jpg'
     },
     '2015': {
-      text: 'Ընդլայնվեց կորպորատիվ հաճախորդների սպասարկման շրջանակը և առաջարկվեցին նոր ֆինանսական գործիքներ:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+      text: 'Ներդրվել է Prometey Mobile բջջային հավելվածը և իրականացվել է հավելվածի՝ Իվետա Մուկուչյանի մասնակցությամբ գովազդային արշավը, որի շրջանակներում թողարկվել է հատուկ բրենդավորված քարտ: Գործարկվել է Prometey Token անվտանգության բջջային հավելվածն App Store-ում և Play Store-ում:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099253491717/450x330.jpg'
     },
     '2012': {
-      text: 'Բանկը նշեց հիմնադրման կարևոր հոբելյանական տարեդարձը՝ արձանագրելով աճող ցուցանիշներ:',
-      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+      text: 'Միացել է "UNIStream" դրամական փոխանցումների համակարգին: "Global Finance" ամսագիրը, երկրորդ տարին անդընդմեջ, Բանկին ճանաչել է որպես աշխարհի լավագույն ենթապահառու բանկերից մեկը և 2012թ. «Լավագույն ենթապահառու բանկը» Հայաստանում:',
+      image: 'https://www.evoca.am/images-cache/histories/1/1609925307811/450x330.jpg'
     },
     '2008': {
-      text: 'Հաջողությամբ հաղթահարվեցին համաշխարհային ֆինանսական մարտահրավերները՝ պահպանելով կայունությունը:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+      text: 'Առաջին անգամ Հայաստանում` Բանկը թողարկել և Շվեյցարական առաջատար բանկերից մեկին է վաճառել սեփական ոչ փաստաթղթային առանց ապահովվածության պարտատոմսեր:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099252548716/450x330.jpg'
     },
     '2006': {
-      text: 'Ընդլայնվեց մասնաճյուղային ցանցը մայրաքաղաքում և մարզերում:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+      text: 'Ստացել է «MasterCard Europe» վճարային համակարգի աֆիլիատ անդամի կարգավիճակ: Սկսել է թողարկել «Maestro», «MasterCard Standard», «MasterCard Gold», «MasterCard Business» տիպի պլաստիկ քարտեր:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099251674213/450x330.jpg'
     },
     '2005': {
-      text: 'Ներդրվեցին առաջին ժամանակակից քարտային համակարգերն ու պրոցեսինգային լուծումները:',
-      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+      text: 'Դարձել է «Արմենիան Քարդ» ՓԲԸ բաժնետեր և «ԱրՔա» վճարային համակարգի լիիրավ անդամ:',
+      image: 'https://www.evoca.am/images-cache/histories/1/1609925107995/450x330.jpg'
     },
     '2000': {
-      text: 'Նոր հազարամյակի սկզբին բանկը ձևավորեց զարգացման երկարաժամկետ ռազմավարություն:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
+      text: 'Անդամակցել է S.W.I.F.T. միջազգային փոխանցումների համակարգին:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099250658162/450x330.jpg'
     },
     '1993': {
-      text: 'Բանկը հիմնադրվել է և սկսել իր գործունեությունը Հայաստանի ֆինանսական շուկայում:',
-      image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
+      text: 'Լիցենզավորվել է ՀՀ Կենտրոնական բանկի կողմից` թիվ 27 ընդհանուր արտոնագրով:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099250213165/450x330.jpg'
     },
     '1990': {
-      text: 'Նախնական հիմքեր դրվեցին ապագա ֆինանսական համակարգի ձևավորման համար:',
-      image: 'https://www.evoca.am/images-cache/histories/1/17823049564741/450x330.png'
+      text: 'Բանկը հիմնադրվել է 1990թ. և մինչև 2017թ. գործել է Պրոմեթևս և Պրոմեթեյ Բանկ անուններով:',
+      image: 'https://www.evoca.am/images-cache/histories/1/16099221719641/450x330.jpg'
     }
   };
 
@@ -116,7 +112,7 @@ function Mermasin() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
       
-      {/* 1. Երկրորդ հեդեր՝ լոգո և EvocaONLINE կոճակ (նկարի միջին հատվածը) */}
+      {/* 1. Երկրորդ հեդեր՝ լոգո և EvocaONLINE կոճակ */}
       <div className="bg-white py-3.5 px-6 border-b border-gray-100">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-10">
@@ -140,7 +136,7 @@ function Mermasin() {
         </div>
       </div>
 
-      {/* 2. Մանուշակագույն ենթաթաբերի նավիգացիա (նկարի երրորդ մանուշակագույն տողը) */}
+      {/* 2. Մանուշակագույն ենթաթաբերի նավիգացիա */}
       <div className="bg-[#6400dc] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
           {subTabs.map((tab, index) => (
