@@ -207,29 +207,44 @@ function Bajneterer() {
           <h3 className="text-2xl font-bold text-neutral-900">Փաստաթղթեր</h3>
 
           <div className="space-y-3">
-            <div className="bg-white p-4 rounded-2xl border border-gray-200 flex items-center justify-between shadow-sm hover:border-purple-300 transition-colors cursor-pointer">
+            <a 
+              href="https://www.evoca.am/files/menu/1/17551599638181.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white p-4 rounded-2xl border border-gray-200 flex items-center justify-between shadow-sm hover:border-purple-300 transition-colors cursor-pointer"
+            >
               <div className="flex items-center space-x-4">
                 <span className="text-2xl">📄</span>
                 <span className="font-semibold text-neutral-800 text-base">Կանոնադրություն</span>
               </div>
               <span className="text-gray-400">↓</span>
-            </div>
+            </a>
 
-            <div className="bg-white p-4 rounded-2xl border border-gray-200 flex items-center justify-between shadow-sm hover:border-purple-300 transition-colors cursor-pointer">
+            <a 
+              href="https://www.evoca.am/files/menu/1/17555223060884.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white p-4 rounded-2xl border border-gray-200 flex items-center justify-between shadow-sm hover:border-purple-300 transition-colors cursor-pointer"
+            >
               <div className="flex items-center space-x-4">
                 <span className="text-2xl">📄</span>
                 <span className="font-semibold text-neutral-800 text-base">Բանկային գործունեության լիցենզիա</span>
               </div>
               <span className="text-gray-400">↓</span>
-            </div>
+            </a>
 
-            <div className="bg-white p-4 rounded-2xl border border-gray-200 flex items-center justify-between shadow-sm hover:border-purple-300 transition-colors cursor-pointer">
+            <a 
+              href="https://www.evoca.am/files/menu/1/17555223060892.pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="bg-white p-4 rounded-2xl border border-gray-200 flex items-center justify-between shadow-sm hover:border-purple-300 transition-colors cursor-pointer"
+            >
               <div className="flex items-center space-x-4">
                 <span className="text-2xl">📄</span>
                 <span className="font-semibold text-neutral-800 text-base">Բանկի գրանցման վկայականը</span>
               </div>
               <span className="text-gray-400">↓</span>
-            </div>
+            </a>
           </div>
         </div>
 
