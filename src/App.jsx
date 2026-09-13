@@ -10,6 +10,7 @@ import EvocaCalculator from './components/evocacalculator';
 import Varker from './components/varker'; 
 import Karter from './components/karter'; 
 import AkntartayinVcharumner from './components/akntartayinvcharumner';
+import MerMasin from './components/mermasin';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -52,6 +53,9 @@ function App() {
 
       {/* Երբ սեղմում ես Ակնթարթային վճարումներ */}
       {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
+
+      {/* Երբ սեղմում ես Մեր մասին */}
+      {activeTab === 'mermasin' && <MerMasin />}
     </div>
   );
 }
