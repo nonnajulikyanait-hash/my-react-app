@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Footer() {
+function Footer({ setActiveTab }) {
   const partners = [
     { id: 1, url: 'https://www.evoca.am/img/temp/partners/partner-1.png' },
     { id: 2, url: 'https://www.evoca.am/img/temp/partners/partner-2.png' },
@@ -10,6 +10,13 @@ function Footer() {
     { id: 6, url: 'https://www.evoca.am/img/temp/partners/partner-5-new.png' },
     { id: 7, url: 'https://www.evoca.am/img/temp/partners/partner-7.png' },
   ];
+
+  const handleNavClick = (tabName) => {
+    if (setActiveTab) {
+      setActiveTab(tabName);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
 
   return (
     <footer className="w-full bg-[#fcfcfc] border-t border-gray-200 pt-12 pb-6 font-sans text-neutral-800">
@@ -37,16 +44,16 @@ function Footer() {
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Բանկի մասին</h3>
             <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="/about" className="hover:text-[#6400dc]">Մեր մասին</a></li>
-              <li><a href="/management" className="hover:text-[#6400dc]">Ղեկավարություն</a></li>
-              <li><a href="/shareholders" className="hover:text-[#6400dc]">Բաժնետերեր</a></li>
-              <li><a href="/reports" className="hover:text-[#6400dc]">Հաշվետվություններ</a></li>
-              <li><a href="/legal-acts" className="hover:text-[#6400dc]">Իրավական ակտեր</a></li>
-              <li><a href="/tariffs" className="hover:text-[#6400dc]">Սակագներ</a></li>
-              <li><a href="/properties" className="hover:text-[#6400dc]">Օտարվող գույք</a></li>
-              <li><a href="/developers" className="hover:text-[#6400dc]">Կառուցապատողներ</a></li>
-              <li><a href="/car-salons" className="hover:text-[#6400dc]">Գործընկեր ավտոսրահներ</a></li>
-              <li><a href="/tariffs-archive" className="hover:text-[#6400dc]">Սակագների արխիվ</a></li>
+              <li><button onClick={() => handleNavClick('mermasin')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">Մեր մասին</button></li>
+              <li><button onClick={() => handleNavClick('mermasin')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">Ղեկավարություն</button></li>
+              <li><button onClick={() => handleNavClick('mermasin')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">Բաժնետերեր</button></li>
+              <li><a href="#reports" className="hover:text-[#6400dc]">Հաշվետվություններ</a></li>
+              <li><a href="#legal-acts" className="hover:text-[#6400dc]">Իրավական ակտեր</a></li>
+              <li><a href="#tariffs" className="hover:text-[#6400dc]">Սակագներ</a></li>
+              <li><a href="#properties" className="hover:text-[#6400dc]">Օտարվող գույք</a></li>
+              <li><a href="#developers" className="hover:text-[#6400dc]">Կառուցապատողներ</a></li>
+              <li><a href="#car-salons" className="hover:text-[#6400dc]">Գործընկեր ավտոսրահներ</a></li>
+              <li><a href="#tariffs-archive" className="hover:text-[#6400dc]">Սակագների արխիվ</a></li>
             </ul>
           </div>
 
@@ -54,28 +61,60 @@ function Footer() {
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Օգտակար հղումներ</h3>
             <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="/customer-rights" className="hover:text-[#6400dc]">Հաճախորդի իրավունքները (Բողոքի ներկայացման կանոններ)</a></li>
-              <li><a href="/residency-criteria" className="hover:text-[#6400dc]">Հաճախորդի ռեզիդենտության չափանիշներ</a></li>
-              <li><a href="/regulation" className="hover:text-[#6400dc]">Կարգավորում</a></li>
-              <li><a href="/privacy-policy" className="hover:text-[#6400dc]">Գաղտնիության քաղաքականություն</a></li>
-              <li><a href="/financial-ombudsman" className="hover:text-[#6400dc]">Ֆին. հաշտարար</a></li>
-              <li><a href="/fraud-prevention" className="hover:text-[#6400dc]">Ֆինանսական հանցագործությունների կանխարգելում</a></li>
-              <li><a href="/cardholders-links" className="hover:text-[#6400dc]">Հղումներ Բանկի քարտապանների համար</a></li>
+              <li><a href="#customer-rights" className="hover:text-[#6400dc]">Հաճախորդի իրավունքները (Բողոքի ներկայացման կանոններ)</a></li>
+              <li><a href="#residency-criteria" className="hover:text-[#6400dc]">Հաճախորդի ռեզիդենտության չափանիշներ</a></li>
+              <li><a href="#regulation" className="hover:text-[#6400dc]">Կարգավորում</a></li>
+              <li><a href="#privacy-policy" className="hover:text-[#6400dc]">Գաղտնիության քաղաքականություն</a></li>
+              <li><a href="#financial-ombudsman" className="hover:text-[#6400dc]">Ֆին. հաշտարար</a></li>
+              <li><a href="#fraud-prevention" className="hover:text-[#6400dc]">Ֆինանսական հանցագործությունների կանխարգելում</a></li>
+              <li><a href="#cardholders-links" className="hover:text-[#6400dc]">Հղումներ Բանկի քարտապանների համար</a></li>
             </ul>
           </div>
 
           {/* Սյունակ 4: Այլ հղումներ */}
           <div className="space-y-3">
             <h3 className="font-bold text-sm text-neutral-900">Այլ հղումներ</h3>
-            <ul className="space-y-2 text-xs text-gray-600">
-              <li><a href="/evocaonline.jsx" className="hover:text-[#6400dc]">EvocaONLINE</a></li>
-              <li><a href="/pahatuper.jsx" className="hover:text-[#6400dc]">Պահատուփեր</a></li>
-              <li><a href="/harcer.jsx" className="hover:text-[#6400dc]">Հաճախ տրվող հարցեր</a></li>
-              <li><a href="/haytararutyun.jsx" className="hover:text-[#6400dc]">Հայտարարություններ</a></li>
-              <li><a href="/dibrary.jsx" className="hover:text-[#6400dc]">Dibrary</a></li>
-              <li><a href="/bukletner.jsx" className="hover:text-[#6400dc]">Բուկլետներ</a></li>
-              <li><a href="/kap.jsx" className="hover:text-[#6400dc]">Հետադարձ կապ</a></li>
-              <li><a href="/qartez.jsx" className="hover:text-[#6400dc]">Կայքի քարտեզ</a></li>
+            <ul className="space-y-2 text-xs text-gray-600 flex flex-col items-start">
+              <li>
+                <button onClick={() => handleNavClick('evocaonline')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  EvocaONLINE
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavClick('pahatuper')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  Պահատուփեր
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavClick('harcer')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  Հաճախ տրվող հարցեր
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavClick('haytararutyun')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  Հայտարարություններ
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavClick('dibrary')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  Dibrary
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavClick('bukletner')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  Բուկլետներ
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavClick('kap')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  Հետադարձ կապ
+                </button>
+              </li>
+              <li>
+                <button onClick={() => handleNavClick('qartez')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                  Կայքի քարտեզ
+                </button>
+              </li>
             </ul>
           </div>
 
