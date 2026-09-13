@@ -12,6 +12,7 @@ import Karter from './components/karter';
 import AkntartayinVcharumner from './components/akntartayinvcharumner';
 import Mermasin from './components/mermasin';
 import Karucvacq from './components/karucvacq';
+import Bajneterer from './components/bajneterer'; // Ավելացվել է Բաժնետերերի ներմուծումը (ուղղեք ֆայլի ճանապարհը, եթե այն այլ թղթապանակում է)
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -30,6 +31,36 @@ function App() {
     };
     addData();
   }, []);
+
+  // Մանուշակագույն ենթաթաբերի նավիգացիան կրկնվող կոդից խուսափելու համար
+  const subTabsList = [
+    'Ընդհանուր',
+    'Կառուցվածք',
+    'Բաժնետերեր',
+    'Ղեկավարություն',
+    'Գործընկերներ',
+    'Մրցանակներ',
+    'CSR',
+    'Էվոկա ֆինանսական խումբ',
+  ];
+
+  const renderSubTabsNav = () => (
+    <div className="bg-[#6400dc] text-white shadow-md">
+      <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
+        {subTabsList.map((tab, index) => (
+          <button
+            key={index}
+            onClick={() => setActiveSubTab(tab)}
+            className={`pb-1 transition-colors hover:text-purple-200 cursor-pointer bg-transparent border-0 ${
+              activeSubTab === tab ? 'border-b-2 border-white font-bold' : ''
+            }`}
+          >
+            {tab}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -62,34 +93,18 @@ function App() {
           {activeSubTab === 'Ընդհանուր' && (
             <Mermasin setActiveSubTab={setActiveSubTab} activeSubTab={activeSubTab} />
           )}
+          
           {activeSubTab === 'Կառուցվածք' && (
             <>
-              {/* Մանուշակագույն ենթաթաբերի նավիգացիան Կառուցվածքի էջում */}
-              <div className="bg-[#6400dc] text-white shadow-md">
-                <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
-                  {[
-                    'Ընդհանուր',
-                    'Կառուցվածք',
-                    'Բաժնետերեր',
-                    'Ղեկավարություն',
-                    'Գործընկերներ',
-                    'Մրցանակներ',
-                    'CSR',
-                    'Էվոկա ֆինանսական խումբ',
-                  ].map((tab, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveSubTab(tab)}
-                      className={`pb-1 transition-colors hover:text-purple-200 cursor-pointer bg-transparent border-0 ${
-                        activeSubTab === tab ? 'border-b-2 border-white font-bold' : ''
-                      }`}
-                    >
-                      {tab}
-                    </button>
-                  ))}
-                </div>
-              </div>
+              {renderSubTabsNav()}
               <Karucvacq />
+            </>
+          )}
+
+          {activeSubTab === 'Բաժնետերեր' && (
+            <>
+              {renderSubTabsNav()}
+              <Bajneterer />
             </>
           )}
         </>
