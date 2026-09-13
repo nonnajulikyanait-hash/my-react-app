@@ -7,7 +7,7 @@ import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; 
 import EvocaCalculator from './components/evocacalculator'; 
-
+import Biznes from './components/biznes'; // Ներմուծում ենք Biznes կոմպոնենտը
 
 function App() {
   useEffect(() => {
@@ -31,6 +31,9 @@ function App() {
       {/* Evoca բանկի վերնամասը */}
       <Header />
       
+      {/* Բիզնես վարկերի բաժինը */}
+      <Biznes />
+
       {/* Գլխավոր սլայդեր բաժինը */}
       <HeroSlider />
 
