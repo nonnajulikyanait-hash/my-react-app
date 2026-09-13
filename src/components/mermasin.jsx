@@ -348,11 +348,18 @@ function Mermasin() {
         <section className="space-y-6 text-center">
           <h2 className="text-3xl font-bold text-neutral-900">ԲԱՆԿԻ ԲՐԵՆԴԲՈՒՔԸ</h2>
           <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-w-4xl mx-auto bg-black">
-            <img 
-              src="https://www.evoca.am/file_manager/other/52.png" 
-              alt="Brandbook Cover" 
-              className="w-full h-auto object-cover cursor-pointer hover:opacity-95 transition-opacity"
-            />
+            <a 
+              href="https://www.evoca.am/file_manager/other/Evoca%20Brandbook%20(1).pdf" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="block cursor-pointer"
+            >
+              <img 
+                src="https://www.evoca.am/file_manager/other/52.png" 
+                alt="Brandbook Cover" 
+                className="w-full h-auto object-cover hover:opacity-95 transition-opacity"
+              />
+            </a>
           </div>
         </section>
 
