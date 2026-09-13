@@ -33,7 +33,7 @@ function Bajneterer() {
         <div className="bg-white p-8 rounded-3xl border border-gray-100 shadow-sm grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 lg:col-span-1">
             <img 
-              src="https://www.evoca.am/images-cache/about_pages/3/17001389816021/450x330.jpg" 
+              src="https://www.evoca.am/file_manager/Shareholders/Mareta%20Gevorkyan%20Evocabank.png" 
               alt="Մարետա Գևորկյան" 
               className="w-full h-auto object-cover"
             />
