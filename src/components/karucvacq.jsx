@@ -3,6 +3,9 @@ import React from 'react';
 function Karucvacq() {
   return (
     <div>
+      {/* Նշում. Մանուշակագույն ենթաթաբերի նավիգացիան այլևս այստեղ չկա, 
+          որպեսզի կրկնօրինակում կամ ավելորդ տող չառաջանա։ */}
+
       {/* Բրեդքրամփս (Հղումների ուղին) */}
       <div className="max-w-7xl mx-auto px-6 pt-6 text-xs text-gray-500 flex items-center space-x-2">
         <span className="cursor-pointer hover:underline">🏠</span>

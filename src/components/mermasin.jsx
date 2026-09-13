@@ -1,9 +1,6 @@
 import React, { useState, useRef } from 'react';
-import Karucvacq from './karucvacq.jsx';
-import Bajneterer from './bajneterer.jsx'; // Ներմուծում ենք Բաժնետերերի ֆայլը
 
-function Mermasin() {
-  const [activeSubTab, setActiveSubTab] = useState('Ընդհանուր');
+function Mermasin({ setActiveSubTab, activeSubTab }) {
   const [activeYear, setActiveYear] = useState('2026');
   const scrollRef = useRef(null);
 
@@ -118,31 +115,7 @@ function Mermasin() {
   return (
     <div className="min-h-screen bg-white font-sans text-neutral-800">
       
-      {/* 1. Երկրորդ հեդեր՝ լոգո և EvocaONLINE կոճակ */}
-      <div className="bg-white py-3.5 px-6 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-10">
-            <img 
-              src="https://www.evoca.am/file_manager/icons/logo.png" 
-              alt="Evocabank Logo" 
-              className="h-6 object-contain"
-            />
-            <div className="hidden md:flex space-x-6 text-sm font-semibold text-neutral-800">
-              <a href="#" className="text-[#6400dc]">Evoca-ի մասին</a>
-              <a href="#" className="hover:text-[#6400dc]">Սակագներ</a>
-              <a href="#" className="hover:text-[#6400dc]">Հաշվետվություններ</a>
-              <a href="#" className="hover:text-[#6400dc]">Հայտարարություններ</a>
-            </div>
-          </div>
-          <div>
-            <button className="bg-[#6400dc] text-white px-5 py-2 rounded-xl font-bold text-sm shadow-md hover:bg-purple-800 transition-colors cursor-pointer">
-              EvocaONLINE
-            </button>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Մանուշակագույն ենթաթաբերի նավիգացիա */}
+      {/* Մանուշակագույն ենթաթաբերի նավիգացիա */}
       <div className="bg-[#6400dc] text-white shadow-md">
         <div className="max-w-7xl mx-auto px-4 overflow-x-auto flex space-x-6 py-3 text-sm font-medium whitespace-nowrap scrollbar-none">
           {subTabs.map((tab, index) => (
@@ -159,87 +132,81 @@ function Mermasin() {
         </div>
       </div>
 
-      {/* Պայմանական ռենդեր՝ կախված ընտրված ենթաթաբից */}
-      {activeSubTab === 'Կառուցվածք' ? (
-        <Karucvacq setActiveSubTab={setActiveSubTab} />
-      ) : activeSubTab === 'Բաժնետերեր' ? (
-        <Bajneterer />
-      ) : (
-        // «Ընդհանուր» բաժնի բովանդակությունը
-        <div className="max-w-6xl mx-auto px-6 py-10 space-y-20">
-          <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-bold text-neutral-900">Ընդհանուր տեղեկատվություն</h2>
-              <p className="text-gray-600 leading-relaxed">
-                <strong>Evocabank</strong>-ը արագ, պարզ և նորարար ծառայություններ մատուցող բանկ է, որն առանձնանում է տեղեկատվական նորագույն տեխնոլոգիաների ակտիվ կիրառմամբ:
-              </p>
+      <div className="max-w-6xl mx-auto px-6 py-10 space-y-20">
+        {/* Ընդհանուր տեղեկատվություն */}
+        <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="space-y-4">
+            <h2 className="text-3xl font-bold text-neutral-900">Ընդհանուր տեղեկատվություն</h2>
+            <p className="text-gray-600 leading-relaxed">
+              <strong>Evocabank</strong>-ը արագ, պարզ և նորարար ծառայություններ մատուցող բանկ է, որն առանձնանում է տեկնոլոգիաների ակտիվ կիրառմամբ:
+            </p>
+          </div>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+            <img 
+              src="https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png" 
+              alt="Evocabank Ընդհանուր" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </section>
+
+        {/* Բանկի պատմությունը */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
+          
+          <div className="relative max-w-4xl mx-auto flex items-center">
+            <button 
+              onClick={scrollLeft}
+              className="absolute -left-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              ←
+            </button>
+
+            <div 
+              ref={scrollRef}
+              className="flex space-x-12 overflow-x-auto scrollbar-none px-12 py-4 items-center w-full scroll-smooth"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {yearsList.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => setActiveYear(year)}
+                  className="flex flex-col items-center bg-transparent border-0 cursor-pointer group flex-shrink-0 focus:outline-none"
+                >
+                  <span className={`text-sm font-semibold mb-2 transition-colors ${activeYear === year ? 'text-[#6400dc]' : 'text-gray-400 group-hover:text-gray-600'}`}>
+                    {year}
+                  </span>
+                  <div className={`w-4 h-4 rounded-full border-2 transition-all ${
+                    activeYear === year 
+                      ? 'bg-[#6400dc] border-[#6400dc] scale-125 shadow-md' 
+                      : 'bg-white border-gray-300 group-hover:border-gray-400'
+                  }`}></div>
+                </button>
+              ))}
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
+
+            <button 
+              onClick={scrollRight}
+              className="absolute -right-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              →
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 p-8 rounded-3xl border border-gray-100 mt-6">
+            <p className="text-gray-700 leading-relaxed text-lg">
+              {historyData[activeYear] ? historyData[activeYear].text : ''}
+            </p>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
               <img 
-                src="https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png" 
-                alt="Evocabank Ընդհանուր" 
-                className="w-full h-auto object-cover"
+                src={historyData[activeYear] ? historyData[activeYear].image : ''} 
+                alt={`Բանկի պատմություն ${activeYear}`} 
+                className="w-full h-auto object-cover transition-all duration-300"
               />
             </div>
-          </section>
-
-          <section className="space-y-8">
-            <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
-            
-            <div className="relative max-w-4xl mx-auto flex items-center">
-              <button 
-                onClick={scrollLeft}
-                className="absolute -left-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                ←
-              </button>
-
-              <div 
-                ref={scrollRef}
-                className="flex space-x-12 overflow-x-auto scrollbar-none px-12 py-4 items-center w-full scroll-smooth"
-                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-              >
-                {yearsList.map((year) => (
-                  <button
-                    key={year}
-                    onClick={() => setActiveYear(year)}
-                    className="flex flex-col items-center bg-transparent border-0 cursor-pointer group flex-shrink-0 focus:outline-none"
-                  >
-                    <span className={`text-sm font-semibold mb-2 transition-colors ${activeYear === year ? 'text-[#6400dc]' : 'text-gray-400 group-hover:text-gray-600'}`}>
-                      {year}
-                    </span>
-                    <div className={`w-4 h-4 rounded-full border-2 transition-all ${
-                      activeYear === year 
-                        ? 'bg-[#6400dc] border-[#6400dc] scale-125 shadow-md' 
-                        : 'bg-white border-gray-300 group-hover:border-gray-400'
-                    }`}></div>
-                  </button>
-                ))}
-              </div>
-
-              <button 
-                onClick={scrollRight}
-                className="absolute -right-4 z-20 bg-white border border-gray-200 shadow-md w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
-              >
-                →
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-gray-50 p-8 rounded-3xl border border-gray-100 mt-6">
-              <p className="text-gray-700 leading-relaxed text-lg">
-                {historyData[activeYear] ? historyData[activeYear].text : 'Տվյալ տարվա մասին տեղեկատվություն առայժմ չկա:'}
-              </p>
-              <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 bg-white">
-                <img 
-                  src={historyData[activeYear] ? historyData[activeYear].image : 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'} 
-                  alt={`Բանկի պատմություն ${activeYear}`} 
-                  className="w-full h-auto object-cover transition-all duration-300"
-                />
-              </div>
-            </div>
-          </section>
-        </div>
-      )}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
