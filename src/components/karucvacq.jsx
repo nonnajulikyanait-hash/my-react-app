@@ -1,16 +1,6 @@
 import React from 'react';
 
 function Karucvacq({ setActiveSubTab }) {
-  const subTabs = [
-    'Ընդհանուր',
-    'Կառուցվածք',
-    'Բաժնետերեր',
-    'Ղեկավարություն',
-    'Գործընկերներ',
-    'Մրցանակներ',
-    'CSR',
-    'Էվոկա ֆինանսական խումբ',
-  ];
 
   return (
     <div>
