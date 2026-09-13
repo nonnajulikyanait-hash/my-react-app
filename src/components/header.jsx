@@ -29,11 +29,20 @@ function Header({ setActiveTab, activeTab }) {
           >
             Բիզնես
           </button>
-          <span className="cursor-pointer hover:text-black transition-colors">Ակնթարթային վճարումներ</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Մեր մասին</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Նորություններ</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Բլոգ</span>
-          <span className="cursor-pointer hover:text-black transition-colors">Կարիերա</span>
+          <button 
+            onClick={() => setActiveTab('akntartayinVcharumner')}
+            className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
+              activeTab === 'akntartayinVcharumner' 
+                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
+                : 'hover:text-purple-700'
+            }`}
+          >
+            Ակնթարթային վճարումներ
+          </button>
+          <span className="cursor-pointer hover:text-black transition-colors" onClick={() => alert('Մեր մասին')}>Մեր մասին</span>
+          <span className="cursor-pointer hover:text-black transition-colors" onClick={() => alert('Նորություններ')}>Նորություններ</span>
+          <span className="cursor-pointer hover:text-black transition-colors" onClick={() => alert('Բլոգ')}>Բլոգ</span>
+          <span className="cursor-pointer hover:text-black transition-colors" onClick={() => alert('Կարիերա')}>Կարիերա</span>
         </div>
         <div className="flex items-center space-x-5">
           <span className="cursor-pointer hover:text-black">Առցանց հայտեր ▾</span>
