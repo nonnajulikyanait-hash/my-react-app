@@ -16,14 +16,13 @@ function MerMasin() {
     'Էվոկա ֆինանսական խումբ',
   ];
 
-  // Բանկի պատմության տարեթվերը ըստ պահանջի
+  // Բանկի պատմության տարեթվերը
   const yearsList = [
     '2026', '2025', '2024', '2023', '2022', '2021', 
     '2020', '2019', '2018', '2017', '2016', '2015', 
     '2012', '2008', '2006', '2005', '2000', '1993', '1990'
   ];
 
-  // Տվյալներ տարեթվերի համար (կարող ես փոխել ըստ ցանկության)
   const historyData = {
     '2026': {
       text: 'Բանկը բացեց նոր «Աբովյան» մասնաճյուղը, կնքեց նոր միջազգային համագործակցության պայմանագրեր, մասնակցեց միջազգային կոնֆերանսների, արժանացավ հեղինակավոր մրցանակների և կյանքի կոչեց Երևանը գունավորող street art-երդ:',
@@ -58,7 +57,7 @@ function MerMasin() {
       image: 'https://www.evoca.am/images-cache/about_pages/1/16201288751575/780x570.png'
     },
     '2018': {
-      text: 'Բանկըր պաշտոնապես վերանվանվեց և ստացավ նոր բրենդային ուղղվածություն՝ դառնալով Evocabank:',
+      text: 'Բանկը պաշտոնապես վերանվանվեց և ստացավ նոր բրենդային ուղղվածություն՝ դառնալով Evocabank:',
       image: 'https://www.evoca.am/images-cache/about_pages/1/160992374514/946x430.jpg'
     },
     '2017': {
@@ -186,7 +185,58 @@ function MerMasin() {
           </div>
         </section>
 
-        {/* 3. Բանկի պատմությունը (Սլաքներով և սահող տարեթվերով) */}
+        {/* 3. Արժեքներ և առաջնայնություններ */}
+        <section className="space-y-8">
+          <h2 className="text-3xl font-bold text-neutral-900">Արժեքներ և առաջնայնություններ</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 space-y-4">
+              <h3 className="text-xl font-bold text-neutral-900">Human-first</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Առաջին տեղում միշտ մարդիկ են՝ մեր հաճախորդները, էվոկատերերի թիմը և հասարակությունը: Չէ՞ որ աշխարհում ամեն ինչ արվում է մարդկանց կողմից՝ մարդկանց համար:
+              </p>
+            </div>
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 space-y-4">
+              <h3 className="text-xl font-bold text-neutral-900">Նորարարություն</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Նորարարությունը մեր ԴՆԹ-ի մասն է, իսկ փոփոխությունն այսօր միակ հաստատունն է: Մենք բաց ենք և պատրաստակամ՝ զարգանալու համար:
+              </p>
+            </div>
+            <div className="bg-gray-50 p-8 rounded-2xl border border-gray-100 space-y-4">
+              <h3 className="text-xl font-bold text-neutral-900">Դրական ազդեցություն</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Մենք ձգտում ենք ունենալ դրական ազդեցություն և նպաստել աշխարհն ավելի լավը դարձնելուն:
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Կորպորատիվ սոցիալական պատասխանատվություն */}
+        <section className="space-y-6">
+          <h2 className="text-3xl font-bold text-neutral-900">Կորպորատիվ սոցիալական պատասխանատվություն</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Բանկը շարունակաբար աջակցություն է ցուցաբերում հանրության տարբեր խմբերին և հասարակական նախաձեռնություններին հետևյալ ոլորտներում.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pt-2">
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Նորագույն տեխնոլոգիաների զարգացում, նորարար նախաձեռնություններ, startup-եր:</p>
+            </div>
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Երիտասարդության կրթական, գիտական և մշակութային նախաձեռնություններ:</p>
+            </div>
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Հասարակական կարևոր նշանակություն ունեցող նախաձեռնություններ:</p>
+            </div>
+            <div className="flex items-start space-x-3 bg-purple-50/50 p-4 rounded-xl border border-purple-100/60">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#6400dc] mt-2 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm leading-relaxed">Հասարակության առավել խոցելի խմբեր, մասնավորապես՝ ծնողազուրկ կամ հատուկ խնամքի տակ գտնվող երեխաներ:</p>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Բանկի պատմությունը (Սլաքներով և սահող տարեթվերով) */}
         <section className="space-y-8">
           <h2 className="text-3xl font-bold text-neutral-900 text-center">Բանկի պատմությունը</h2>
           
@@ -247,7 +297,7 @@ function MerMasin() {
           </div>
         </section>
 
-        {/* 4. Բանկի լոգոտիպը */}
+        {/* 6. Բանկի լոգոտիպը */}
         <section className="space-y-6 text-center max-w-3xl mx-auto">
           <h2 className="text-3xl font-bold text-neutral-900">Բանկի լոգոտիպը</h2>
           <p className="text-gray-600 leading-relaxed">
@@ -262,7 +312,7 @@ function MerMasin() {
           </div>
         </section>
 
-        {/* 5. Բանկի բրենդբուքը և տեսանյութը */}
+        {/* 7. Բանկի բրենդբուքը և տեսանյութը */}
         <section className="space-y-8 bg-gray-50 p-8 rounded-3xl border border-gray-100">
           <div className="text-center space-y-3">
             <h2 className="text-3xl font-bold text-neutral-900">Բանկի բրենդբուքը</h2>
