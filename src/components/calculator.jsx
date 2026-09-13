@@ -70,14 +70,19 @@ function Calculator() {
             </p>
           </div>
 
-          {/* Աջ կողմի «Մեր հասցեները» քարտ */}
-          <div className="lg:col-span-4 bg-[#fbfbfb] border border-gray-100 rounded-xl p-4 shadow-sm flex items-center justify-between">
+          {/* Աջ կողմի «Մեր հասցեները» քարտ (դարձված հղում) */}
+          <a 
+            href="https://www.evoca.am/hy/branches-and-atms" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="lg:col-span-4 bg-[#fbfbfb] border border-gray-100 rounded-xl p-4 shadow-sm flex items-center justify-between no-underline hover:border-gray-300 transition-all cursor-pointer"
+          >
             <div className="space-y-1">
               <h3 className="text-sm font-bold text-neutral-900">Մեր հասցեները</h3>
               <p className="text-[11px] text-gray-500 leading-tight">Բանկի հասցեները, աշխատաժամերը, բանկոմատները</p>
-              <button className="text-[#6400dc] font-bold text-xs hover:underline pt-1 inline-block bg-transparent border-0 cursor-pointer">
+              <span className="text-[#6400dc] font-bold text-xs hover:underline pt-1 inline-block">
                 Դիտել քարտեզը &gt;
-              </button>
+              </span>
             </div>
             <div className="w-16 h-16 flex-shrink-0">
               <img 
@@ -87,7 +92,7 @@ function Calculator() {
                 onError={(e)=>{e.target.style.display='none'}}
               />
             </div>
-          </div>
+          </a>
 
         </div>
 
