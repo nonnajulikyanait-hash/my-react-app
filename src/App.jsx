@@ -7,7 +7,9 @@ import BiometricSection from './components/biometricsection';
 import BestEvocabankSection from './components/bestevocabanksection'; 
 import EvocaCardsSlider from './components/evocacardslider'; 
 import EvocaCalculator from './components/evocacalculator'; 
-import Varker from './components/varker'; // Վարկերի կոմպոնենտը
+import Varker from './components/varker'; 
+import Karter from './components/karter'; 
+import AkntartayinVcharumner from './components/akntartayinvcharumner';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -42,8 +44,14 @@ function App() {
         </>
       )}
 
-      {/* Երբ սեղմում ես Բիզնես կամ Վարկեր, միանգամից բացվում է Varker-ը */}
+      {/* Երբ սեղմում ես Բիզնես կամ Վարկեր */}
       {(activeTab === 'biznes' || activeTab === 'varker') && <Varker />}
+
+      {/* Երբ սեղմում ես Քարտեր */}
+      {activeTab === 'karter' && <Karter />}
+
+      {/* Երբ սեղմում ես Ակնթարթային վճարումներ */}
+      {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
     </div>
   );
 }
