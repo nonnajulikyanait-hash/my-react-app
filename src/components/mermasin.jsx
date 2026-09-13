@@ -312,35 +312,52 @@ function MerMasin() {
           </div>
         </section>
 
-        {/* 7. Բանկի բրենդբուքը և տեսանյութը */}
-        <section className="space-y-8 bg-gray-50 p-8 rounded-3xl border border-gray-100">
-          <div className="text-center space-y-3">
-            <h2 className="text-3xl font-bold text-neutral-900">Բանկի բրենդբուքը</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Բրենդբուքում կգտնեք Բանկի լոգոյի կիրառման կանոնները, բրենդային գույները, տառատեսակները և բրենդի այլ կարևոր տարրեր:
-            </p>
-            <div className="pt-2">
-              <img 
-                src="https://www.evoca.am/file_manager/other/52.png" 
-                alt="Brandbook" 
-                className="mx-auto rounded-xl shadow-md max-h-48 object-cover cursor-pointer hover:scale-105 transition-transform"
-              />
+        {/* 7. Բանկի բրենդբուքը */}
+        <section className="space-y-6 text-center">
+          <h2 className="text-3xl font-bold text-neutral-900">ԲԱՆԿԻ ԲՐԵՆԴԲՈՒՔԸ</h2>
+          <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-w-4xl mx-auto bg-black">
+            <img 
+              src="https://www.evoca.am/file_manager/other/52.png" 
+              alt="Brandbook Cover" 
+              className="w-full h-auto object-cover cursor-pointer hover:opacity-95 transition-opacity"
+            />
+          </div>
+        </section>
+
+        {/* 8. Բանկի կորպորատիվ գույները */}
+        <section className="space-y-6 max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-neutral-900">Բանկի կորպորատիվ գույները</h2>
+          <p className="text-gray-600 leading-relaxed">
+            Բանկի կորպորատիվ գույներն են՝ սպիտակը, մոխրագույնը և մանուշակագույնը:
+          </p>
+          <div className="space-y-4 pt-2">
+            <div className="flex items-center space-x-4">
+              <span className="w-5 h-5 rounded-full border border-gray-300 bg-white flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm"><strong>Սպիտակը</strong> խորհրդանշում է նորը:</p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <span className="w-5 h-5 rounded-full bg-gray-500 flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm"><strong>Մոխրագույնը</strong> խորհրդանշում է նորագույն տեխնոլոգիաների կիրառումը:</p>
+            </div>
+            <div className="flex items-center space-x-4">
+              <span className="w-5 h-5 rounded-full bg-[#6400dc] flex-shrink-0"></span>
+              <p className="text-gray-700 text-sm"><strong>Մանուշակագույնը</strong> երիտասարդության, ստեղծարարության և նորարարության գույնն է:</p>
             </div>
           </div>
+        </section>
 
-          {/* YouTube տեսանյութ */}
-          <div className="space-y-4 pt-6">
-            <h3 className="text-xl font-bold text-neutral-900 text-center">Evocabank</h3>
-            <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
-              <iframe 
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/QTuqGz3USRE" 
-                title="Evocabank Video" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-              ></iframe>
-            </div>
+        {/* 9. Տեսանյութ */}
+        <section className="space-y-6 bg-gray-50 p-8 rounded-3xl border border-gray-100">
+          <h3 className="text-xl font-bold text-neutral-900 text-center">Evocabank</h3>
+          <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-xl">
+            <iframe 
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/QTuqGz3USRE" 
+              title="Evocabank Video" 
+              frameBorder="0" 
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+              allowFullScreen
+            ></iframe>
           </div>
         </section>
 
