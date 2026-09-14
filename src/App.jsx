@@ -33,7 +33,7 @@ import Ayl from './components/ayl';
 import Dibrary from './components/dibrary';
 import Bukletner from './components/bukletner';
 import Kap from './components/kap';
-import KayqiQartez from './components/kayqiqartez'; // <--- Ավելացվել է KayqiQartez-ի իմպորտը
+import KayqiQartez from './components/kayqiqartez';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -98,7 +98,8 @@ function App() {
          activeTab !== 'dibrary' &&
          activeTab !== 'bukletner' &&
          activeTab !== 'kap' &&
-         activeTab !== 'kayqiqartez' && ( // <--- Ավելացվել է պայմանը KayqiQartez-ի համար
+         activeTab !== 'kayqiqartez' &&
+         activeTab !== 'evocaonline' && ( // <--- Ավելացվեց evocaonline պայմանը, որպեսզի գլխավոր Header-ը չերևա այնտեղ
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -122,7 +123,7 @@ function App() {
 
         {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
 
-        {activeTab === 'evocaonline' && <EvocaOnline />}
+        {activeTab === 'evocaonline' && <EvocaOnline setActiveTab={setActiveTab} />}
 
         {activeTab === 'pahatuper' && <Pahatuper />}
 
@@ -150,7 +151,7 @@ function App() {
 
         {activeTab === 'kap' && <Kap setActiveTab={setActiveTab} />}
 
-        {activeTab === 'kayqiqartez' && <KayqiQartez setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց KayqiQartez էջը */}
+        {activeTab === 'kayqiqartez' && <KayqiQartez setActiveTab={setActiveTab} />}
 
         {activeTab === 'mermasin' && (
           <>

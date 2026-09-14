@@ -55,11 +55,11 @@ function Header({ setActiveTab, activeTab }) {
         </div>
         <div className="flex items-center space-x-5">
           <span className="cursor-pointer hover:text-black">Առցանց հայտեր ▾</span>
-          <span className="cursor-pointer hover:text-black">Հետադարձ կապ ▾</span>
+          <span className="cursor-pointer hover:text-black" onClick={() => setActiveTab('kap')}>Հետադարձ կապ ▾</span>
           <span className="cursor-pointer">📍</span>
           <span className="cursor-pointer">🌐</span>
           <span className="cursor-pointer">🔍</span>
-          <span className="cursor-pointer">☰</span>
+          <span className="cursor-pointer" onClick={() => setActiveTab('kayqiqartez')}>☰</span>
         </div>
       </div>
 
@@ -163,7 +163,10 @@ function Header({ setActiveTab, activeTab }) {
         </nav>
 
         <div className="flex items-center space-x-4">
-          <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold text-base px-7 py-3 rounded-full transition-colors cursor-pointer shadow-sm">
+          <button 
+            onClick={() => setActiveTab('evocaonline')}
+            className="bg-purple-700 hover:bg-purple-800 text-white font-bold text-base px-7 py-3 rounded-full transition-colors cursor-pointer shadow-sm border-0"
+          >
             EvocaONLINE
           </button>
         </div>
