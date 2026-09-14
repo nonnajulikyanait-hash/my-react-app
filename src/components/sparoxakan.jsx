@@ -15,14 +15,11 @@ function Sparoxakan({ setActiveTab }) {
 
     if (cat === 'Կարիերա' && setActiveTab) {
       setActiveTab('kariera');
-    }
-    if (cat === 'Հիփոթեքային վարկեր' && setActiveTab) {
+    } else if (cat === 'Հիփոթեքային վարկեր' && setActiveTab) {
       setActiveTab('hipoteq');
-    }
-    if (cat === 'Պարտատոմսեր' && setActiveTab) {
-      setActiveTab('harcer'); // Եթե պարտատոմսերի էջի անունն այլ է, ուղղիր ըստ քո պանակի
-    }
-    if (cat === 'Սպառողական վարկեր' && setActiveTab) {
+    } else if (cat === 'Պարտատոմսեր' && setActiveTab) {
+      setActiveTab('harcer'); // Վերադարձ պարտատոմսերի/հարցերի էջ
+    } else if (cat === 'Սպառողական վարկեր' && setActiveTab) {
       setActiveTab('sparoxakan');
     }
   };
@@ -96,7 +93,7 @@ function Sparoxakan({ setActiveTab }) {
         <div className="max-w-7xl mx-auto px-4 py-12 space-y-8">
           
           <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
-            Սպառողական վարկեր - Հաճախ տրվող հարցեր
+            Հաճախ տրվող հարցեր
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
