@@ -6,62 +6,74 @@ function Bukletner({ setActiveTab }) {
     {
       id: 1,
       url: 'https://www.evoca.am/file_manager/Booklets/Images/Car%20Parking_Web_Visual.png',
-      pdfUrl: 'https://www.evoca.am/file_manager/parking%20loan.pdf' // Օրինակ հղում
+      pdfUrl: 'https://www.evoca.am/file_manager/parking%20loan.pdf'
     },
     {
       id: 2,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B1%D5%BE%D5%BF%D5%B8%D5%B4%D5%A5%D6%84%D5%A5%D5%B6%D5%A1%D5%B5%D5%AB-%D5%B1%D5%A5%D5%BC%D6%84%D5%A2%D5%A5%D6%80%D5%B4%D5%A1%D5%B6-%D5%B6%D5%BA%D5%A1%D5%BF%D5%A1%D5%AF%D5%B8%D5%BE-%D5%BE%D5%A1%D6%80%D5%AF.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B1%D5%BE%D5%BF%D5%B8%D5%B4%D5%A5%D6%84%D5%A5%D5%B6%D5%A1%D5%B5%D5%AB-%D5%B1%D5%A5%D5%BC%D6%84%D5%A2%D5%A5%D6%80%D5%B4%D5%A1%D5%B6-%D5%B6%D5%BA%D5%A1%D5%BF%D5%A1%D5%AF%D5%B8%D5%BE-%D5%BE%D5%A1%D6%80%D5%AF.png',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/car-loan_Booklet.pdf'
     },
     {
       id: 3,
-      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%86%D5%87%D4%B1%D5%90%D4%BA-%D4%B5%D5%8E-%D5%87%D4%B1%D5%90%D4%BA%D4%B1%D4%BF%D4%B1%D5%86-%D4%B3%D5%88%D5%92%D5%85%D5%94%D4%BB-%D4%B3%D5%90%D4%B1%D5%8E%D5%88%D5%8E-%D5%8E%D4%B1%D5%90%D4%BF%D4%B5%D5%90.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%86%D5%87%D4%B1%D5%90%D4%BA-%D4%B5%D5%8E-%D5%87%D4%B1%D5%90%D4%BA%D4%B1%D4%BF%D4%B1%D5%86-%D4%B3%D5%88%D5%92%D5%85%D5%94%D4%BB-%D4%B3%D5%90%D4%B1%D5%8E%D5%88%D5%8E-%D5%8E%D4%B1%D5%90%D4%BF%D5%95%D5%99.png',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%86%D5%87%D4%B1%D5%90%D4%BA%20%D6%87%20%D5%B7%D5%A1%D6%80%D5%AA%D5%A1%D5%BA%D5%A1%D5%B6%20%D5%A3%D5%B8%D6%82%D5%B5%D5%A9%D5%AB%20%D5%A3%D6%80%D5%A1%D5%BE%D5%B8%D5%BE%20%D5%BE%D5%A1%D6%80%D5%AF%D5%A5%D6%80.pdf'
     },
     {
       id: 4,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/5-mortgage-loans.jpg'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/5-mortgage-loans.jpg',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/2024/%D5%80%D5%AB%D5%B8%D5%A9%D5%A5%D6%84%D5%A1%D5%B5%D5%AB%D5%B6-%D5%BE%D5%A1%D6%80%D5%AF%D5%A5%D5%B0-04.10.24.pdf'
     },
     {
       id: 5,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/6-business-loans.jpg'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/6-business-loans.jpg',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/%D4%B2%D5%AB%D5%A6%D5%B6%D5%A5%D5%BD-%D5%8E%D5%A1%D6%80%D5%AF%D5%A5%D5%B0-19-08-2022%20.pdf'
     },
     {
       id: 6,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/10-gold-secured-loans.jpg'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/10-gold-secured-loans.jpg',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/%D5%88%D5%BD%D5%AF%D5%B8%D6%82%20%D5%A3%D6%80%D5%A1%D5%BE%D5%B8%D5%BE%20%D5%BE%D5%A1%D6%80%D5%AF%D5%A5%D6%80.pdf'
     },
     {
       id: 7,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/11-safe-deposit-boxes.jpg'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/11-safe-deposit-boxes.jpg',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/%D5%8A%D5%A1%D5%B...19-08-2022.pdf'
     },
     {
       id: 8,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/12-factoring.jpg'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/12-factoring.jpg',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/Images/12-factoring.jpg'
     },
     {
       id: 9,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B4%D6%80%D5%A1%D5%B4%D5%A1%D6%80%D5%AF%D5%B2%D5%A1%D5%B5%D5%AB%D5%B6-%D5%A3%D5%B8%D6%80%D5%AE%D5%A1%D5%BC%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80%D5%AB-%D5%BD%D5%A1%D5%AF%D5%A1%D5%A3%D5%B6%D5%A5%D6%80.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B4%D6%80%D5%A1%D5%B...png',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/%D4%B4%D6%80%D5%A1%D5%B4%D...pdf'
     },
     {
       id: 10,
-      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%B6%D5%A3%D6%80%D5%A1%D5%BE-%D5%BD%D5%BA%D5%A1%D5%BC%D5%B8%D5%B2%D5%A1%D5%AF%D5%A1%D5%B6-%D5%BE%D5%A1%D6%80%D5%AF.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%B6%D5%A3%D6%80%D5%A1%D5%BE...png',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B5%D6%80%D5%A1%D5%B...pdf'
     },
     {
       id: 11,
-      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%BE%D5%A1%D5%B6%D5%A4%D5%AB-%D4%B5%D5%8E-%D5%BA%D5%A1%D6%80%D5%BF%D5%A1%D5%BF%D5%B8%D5%B4%D5%BD%D5%AB-%D5%A3%D6%80%D5%A1%D5%BE%D5%B8%D5%BE-%D5%BE%D5%A1%D6%80%D5%AF%D5%A5%D6%80.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%BE%D5%A1%D...png',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D...2024.pdf'
     },
     {
       id: 12,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%BC%D5%AB%D5%A6%D5%AB%D5%B6%D5%A3.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%BC%D5%AB%D5%A...png',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/%D5%AC%D5%AB%D5%A6%D5%AB%D5%B6%D5%A3.pdf'
     },
     {
       id: 13,
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D5%B8%D6%82%D5%BD%D5%A1%D5%B6%D5%B8%D5%B2%D5%A1%D5%AF%D5%A1%D5%B6.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D5%B8%D6%82%D5...png',
+      pdfUrl: 'https://www.evoca.am/file_manager/Booklets/Images/%D5%B8%D6%82%D...png'
     }
   ];
 
   return (
     <div className="w-full bg-[#f4f4f4] min-h-screen font-sans text-neutral-800 flex flex-col justify-between">
       <div>
-        {/* Header - Նույնն է մնում */}
+        {/* Header */}
         <header className="w-full bg-white border-b border-gray-100 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center text-xs text-gray-600">
             <div className="flex gap-6">
@@ -110,26 +122,22 @@ function Bukletner({ setActiveTab }) {
             Բուկլետներ
           </h1>
 
-          {/* Բուկլետների ցանկ - Ուղղված դիզայն */}
-          <div className="space-y-4"> {/* space-y-4 ապահովում է նկարների միջև ճիշտ հեռավորությունը */}
+          {/* Բուկլետների ցանկ */}
+          <div className="space-y-4">
             {bookletsList.map((item) => (
               <a 
                 key={item.id}
-                href={item.pdfUrl || '#'} 
+                href={item.pdfUrl} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block bg-white hover:bg-gray-50 transition-colors w-full"
+                className="block bg-white hover:bg-gray-50 transition-colors w-full shadow-xs"
               >
-                {/* 
-                  Յուրաքանչյուր բուկլետ պարզապես լայն կոնտեյներ է,
-                  մեջտեղում դրված նկարով:
-                */}
                 <div className="w-full flex justify-center items-center py-6 md:py-10">
                   <img 
                     src={item.url} 
                     alt={`Բուկլետ ${item.id}`}
                     className="max-w-full h-auto object-contain"
-                    style={{ maxHeight: '250px' }} // Սահմանափակում ենք բարձրությունը, որպեսզի շատ չմեծանա
+                    style={{ maxHeight: '250px' }}
                     onError={(e) => { e.target.style.display = 'none'; }}
                   />
                 </div>
@@ -140,8 +148,6 @@ function Bukletner({ setActiveTab }) {
         </div>
       </div>
 
-      {/* Footer */}
-      <Footer setActiveTab={setActiveTab} />
     </div>
   );
 }
