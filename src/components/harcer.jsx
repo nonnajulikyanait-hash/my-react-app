@@ -10,17 +10,23 @@ function Harcer({ setActiveTab }) {
     setOpenIndex(openIndex === index ? null : index);
   };
 
-  // Կատեગોրիաների սեղմման տրամաբանությունը
+  // Կատեգորիաների սեղմման տրամաբանությունը
   const handleCategoryClick = (cat) => {
     setActiveCategory(cat);
 
     // Եթե սեղմում են «Կարիերա», տեղափոխում ենք կարիերայի էջ
     if (cat === 'Կարիերա') {
       if (setActiveTab) {
-        setActiveTab('kariera'); // App.js-ում պետք է ունենաս 'kariera' պայմանը
+        setActiveTab('kariera');
       }
     }
-    // Այստեղ հետագայում կարող ես ավելացնել այլ կատեգորիաների անցումներն էլ, եթե պետք լինի
+    
+    // Եթե սեղմում են «Հիփոթեքային վարկեր», տեղափոխում ենք hipoteq էջ
+    if (cat === 'Հիփոթեքային վարկեր') {
+      if (setActiveTab) {
+        setActiveTab('hipoteq');
+      }
+    }
   };
 
   // Հարցերի և պատասխանների տվյալները
