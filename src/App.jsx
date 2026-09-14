@@ -32,7 +32,8 @@ import Avandner from './components/avandner';
 import Ayl from './components/ayl';
 import Dibrary from './components/dibrary';
 import Bukletner from './components/bukletner';
-import Kap from './components/kap'; // <--- Ավելացվել է Kap-ի իմպորտը
+import Kap from './components/kap';
+import KayqiQartez from './components/kayqiqartez'; // <--- Ավելացվել է KayqiQartez-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -96,7 +97,8 @@ function App() {
          activeTab !== 'ayl' &&
          activeTab !== 'dibrary' &&
          activeTab !== 'bukletner' &&
-         activeTab !== 'kap' && ( // <--- Ավելացվել է պայմանը Kap-ի համար
+         activeTab !== 'kap' &&
+         activeTab !== 'kayqiqartez' && ( // <--- Ավելացվել է պայմանը KayqiQartez-ի համար
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -146,7 +148,9 @@ function App() {
 
         {activeTab === 'bukletner' && <Bukletner setActiveTab={setActiveTab} />}
 
-        {activeTab === 'kap' && <Kap setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Kap էջը */}
+        {activeTab === 'kap' && <Kap setActiveTab={setActiveTab} />}
+
+        {activeTab === 'kayqiqartez' && <KayqiQartez setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց KayqiQartez էջը */}
 
         {activeTab === 'mermasin' && (
           <>

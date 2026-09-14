@@ -106,13 +106,13 @@ function Footer({ setActiveTab }) {
                 </button>
               </li>
               <li>
-                {/* Փոխված է 'kap'-ի՝ kap.jsx-ին անցնելու համար */}
                 <button onClick={() => handleNavClick('kap')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
                   Հետադարձ կապ
                 </button>
               </li>
               <li>
-                <button onClick={() => handleNavClick('qartez')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
+                {/* Փոխված է 'kayqiqartez'-ի՝ kayqiqartez.jsx-ին անցնելու համար */}
+                <button onClick={() => handleNavClick('kayqiqartez')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
                   Կայքի քարտեզ
                 </button>
               </li>

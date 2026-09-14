@@ -351,8 +351,6 @@ function Kap({ setActiveTab }) {
         </div>
       </div>
 
-      {/* Footer */}
-      <Footer setActiveTab={setActiveTab} />
     </div>
   );
 }
