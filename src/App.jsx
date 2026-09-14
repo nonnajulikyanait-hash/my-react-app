@@ -1,4 +1,4 @@
-import { useState, useEffect, useDebugValue } from 'react';
+import { useState, useEffect } from 'react';
 import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
@@ -24,7 +24,8 @@ import Pahatuper from './components/pahatuper';
 import Harcer from './components/harcer';
 import Kariera from './components/kariera';
 import Hipoteq from './components/hipoteq';
-import Sparoxakan from './components/sparoxakan'; // <--- Ավելացվել է Sparoxakan-ի իմպորտը
+import Sparoxakan from './components/sparoxakan';
+import EvocaTouch from './components/evocatouch'; // <--- Ավելացվել է EvocaTouch-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -76,8 +77,12 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        {/* Եթե harcer, kariera, hipoteq կամ sparoxakan էջերն են, գլխավոր Header-ը չենք ցուցադրում */}
-        {activeTab !== 'harcer' && activeTab !== 'kariera' && activeTab !== 'hipoteq' && activeTab !== 'sparoxakan' && (
+        {/* Եթե հատուկ էջերն են, գլխավոր Header-ը չենք ցուցադրում */}
+        {activeTab !== 'harcer' && 
+         activeTab !== 'kariera' && 
+         activeTab !== 'hipoteq' && 
+         activeTab !== 'sparoxakan' && 
+         activeTab !== 'evocatouch' && (
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -111,7 +116,9 @@ function App() {
 
         {activeTab === 'hipoteq' && <Hipoteq setActiveTab={setActiveTab} />}
 
-        {activeTab === 'sparoxakan' && <Sparoxakan setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Sparoxakan էջը */}
+        {activeTab === 'sparoxakan' && <Sparoxakan setActiveTab={setActiveTab} />}
+
+        {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց EvocaTouch էջը */}
 
         {activeTab === 'mermasin' && (
           <>

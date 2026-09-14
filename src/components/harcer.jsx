@@ -34,6 +34,13 @@ function Harcer({ setActiveTab }) {
         setActiveTab('sparoxakan');
       }
     }
+
+    // Եթե սեղմում են «EvocaTouch», տեղափոխում ենք EvocaTouch/EvocaOnline էջ
+    if (cat === 'EvocaTouch') {
+      if (setActiveTab) {
+        setActiveTab('evocaonline'); // App.js-ում այս անունով է միացված EvocaOnline բաղադրիչը
+      }
+    }
   };
 
   // Հարցերի և պատասխանների տվյալները
