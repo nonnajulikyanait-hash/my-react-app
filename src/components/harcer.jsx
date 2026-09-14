@@ -35,10 +35,10 @@ function Harcer({ setActiveTab }) {
       }
     }
 
-    // Եթե սեղմում են «EvocaTouch», տեղափոխում ենք EvocaTouch/EvocaOnline էջ
+    // Եթե սեղմում են «EvocaTouch», տեղափոխում ենք EvocaTouch էջ
     if (cat === 'EvocaTouch') {
       if (setActiveTab) {
-        setActiveTab('evocaonline'); // App.js-ում այս անունով է միացված EvocaOnline բաղադրիչը
+        setActiveTab('evocatouch');
       }
     }
   };
