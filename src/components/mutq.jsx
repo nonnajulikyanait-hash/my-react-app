@@ -4,7 +4,8 @@ function Mutq({ setActiveTab }) {
   const [lang, setLang] = useState('HY');
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isQrOpen, setIsQrOpen] = useState(false);
-  const [view, setView] = useState('login'); // 'login' կամ 'recovery'
+  const [view, setView] = useState('login'); // 'login', 'recovery', 'remind-username', 'reset-password'
+  const [authType, setAuthType] = useState('account'); // 'account', 'card', 'soc-card', 'hvhh'
   const langMenuRef = useRef(null);
 
   // Փակել լեզուների մենյուն, երբ սեղմում ենք դրսում
@@ -34,11 +35,25 @@ function Mutq({ setActiveTab }) {
       qrModalTitle: 'Արագ և ապահով',
       qrModalDesc: 'Եթե ունեք EvocaTOUCH հավելվածը, սկանավորեք QR կոդը՝ ավելի արագ մուտք գործելու համար',
       recoveryTitle: 'Տվյալների վերականգնում',
-      remindUsername: 'Հիշեցնել մուտքանունը',
-      resetPassword: 'Վերականգնել գաղտնաբառը',
+      remindUsernameBtn: 'Հիշեցնել մուտքանունը',
+      resetPasswordBtn: 'Վերականգնել գաղտնաբառը',
+      remindTitle: 'Հիշեցնել մուտքանունը',
+      resetTitle: 'Գաղտնաբառի վերականգնում',
+      selectAuthType: 'Ընտրեք վավերացման տարբերակը',
+      account: 'Հաշիվ',
+      card: 'Քարտ',
+      socCard: 'Սոց. քարտ',
+      hvhh: 'ՀՎՀՀ',
+      confirm: 'Հաստատել',
       mainPage: 'Գլխավոր էջ',
       phone: '(+374 10) 60 55 55',
-      email: 'hello@evoca.am'
+      email: 'hello@evoca.am',
+      labels: {
+        account: 'Հաշվեհամար',
+        card: 'Քարտի համար',
+        socCard: 'Սոց. քարտի համար',
+        hvhh: 'ՀՎՀՀ'
+      }
     },
     RU: {
       loginTitle: 'Вход в систему',
@@ -54,11 +69,25 @@ function Mutq({ setActiveTab }) {
       qrModalTitle: 'Быстро и безопасно',
       qrModalDesc: 'Если у вас есть приложение EvocaTOUCH, сканируйте QR-код для быстрого входа',
       recoveryTitle: 'Восстановление данных',
-      remindUsername: 'Напомнить имя пользователя',
-      resetPassword: 'Восстановить пароль',
+      remindUsernameBtn: 'Напомнить имя пользователя',
+      resetPasswordBtn: 'Восстановить пароль',
+      remindTitle: 'Напомнить имя пользователя',
+      resetTitle: 'Восстановление пароля',
+      selectAuthType: 'Выберите вариант аутентификации',
+      account: 'Счет',
+      card: 'Карта',
+      socCard: 'Соц. карта',
+      hvhh: 'ИНН',
+      confirm: 'Подтвердить',
       mainPage: 'Главная страница',
       phone: '(+374 10) 60 55 55',
-      email: 'hello@evoca.am'
+      email: 'hello@evoca.am',
+      labels: {
+        account: 'Номер счета',
+        card: 'Номер карты',
+        socCard: 'Номер соц. карты',
+        hvhh: 'ИНН'
+      }
     },
     ENG: {
       loginTitle: 'System Login',
@@ -74,15 +103,121 @@ function Mutq({ setActiveTab }) {
       qrModalTitle: 'Fast and Secure',
       qrModalDesc: 'If you have the EvocaTOUCH app, scan the QR code for a faster login',
       recoveryTitle: 'Data Recovery',
-      remindUsername: 'Remind username',
-      resetPassword: 'Reset password',
+      remindUsernameBtn: 'Remind username',
+      resetPasswordBtn: 'Reset password',
+      remindTitle: 'Remind username',
+      resetTitle: 'Password Recovery',
+      selectAuthType: 'Select authentication method',
+      account: 'Account',
+      card: 'Card',
+      socCard: 'Soc. card',
+      hvhh: 'TIN',
+      confirm: 'Confirm',
       mainPage: 'Main page',
       phone: '(+374 10) 60 55 55',
-      email: 'hello@evoca.am'
+      email: 'hello@evoca.am',
+      labels: {
+        account: 'Account number',
+        card: 'Card number',
+        socCard: 'Soc. card number',
+        hvhh: 'TIN'
+      }
     }
   };
 
   const currentT = t[lang];
+
+  // Օժանդակ ֆունկցիա վավերացման էջերի համար (Հիշեցնել մուտքանունը / Վերականգնել գաղտնաբառը)
+  const renderValidationForm = (title) => (
+    <div className="w-full max-w-xl bg-white rounded-xl shadow-sm border border-gray-200/80 p-8 sm:p-10 flex flex-col items-center">
+      
+      <div className="w-full flex items-center gap-3 mb-6">
+        <button 
+          onClick={() => setView('recovery')}
+          className="text-neutral-700 hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-1"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+        </button>
+        <h2 className="text-xl sm:text-2xl font-bold text-neutral-800">
+          {title}
+        </h2>
+      </div>
+
+      <p className="w-full text-xs text-gray-500 mb-4 text-left font-medium">
+        {currentT.selectAuthType}
+      </p>
+
+      {/* 4 Կոճակները (Հաշիվ, Քարտ, Ung. քարտ, ՀՎՀՀ) */}
+      <div className="w-full grid grid-cols-2 gap-3 mb-6">
+        <button 
+          onClick={() => setAuthType('account')}
+          className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg border text-xs font-semibold transition-all cursor-pointer ${authType === 'account' ? 'border-[#6400dc] bg-purple-50/50 text-[#6400dc]' : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'}`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+          </svg>
+          {currentT.account}
+        </button>
+
+        <button 
+          onClick={() => setAuthType('card')}
+          className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg border text-xs font-semibold transition-all cursor-pointer ${authType === 'card' ? 'border-[#6400dc] bg-purple-50/50 text-[#6400dc]' : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'}`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 10h18M4 14h16m-9 3h2m3-11H6a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V7a2 2 0 00-2-2z" />
+          </svg>
+          {currentT.card}
+        </button>
+
+        <button 
+          onClick={() => setAuthType('soc-card')}
+          className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg border text-xs font-semibold transition-all cursor-pointer ${authType === 'soc-card' ? 'border-[#6400dc] bg-purple-50/50 text-[#6400dc]' : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'}`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2" />
+          </svg>
+          {currentT.socCard}
+        </button>
+
+        <button 
+          onClick={() => setAuthType('hvhh')}
+          className={`flex items-center justify-center gap-2 py-3 px-4 rounded-lg border text-xs font-semibold transition-all cursor-pointer ${authType === 'hvhh' ? 'border-[#6400dc] bg-purple-50/50 text-[#6400dc]' : 'border-gray-200 bg-white text-gray-700 hover:border-gray-300'}`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          {currentT.hvhh}
+        </button>
+      </div>
+
+      {/* Մուտքագրման դաշտ՝ կախված ընտրվածից */}
+      <div className="w-full mb-6">
+        <input 
+          type="text" 
+          placeholder={currentT.labels[authType]}
+          className="w-full px-4 py-3.5 bg-white border border-gray-300 rounded-md focus:outline-none focus:border-[#6400dc] text-sm text-neutral-800 transition-colors"
+        />
+      </div>
+
+      {/* Հաստատել կոճակ */}
+      <button className="w-full bg-[#6400dc] hover:bg-[#5200b8] text-white font-medium py-3.5 rounded-md transition-colors cursor-pointer mb-6 text-sm shadow-sm">
+        {currentT.confirm}
+      </button>
+
+      {/* Գլխավոր էջ */}
+      <div>
+        <button 
+          onClick={() => setView('login')}
+          className="text-xs font-semibold text-neutral-600 hover:text-[#6400dc] transition-colors bg-transparent border-0 cursor-pointer"
+        >
+          {currentT.mainPage}
+        </button>
+      </div>
+
+    </div>
+  );
 
   return (
     <div className="w-full min-h-screen bg-[#f4f7f6] flex flex-col justify-between font-sans select-none relative">
@@ -137,8 +272,8 @@ function Mutq({ setActiveTab }) {
       {/* Միջնամաս (Container) */}
       <main className="flex-1 flex flex-col items-center justify-center px-4 my-auto">
         
-        {view === 'login' ? (
-          // ԵԹԵ ՄՈՒՏՔԻ ԷՋՆ Է
+        {view === 'login' && (
+          // ՄՈՒՏՔԻ ԷՋ
           <div className="w-full max-w-xl bg-white rounded-xl shadow-sm border border-gray-200/80 p-8 sm:p-10 flex flex-col items-center">
             
             <h2 className="text-xl sm:text-2xl font-bold text-neutral-800 mb-8 w-full text-left">
@@ -197,8 +332,10 @@ function Mutq({ setActiveTab }) {
             </div>
 
           </div>
-        ) : (
-          // ԵԹԵ ՎԵՐԱԿԱՆԳՆՄԱՆ ԷՋՆ Է (ՆԿԱՐԻ ՊԱՀԱՆՋՈՎ)
+        )}
+
+        {view === 'recovery' && (
+          // ՎԵՐԱԿԱՆԳՆՄԱՆ ՀԻՄՆԱԿԱՆ ԸՆՏՐՈՒԹՅԱՆ ԷՋ
           <div className="w-full max-w-xl bg-white rounded-xl shadow-sm border border-gray-200/80 p-8 sm:p-10 flex flex-col items-center">
             
             <div className="w-full flex items-center gap-3 mb-8">
@@ -217,14 +354,17 @@ function Mutq({ setActiveTab }) {
 
             {/* Հիշեցնել մուտքանունը */}
             <div className="w-full mb-4">
-              <button className="w-full flex justify-between items-center px-5 py-4 bg-white border border-gray-200 rounded-lg hover:border-[#6400dc] hover:shadow-xs transition-all cursor-pointer group">
+              <button 
+                onClick={() => { setView('remind-username'); setAuthType('account'); }}
+                className="w-full flex justify-between items-center px-5 py-4 bg-white border border-gray-200 rounded-lg hover:border-[#6400dc] hover:shadow-xs transition-all cursor-pointer group"
+              >
                 <div className="flex items-center gap-3 text-neutral-800 text-sm font-medium">
                   <span className="text-[#6400dc]">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
                   </span>
-                  {currentT.remindUsername}
+                  {currentT.remindUsernameBtn}
                 </div>
                 <span className="text-gray-400 group-hover:text-[#6400dc] transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -236,14 +376,17 @@ function Mutq({ setActiveTab }) {
 
             {/* Վերականգնել գաղտնաբառը */}
             <div className="w-full mb-6">
-              <button className="w-full flex justify-between items-center px-5 py-4 bg-white border border-gray-200 rounded-lg hover:border-[#6400dc] hover:shadow-xs transition-all cursor-pointer group">
+              <button 
+                onClick={() => { setView('reset-password'); setAuthType('account'); }}
+                className="w-full flex justify-between items-center px-5 py-4 bg-white border border-gray-200 rounded-lg hover:border-[#6400dc] hover:shadow-xs transition-all cursor-pointer group"
+              >
                 <div className="flex items-center gap-3 text-neutral-800 text-sm font-medium">
                   <span className="text-[#6400dc]">
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                     </svg>
                   </span>
-                  {currentT.resetPassword}
+                  {currentT.resetPasswordBtn}
                 </div>
                 <span className="text-gray-400 group-hover:text-[#6400dc] transition-colors">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -265,6 +408,10 @@ function Mutq({ setActiveTab }) {
 
           </div>
         )}
+
+        {view === 'remind-username' && renderValidationForm(currentT.remindTitle)}
+
+        {view === 'reset-password' && renderValidationForm(currentT.resetTitle)}
 
         {/* Կայքի հին տարբերակ */}
         <div className="mt-8 text-center">
@@ -289,7 +436,7 @@ function Mutq({ setActiveTab }) {
           <span>{currentT.version}</span>
         </div>
 
-        {/* Հեռախոս և Էլ․ հասցե (ինչպես նկարում) */}
+        {/* Հեռախոս և Էլ․ հասցե */}
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-1.5 text-neutral-700 font-medium">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-3.5 w-3.5 text-neutral-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -305,7 +452,7 @@ function Mutq({ setActiveTab }) {
           </div>
         </div>
 
-        {/* App Store & Google Play Նկարներ/Հղումներ */}
+        {/* App Store & Google Play */}
         <div className="flex items-center gap-3">
           <a href="https://apps.apple.com/us/app/evocatouch/id970309076" target="_blank" rel="noopener noreferrer">
             <img 
@@ -324,12 +471,11 @@ function Mutq({ setActiveTab }) {
         </div>
       </footer>
 
-      {/* QR Կոդի մոդալ պատուհան (Modal) */}
+      {/* QR Կոդի մոդալ պատուհան */}
       {isQrOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-4">
           <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 relative flex flex-col items-center text-center">
             
-            {/* Փակելու կոճակ (X) */}
             <button 
               onClick={() => setIsQrOpen(false)}
               className="absolute top-4 right-4 text-gray-400 hover:text-gray-700 bg-transparent border-0 cursor-pointer"
@@ -339,16 +485,14 @@ function Mutq({ setActiveTab }) {
               </svg>
             </button>
 
-            {/* QR Կոդի նկարը */}
             <div className="my-4 p-2 bg-white border border-gray-100 rounded-lg shadow-inner">
               <img 
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACCElEQVR4nO2Y2Y3DMAxEBbgAl+TWXZILMKCdgz6STdbfs5BgJIH88kGRHJJq/WntbSDjXEYwPCdJ41rwY+orfrR57dsybdydMhF8Y6/Yer94JxXZGvbw7HPH02bsEcQBRCPcI7LiEzv/AFEYrjb9i9E5iAITIUmLts3nQ+zGIBYPx+bt+a0vMcghfsNvZTr8+SrwYQgikVZ2u1FLOWdPJiJMNYJIr0sX5dirZGUhjk28ZymmoVBEulFKH4kgHimB9CQ+G70q8aDMxyK0VU6zG2G0j+FwYxiCbxdeKgckEHZbHSUhkYh6CmXYeqqIMu8mHlGIOj6aK7+VwLuIhSJML3lPHZ869Jo8Ln0JQ7hgqDtZWL8wMBmt2gxEKr04avC9Olm1TvpvIlJtEvKtFUhKxTkUkd8qMKsal3KcchiGuPBS/xiefKmutg4jEpHdzC2157KYungT+DDkEPVrXof1HhBDERcrp5psrWhlkGYi0zVFaYhXqNbgm4mcQqhGicrBkd3zRyxSOuEWyQPHOSwGItQMxqbuIThOufVT35SJeHnGhcXGawrJRHwBZuU4ahcz79bMhiGa13Whom6Cbywk914qC/EtkVLNXZKdyXvlZESFi+XXg9RbyUpELB409+gBHaGRiAKzWj91f+XY99iNQSwedT2p21bPhS8lKwretsew1knMsIhqck+QFEnocyIZAJZgAAAABJRU5ErkJggg==" 
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOAQAAAABQysQIAAACCElEQVR4nO2Y2Y3DMAxEBbgAl+TWXZILMKCdgz6STdbfs5BgJIH88kGRHJJq/WntbSDjXEYwPCdJ41rwY+orfrR57dsybdydMhF8Y6/Yer94JxXZGvbw7HPH02bsEcQBRCPcI7LiEzv/AFEYrjb9i9E5iAITIUmLts3nQ+zGIBYPx+bt+a0vMcghfsNvZTr8+SrwYQgikVZ2u1FLOWdPJiJMNYJIr0sX5dirZGUhjk28ZymmoVBEulFKH4kgHimB9CQ+G70q8aDMxyK0VU6zG2G0j+FwYxiCbxdeKgckEHZbHSUhkYh6CmXYeqqIMu8mHlGIOj6aK7+VwLuIhSJML3lPHZ869Jo8Ln0JQ7hgqDtZWL8wMBmt2gxEKr04avC9Olm1TvpvIlJtEvKtFUhKxTkUkd8qMKsal3KcchiGuPBS/xiefKmutg4jEpHdzC2157KYungT+DDkEPUrlsxqof1HhBDERcrp5psrWhlkGYi0zVFaYhXqNbgm4mcQqhGicrBkd3zRyxSOuEWyQPHOSwGItQMxqbuIThOufVT35SJeHnGhcXGawrJRHwBZuU4ahcz79bMhiGa13Whom6Cbywk914qC/EtkVLNXZKdyXvlZESFi+XXg9RbyUpELB409+gBHaGRiAKzWj91f+XY99iNQSwedT2p21bPhS8lKwretsew1knMsIhqck+QFEnocyIZAJZgAAAABJRU5ErkJggg==" 
                 alt="QR Code" 
                 className="w-48 h-48 object-contain"
               />
             </div>
 
-            {/* Վերնագիր և բացատրություն */}
             <h3 className="text-lg font-bold text-neutral-800 mb-2">
               {currentT.qrModalTitle}
             </h3>
