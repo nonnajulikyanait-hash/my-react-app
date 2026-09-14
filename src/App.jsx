@@ -19,7 +19,8 @@ import Online from './components/online';
 import Gortsyntrner from './components/gortsyntrner'; 
 import Review from './components/review';
 import Footer from './components/footer';
-import EvocaOnline from './components/evocaonline'; // <--- Ավելացվել է EvocaOnline-ի իմպորտը
+import EvocaOnline from './components/evocaonline';
+import Pahatuper from './components/pahatuper'; // <--- Ավելացվել է Pahatuper-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -93,7 +94,9 @@ function App() {
 
         {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
 
-        {activeTab === 'evocaonline' && <EvocaOnline />} {/* <--- Ավելացվել է այստեղ */}
+        {activeTab === 'evocaonline' && <EvocaOnline />}
+
+        {activeTab === 'pahatuper' && <Pahatuper />} {/* <--- Ավելացվել է այստեղ */}
 
         {activeTab === 'mermasin' && (
           <>
