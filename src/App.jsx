@@ -20,7 +20,8 @@ import Gortsyntrner from './components/gortsyntrner';
 import Review from './components/review';
 import Footer from './components/footer';
 import EvocaOnline from './components/evocaonline';
-import Pahatuper from './components/pahatuper'; // <--- Ավելացվել է Pahatuper-ի իմպորտը
+import Pahatuper from './components/pahatuper';
+import Harcer from './components/harcer'; // <--- Ավելացվել է Harcer-ի իմպորտը (պանակի անունը ըստ քո նշծի՝ components)
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -72,7 +73,8 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        <Header setActiveTab={setActiveTab} activeTab={activeTab} />
+        {/* Եթե ուզում ես Harcer էջում գլխավոր Header-ը չերևա (քանի որ ինքն իր մեջ արդեն header ունի), կարող ես պայման դնել, օրինակ՝ activeTab !== 'harcer' */}
+        {activeTab !== 'harcer' && <Header setActiveTab={setActiveTab} activeTab={activeTab} />}
         
         {activeTab === 'home' && (
           <>
@@ -96,7 +98,9 @@ function App() {
 
         {activeTab === 'evocaonline' && <EvocaOnline />}
 
-        {activeTab === 'pahatuper' && <Pahatuper />} {/* <--- Ավելացվել է այստեղ */}
+        {activeTab === 'pahatuper' && <Pahatuper />}
+
+        {activeTab === 'harcer' && <Harcer />} {/* <--- Ավելացվել է այստեղ */}
 
         {activeTab === 'mermasin' && (
           <>
