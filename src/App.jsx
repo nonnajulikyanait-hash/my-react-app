@@ -25,7 +25,8 @@ import Harcer from './components/harcer';
 import Kariera from './components/kariera';
 import Hipoteq from './components/hipoteq';
 import Sparoxakan from './components/sparoxakan';
-import EvocaTouch from './components/evocatouch'; // <--- Ավելացվել է EvocaTouch-ի իմպորտը
+import EvocaTouch from './components/evocatouch'; 
+import Poxancumner from './components/poxancumner'; // <--- Ավելացվել է Poxancumner-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -82,7 +83,8 @@ function App() {
          activeTab !== 'kariera' && 
          activeTab !== 'hipoteq' && 
          activeTab !== 'sparoxakan' && 
-         activeTab !== 'evocatouch' && (
+         activeTab !== 'evocatouch' && 
+         activeTab !== 'poxancumner' && (
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -118,7 +120,9 @@ function App() {
 
         {activeTab === 'sparoxakan' && <Sparoxakan setActiveTab={setActiveTab} />}
 
-        {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց EvocaTouch էջը */}
+        {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />} 
+
+        {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Poxancumner էջը */}
 
         {activeTab === 'mermasin' && (
           <>

@@ -41,6 +41,13 @@ function Harcer({ setActiveTab }) {
         setActiveTab('evocatouch');
       }
     }
+
+    // Եթե սեղմում են «Փոխանցումներ», տեղափոխում ենք փոխանցումների էջ
+    if (cat === 'Փոխանցումներ') {
+      if (setActiveTab) {
+        setActiveTab('poxancumner');
+      }
+    }
   };
 
   // Հարցերի և պատասխանների տվյալները
