@@ -31,7 +31,8 @@ import Qarter from './components/qarter';
 import Avandner from './components/avandner';
 import Ayl from './components/ayl';
 import Dibrary from './components/dibrary';
-import Bukletner from './components/bukletner'; // <--- Ավելացվել է Bukletner-ի իմպորտը
+import Bukletner from './components/bukletner';
+import Kap from './components/kap'; // <--- Ավելացվել է Kap-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -94,7 +95,8 @@ function App() {
          activeTab !== 'avandner' &&
          activeTab !== 'ayl' &&
          activeTab !== 'dibrary' &&
-         activeTab !== 'bukletner' && ( // <--- Ավելացվել է պայմանը Bukletner-ի համար
+         activeTab !== 'bukletner' &&
+         activeTab !== 'kap' && ( // <--- Ավելացվել է պայմանը Kap-ի համար
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -142,7 +144,9 @@ function App() {
 
         {activeTab === 'dibrary' && <Dibrary setActiveTab={setActiveTab} />}
 
-        {activeTab === 'bukletner' && <Bukletner setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Bukletner էջը */}
+        {activeTab === 'bukletner' && <Bukletner setActiveTab={setActiveTab} />}
+
+        {activeTab === 'kap' && <Kap setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Kap էջը */}
 
         {activeTab === 'mermasin' && (
           <>

@@ -106,6 +106,7 @@ function Footer({ setActiveTab }) {
                 </button>
               </li>
               <li>
+                {/* Փոխված է 'kap'-ի՝ kap.jsx-ին անցնելու համար */}
                 <button onClick={() => handleNavClick('kap')} className="hover:text-[#6400dc] bg-transparent border-0 cursor-pointer p-0 text-left">
                   Հետադարձ կապ
                 </button>
