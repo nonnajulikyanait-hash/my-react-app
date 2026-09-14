@@ -177,9 +177,6 @@ function Hipoteq({ setActiveTab }) {
         </div>
       </div>
 
-      {/* Ամենաներքևում՝ Footer */}
-      <Footer setActiveTab={setActiveTab} />
-
     </div>
   );
 }

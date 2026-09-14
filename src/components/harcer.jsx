@@ -20,8 +20,8 @@ function Harcer({ setActiveTab }) {
         setActiveTab('kariera');
       }
     }
-    
-    // Եթե սեղմում են «Հիփոթեքային վարկեր», տեղափոխում ենք hipoteq էջ
+
+    // Եթե սեղմում են «Հիփոթեքային վարկեր», տեղափոխում ենք հիփոթեքի էջ
     if (cat === 'Հիփոթեքային վարկեր') {
       if (setActiveTab) {
         setActiveTab('hipoteq');
