@@ -27,6 +27,13 @@ function Harcer({ setActiveTab }) {
         setActiveTab('hipoteq');
       }
     }
+
+    // Եթե սեղմում են «Սպառողական վարկեր», տեղափոխում ենք սպառողական վարկերի էջ
+    if (cat === 'Սպառողական վարկեր') {
+      if (setActiveTab) {
+        setActiveTab('sparoxakan');
+      }
+    }
   };
 
   // Հարցերի և պատասխանների տվյալները

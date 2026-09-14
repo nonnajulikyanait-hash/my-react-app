@@ -23,7 +23,8 @@ import EvocaOnline from './components/evocaonline';
 import Pahatuper from './components/pahatuper';
 import Harcer from './components/harcer';
 import Kariera from './components/kariera';
-import Hipoteq from './components/hipoteq'; // <--- Ավելացվել է Hipoteq-ի իմպորտը
+import Hipoteq from './components/hipoteq';
+import Sparoxakan from './components/sparoxakan'; // <--- Ավելացվել է Sparoxakan-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -75,8 +76,8 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        {/* Եթե harcer, kariera կամ hipoteq էջերն են, գլխավոր Header-ը չենք ցուցադրում */}
-        {activeTab !== 'harcer' && activeTab !== 'kariera' && activeTab !== 'hipoteq' && (
+        {/* Եթե harcer, kariera, hipoteq կամ sparoxakan էջերն են, գլխավոր Header-ը չենք ցուցադրում */}
+        {activeTab !== 'harcer' && activeTab !== 'kariera' && activeTab !== 'hipoteq' && activeTab !== 'sparoxakan' && (
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -108,7 +109,9 @@ function App() {
 
         {activeTab === 'kariera' && <Kariera setActiveTab={setActiveTab} />}
 
-        {activeTab === 'hipoteq' && <Hipoteq setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Hipoteq էջը */}
+        {activeTab === 'hipoteq' && <Hipoteq setActiveTab={setActiveTab} />}
+
+        {activeTab === 'sparoxakan' && <Sparoxakan setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Sparoxakan էջը */}
 
         {activeTab === 'mermasin' && (
           <>
