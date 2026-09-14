@@ -5,77 +5,64 @@ function Bukletner({ setActiveTab }) {
   const bookletsList = [
     {
       id: 1,
-      title: 'Ավտոկայանատեղի ձեռքբերման վարկ',
       url: 'https://www.evoca.am/file_manager/Booklets/Images/Car%20Parking_Web_Visual.png',
-      pdfUrl: 'https://www.evoca.am/file_manager/parking%20loan.pdf'
+      pdfUrl: 'https://www.evoca.am/file_manager/parking%20loan.pdf' // Օրինակ հղում
     },
     {
       id: 2,
-      title: 'Ավտոմեքենայի ձեռք բերման նպատակով վարկ',
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B1%D5%BE%D5%BF%D5%B8%D5%B4%D5%A5%D6%84%D5%A5%D5%B6%D5%A1%D5%B5%D5%AB-%D5%B1%D5%A5%D5%BC%D6%84%D5%A2%D5%A5%D6%80%D5%B4%D5%A1%D5%B6-%D5%B6%D5%BA%D5%A1%D5%B5%D5%A1%D5%B6%D5%A1%D5%AF%D5%B8%D5%AC-%D5%BE%D5%A1%D6%88%D5%BF.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B1%D5%BE%D5%BF%D5%B8%D5%B4%D5%A5%D6%84%D5%A5%D5%B6%D5%A1%D5%B5%D5%AB-%D5%B1%D5%A5%D5%BC%D6%84%D5%A2%D5%A5%D6%80%D5%B4%D5%A1%D5%B6-%D5%B6%D5%BA%D5%A1%D5%BF%D5%A1%D5%AF%D5%B8%D5%BE-%D5%BE%D5%A1%D6%80%D5%AF.png'
     },
     {
       id: 3,
-      title: 'Անշարժ և շարժական գույքի գրավով վարկեր',
-      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%86%D5%87%D4%B1%D5%90%D4%BA-%D4%B5%D5%8E-%D5%87%D4%B1%D5%90%D4%BA%D4%B1%D4%BF%D4%B1%D5%86-%D4%B3%D5%88%D5%92%D5%85%D5%94%D4%BB-%D4%B3%D5%90%D4%B1%D5%AF%D5%95%D5%96%D5%88%D5%8E-%D5%8E%D4%B1%D5%90%D4%BF%D5%95%D5%99.png'
+      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%86%D5%87%D4%B1%D5%90%D4%BA-%D4%B5%D5%8E-%D5%87%D4%B1%D5%90%D4%BA%D4%B1%D4%BF%D4%B1%D5%86-%D4%B3%D5%88%D5%92%D5%85%D5%94%D4%BB-%D4%B3%D5%90%D4%B1%D5%8E%D5%88%D5%8E-%D5%8E%D4%B1%D5%90%D4%BF%D4%B5%D5%90.png'
     },
     {
       id: 4,
-      title: 'Հիփոթեքային վարկեր',
       url: 'https://www.evoca.am/file_manager/Booklets/Images/5-mortgage-loans.jpg'
     },
     {
       id: 5,
-      title: 'Բիզնես վարկեր',
       url: 'https://www.evoca.am/file_manager/Booklets/Images/6-business-loans.jpg'
     },
     {
       id: 6,
-      title: 'Ոսկու գրավով վարկեր',
       url: 'https://www.evoca.am/file_manager/Booklets/Images/10-gold-secured-loans.jpg'
     },
     {
       id: 7,
-      title: 'Անհատական պահատուփեր',
       url: 'https://www.evoca.am/file_manager/Booklets/Images/11-safe-deposit-boxes.jpg'
     },
     {
       id: 8,
-      title: 'Ֆակտորինգ',
       url: 'https://www.evoca.am/file_manager/Booklets/Images/12-factoring.jpg'
     },
     {
       id: 9,
-      title: 'Դրամարկղային գործառնությունների սակագներ',
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B4%D6%80%D5%A1%D5%B...md...'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%B4%D6%80%D5%A1%D5%B4%D5%A1%D6%80%D5%AF%D5%B2%D5%A1%D5%B5%D5%AB%D5%B6-%D5%A3%D5%B8%D6%80%D5%AE%D5%A1%D5%BC%D5%B6%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%80%D5%AB-%D5%BD%D5%A1%D5%AF%D5%A1%D5%A3%D5%B6%D5%A5%D6%80.png'
     },
     {
       id: 10,
-      title: 'Անկողմ սպառողական վարկ',
-      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%B6%D5%A3%D6%80%D5%A1%D5%BE-%D5%BD%D5%A...png'
+      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%B6%D5%A3%D6%80%D5%A1%D5%BE-%D5%BD%D5%BA%D5%A1%D5%BC%D5%B8%D5%B2%D5%A1%D5%AF%D5%A1%D5%B6-%D5%BE%D5%A1%D6%80%D5%AF.png'
     },
     {
       id: 11,
-      title: 'Ավանդի և պարտատոմսի գրավով վարկեր',
-      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%B...png'
+      url: 'https://www.evoca.am/file_manager/Booklets/2026/%D4%B1%D5%BE%D5%A1%D5%B6%D5%A4%D5%AB-%D4%B5%D5%8E-%D5%BA%D5%A1%D6%80%D5%BF%D5%A1%D5%BF%D5%B8%D5%B4%D5%BD%D5%AB-%D5%A3%D6%80%D5%A1%D5%BE%D5%B8%D5%BE-%D5%BE%D5%A1%D6%80%D5%AF%D5%A5%D6%80.png'
     },
     {
       id: 12,
-      title: 'Լիզինգ',
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%BC%D5%AB%D5%A...png'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D4%BC%D5%AB%D5%A6%D5%AB%D5%B6%D5%A3.png'
     },
     {
       id: 13,
-      title: 'Ուսանողական վարկեր',
-      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D5%B8%D6%82%D5...png'
+      url: 'https://www.evoca.am/file_manager/Booklets/Images/%D5%B8%D6%82%D5%BD%D5%A1%D5%B6%D5%B8%D5%B2%D5%A1%D5%AF%D5%A1%D5%B6.png'
     }
   ];
 
   return (
-    <div className="w-full bg-[#fcfcfc] min-h-screen font-sans text-neutral-800 flex flex-col justify-between">
+    <div className="w-full bg-[#f4f4f4] min-h-screen font-sans text-neutral-800 flex flex-col justify-between">
       <div>
-        {/* Header */}
-        <header className="w-full bg-white border-b border-gray-100">
+        {/* Header - Նույնն է մնում */}
+        <header className="w-full bg-white border-b border-gray-100 shadow-sm">
           <div className="max-w-7xl mx-auto px-4 py-2 flex justify-between items-center text-xs text-gray-600">
             <div className="flex gap-6">
               <span className="font-semibold text-black cursor-pointer">Անհատ</span>
@@ -105,42 +92,46 @@ function Bukletner({ setActiveTab }) {
         </header>
 
         {/* Բովանդակություն */}
-        <div className="max-w-7xl mx-auto px-4 py-12 space-y-8">
+        <div className="max-w-7xl mx-auto px-4 py-12 space-y-6">
           
           {/* Հացի փշրանքներ / Breadcrumb */}
-          <div className="text-xs text-gray-500 flex items-center gap-2">
-            <span className="cursor-pointer hover:text-[#6400dc]" onClick={() => setActiveTab && setActiveTab('home')}>🏠</span>
+          <div className="text-xs text-gray-500 flex items-center gap-2 mb-8">
+            <span className="cursor-pointer hover:text-[#6400dc]" onClick={() => setActiveTab && setActiveTab('home')}>
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </span>
             <span>/</span>
             <span className="text-neutral-800 font-medium">Բուկլետներ</span>
           </div>
 
           {/* Վերնագիր */}
-          <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+          <h1 className="text-3xl font-extrabold text-neutral-900 tracking-tight mb-8">
             Բուկլետներ
           </h1>
 
-          {/* Բուկլետների ցանկ (Համապատասխան ճշգրիտ ձևաչափով՝ ինչպես նկարներում) */}
-          <div className="space-y-6">
+          {/* Բուկլետների ցանկ - Ուղղված դիզայն */}
+          <div className="space-y-4"> {/* space-y-4 ապահովում է նկարների միջև ճիշտ հեռավորությունը */}
             {bookletsList.map((item) => (
               <a 
                 key={item.id}
                 href={item.pdfUrl || '#'} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="bg-white rounded-3xl border border-gray-100 shadow-xs hover:shadow-md transition-shadow p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8 block"
+                className="block bg-white hover:bg-gray-50 transition-colors w-full"
               >
-                <div className="w-full md:w-1/2 flex justify-center bg-gray-50/50 rounded-2xl p-6 h-[260px] items-center">
+                {/* 
+                  Յուրաքանչյուր բուկլետ պարզապես լայն կոնտեյներ է,
+                  մեջտեղում դրված նկարով:
+                */}
+                <div className="w-full flex justify-center items-center py-6 md:py-10">
                   <img 
                     src={item.url} 
-                    alt={item.title} 
-                    className="max-h-full max-w-full object-contain"
+                    alt={`Բուկլետ ${item.id}`}
+                    className="max-w-full h-auto object-contain"
+                    style={{ maxHeight: '250px' }} // Սահմանափակում ենք բարձրությունը, որպեսզի շատ չմեծանա
                     onError={(e) => { e.target.style.display = 'none'; }}
                   />
-                </div>
-                <div className="w-full md:w-1/2 text-center md:text-left">
-                  <h2 className="text-2xl md:text-3xl font-extrabold text-[#5200b8] tracking-tight">
-                    {item.title}
-                  </h2>
                 </div>
               </a>
             ))}
