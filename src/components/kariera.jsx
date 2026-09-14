@@ -163,9 +163,6 @@ function Kariera({ setActiveTab }) {
         </div>
       </div>
 
-      {/* Ամենաներքևում՝ մեկ հատ Footer */}
-      <Footer setActiveTab={setActiveTab} />
-
     </div>
   );
 }
