@@ -93,7 +93,7 @@ function Qarter({ setActiveTab }) {
         {/* Էջի հիմնական բովանդակություն */}
         <div className="max-w-7xl mx-auto px-4 py-12 space-y-8">
           <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
-            Հաճախ տրվող հարցեր (Քարտեր)
+            Հաճախ տրվող հարցեր
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
