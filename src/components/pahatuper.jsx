@@ -6,18 +6,18 @@ function Pahatuper() {
     <div className="w-full bg-[#fcfcfc] min-h-screen font-sans text-neutral-800">
       <div className="max-w-5xl mx-auto px-4 py-12 space-y-12">
         
-        {/* Վերնագիր + Նկար */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        {/* Վերնագիր և Նկար (Flex շարվածք՝ տեքստը ձախում, նկարը աջում) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
           <div className="space-y-4">
             <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
               Անհատական պահատուփեր
             </h1>
-            <p className="text-gray-600 text-base lg:text-lg leading-relaxed">
+            <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
               Հայաստանի ռեզիդենտ և ոչ ռեզիդենտ ֆիզիկական անձանց առաջարկում ենք արժեքավոր իրերը պահպանելու հուսալի և անվտանգ միջոց՝ չհրկիզվող անհատական պահատուփեր:
             </p>
           </div>
 
-          <div className="rounded-2xl overflow-hidden shadow-md border border-gray-100 max-w-[420px] mx-auto md:mx-0">
+          <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
             <img 
               src="https://www.evoca.am/images-cache/menu/1/17738350520558/780x585.jpg" 
               alt="Անհատական պահատուփեր" 
@@ -26,7 +26,7 @@ function Pahatuper() {
           </div>
         </div>
 
-        {/* Տեքստային բաժին */}
+        {/* Տեքստային հիմնական բաժին */}
         <div className="bg-white rounded-2xl p-6 lg:p-10 shadow-sm border border-gray-100 space-y-6 text-sm lg:text-base text-gray-700 leading-relaxed">
           <p>
             Պահատուփերի պարունակությունը միայն ձեր գաղտնիքն է: Դրանցում կարող եք պահել Ձեզ համար արժեք ներկայացնող ցանկացած իր (դրամ, արժեթղթեր, թանկարժեք մետաղներ և քարեր, ոսկերչական իրեր, արվեստի գործեր, ֆոտո և տեսաժապավեններ, մագնիսական կրիչներ և այլն):
@@ -57,7 +57,7 @@ function Pahatuper() {
           </p>
         </div>
 
-        {/* Առաջին աղյուսակ (Ռեզիդենտների համար) - Ավելի փոքր չափերով */}
+        {/* Առաջին աղյուսակ (Ռեզիդենտների համար) */}
         <div className="space-y-4">
           <h2 className="text-xl lg:text-2xl font-bold text-neutral-900">
             Չհրկիզվող անհատական պահարանների վարձակալման սակագներ
@@ -133,7 +133,7 @@ function Pahatuper() {
           </div>
         </div>
 
-        {/* Երկրորդ աղյուսակ (Օտարերկրյա քաղաքացիների համար) - Ավելի փոքր չափերով */}
+        {/* Երկրորդ աղյուսակ (Օտարերկրյա քաղաքացիների համար) */}
         <div className="space-y-4 pt-6">
           <h2 className="text-xl lg:text-2xl font-bold text-neutral-900">
             Չհրկիզվող անհատական պահարանների վարձակալում օտարերկրյա քաղաքացիների համար
