@@ -207,9 +207,12 @@ function Harcer({ setActiveTab }) {
               <h1 className="text-2xl font-black tracking-wider text-black cursor-pointer" onClick={() => setActiveTab && setActiveTab('harcer')}>evoca</h1>
             </div>
             <div>
-              <a href="/online" className="bg-[#6400dc] text-white px-5 py-2.5 rounded-full font-medium text-sm shadow-md hover:bg-[#5200b8] transition-colors">
+              <button 
+                onClick={() => setActiveTab && setActiveTab('mutq')}
+                className="bg-[#6400dc] text-white px-5 py-2.5 rounded-full font-medium text-sm shadow-md hover:bg-[#5200b8] transition-colors cursor-pointer border-0"
+              >
                 EvocaONLINE
-              </a>
+              </button>
             </div>
           </div>
         </header>
