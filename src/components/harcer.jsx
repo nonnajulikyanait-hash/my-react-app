@@ -216,11 +216,6 @@ function Harcer({ setActiveTab }) {
         </div>
       </div>
 
-      {/* Ամենաներքևում՝ Footer */}
-      <div className="mt-16">
-        <Footer />
-      </div>
-
     </div>
   );
 }
