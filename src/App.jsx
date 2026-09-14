@@ -19,18 +19,10 @@ import Online from './components/online';
 import Gortsyntrner from './components/gortsyntrner'; 
 import Review from './components/review';
 import Footer from './components/footer';
-import EvocaOnline from './components/evocaonline'; // <--- EvocaOnline
-import Mutq from './components/mutq'; // <--- Mutq
+import EvocaOnline from './components/evocaonline';
+import Mutq from './components/mutq';
 import Pahatuper from './components/pahatuper';
-import Harcer from './components/harcer';
-import Kariera from './components/kariera';
-import Hipoteq from './components/hipoteq';
-import Sparoxakan from './components/sparoxakan';
-import EvocaTouch from './components/evocatouch'; 
-import Poxancumner from './components/poxancumner';
-import Qarter from './components/qarter';
-import Avandner from './components/avandner';
-import Ayl from './components/ayl';
+import Harcer from './components/harcer'; // Միավորված բաղադրիչ, որը պարունակում է բոլոր հարցերն ու բաժինները
 import Dibrary from './components/dibrary';
 import Bukletner from './components/bukletner';
 import Kap from './components/kap';
@@ -89,16 +81,9 @@ function App() {
         {/* Եթե հատուկ էջերն են, գլխավոր Header-ը չենք ցուցադրում */}
         {activeTab !== 'harcer' && 
          activeTab !== 'kariera' && 
-         activeTab !== 'hipoteq' && 
-         activeTab !== 'sparoxakan' && 
-         activeTab !== 'evocatouch' && 
-         activeTab !== 'poxancumner' &&
-         activeTab !== 'qarter' &&
-         activeTab !== 'avandner' &&
-         activeTab !== 'ayl' &&
-         activeTab !== 'dibrary' &&
-         activeTab !== 'bukletner' &&
-         activeTab !== 'kap' &&
+         activeTab !== 'dibrary' && 
+         activeTab !== 'bukletner' && 
+         activeTab !== 'kap' && 
          activeTab !== 'kayqiqartez' &&
          activeTab !== 'evocaonline' &&
          activeTab !== 'mutq' && ( 
@@ -127,27 +112,22 @@ function App() {
 
         {activeTab === 'evocaonline' && <EvocaOnline setActiveTab={setActiveTab} />}
 
-        {activeTab === 'mutq' && <Mutq setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց mutq-ի բլոկը */}
+        {activeTab === 'mutq' && <Mutq setActiveTab={setActiveTab} />}
 
         {activeTab === 'pahatuper' && <Pahatuper />}
 
-        {activeTab === 'harcer' && <Harcer setActiveTab={setActiveTab} />}
-
-        {activeTab === 'kariera' && <Kariera setActiveTab={setActiveTab} />}
-
-        {activeTab === 'hipoteq' && <Hipoteq setActiveTab={setActiveTab} />}
-
-        {activeTab === 'sparoxakan' && <Sparoxakan setActiveTab={setActiveTab} />}
-
-        {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />} 
-
-        {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />}
-
-        {activeTab === 'qarter' && <Qarter setActiveTab={setActiveTab} />}
-
-        {activeTab === 'avandner' && <Avandner setActiveTab={setActiveTab} />}
-
-        {activeTab === 'ayl' && <Ayl setActiveTab={setActiveTab} />}
+        {/* Այժմ բոլոր հարցերին և ենթաբաժիններին (ավանդներ, վարկեր, քարտեր, կարիերա և այլն) սպասարկում է միասնական Harcer բաղադրիչը */}
+        {(activeTab === 'harcer' || 
+          activeTab === 'kariera' || 
+          activeTab === 'hipoteq' || 
+          activeTab === 'sparoxakan' || 
+          activeTab === 'evocatouch' || 
+          activeTab === 'poxancumner' || 
+          activeTab === 'qarter' || 
+          activeTab === 'avandner' || 
+          activeTab === 'ayl') && (
+          <Harcer setActiveTab={setActiveTab} />
+        )}
 
         {activeTab === 'dibrary' && <Dibrary setActiveTab={setActiveTab} />}
 
