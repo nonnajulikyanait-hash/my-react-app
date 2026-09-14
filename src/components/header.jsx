@@ -164,7 +164,7 @@ function Header({ setActiveTab, activeTab }) {
 
         <div className="flex items-center space-x-4">
           <button 
-            onClick={() => setActiveTab('evocaonline')}
+            onClick={() => setActiveTab('mutq')}
             className="bg-purple-700 hover:bg-purple-800 text-white font-bold text-base px-7 py-3 rounded-full transition-colors cursor-pointer shadow-sm border-0"
           >
             EvocaONLINE
