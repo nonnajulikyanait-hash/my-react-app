@@ -55,7 +55,7 @@ function Header({ setActiveTab, activeTab }) {
         </div>
         <div className="flex items-center space-x-5">
           <span className="cursor-pointer hover:text-black">Առցանց հայտեր ▾</span>
-          <span className="cursor-pointer hover:text-black" onClick={() => setActiveTab('')}>Հետադարձ կապ ▾</span>
+          <span className="cursor-pointer hover:text-black">Հետադարձ կապ ▾</span>
           <span className="cursor-pointer">📍</span>
           <span className="cursor-pointer">🌐</span>
           <span className="cursor-pointer">🔍</span>
