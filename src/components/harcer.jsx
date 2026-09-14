@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
 import Footer from './footer'; // Եթե ֆայլի անունը փոքրատառով է կամ այլ, ուղղիր ըստ քո պանակի
 
-function Harcer() {
+function Harcer({ setActiveTab }) {
   // Սլաքով բացվող-փակվող հարցերի state-ը
   const [openIndex, setOpenIndex] = useState(null);
   const [activeCategory, setActiveCategory] = useState('Պարտատոմսեր');
 
   const toggleAccordion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
+  };
+
+  // Կատեગોրիաների սեղմման տրամաբանությունը
+  const handleCategoryClick = (cat) => {
+    setActiveCategory(cat);
+
+    // Եթե սեղմում են «Կարիերա», տեղափոխում ենք կարիերայի էջ
+    if (cat === 'Կարիերա') {
+      if (setActiveTab) {
+        setActiveTab('kariera'); // App.js-ում պետք է ունենաս 'kariera' պայմանը
+      }
+    }
+    // Այստեղ հետագայում կարող ես ավելացնել այլ կատեգորիաների անցումներն էլ, եթե պետք լինի
   };
 
   // Հարցերի և պատասխանների տվյալները
@@ -138,7 +151,7 @@ function Harcer() {
               {sidebarCategories.map((cat, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setActiveCategory(cat)}
+                  onClick={() => handleCategoryClick(cat)}
                   className={`w-full text-left px-4 py-2.5 rounded-xl text-sm font-medium transition-colors flex items-center justify-between ${
                     activeCategory === cat 
                       ? 'text-[#6400dc] font-bold bg-purple-50' 
