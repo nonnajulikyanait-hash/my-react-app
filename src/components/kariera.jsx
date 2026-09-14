@@ -14,7 +14,7 @@ function Kariera({ setActiveTab }) {
   const handleCategoryClick = (cat) => {
     setActiveCategory(cat);
 
-    // Եթե սեղմում են «Պարտատոմսեր» կամ այլ հարցեր, կարող ենք վերադարձնել harcer էջ
+    // Եթե սեղմում են «Պարտատոմսեր», վերադարձնում ենք harcer էջ
     if (cat === 'Պարտատոմսեր') {
       if (setActiveTab) {
         setActiveTab('harcer');
@@ -88,7 +88,7 @@ function Kariera({ setActiveTab }) {
         <div className="max-w-7xl mx-auto px-4 py-12 space-y-8">
           
           <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
-            Կարիերա — Հաճախ տրվող հարցեր
+            Հաճախ տրվող հարցեր
           </h1>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 items-start">
