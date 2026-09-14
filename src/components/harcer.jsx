@@ -14,6 +14,13 @@ function Harcer({ setActiveTab }) {
   const handleCategoryClick = (cat) => {
     setActiveCategory(cat);
 
+    // Եթե սեղմում են «Պարտատոմսեր», տեղափոխում ենք պարտատոմսերի էջ
+    if (cat === 'Պարտատոմսեր') {
+      if (setActiveTab) {
+        setActiveTab('harcer');
+      }
+    }
+
     // Եթե սեղմում են «Կարիերա», տեղափոխում ենք կարիերայի էջ
     if (cat === 'Կարիերա') {
       if (setActiveTab) {
@@ -46,6 +53,27 @@ function Harcer({ setActiveTab }) {
     if (cat === 'Փոխանցումներ') {
       if (setActiveTab) {
         setActiveTab('poxancumner');
+      }
+    }
+
+    // Եթե սեղմում են «Քարտեր», տեղափոխում ենք քարտերի էջ
+    if (cat === 'Քարտեր') {
+      if (setActiveTab) {
+        setActiveTab('karter');
+      }
+    }
+
+    // Եթե սեղմում են «Ավանդներ», տեղափոխում ենք ավանդների էջ
+    if (cat === 'Ավանդներ') {
+      if (setActiveTab) {
+        setActiveTab('avandner');
+      }
+    }
+
+    // Եթե սեղմում են «Այլ», տեղափոխում ենք այլ էջ
+    if (cat === 'Այլ') {
+      if (setActiveTab) {
+        setActiveTab('ayl');
       }
     }
   };

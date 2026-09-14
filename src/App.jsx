@@ -26,7 +26,10 @@ import Kariera from './components/kariera';
 import Hipoteq from './components/hipoteq';
 import Sparoxakan from './components/sparoxakan';
 import EvocaTouch from './components/evocatouch'; 
-import Poxancumner from './components/poxancumner'; // <--- Ավելացվել է Poxancumner-ի իմպորտը
+import Poxancumner from './components/poxancumner';
+import Qarter from './components/qarter'; // <--- Ավելացվել է Qarter-ի իմպորտը
+import Avandner from './components/avandner'; // <--- Ավելացվել է Avandner-ի իմպորտը
+import Ayl from './components/ayl'; // <--- Ավելացվել է Ayl-ի իմպորտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -84,7 +87,10 @@ function App() {
          activeTab !== 'hipoteq' && 
          activeTab !== 'sparoxakan' && 
          activeTab !== 'evocatouch' && 
-         activeTab !== 'poxancumner' && (
+         activeTab !== 'poxancumner' &&
+         activeTab !== 'qarter' &&
+         activeTab !== 'avandner' &&
+         activeTab !== 'ayl' && (
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -122,7 +128,13 @@ function App() {
 
         {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />} 
 
-        {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Poxancumner էջը */}
+        {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />}
+
+        {activeTab === 'qarter' && <Qarter setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Qarter էջը */}
+
+        {activeTab === 'avandner' && <Avandner setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Avandner էջը */}
+
+        {activeTab === 'ayl' && <Ayl setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց Ayl էջը */}
 
         {activeTab === 'mermasin' && (
           <>
