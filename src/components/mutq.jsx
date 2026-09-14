@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-function EvocaOnline({ setActiveTab }) {
+function Mutq({ setActiveTab }) {
   const [lang, setLang] = useState('HY');
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isQrOpen, setIsQrOpen] = useState(false);
@@ -39,12 +39,12 @@ function EvocaOnline({ setActiveTab }) {
       password: 'Пароль',
       loginBtn: 'Войти',
       forgot: 'Забыли имя пользователя или пароль',
-      qrModalTitle: 'Быстро и безопасно',
       qrLogin: 'Вход по QR-коду',
       oldSite: 'Старая версия сайта',
       copyright: '© 2026 Эвокабанк',
       license: 'Банк контролируется Центральным банком РА',
       version: 'Версия 8.19.0.0',
+      qrModalTitle: 'Быстро и безопасно',
       qrModalDesc: 'Если у вас есть приложение EvocaTOUCH, сканируйте QR-код для быстрого входа'
     },
     ENG: {
@@ -218,7 +218,7 @@ function EvocaOnline({ setActiveTab }) {
       {/* QR Կոդի մոդալ պատուհան (Modal) */}
       {isQrOpen && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 relative flex flex-col items-center text-center animate-in fade-in zoom-in duration-200">
+          <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-6 relative flex flex-col items-center text-center">
             
             {/* Փակելու կոճակ (X) */}
             <button 
@@ -255,4 +255,4 @@ function EvocaOnline({ setActiveTab }) {
   );
 }
 
-export default EvocaOnline;
+export default Mutq;

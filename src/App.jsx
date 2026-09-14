@@ -19,7 +19,8 @@ import Online from './components/online';
 import Gortsyntrner from './components/gortsyntrner'; 
 import Review from './components/review';
 import Footer from './components/footer';
-import EvocaOnline from './components/evocaonline';
+import EvocaOnline from './components/evocaonline'; // <--- EvocaOnline
+import Mutq from './components/mutq'; // <--- Mutq
 import Pahatuper from './components/pahatuper';
 import Harcer from './components/harcer';
 import Kariera from './components/kariera';
@@ -99,7 +100,8 @@ function App() {
          activeTab !== 'bukletner' &&
          activeTab !== 'kap' &&
          activeTab !== 'kayqiqartez' &&
-         activeTab !== 'evocaonline' && ( // <--- Ավելացվեց evocaonline պայմանը, որպեսզի գլխավոր Header-ը չերևա այնտեղ
+         activeTab !== 'evocaonline' &&
+         activeTab !== 'mutq' && ( 
           <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         )}
         
@@ -124,6 +126,8 @@ function App() {
         {activeTab === 'akntartayinVcharumner' && <AkntartayinVcharumner />}
 
         {activeTab === 'evocaonline' && <EvocaOnline setActiveTab={setActiveTab} />}
+
+        {activeTab === 'mutq' && <Mutq setActiveTab={setActiveTab} />} {/* <--- Ավելացվեց mutq-ի բլոկը */}
 
         {activeTab === 'pahatuper' && <Pahatuper />}
 
