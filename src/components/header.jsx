@@ -19,16 +19,19 @@ function Header({ setActiveTab, activeTab }) {
           >
             Անհատ
           </button>
+          
+          {/* Այստեղ փոխեցինք, որ հենց սեղմեն 'Բիզնես', միանգամից գնա 'varker' */}
           <button 
-            onClick={() => setActiveTab('biznes')}
+            onClick={() => setActiveTab('varker')}
             className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
-              activeTab === 'biznes' 
+              activeTab === 'biznes' || activeTab === 'varker'
                 ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
                 : 'hover:text-purple-700'
             }`}
           >
             Բիզնես
           </button>
+
           <button 
             onClick={() => setActiveTab('akntartayinVcharumner')}
             className={`cursor-pointer bg-transparent border-0 font-medium transition-colors ${
