@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Header from './components/header';
+import Varker from './components/varker'; // Ներմուծում ենք Varker բաղադրիչը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -9,7 +10,11 @@ function App() {
       <div>
         <Header setActiveTab={setActiveTab} activeTab={activeTab} />
         
-        {/* Այստեղ կարող եք ավելացնել ձեր էջերը կամ բաղադրիչները ըստ ցանկության */}
+        {/* Եթե activeTab-ը դառնում է 'varker', բացվում է Varker բաղադրիչը */}
+        {activeTab === 'varker' && <Varker />}
+
+        {/* Այստեղ հետագայում կարող եք ավելացնել այլ էջեր ևս, օրինակ՝ */}
+        {/* {activeTab === 'karter' && <Karter />} */}
       </div>
     </div>
   );
