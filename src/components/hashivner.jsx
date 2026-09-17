@@ -5,9 +5,14 @@ import Footer from './footer';
 function HashivnerComponent({ setActiveTab }) {
   const [activeSubTab, setActiveSubTab] = useState('opening'); // 'opening', 'metal', 'nonresident', 'safe'
   const [openAccordion, setOpenAccordion] = useState(null);
+  const [openNonResidentAccordion, setOpenNonResidentAccordion] = useState(null);
 
   const toggleAccordion = (index) => {
     setOpenAccordion(openAccordion === index ? null : index);
+  };
+
+  const toggleNonResidentAccordion = (index) => {
+    setOpenNonResidentAccordion(openNonResidentAccordion === index ? null : index);
   };
 
   const accordionItems = [
@@ -120,6 +125,122 @@ function HashivnerComponent({ setActiveTab }) {
           <p>«ԷՎՈԿԱԲԱՆԿ» ԲԲԸ-ն Հայաստանի Հանրապետության և Ամերիկայի Միացյալ Նահանգների միջև «Օտարերկրյա հաշիվների հարկային համապատասխանության ակտի» կիրարկմանն օժանդակելու համագործակցության մասին համաձայնագրի պահանջներից ելնելով իրավասու է հաճախորդներից պահանջել լրացուցիչ տեղեկատվություն, մասնավորապես հաճախորդներից պահանջվում է լրացնել վերջիններիս ԱՄՆ անձ կարգավիճակի նույնականացման համար պահանջվող հետևյալ ձևաթղթերը՝ Իրավաբանական անձ հաճախորդների ինքնահայտարարագրման ձև` Մոդել 2-ի համաձայն (FATCA) կամ Ֆիզիկական անձ (ներառյալ անհատ ձեռնարկատեր) հաճախորդների ինքնահայտարարագրման ձև FATCA նպատակների համար:</p>
         </div>
       ) 
+    }
+  ];
+
+  const nonResidentAccordionItems = [
+    {
+      title: "Առավելություններ",
+      content: (
+        <div className="space-y-4 text-gray-600 text-sm lg:text-base">
+          <div>
+            <strong>Prime կարգավիճակ Բանկում</strong>
+            <p className="text-gray-500 text-xs lg:text-sm mt-1">Բացառիկ արտոնություններ, առաջնահերթ սպասարկում և ժամանակի խնայում</p>
+          </div>
+          <div>
+            <strong>Անհատական մենեջեր / Անձնական օգնական</strong>
+            <p className="text-gray-500 text-xs lg:text-sm mt-1">24/7 Աջակցություն ֆինանսական ցանկացած հարցում անմիջապես անձնական օգնականի կողմից</p>
+          </div>
+          <div>
+            <strong>Հեռավար սպասարկում</strong>
+            <p className="text-gray-500 text-xs lg:text-sm mt-1">Ծառայությունների հասանելիություն առցանց՝ աշխարհի ցանկացած կետից</p>
+          </div>
+          <div>
+            <strong>Փաստաթղթերի անվճար առաքում</strong>
+            <p className="text-gray-500 text-xs lg:text-sm mt-1">Առաքում անմիջապես Ձեր գտնվելու վայր, Ձեզ հարմար պահի՝ արագ և անվճար։</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Ֆիզիկական անձանց հաշվի բացման պայմաններ",
+      content: (
+        <ul className="list-disc pl-5 space-y-2 text-gray-600 text-sm lg:text-base">
+          <li>Հանդիսանում են ՀՀ-ում գտնվող անշարժ գույքի սեփականատեր և ունեն անշարժ գույքի նկատմամբ սեփականության իրավունքի գրանցման վկայական</li>
+          <li>Պատրաստ են ներդնել նվազագույնը 6 ամիս ժամկետով և առնվազն 20 000 ԱՄՆ դոլար, 20 000 Եվրո, 1 500 000 ՌԴ ռուբլի և 10 000 000 ՀՀ դրամ գումարի չափով համարժեք ավանդ «ԷՎՈԿԱԲԱՆԿ» ՓԲԸ-ում</li>
+          <li>ՀՀ-ում գրանցված են որպես անհատ ձեռնարկատեր և ունեն ՀՀ Արդարադատության նախարարության իրավաբանական անձանց պետական ռեգիստրի կողմից տրամադրված գրանցման վկայական</li>
+          <li>Հանդիսանում են ՀՀ-ում գրանցված իրավաբանական անձի մասնակից (բաժնետեր) հիմնավորված համապատասխան փաստաթղթերով</li>
+        </ul>
+      )
+    },
+    {
+      title: "Ֆիզիկական անձանց հաշվի բացման անհրաժեշտ փաստաթղթեր",
+      content: (
+        <ul className="list-disc pl-5 space-y-2 text-gray-600 text-sm lg:text-base">
+          <li>Անձնագիր</li>
+          <li>Միջազգային անձնագիր</li>
+          <li>Եկամուտների ծագման աղբյուրը (ֆիզիկական անձի նախորդ տարվա հարկային հայտարարագիր, անշարժ գույքի, բաժնետոմսերի կամ արժեքավոր թղթերի վաճառքի կամ վարձակալության պայմանագիր)</li>
+        </ul>
+      )
+    },
+    {
+      title: "Իրավաբանական անձանց փաստաթղթերի ցանկ",
+      content: (
+        <ul className="list-disc pl-5 space-y-2 text-gray-600 text-sm lg:text-base">
+          <li>Կանոնադրություն (ոչ ռեզիդենտների դեպքում` կանոնադրություն կամ դրան փոխարինող այլ փաստաթուղթ)</li>
+          <li>Պետական ռեգիստրի գրանցման վկայական (ոչ ռեզիդենտների դեպքում` տվյալ երկրի պետական գրանցման մարմնի կողմից տրված վկայական և հարկային մարմիններում գրանցված փաստաթուղթ` տրված գրանցման երկրի համապատասխան մարմնի կողմից)</li>
+          <li>Հարկ վճարողի հաշվառման համարը (ՀՎՀՀ), եթե այն բացակայում է պետական ռեգիստրի վկայականում</li>
+          <li>Գործադիր մարմնի ղեկավարի, գլխավոր հաշվապահի անձնագրերը կամ անձը հաստատող փաստաթղթերը, ինչպես նաև քաղվածքներ պաշտոններում նշանակվելու հրամաններից, եթե ղեկավարի մասին տեղեկությունը բացակայում է պետական գրանցամատյանում գրանցման վկայականում (ոչ ռեզիդենտների դեպքում՝ գործադիր մարմնի ղեկավարի անձնագիր(ներ)ը և իրավասու մարմնի նշանակման մասին որոշումներով տրված պաշտոնները)</li>
+          <li>Հաշվետերերի անձնագրեր կամ նույնականացման քարտեր</li>
+          <li>Շահառուների համար անհրաժեշտ է՝
+            <ul className="list-circle pl-5 mt-1 space-y-1">
+              <li>Եթե շահառուն ֆիզիկական անձ է, անձնագրի կամ նույնականացման քարտի պատճենները</li>
+              <li>Եթե շահառուն իրավաբանական անձ է, տվյալ փաստաթղթերի ցանկի 2-րդ, 3-րդ և 4-րդ կետերով նախատեսված փաստաթղթերի (ոչ ռեզիդենտների դեպքում՝ միայն 2-րդ և 3-րդ կետերով նախատեսված փաստաթղթերի) պատճենները տվյալ իրավաբանական անձի կողմից</li>
+            </ul>
+          </li>
+          <li>Ընկերության ֆինանսական հաշվետվություններ` վերջին մեկ տարվա կտրվածքով, աուդիտորական եզրակացություն</li>
+          <li>Լիցենզիա, եթե ընկերության գործունեությունը պահանջում է:</li>
+        </ul>
+      )
+    },
+    {
+      title: "Սակագներ",
+      content: (
+        <div className="space-y-6 text-gray-600 text-sm lg:text-base">
+          <div>
+            <h4 className="font-bold text-neutral-800 mb-2">Ֆիզիկական անձանց համար</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Հաշվի բացում՝ 50,000 դրամ</li>
+              <li>Տարեկան սպասարկում՝ 250,000 դրամ</li>
+              <li>Փակման վճար՝ 0 դրամ</li>
+              <li>Դրամական միջոցների անկանխիկ մուտքագրում հաճախորդի հաշվին` 0.5%</li>
+              <li>Հաճախորդների փոխանցումներ` 0.5%</li>
+              <li>Հաշվի տեսակներ՝ USD, EUR, RUB, AED, GBP, CHF, CNY, CAD</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-bold text-neutral-800 mb-2">Իրավաբանական անձանց համար</h4>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Հաշվի բացում՝ 100,000 դրամ</li>
+              <li>Տարեկան սպասարկում՝ 500,000 ՀՀ դրամ</li>
+              <li>Փակման վճար՝ 0 դրամ</li>
+              <li>Դրամական միջոցների անկանխիկ մուտքագրում հաճախորդի հաշվին` 0.5%</li>
+              <li>Հաճախորդների փոխանցումներ` 0.5%</li>
+              <li>Հաշվի տեսակներ՝ USD, EUR, RUB, AED, GBP, CHF, CNY, CAD</li>
+            </ul>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: "Հաշվի բացման փուլեր",
+      content: (
+        <div className="space-y-4 text-gray-600 text-sm lg:text-base">
+          <div>
+            <strong>1. Փաստաթղթերի ուղարկում</strong>
+            <p className="text-gray-500 text-xs lg:text-sm mt-1">Ուղարկեք անհրաժեշտ փաստաթղթերը հետևյալ էլ․ հասցեին՝ <a href="mailto:primeonline@evoca.am" className="text-purple-700 underline">primeonline@evoca.am</a></p>
+          </div>
+          <div>
+            <strong>2. Առցանց նույնականացում տեսազանգով</strong>
+            <p className="text-gray-500 text-xs lg:text-sm mt-1">Փաստաթղթերի ամբողջական փաթեթը ստանալուց հետո մենք կտեղեկացնենք՝ երբ և ինչպես է տեղի ունենալու անձը նույնականացնելու տեսազանգը: Տեսազանգից առաջ կարող են պահանջվել նաև այլ փաստաթղթեր։ Բանկի դրական դիրքորոշումից հետո անհրաժեշտ է այլ բանկում գործող հաշվից առնվազն 50 ԱՄՆ դոլար փոխանցում կատարել Evocabank-ում Ձեր անունով բացված հաշվին։</p>
+            <p className="text-gray-500 text-xs lg:text-sm mt-2">Գումարը ստանալուց հետո նոր հաշիվը կակտիվանա, իսկ փոխանցված գումարը հասանելի կդառնա այդ հաշվի վրա: Փոխանցման մուտքագրման մասին Դուք տեղեկություն կստանաք էլեկտրոնային եղանակով։</p>
+          </div>
+          <div className="pt-2 border-t border-gray-100">
+            <strong>Կապ մեզ հետ</strong>
+            <p className="text-gray-500 text-xs lg:text-sm mt-1">Ցանկացած հարցի դեպքում կարող եք գրել օնլայն <a href="mailto:primeonline@evoca.am" className="text-purple-700 underline">primeonline@evoca.am</a> հասցեին կամ զանգահարել <a href="tel:+37433625555" className="text-purple-700 underline">+374 33 625555</a> հեռախոսահամարին։</p>
+          </div>
+        </div>
+      )
     }
   ];
 
@@ -311,6 +432,81 @@ function HashivnerComponent({ setActiveTab }) {
                   <span className="text-xl">📄</span> Տեղեկատվական ամփոփագիր (Բանկային հաշիվներ) 06.06.26
                 </a>
                 <a href="#doc2" className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-medium text-sm lg:text-base transition-colors">
+                  <span className="text-xl">📄</span> Համալիր բանկային ծառայությունների մատուցման պայմաններ 16.05.2025
+                </a>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* ՈՉ ՌԵԶԻԴԵՆՏ ՀԱՃԱԽՈՐԴՆԵՐԻ ՀԵՌԱՎԱՐ ՍՊԱՍԱՐԿՈՒՄ */}
+        {activeSubTab === 'nonresident' && (
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12">
+            {/* Հացհատիկ (Breadcrumbs) */}
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Հաշիվներ  &gt;  <span className="text-gray-600">Ոչ ռեզիդենտ հաճախորդների հեռավար սպասարկում</span>
+            </div>
+
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-8">Ոչ ռեզիդենտ հաճախորդների հեռավար սպասարկում</h2>
+
+            {/* Ներածական տեքստ և պատկեր */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-8 mb-6">
+              <div className="w-full lg:w-1/2 flex flex-col justify-between">
+                <h3 className="text-xl lg:text-2xl font-bold text-neutral-800 mb-4">Բանկ այցելելն այլևս պարտադիր չէ</h3>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  Անգամ եթե չեք բնակվում ՀՀ-ում, Evocabank-ի հետ Դուք կարող եք բացել հաշիվներ օնլայն եղանակով աշխարհի ցանկացած կետից և ցանկացած պահի։
+                </p>
+              </div>
+              <div className="w-full lg:w-1/2 flex-shrink-0">
+                <img 
+                  src="https://www.evoca.am/images-cache/menu/1/17510033256067/780x585.png" 
+                  alt="Ոչ ռեզիդենտ հաճախորդների հեռավար սպասարկում" 
+                  className="w-full h-52 lg:h-60 object-cover rounded-xl shadow-sm"
+                />
+              </div>
+            </div>
+
+            {/* Հավելյալ նկարագրական տեքստ */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 mb-10 text-sm lg:text-base text-gray-700 space-y-4">
+              <p>
+                24/7 անձնական մենեջեր, ֆինանսական ծառայությունների հասանելիություն աշխարհի ցանկացած կետից, փաստաթղթերի անվճար առաքում Ձեր գտնվելու վայր․ բոլոր մանրուքները մտածված են, որ Դուք խնայեք Ձեր ժամանակը, չշեղվեք կարևոր գործերից և, իհարկե, օգտվեք prime սպասարկումից։
+              </p>
+              <p className="font-semibold text-neutral-800">
+                Ուղարկեք փաստաթղթերը, անցեք տեսազանգով նույնականացում և բացեք Ձեր հաշիվը՝ առանց Բանկ այցելելու։
+              </p>
+              <p className="text-purple-700 font-medium">
+                Մանրամասները և քայլ առ քայլ ուղեցույցը՝ ներքևում։
+              </p>
+            </div>
+
+            {/* ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ (Ակորդեոններ Ոչ ռեզիդենտների համար) */}
+            <div className="mb-16">
+              <h3 className="text-2xl lg:text-3xl font-extrabold text-neutral-800 mb-6">ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ</h3>
+              <div className="space-y-3">
+                {nonResidentAccordionItems.map((item, index) => (
+                  <div key={index} className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                    <button 
+                      onClick={() => toggleNonResidentAccordion(index)}
+                      className="w-full px-6 py-4 text-left font-bold text-neutral-800 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors"
+                    >
+                      <span>{item.title}</span>
+                      <span className="text-purple-700 font-bold text-lg">{openNonResidentAccordion === index ? '−' : '+'}</span>
+                    </button>
+                    {openNonResidentAccordion === index && (
+                      <div className="px-6 pb-5 text-gray-600 border-t border-gray-100 pt-4 leading-relaxed">
+                        {item.content}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Փաստաթղթեր բաժին */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 mb-12">
+              <h3 className="text-2xl font-extrabold text-neutral-800 mb-6">Փաստաթղթեր</h3>
+              <div className="space-y-4">
+                <a href="#doc1" className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-medium text-sm lg:text-base transition-colors">
                   <span className="text-xl">📄</span> Համալիր բանկային ծառայությունների մատուցման պայմաններ 16.05.2025
                 </a>
               </div>
