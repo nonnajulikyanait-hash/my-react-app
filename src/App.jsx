@@ -8,8 +8,8 @@ import BiometricTriangle from './components/biometrictriangle';
 import EvocaCardsSlider from './components/evocacardsslider';
 import EvocaOnlineMobile from './components/evocaonlinemobile';
 import Gortsynkerner from './components/gortsynkerner';
-import Hachaxord from './components/hachaxord'; 
 import EvocaCalculator from './components/evocacalculator';
+import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
 
 function App() {
@@ -59,11 +59,11 @@ function App() {
             {/* Գործընկերներ բլոկ */}
             <Gortsynkerner />
 
-            {/* Հաճախորդների կարծիքներ (Սլայդերով և կողային շարժվող ձեռքերով) */}
-            <Hachaxord />
-
-            {/* Արտարժույթի փոխարժեքներ և հասցեներ (Անմիջապես Footer-ից առաջ) */}
+            {/* Արտարժույթի փոխարժեքներ և հասցեներ */}
             <EvocaCalculator />
+
+            {/* Հաճախորդների կարծիքներ (Անմիջապես Footer-ից առաջ) */}
+            <Hachaxord />
           </>
         )}
 
