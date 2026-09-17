@@ -420,7 +420,7 @@ function HashivnerComponent({ setActiveTab }) {
               </p>
 
               <div className="bg-purple-50 border-l-4 border-purple-700 p-4 rounded-r-xl text-purple-900 font-medium text-sm lg:text-base">
-                Ուշադրություն. Ավանդների հատուցումը երաշխավորող հիմնադրամը չի հատուցում մետաղական հաշիվները:
+                Ոշադրություն. Ավանդների հատուցումը երաշխավորող հիմնադրամը չի հատուցում մետաղական հաշիվները:
               </div>
             </div>
 
@@ -518,7 +518,7 @@ function HashivnerComponent({ setActiveTab }) {
         <EvocaOnlineMobile />
       </div>
 
-      {/* Ստորին հատված (Footer) */}
+      {/* Ստորին հատված (Footer) - Միայն մեկ հատ */}
       <Footer setActiveTab={setActiveTab} />
     </div>
   );
