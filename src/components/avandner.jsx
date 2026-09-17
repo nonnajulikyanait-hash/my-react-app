@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import EvocaCardsSlider from './evocacardsslider';
 import EvocaOnlineMobile from './evocaonlinemobile';
 import Footer from './footer';
 
@@ -9,6 +8,22 @@ function DepositsComponent({ setActiveTab }) {
   const [selectedDeposit, setSelectedDeposit] = useState(null);
   // Մանրամասն էջի ներդիրները՝ 'about' կամ 'terms'
   const [detailTab, setDetailTab] = useState('about');
+
+  // Սլայդերի համար նախատեսված 3 տարբերակները
+  const sliderItems = [
+    {
+      title: "Դասական ավանդ",
+      image: "https://www.evoca.am/images-cache/deposits/1/1613390220029/415x261.jpg"
+    },
+    {
+      title: "Ավանդ Evoca Online",
+      image: "https://www.evoca.am/images-cache/deposits/1/16133900122121/415x261.jpg"
+    },
+    {
+      title: "Մանկական ավանդ",
+      image: "https://www.evoca.am/images-cache/deposits/1/16133900414285/415x261.jpg"
+    }
+  ];
 
   const depositsList = [
     {
@@ -272,9 +287,28 @@ function DepositsComponent({ setActiveTab }) {
           </div>
         )}
 
-        {/* Քարտերի սլայդեր (EvocaCardsSlider) */}
-        <div className="mt-16">
-          <EvocaCardsSlider />
+        {/* «Այլ ավանդներ» Սլայդեր (EvocaOnlineMobile-ից անմիջապես առաջ) */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 mt-16 mb-12">
+          <h3 className="text-2xl font-extrabold text-neutral-800 mb-6">Այլ ավանդներ</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sliderItems.map((item, index) => (
+              <div key={index} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition-shadow">
+                <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-purple-50 flex items-center justify-center p-4">
+                  <img src={item.image} alt={item.title} className="max-h-full object-contain rounded-lg" />
+                </div>
+                <h4 className="text-lg font-bold text-neutral-800 mb-2 text-center">{item.title}</h4>
+                <button 
+                  onClick={() => {
+                    const found = depositsList.find(d => d.title === item.title);
+                    if(found) { setSelectedDeposit(found); setActiveSubTab('deposits'); window.scrollTo(0, 0); }
+                  }}
+                  className="text-purple-700 hover:text-purple-900 font-semibold text-sm mt-auto cursor-pointer"
+                >
+                  Դիտել մանրամասն ›
+                </button>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Evoca Online & Mobile բաժին */}
