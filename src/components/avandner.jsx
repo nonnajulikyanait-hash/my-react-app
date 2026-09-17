@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EvocaCardsSlider from './components/evocacardsslider';
 import EvocaOnlineMobile from './components/evocaonlinemobile';
-import Footer from './components/footer';
+import Footer from './footer';
 
 function DepositsComponent({ setActiveTab }) {
   const [activeSubTab, setActiveSubTab] = useState('deposits');
