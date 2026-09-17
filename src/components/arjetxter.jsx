@@ -1,7 +1,104 @@
 import React, { useState } from 'react';
 
+function EvocaInvestBottomSection() {
+  // Վիդեոների և հարցերի բացման/փակման վիճակները
+  const [openUseful, setOpenUseful] = useState(false);
+  const [openFaq, setOpenFaq] = useState(false);
+  const [activeFaqIndex, setActiveFaqIndex] = useState(null);
+
+  const faqList = [
+    {
+      question: "Ի՞նչ է բաժնետոմսը։",
+      answer: "Բաժնետոմսը ընկերության սեփականության մասնաբաժին ներկայացնող արժեթուղթ է։ Բաժնետոմս գնելիս՝ ներդրողը դառնում է տվյալ ընկերության մասնակի սեփականատեր և կարող է շահույթ ստանալ բաժնետոմսի գնի աճից կամ ընկերության կողմից վճարվող դիվիդենտներից։ Բաժնետոմսերի արժեքը կարող է փոփոխվել՝ շուկայական պահանջարկից, ընկերության արդյունքներից և տնտեսական պայմաններից կախված։"
+    },
+    {
+      question: "Ի՞նչ է պարտատոմսը։",
+      answer: "Պարտատոմսը պարտքային արժեթուղթ է։ Այն գնելիս` փաստացի գումար ես տրամադրում ընկերությանը կամ պետությանը որոշակի ժամկետով և դրա դիմաց ստանում ես կանխատեսելի տոկոսային եկամուտ։"
+    },
+    {
+      question: "Ի՞նչ է ETF-ը։",
+      answer: "ETF-ը (Exchange Traded Fund) ներդրումային ֆոնդ է, որը վաճառվում և գնվում է բորսայում սովորական բաժնետոմսի նման։ Այն սովորաբար միավորում է բազմաթիվ ակտիվներ մեկ գործիքի մեջ, օրինակ՝ բաժնետոմսեր, պարտատոմսեր կամ ամբողջ ինդեքս։"
+    },
+    {
+      question: "Ո՞րն է տարբերությունը բաժնետոմսերի, պարտատոմսերի և ETF-ների միջև։",
+      answer: "Բաժնետոմսը կապվում է մեկ ընկերության հետ և սովորաբար ունի ավելի բարձր եկամտաբերության, բայց նաև ավելի բարձր ռիսկի պոտենցիալ։\nՊարտատոմսը սովորաբար ավելի կայուն գործիք է և կարող է ապահովել կանխատեսելի տոկոսային եկամուտ։\nETF-ը թույլ է տալիս մեկ գործիքի միջոցով ներդրում կատարել միանգամից բազմաթիվ ակտիվներում, ինչը հաճախ օգնում է դիվերսիֆիկացնել ռիսկը։"
+    }
+  ];
+
+  return (
+    <div className="evocainvest-bottom-container mt-12 pt-8 border-t border-gray-200">
+      
+      {/* ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ */}
+      <h2 className="text-2xl lg:text-3xl font-extrabold text-neutral-900 mb-6">
+        ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ
+      </h2>
+
+      {/* EvocaINVEST օգտակար նյութեր (Dropdown) */}
+      <div className="mb-6 border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-white">
+        <div 
+          onClick={() => setOpenUseful(!openUseful)}
+          className="bg-gray-50 px-6 py-4 cursor-pointer flex justify-between items-center text-purple-800 font-bold text-lg hover:bg-gray-100 transition-colors"
+        >
+          <span>EvocaINVEST օգտակար նյութեր</span>
+          <span>{openUseful ? '▲' : '▼'}</span>
+        </div>
+
+        {openUseful && (
+          <div className="p-6 flex flex-col space-y-4 bg-white border-t border-gray-100">
+            <a href="https://www.youtube.com/watch?v=5kUF-3KueZ8&t=2s" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-purple-900 underline font-medium">
+              ▶ Տեսանյութ 1 (Դիտել YouTube-ում)
+            </a>
+            <a href="https://www.youtube.com/watch?v=wax5BjEOAGQ&t=32s" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-purple-900 underline font-medium">
+              ▶ Տեսանյութ 2 (Դիտել YouTube-ում)
+            </a>
+            <a href="https://www.youtube.com/watch?v=oxxOZXf2kPA&t=12s" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-purple-900 underline font-medium">
+              ▶ Տեսանյութ 3 (Դիտել YouTube-ում)
+            </a>
+            <a href="https://www.youtube.com/watch?v=XCz2N5eicHs" target="_blank" rel="noopener noreferrer" className="text-purple-700 hover:text-purple-900 underline font-medium">
+              ▶ Տեսանյութ 4 (Դիտել YouTube-ում)
+            </a>
+          </div>
+        )}
+      </div>
+
+      {/* Հաճախ տրվող հարցեր */}
+      <div className="mb-6 border border-gray-200 rounded-xl overflow-hidden shadow-sm bg-white">
+        <div 
+          onClick={() => setOpenFaq(!openFaq)}
+          className="bg-gray-50 px-6 py-4 cursor-pointer flex justify-between items-center text-purple-800 font-bold text-lg hover:bg-gray-100 transition-colors"
+        >
+          <span>Հաճախ տրվող հարցեր</span>
+          <span>{openFaq ? '▲' : '▼'}</span>
+        </div>
+
+        {openFaq && (
+          <div className="bg-white border-t border-gray-100">
+            {faqList.map((item, index) => (
+              <div key={index} className={index !== faqList.length - 1 ? 'border-b border-gray-100' : ''}>
+                <div 
+                  onClick={() => setActiveFaqIndex(activeFaqIndex === index ? null : index)}
+                  className="px-6 py-4 cursor-pointer flex justify-between items-center hover:bg-gray-50 transition-colors"
+                >
+                  <span className="text-purple-900 font-semibold">{item.question}</span>
+                  <span className="text-purple-700 font-bold text-lg">{activeFaqIndex === index ? '−' : '+'}</span>
+                </div>
+                {activeFaqIndex === index && (
+                  <div className="px-6 pb-4 text-gray-600 leading-relaxed whitespace-pre-line text-sm lg:text-base">
+                    {item.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+    </div>
+  );
+}
+
 function Arjetxter() {
-  const [activeSubTab, setActiveSubTab] = useState('repo'); // Կարող եք փոխել ըստ ցանկության
+  const [activeSubTab, setActiveSubTab] = useState('invest'); // Կարող եք փոխել ըստ ցանկության
   const [openAccordion, setOpenAccordion] = useState(null);
   const [openBondsAccordion, setOpenBondsAccordion] = useState(null);
 
@@ -661,6 +758,9 @@ function Arjetxter() {
                 </div>
               </div>
             </div>
+
+            {/* Ավելացված EvocaInvestBottomSection կոմպոնենտի լոգիկան */}
+            <EvocaInvestBottomSection />
           </div>
         )}
       </div>
