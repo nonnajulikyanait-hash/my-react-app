@@ -1,12 +1,20 @@
 import React from 'react';
 
-function Header() {
+// Ընդունում ենք setActiveTab-ը որպես props
+function Header({ setActiveTab }) {
   return (
     <header className="w-full font-sans bg-white border-b border-gray-200">
       {/* Վերին փոքր մենյու */}
       <div className="hidden lg:flex justify-between items-center px-10 py-3 text-sm text-gray-600 border-b border-gray-100">
         <div className="flex space-x-6">
-          <span className="font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5 cursor-pointer">Անհատ</span>
+          <span 
+            onClick={() => {
+              setActiveTab('home'); // Եթե սեղմեն Անհատ, վերադառնում ենք գլխավոր էջ
+            }}
+            className="font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5 cursor-pointer"
+          >
+            Անհատ
+          </span>
           <span className="cursor-pointer hover:text-black transition-colors">Բիզնես</span>
           <span className="cursor-pointer hover:text-black transition-colors">Ակնթարթային վճարումներ</span>
           <span className="cursor-pointer hover:text-black transition-colors">Մեր մասին</span>
@@ -26,14 +34,22 @@ function Header() {
 
       {/* Հիմնական նավիգացիա (Լոգո և հիմնական բաժիններ) */}
       <div className="flex justify-between items-center px-6 lg:px-10 py-5">
-        {/* Լոգո */}
-        <div className="flex items-center">
+        {/* Լոգո (Սեղմելիս գնում է գլխավոր էջ) */}
+        <div className="flex items-center cursor-pointer" onClick={() => setActiveTab('home')}>
           <h1 className="text-4xl font-black text-neutral-800 tracking-tighter m-0">evoca</h1>
         </div>
         
         {/* Հիմնական մենյուի հղումներ */}
         <nav className="hidden xl:flex space-x-7 text-lg font-medium text-neutral-800">
-          <a href="#varker" className="hover:text-purple-700 transition-colors">Վարկեր</a>
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab('varker'); // Հենց սեղմում են, ակտիվանում է վարկերի էջը
+            }}
+            className="hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium text-neutral-800"
+          >
+            Վարկեր
+          </button>
           <a href="#cards" className="hover:text-purple-700 transition-colors">Քարտեր</a>
           <a href="#deposits" className="hover:text-purple-700 transition-colors">Ավանդներ</a>
           <a href="#accounts" className="hover:text-purple-700 transition-colors">Հաշիվներ</a>
