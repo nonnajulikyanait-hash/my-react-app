@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Arjetxter() {
-  const [activeSubTab, setActiveSubTab] = useState('hfc'); // 'investment', 'bonds', 'hfc', 'repo', 'invest'
+  const [activeSubTab, setActiveSubTab] = useState('repo'); // Կարող եք փոխել ըստ ցանկության
   const [openAccordion, setOpenAccordion] = useState(null);
   const [openBondsAccordion, setOpenBondsAccordion] = useState(null);
 
@@ -10,7 +10,7 @@ function Arjetxter() {
   };
 
   const toggleBondsAccordion = (index) => {
-    setOpenBondsAccordion(setOpenBondsAccordion === index ? null : index); // թողնում ենք ճիշտ տրամաբանությամբ
+    setOpenBondsAccordion(openBondsAccordion === index ? null : index);
   };
 
   const investmentAccordionItems = [
@@ -204,7 +204,7 @@ function Arjetxter() {
       )
     },
     {
-      title: "ՏԱՍՆԵՐԿՈՒԵՐՈՐԴ ԵՎ ՏԱՍՆԵՐԵՔԵՐՈՐԴ",
+      title: "ՏԱՍՆԵՐԿՈՒԵՐՈՐԴ ԵՎ ՏԱՍՆԵՔԵՐՈՐԴ",
       content: renderBondsTable(
         ["ՀՀ դրամ", "ԱՄՆ դոլար"],
         [
@@ -314,7 +314,7 @@ function Arjetxter() {
           { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
           { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
         ],
-        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 11.03.2022թ. թիվ 1/106 Ա որոշմամբ:"
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 11.03.2022թ. թիվ 1/106 Ա որոշմամբ."
       )
     },
     {
@@ -330,7 +330,7 @@ function Arjetxter() {
           { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
           { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
         ],
-        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.10.2020թ. թիվ 1/562 Ա որոշմամբ:"
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.10.2020թ. թիվ 1/562 Ա որոշմամբ."
       )
     },
     {
@@ -346,7 +346,7 @@ function Arjetxter() {
           { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
           { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
         ],
-        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.10.2020թ. թիվ 1/562 Ա որոշմամբ:"
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.10.2020թ. թիվ 1/562 Ա որոշմամբ."
       )
     },
     {
@@ -408,7 +408,7 @@ function Arjetxter() {
           </div>
         </div>
 
-        {/* Հիմնական բովանդակություն ըստ activeSubTab-ի */}
+        {/* 1. Ներդրումային ծառայություններ */}
         {activeSubTab === 'investment' && (
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
             <div className="text-xs text-gray-400 mb-2">
@@ -491,6 +491,7 @@ function Arjetxter() {
           </div>
         )}
 
+        {/* 2. Պարտատոմսեր */}
         {activeSubTab === 'bonds' && (
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
             <div className="text-xs text-gray-400 mb-2">
@@ -560,6 +561,7 @@ function Arjetxter() {
           </div>
         )}
 
+        {/* 3. ՀԿԾ ծառայություններ */}
         {activeSubTab === 'hfc' && (
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
             <div className="text-xs text-gray-400 mb-2">
@@ -592,50 +594,137 @@ function Arjetxter() {
               <p>
                 Հաշվի Օպերատորը ՀՀ Կենտրոնական Դեպոզիտարիայի հետ կնքած պայմանագրի հիման վրա միջնորդավորում է ՀՀ Կենտրոնական Դեպոզիտարիայի կողմից մատուցվող ծառայությունները:
               </p>
-              <p>
-                Evocabank-ը, որպես ՀՀ Կենտրոնական Դեպոզիտարիայի Հաշվի Օպերատոր և կարգավորվող շուկայի հաշվարկային համակարգի անդամ (ԿՇՀՀԱ), մատուցում է ռեեստրավարման և պահառության ծառայություններ՝ ապահովելով դրանց մատուցումը ինչպես Բանկի Գլխամասային գրասենյակում, այնպես էլ՝ մասնաճյուղերում։
-              </p>
+            </div>
+          </div>
+        )}
 
-              <div className="space-y-3 pt-4 border-t border-gray-100">
-                <div>
-                  <a 
-                    href="https://www.evoca.am/file_manager/PDF-FILES/CDA/%D5%80%D4%BF%D4%B4-%D5%AE%D5%A1%D5%BC%D5%A1%D5%B5%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%82%D5%B1-%D5%B4%D5%AB%D5%BB%D5%B6%D5%B8%D6%82%D5%A4%D5%A1%D5%BE%D5%B8%D6%82%D5%B4%D5%A1%D5%B6-%D5%A3%D5%B8%D6%82%D5%B6%D5%A5%D5%B8%D6%82%D5%B5%D5%A1%D5%B6-%D5%BD%D5%A1%D5%AF%D5%A1%D5%B3%D5%A5%D6%82%D5%B6.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-purple-700 underline font-semibold hover:text-purple-950 block"
-                  >
-                    Հայաստանի կենտրոնական դեպոզիտարիայի կողմից մատուցվող ծառայությունների միջնորդավորման գործունեության սակագներ
-                  </a>
-                </div>
-                <div>
-                  <a 
-                    href="https://www.evoca.am/file_manager/PDF-FILES/Investment%20Services/%D5%80%D5%A1%D5%B5%D5%A1%D5%BD%D5%BF%D5%A1%D5%BD%D5%AB%20%D5%BA%D5%A5%D5%B6%D5%BF%D6%80%D5%B8%D5%B6%D5%A1%D5%AF%D5%A1%D5%BD%20%D5%A4%D5%BA%D5%B0%D5%B8%D5%A6%D5%AB%D5%BF%D5%A1%D6%82%D5%B1%D5%AB%20%D5%AF%D5%B8%D5%B5%D5%B6%D5%B5%D6%81%20%D5%A1%D5%BF%D5%B8%D6%82%D6%81%D5%BE%D5%B8%D6%82%D6%81%D5%BE%D5%B8%D6%82%20%D5%AE%D5%A1%D5%BC%D5%A1%D5%B5%D5%B8%D6%82%D5%B5%D5%B8%D6%82%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%82%20%D5%B4%D5%AB%D5%BB%D5%B6%D5%B8%D6%82%D5%A4%D5%A1%D5%BE%D5%B8%D6%82%D5%B4%D5%A1%D5%B6-%D5%A3%D5%B8%D6%82%D5%B6%D5%A5%D5%B8%D6%82%D5%B5%D5%A1%D5%B6-%D5%BA%D5%A1%D5%B0%D5%B8%D6%82%D5%B5%D5%B6%D5%A5%D6%80.pdf" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-purple-700 underline font-semibold hover:text-purple-950 block"
-                  >
-                    Հայաստանի կենտրոնական դեպոզիտարիայի կողմից մատուցվող ծառայությունների միջնորդավորման գործունեության կանոններ
-                  </a>
+        {/* 4. Ռեպո/Հակադարձ Ռեպո գործարքներ */}
+        {activeSubTab === 'repo' && (
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Արժեթղթեր  &gt;  <span className="text-gray-600">Ռեպո/Հակադարձ Ռեպո գործարքներ</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div className="space-y-4">
+                <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+                  Ռեպո/Հակադարձ Ռեպո գործարքներ
+                </h1>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  Կարճաժամկետ դրամական միջոցներ ներգրավելու և տեղաբաշխելու նպատակով Evocabank-ն իրականացնում է Ռեպո/Հակադարձ Ռեպո գործարքներ։ Ռեպո/Հակադարձ Ռեպո գործարքների շնորհիվ՝ Բանկը կատարում է կարճաժամկետ իրացվելիության կառավարում։
+                </p>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <img 
+                  src="https://www.evoca.am/images-cache/menu/1/16783548886405/780x585.jpg" 
+                  alt="Ռեպո/Հակադարձ Ռեպո գործարքներ" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 lg:p-10 shadow-sm border border-gray-100 space-y-6 text-sm lg:text-base text-gray-700 leading-relaxed">
+              <p>
+                Բանկը Ռեպո/Հակադարձ Ռեպո գործարքներ է կնքում բացառապես Հայաստանի Հանրապետության Կենտրոնական բանկի կողմից գրանցված և լիցենզավորված, մասնագիտացված ընկերությունների հետ (Բանկեր, Ներդրումային ընկերություններ, Ներդրումային ֆոնդեր, Վարկային կազմակերպություններ, Ապահովագրական ընկերություններ):
+              </p>
+              <p>
+                Գործարքները կնքվում են ՀՀ պետական գանձապետական և ԿԲ-ի կողմից թողարկված պարտատոմսերով, ինչպես նաև ՀՀ առևտրային բանկերի, վարկային կազմակերպությունների կողմից թողարկված և Հայաստանի Ֆոնդային Բորսայում ցուցակված այլ կորպորատիվ պարտատոմսերով:
+              </p>
+              <p className="font-medium text-gray-900 bg-gray-50 p-4 rounded-xl border-l-4 border-purple-800">
+                Գործարքի հիմնական պայմանները որոշվում են երկկողմ բանակցությունների արդյունքում:
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* 5. EvocaINVEST */}
+        {activeSubTab === 'invest' && (
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Արժեթղթեր  &gt;  <span className="text-gray-600">EvocaINVEST</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div className="space-y-4">
+                <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+                  EvocaINVEST
+                </h1>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  Բացահայտեք նոր հնարավորություններ EvocaINVEST-ի հետ միասին։ Ներդրեք արագ, հարմարավետ և անվտանգ։
+                </p>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <div className="w-full h-64 bg-purple-100 flex items-center justify-center text-purple-800 font-bold text-xl">
+                  EvocaINVEST
                 </div>
               </div>
             </div>
           </div>
         )}
-
-        {activeSubTab === 'repo' && (
-          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-12">
-            <h2 className="text-3xl font-extrabold text-neutral-900 mb-4">Ռեպո/Հակադարձ Ռեպո գործարքներ</h2>
-            <p className="text-gray-700">Իրականացրեք ռեպո և հակադարձ ռեպո գործարքներ շահավետ պայմաններով:</p>
-          </div>
-        )}
-
-        {activeSubTab === 'invest' && (
-          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-12">
-            <h2 className="text-3xl font-extrabold text-neutral-900 mb-4">EvocaINVEST</h2>
-            <p className="text-gray-700">Ներդրումային հարթակ արագ և հարմարավետ առցանց առևտրի համար:</p>
-          </div>
-        )}
       </div>
+
+      {/* FOOTER */}
+      <footer className="bg-gray-100 border-t border-gray-200 text-gray-600 text-sm py-12 mt-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="space-y-4">
+            <div className="text-2xl font-black text-purple-900 tracking-wider">evocaBANK</div>
+            <p className="text-xs leading-relaxed">
+              ք. Երևան, 0010, Հանրապետության 44/2
+            </p>
+            <p className="text-xs leading-relaxed text-gray-500">
+              Evocabank-ը վերահսկվում է Հայաստանի Հանրապետության Կենտրոնական բանկի կողմից<br />
+              1990 - 2026 © ԲՈԼՈՐ ԻՐԱՎՈՒՆՔՆԵՐԸ ՊԱՇՏՊԱՆՎԱԾ ԵՆ։
+            </p>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-gray-900 mb-4">Բանկի մասին</h3>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#" className="hover:underline">Մեր մասին</a></li>
+              <li><a href="#" className="hover:underline">Ղեկավարություն</a></li>
+              <li><a href="#" className="hover:underline">Բաժնետերեր</a></li>
+              <li><a href="#" className="hover:underline">Հաշվետվություններ</a></li>
+              <li><a href="#" className="hover:underline">Իրավական ակտեր</a></li>
+              <li><a href="#" className="hover:underline">Սակագներ</a></li>
+              <li><a href="#" className="hover:underline">Օտարվող գույք</a></li>
+              <li><a href="#" className="hover:underline">Կառուցապատողներ</a></li>
+              <li><a href="#" className="hover:underline">Գործընկեր ավտոսրահներ</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-gray-900 mb-4">Օգտակար հղումներ</h3>
+            <ul className="space-y-2 text-xs">
+              <li><a href="#" className="hover:underline">Հաճախորդի իրավունքները (Բողոքի ներկայացման կանոններ)</a></li>
+              <li><a href="#" className="hover:underline">Հաճախորդի ռեզիդենտության չափանիշներ</a></li>
+              <li><a href="#" className="hover:underline">Կարգավորում</a></li>
+              <li><a href="#" className="hover:underline">Գաղտնիության քաղաքականություն</a></li>
+              <li><a href="#" className="hover:underline">Ֆին. հաշտարար</a></li>
+              <li><a href="#" className="hover:underline">Ֆինանսական հանցագործությունների կանխարգելում</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-bold text-gray-900 mb-4">Այլ հղումներ</h3>
+            <ul className="space-y-2 text-xs mb-6">
+              <li><a href="#" className="hover:underline">EvocaONLINE</a></li>
+              <li><a href="#" className="hover:underline">Պահատուփեր</a></li>
+              <li><a href="#" className="hover:underline">Հաճախ տրվող հարցեր</a></li>
+              <li><a href="#" className="hover:underline">Հայտարարություններ</a></li>
+              <li><a href="#" className="hover:underline">Dibrary</a></li>
+              <li><a href="#" className="hover:underline">Բուկլետներ</a></li>
+              <li><a href="#" className="hover:underline">Հետադարձ կապ</a></li>
+              <li><a href="#" className="hover:underline">Կայքի քարտեզ</a></li>
+            </ul>
+            <div className="text-xs font-semibold text-gray-800 space-y-1">
+              <p>📞 +374 10 605555</p>
+              <p>📞 8444</p>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
