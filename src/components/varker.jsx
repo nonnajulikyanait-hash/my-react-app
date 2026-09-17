@@ -391,8 +391,6 @@ const loansData = [
   }
 ];
 
-import React, { useState } from 'react';
-
 function Varker({ loansData = [] }) {
   const [activeSubTab, setActiveSubTab] = useState('teghekatvutyun'); // Դրված է 'teghekatvutyun', որ հենց սեղմեք կամ բացվի, գնա այդ էջը
   const [selectedFilter, setSelectedFilter] = useState('all');
