@@ -11,7 +11,7 @@ import Gortsynkerner from './components/gortsynkerner';
 import EvocaCalculator from './components/evocacalculator';
 import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
-import Varker from './components/varker'; // 1. Ներմուծում ենք Varker բաղադրիչը
+import Varker from './components/varker';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -23,7 +23,6 @@ function App() {
           message: "Hello from React & Firebase!",
           time: new Date()
         });
-
         console.log("Document successfully written!");
       } catch (e) {
         console.error("Error writing document: ", e);
@@ -32,6 +31,11 @@ function App() {
 
     addData();
   }, []);
+
+  // Էջը փոխվելիս բարձրացնում ենք վերև
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [activeTab]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
@@ -42,28 +46,13 @@ function App() {
         {/* Էջերի պայմանական ռենդեր ըստ activeTab-ի */}
         {activeTab === 'home' && (
           <>
-            {/* Hero Slider */}
             <HeroSlider />
-
-            {/* Biometric Section */}
             <BiometricSection />
-
-            {/* Biometric Triangle */}
             <BiometricTriangle />
-
-            {/* Evoca Cards Slider */}
             <EvocaCardsSlider />
-
-            {/* Օնլայն և մոբայլ բանկինգ բլոկ */}
             <EvocaOnlineMobile />
-
-            {/* Գործընկերներ բլոկ */}
             <Gortsynkerner />
-
-            {/* Արտարժույթի փոխարժեքներ և հասցեներ */}
             <EvocaCalculator />
-
-            {/* Հաճախորդների կարծիքներ (Անմիջապես Footer-ից առաջ) */}
             <Hachaxord />
           </>
         )}
@@ -76,7 +65,7 @@ function App() {
         {/* Եթե սեղմել են Հայտարարություններ */}
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
-            {/* <Haytararutyun /> */}
+            {/* Հայտարարությունների բովանդակություն */}
           </main>
         )}
       </div>

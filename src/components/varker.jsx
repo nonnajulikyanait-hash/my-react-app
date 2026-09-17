@@ -5,6 +5,7 @@ const loansData = [
     id: 1,
     image: "https://www.evoca.am/images-cache/loans/1/16142452390605/415x261.jpg",
     title: "Անգրավ սպառողական վարկ",
+    category: "Angrav",
     description: "Նոր նպատակներ, անսպասելի ծախսեր կամ վաղուց պլանավորված գնումներ․ Evocabank-ի անգրավ սպառողական վարկը կօգնի կյանքի կոչել Ձեր ծրագրերը՝ առանց գույքի գրավադրման։",
     details: [
       { label: "Գումար", value: "մինչև 10 մլն. ֏" },
@@ -16,6 +17,7 @@ const loansData = [
     id: 2,
     image: "https://www.evoca.am/images-cache/loans/1/16142451996694/415x261.jpg",
     title: "Ավտոմեքենայի ձեռքբերման նպատակով վարկ",
+    category: "Avto",
     description: "Նոր ավտոմեքենա գնելու որոշու՞մ եք կայացրել, արդեն ընտրե՞լ եք մակնիշը, մոդելը և գույնը: Evocabank-ը կօգնի ավարտին հասցնել Ձեր որոշումը։",
     details: [
       { label: "Գումար", value: "մինչև 50 մլն. ֏" },
@@ -28,6 +30,7 @@ const loansData = [
     id: 3,
     image: "https://www.evoca.am/images-cache/loans/1/16142566831396/415x261.jpg",
     title: "Գույքի գրավով ապահովված վարկ",
+    category: "Gravov",
     description: "Ստացիր քեզ անհրաժեշտ ֆինանսավորումը՝ գրավադրելով անշարժ գույք կամ տրանսպորտային միջոց։",
     details: [
       { label: "Գումար", value: "մինչև 150 մլն. ֏" },
@@ -40,6 +43,7 @@ const loansData = [
     id: 4,
     image: "https://www.evoca.am/images-cache/loans/1/17552479364123/415x261.png",
     title: "Արևային կայանների ձեռք բերման վարկ EvocaPOWER",
+    category: "Online",
     description: "Քո տան էլեկտրաէներգիան արևից, իսկ վարկը՝ Evoca-ից։ EvocaPOWER վարկատեսակը տրամադրվում է առանց կանխավճարի, գրավի և բանկ այցելելու անհրաժեշտության։",
     details: [
       { label: "Գումար", value: "Մինչև 5 մլն. ֏" },
@@ -51,6 +55,7 @@ const loansData = [
     id: 5,
     image: "https://www.evoca.am/images-cache/loans/1/16142452902587/415x261.jpg",
     title: "Ոսկու գրավով (լոմբարդային) վարկ",
+    category: "Gravov",
     description: "Ձևակերպե՛ք ոսկյա իրերի գրավով վարկեր Evocabank-ի մասնաճյուղերում հաշված րոպեների ընթացքում և ստացե՛ք վարկ ոսկու գնահատված արժեքի մինչև 150%-ի չափով։",
     details: [
       { label: "Գումար", value: "մինչև 50 մլն. ֏" },
@@ -63,6 +68,7 @@ const loansData = [
     id: 6,
     image: "https://www.evoca.am/images-cache/loans/1/16131174467985/415x261.jpg",
     title: "Տեղում Ապառիկ",
+    category: "Aparik",
     description: "Ցանկանո՞ւմ ես ձեռք բերել քո նախընտրած ապրանքը կամ օգտվել ծառայությունից, բայց չես ցանկանում ամբողջ գումարը վճարել միանգամից։ Օգտվիր Evoca-ի տեղում ապառիկից։",
     details: [
       { label: "Գումար", value: "մինչև 5 մլն. ֏" },
@@ -74,6 +80,7 @@ const loansData = [
     id: 7,
     image: "https://www.evoca.am/images-cache/loans/1/16142653302177/415x261.jpg",
     title: "Evoca աշխատավարձային փաթեթի շրջանակում տրամադրվող վարկ",
+    category: "Angrav",
     description: "Աշխատավա՞րձ ես ստանում մեր բանկային քարտով և ունե՞ս ընթացիկ ծախսերի հետ կապված խնդիրներ. Evocabank-ը Ձեզ կտրամադրի շահավետ պայմաններով վարկ։",
     details: []
   },
@@ -81,6 +88,7 @@ const loansData = [
     id: 8,
     image: "https://www.evoca.am/images-cache/loans/1/1614244906092/415x261.jpg",
     title: "Բնակարանային հիփոթեքային վարկեր Բանկի ռեսուրսով",
+    category: "Hypothec",
     description: "Ձեռք բերեք Ձեր նախընտրած բնակարանը հիփոթեքային վարկավորման միջոցով։",
     details: [
       { label: "Գումար", value: "մինչև 80 մլն. ֏" },
@@ -92,6 +100,7 @@ const loansData = [
     id: 9,
     image: "https://www.evoca.am/images-cache/loans/1/16994456305602/415x261.png",
     title: "Action",
+    category: "Online",
     description: "Action online վարկ կարող ես ստանալ EvocaTOUCH հավելվածի միջոցով՝ 24/7 ռեժիմով, ցանկացած վայրից և ցանկացած ժամի։",
     details: [
       { label: "Սահմանաչափ", value: "մինչև 10 մլն ֏" },
@@ -103,6 +112,7 @@ const loansData = [
     id: 10,
     image: "https://www.evoca.am/images-cache/loans/1/17364209867562/415x261.png",
     title: "Հիփոթեքային վարկ ԼՂ-ից բռնի տեղահանված ընտանիքներին",
+    category: "Hypothec",
     description: "Evocabank-ը միշտ ձեր կողքին է։ Առաջարկում ենք հատուկ պայմաններով հիփոթեքային վարկեր Լեռնային Ղարաբաղից բռնի տեղահանված ընտանիքներին:",
     details: [
       { label: "Գումար", value: "մինչև 55 մլն ֏" },
@@ -114,6 +124,7 @@ const loansData = [
     id: 11,
     image: "https://www.evoca.am/images-cache/loans/1/17421922764367/415x261.jpg",
     title: "Հողամասի ձեռքբերման վարկ",
+    category: "Hypothec",
     description: "Փնտրո՞ւմ ես հողատարածք՝ քո երազանքների տունը կառուցելու, հանգստի գոտի ստեղծելու կամ այլ նպատակների համար։ Դու արդեն գտել ես այն։",
     details: [
       { label: "Գումար", value: "մինչև 80 մլն. ֏" },
@@ -125,6 +136,7 @@ const loansData = [
     id: 12,
     image: "https://www.evoca.am/images-cache/loans/1/17461652642369/415x261.png",
     title: "Միկրովերանորոգման վարկ Բանկի ռեսուրսներով",
+    category: "Hypothec",
     description: "Պլանավորո՞ւմ ես բնակարանի վերանորոգում։ Ստացիր Evocabank-ի միկրովերանորոգման վարկ և օգտվիր պետական սուբսիդավորման հնարավորությունից։",
     details: [
       { label: "Գումար", value: "մինչև 5 մլն. ֏" },
@@ -136,6 +148,7 @@ const loansData = [
     id: 13,
     image: "https://www.evoca.am/images-cache/loans/1/17764888992084/415x261.png",
     title: "Ֆիզիկական անձանց տրանսպորտային միջոցների լիզինգ",
+    category: "Avto",
     description: "Ձեռք բեր քո երազանքների մեքենան Evocabank-ի լիզինգի միջոցով՝ ճկուն պայմաններով և մատչելի գնով:",
     details: [
       { label: "Գումար", value: "Մինչև 50 մլն ֏" },
@@ -147,6 +160,7 @@ const loansData = [
     id: 14,
     image: "https://www.evoca.am/images-cache/loans/1/16947885698869/415x261.png",
     title: "Վճարային քարտով օվերդրաֆտ (վարկային քարտ)",
+    category: "Online",
     description: "Ունես չնախատեսված ծախսե՞ր. Evocabank-ի Online Օվերդրաֆտը լավագույն կարճաժամկետ լուծումն է: 24/7 հասանելիություն և առանց փաստաթղթաշրջանառության:",
     details: [
       { label: "Սահմանաչափ", value: "մինչև 10 մլն ֏" },
@@ -158,6 +172,7 @@ const loansData = [
     id: 15,
     image: "https://www.evoca.am/images-cache/loans/1/17364087555297/415x261.png",
     title: "Անհատական վարկ «Ներդրումային»",
+    category: "Gravov",
     description: "Ոչ թե վարկ, այլ ներդրում․ գիտեի՞ր, որ Evoca-ի միջոցով դու կարող ես ձեռք բերել անշարժ կամ շարժական գույք արտերկրում և ստանալ լրացուցիչ եկամուտներ։",
     details: [
       { label: "Գումար", value: "մինչև 350 մլն ֏" },
@@ -169,6 +184,7 @@ const loansData = [
     id: 16,
     image: "https://www.evoca.am/images-cache/loans/1/17419413852954/415x261.jpg",
     title: "Ավտոկայանատեղիի ձեռքբերման վարկ",
+    category: "Avto",
     description: "Evocabank-ի նոր վարկատեսակով վերջապես կարող ես ձեռք բերել սեփական ավտոկայանատեղի և մոռանալ մեքենան կանգնեցնելու անհարմարությունների մասին:",
     details: [
       { label: "Գումար", value: "մինչև 8 մլն ֏" },
@@ -180,6 +196,7 @@ const loansData = [
     id: 17,
     image: "https://www.evoca.am/images-cache/loans/1/17701927362001/415x261.png",
     title: "Հեծանիվի ձեռքբերման վարկ",
+    category: "Aparik",
     description: "Evoca-ն տրամադրում է հեծանիվի ձեռքբերման վարկ մասնագիտական ուսումնական հաստատությունների ուսանողների և աշխատակիցների համար՝ պետական սուբսիդավորմամբ։",
     details: [
       { label: "Գումար", value: "Մինչև 300,000 ֏" },
@@ -192,6 +209,7 @@ const loansData = [
     id: 18,
     image: "https://www.evoca.am/images-cache/loans/1/17262174043684/415x261.png",
     title: "Ոչ ռեզիդենտ ֆիզ․ անձանց համար բնակարանային հիփոթեքային վարկ",
+    category: "Hypothec",
     description: "Ձեռք բեր քո երազանքների բնակարանը Evocabank-ի հիփոթեքային վարկավորման միջոցով։",
     details: [
       { label: "Գումար", value: "մինչև 80 մլն. ֏ (Համարժեք արտարժույթ)" },
@@ -204,6 +222,7 @@ const loansData = [
     id: 19,
     image: "https://www.evoca.am/images-cache/loans/1/17198124761415/415x261.png",
     title: "Վերանորոգման վարկ EvocaHOME",
+    category: "Hypothec",
     description: "Ցանկանո՞ւմ ես վերանորոգել բնակարանդ կամ պլանավորու՞մ ես գնել նոր կահույք։ Evoca-ի կողմից առաջարկվող նոր օվերդրաֆտի միջոցով դու կստեղծես քո երազանքների բնակարանը՝ ամենահարմար պայմաններով։",
     details: [
       { label: "Գումար", value: "մինչև 10 մլն ֏" },
@@ -215,6 +234,7 @@ const loansData = [
     id: 20,
     image: "https://www.evoca.am/images-cache/loans/1/1782886301331/415x261.jpg",
     title: "Դրամական միջոցների գրավով ապահովված անհատական վարկ",
+    category: "Gravov",
     description: "Ստացիր վարկ՝ գրավադրելով քո ավանդը կամ պարտատոմսը՝ արագ, հեշտ և առանց ավելորդ ձևակերպումների։",
     details: [
       { label: "Ավանդի գումարի սահմանաչափ", value: "մինչև 95%" },
@@ -225,6 +245,7 @@ const loansData = [
     id: 21,
     image: "https://www.evoca.am/images-cache/loans/1/16142450609707/415x261.jpg",
     title: "Առևտրային հիփոթեքային վարկեր",
+    category: "Hypothec",
     description: "Բիզնեսն ընդլայնելու համար Ձեր ֆինանսական միջոցները բավարա՞ր չեն, եկե՛ք Evocabank։",
     details: [
       { label: "Գումար", value: "մինչև 120 մլն. ֏" },
@@ -236,6 +257,7 @@ const loansData = [
     id: 22,
     image: "https://www.evoca.am/images-cache/loans/1/16142450957048/415x261.jpg",
     title: "ԱՀԸ-ի ծրագրով ձեռք բերման վարկեր",
+    category: "Hypothec",
     description: "Evocabank-ն առաջարկում է Ազգային հիփոթեքային ընկերության ծրագրի շրջանակներում տրամադրվող բնակարանային հիփոթեքային վարկեր։",
     details: [
       { label: "Գումար", value: "մինչև 45 մլն. ֏" },
@@ -247,6 +269,7 @@ const loansData = [
     id: 23,
     image: "https://www.evoca.am/images-cache/loans/1/17265524369781/415x261.png",
     title: "ԱՀԸ-ի ծրագրով կառուցապատման վարկեր",
+    category: "Hypothec",
     description: "Կատարիր ներդրում քո բնակարանի էներգաարդյունավետ կառուցապատման մեջ և ստացիր հնարավորություն վճարել ավելի քիչ ծախսված էլեկտրաէներգիայի և գազի համար:",
     details: [
       { label: "Գումար", value: "մինչև 45 մլն. ֏" },
@@ -258,6 +281,7 @@ const loansData = [
     id: 24,
     image: "https://www.evoca.am/images-cache/loans/1/16142533830767/415x261.jpg",
     title: "ԱՀԸ-ի ծրագրով վերանորոգման վարկեր",
+    category: "Hypothec",
     description: "Կազմակերպիր քո բնակարանի էներգաարդյունավետ վերանորոգումն Evocabank-ի հետ։",
     details: [
       { label: "Գումար", value: "մինչև 15 մլն. ֏" },
@@ -269,6 +293,7 @@ const loansData = [
     id: 25,
     image: "https://www.evoca.am/images-cache/loans/1/16142451699164/415x261.jpg",
     title: "Հիփոթեքային վարկ «Երիտասարդ ընտանիքին՝ մատչելի բնակարան»",
+    category: "Hypothec",
     description: "Գնե՛ք Ձեր երազանքների բնակարանն Evocabank-ի օգնությամբ։ Մեզ հետ բնակարան գնելը հեշտ է, գործընթացն էլ՝ պարզեցված:",
     details: [
       { label: "Գումար", value: "մինչև 27 մլն. ֏" },
@@ -281,6 +306,7 @@ const loansData = [
     id: 26,
     image: "https://www.evoca.am/images-cache/loans/1/16142652333164/415x261.jpg",
     title: "Visa Infinite վճարային քարտերով տրամադրվող վարկային սահմանաչափ",
+    category: "Online",
     description: "Ստացե՛ք օվերդրաֆտ Evocabank-ից Visa միջազգային վճարային համակարգի ամենաբարձր դասի Visa Infinite քարտով և կունենաք բանալի` դեպի արտոնությունների մեծ աշխարհ:",
     details: [
       { label: "Գումար", value: "մինչև 10 մլն. ֏" },
@@ -293,6 +319,7 @@ const loansData = [
     id: 27,
     image: "https://www.evoca.am/images-cache/loans/1/16690386016508/415x261.png",
     title: "Հիփոթեքային վարկ Արցախի շրջաններից տեղահանված ընտանիքներին",
+    category: "Hypothec",
     description: "Evocabank-ը միշտ ձեր կողքին է. Առաջարկում ենք հատուկ պայմաններով հիփոթեքային վարկեր Ադրբեջանի կողմից 2020 թվականի սեպտեմբերի 27-ին սանձազերծված պատերազմի հետևանքով տեղահանված ընտանիքներին:",
     details: [
       { label: "Գումար", value: "մինչև 45 մլն ֏" },
@@ -304,6 +331,7 @@ const loansData = [
     id: 28,
     image: "https://www.evoca.am/images-cache/loans/1/17133596531389/415x261.png",
     title: "Վերանորոգման հիփոթեքային վարկ Արցախից տեղահանված ընտանիքներին",
+    category: "Hypothec",
     description: "Evocabank-ը տրամադրում է հիփոթեքային վարկ՝ բնակարանային կամ բնակելի տան վերանորոգման համար։",
     details: [
       { label: "Գումար", value: "մինչև 10 մլն ֏" },
@@ -315,6 +343,7 @@ const loansData = [
     id: 29,
     image: "https://www.evoca.am/images-cache/loans/1/16142452651138/415x261.jpg",
     title: "«ՈՒՍԱՆՈՂԱԿԱՆ» սպառողական վարկ",
+    category: "Angrav",
     description: "Նոր որակավորումների և մասնագիտացումների ժամանակն է, բայց ուսման վարձի վճարման խոչընդոտնե՞ր կան, Evocabank-ը կվճարի Ձեր փոխարեն։",
     details: [
       { label: "Գումար", value: "մինչև 4 մլն. ֏" },
@@ -327,6 +356,7 @@ const loansData = [
     id: 30,
     image: "https://www.evoca.am/images-cache/loans/1/16696265771993/415x261.png",
     title: "Հիփոթեքային վարկեր ՀՀ սահմանամերձ և առանձին բնակավայրերում ընտանիքների բնակարանային մատչելիության ապահովման պետական աջակցության ծրագիր",
+    category: "Hypothec",
     description: "Evocabank-ը միշտ ձեր կողքին է. Առաջարկում ենք հատուկ պայմաններով հիփոթեքային վարկեր ՀՀ սահմանամերձ համայնքների բնակիչներին:",
     details: [
       { label: "Գումար", value: "մինչև 21 մլն ֏" },
@@ -338,6 +368,7 @@ const loansData = [
     id: 31,
     image: "https://www.evoca.am/images-cache/loans/1/16644424027338/415x261.png",
     title: "Evolution",
+    category: "Angrav",
     description: "Նոր որակավորումների և մասնագիտացումների ժամանակն է, բայց ուսման վարձի վճարման խոչընդոտնե՞ր կան, Evocabank-ը կվճարի քո փոխարեն։",
     details: [
       { label: "Գումար", value: "մինչև 1 մլն. ֏" },
@@ -349,6 +380,7 @@ const loansData = [
     id: 32,
     image: "https://www.evoca.am/images-cache/loans/1/17129179540435/415x261.png",
     title: "Հիփոթեքային վարկեր Զինծառայողներին",
+    category: "Hypothec",
     description: "Ձեռք բեր քո նոր բնակարանը ամենահարմար պայմաններով։ Հիփոթեքային վարկը տրամադրվում է պետական նպատակային ծրագրի շրջանակում։",
     details: [
       { label: "Սահմանաչափ", value: "մինչև 25.65 մլն ֏" },
@@ -361,6 +393,21 @@ const loansData = [
 
 function Varker() {
   const [activeSubTab, setActiveSubTab] = useState('varker');
+  const [selectedFilter, setSelectedFilter] = useState('all');
+
+  const filterButtons = [
+    { id: 'all', label: 'Բոլորը' },
+    { id: 'Gravov', label: 'Գրավով ապահովված սպառողական վարկեր' },
+    { id: 'Angrav', label: 'Անգրավ սպառողական վարկեր' },
+    { id: 'Hypothec', label: 'Հիփոթեքային վարկեր' },
+    { id: 'Avto', label: 'Ավտոմեքենաների ձեռքբերման ֆինանսավորում' },
+    { id: 'Aparik', label: 'Ապառիկ' },
+    { id: 'Online', label: 'Օնլայն վարկեր' }
+  ];
+
+  const filteredLoans = selectedFilter === 'all' 
+    ? loansData 
+    : loansData.filter(loan => loan.category === selectedFilter);
 
   return (
     <div id="varker" className="w-full min-h-screen bg-gray-50 pb-16">
@@ -388,66 +435,105 @@ function Varker() {
 
       {/* Էջի հիմնական բովանդակություն */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Հացի փշրանքներ (Breadcrumbs) */}
-        <div className="text-xs text-gray-500 mb-6 flex items-center space-x-2">
-          <span>🏠</span>
-          <span>›</span>
-          <span>Անհատ</span>
-          <span>›</span>
-          <span>Վարկեր</span>
-          <span>›</span>
-          <span className="text-gray-800 font-medium">Վարկեր</span>
-        </div>
-
-        {/* Վերնագիր */}
-        <h1 className="text-4xl font-extrabold text-neutral-900 mb-8">Վարկեր</h1>
-
-        {/* Վարկերի ցանկ */}
-        <div className="space-y-8">
-          {loansData.map((loan) => (
-            <div 
-              key={loan.id} 
-              className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition-shadow"
-            >
-              {/* Ձախ մաս՝ Նկար */}
-              <div className="w-full md:w-5/12 h-64 rounded-2xl overflow-hidden bg-purple-50 flex items-center justify-center relative">
-                <img 
-                  src={loan.image} 
-                  alt={loan.title} 
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              {/* Աջ մաս՝ Տեքստ և պարամետրեր */}
-              <div className="w-full md:w-7/12 flex flex-col justify-between">
-                <div>
-                  <h2 className="text-2xl font-bold text-neutral-900 mb-3">{loan.title}</h2>
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
-                    {loan.description}
-                  </p>
-                </div>
-
-                {/* Ցուցանիշներ (Գումար, ժամկետ, տոկոս) */}
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6 border-t border-b border-gray-100 py-4">
-                  {loan.details.map((detail, idx) => (
-                    <div key={idx}>
-                      <p className="text-[#6400dc] font-bold text-lg sm:text-xl">{detail.value}</p>
-                      <p className="text-xs text-gray-500 mt-0.5">{detail.label}</p>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Մանրամասն կոճակ */}
-                <div>
-                  <button className="inline-flex items-center space-x-2 text-[#6400dc] bg-purple-50 hover:bg-purple-100 font-semibold px-6 py-2.5 rounded-full transition-colors cursor-pointer text-sm">
-                    <span>Մանրամասն</span>
-                    <span>›</span>
-                  </button>
-                </div>
-              </div>
+        
+        {activeSubTab === 'varker' && (
+          <>
+            <div className="text-xs text-gray-500 mb-6 flex items-center space-x-2">
+              <span>🏠</span>
+              <span>›</span>
+              <span>Անհատ</span>
+              <span>›</span>
+              <span>Վարկեր</span>
+              <span>›</span>
+              <span className="text-gray-800 font-medium">Վարկեր</span>
             </div>
-          ))}
-        </div>
+
+            <h1 className="text-4xl font-extrabold text-neutral-900 mb-8">Վարկեր</h1>
+
+            {/* Զտման կոճակներ */}
+            <div className="flex flex-wrap gap-3 mb-10">
+              {filterButtons.map((btn) => (
+                <button
+                  key={btn.id}
+                  onClick={() => setSelectedFilter(btn.id)}
+                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors cursor-pointer shadow-sm ${
+                    selectedFilter === btn.id
+                      ? 'bg-[#6400dc] text-white'
+                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                  }`}
+                >
+                  {btn.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Վարկերի ցանկ */}
+            <div className="space-y-8">
+              {filteredLoans.length > 0 ? (
+                filteredLoans.map((loan) => (
+                  <div 
+                    key={loan.id} 
+                    className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition-shadow"
+                  >
+                    <div className="w-full md:w-5/12 h-64 rounded-2xl overflow-hidden bg-purple-50 flex items-center justify-center relative">
+                      <img src={loan.image} alt={loan.title} className="w-full h-full object-cover" />
+                    </div>
+                    <div className="w-full md:w-7/12 flex flex-col justify-between">
+                      <div>
+                        <h2 className="text-2xl font-bold text-neutral-900 mb-3">{loan.title}</h2>
+                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">{loan.description}</p>
+                      </div>
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6 border-t border-b border-gray-100 py-4">
+                        {loan.details.map((detail, idx) => (
+                          <div key={idx}>
+                            <p className="text-[#6400dc] font-bold text-lg sm:text-xl">{detail.value}</p>
+                            <p className="text-xs text-gray-500 mt-0.5">{detail.label}</p>
+                          </div>
+                        ))}
+                      </div>
+                      <div>
+                        <button className="inline-flex items-center space-x-2 text-[#6400dc] bg-purple-50 hover:bg-purple-100 font-semibold px-6 py-2.5 rounded-full transition-colors cursor-pointer text-sm">
+                          <span>Մանրամասն</span>
+                          <span>›</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))
+              ) : (
+                <p className="text-center text-gray-500 py-10 text-lg">Այս բաժնում վարկեր չեն գտնվել:</p>
+              )}
+            </div>
+          </>
+        )}
+
+        {activeSubTab === 'patmutyun' && (
+          <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+            <h1 className="text-3xl font-extrabold text-neutral-900 mb-4">Վարկային պատմություն և սքոր</h1>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Ձեր վարկային պատմությունը կարևոր գործոն է բանկում ցանկացած վարկ ստանալիս։ Այն ներառում է տեղեկատվություն ձեր նախկին և գործող վարկերի, վճարային կարգապահության և սքոր միավորների մասին։
+            </p>
+            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
+              <h3 className="text-lg font-bold text-[#6400dc] mb-2">Ինչպ՞ս ստուգել վարկային պատմությունը</h3>
+              <p className="text-gray-700 text-sm">Դուք կարող եք ցանկացած պահին ստանալ ձեր վարկային հաշվետվությունը EvocaTOUCH հավելվածի միջոցով կամ այցելելով բանկի մասնաճյուղ։</p>
+            </div>
+          </div>
+        )}
+
+        {activeSubTab === 'teghekatvutyun' && (
+          <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+            <h1 className="text-3xl font-extrabold text-neutral-900 mb-4">Կարևոր տեղեկատվություն</h1>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Այս բաժնում ներկայացված են վարկավորման ընդհանուր պայմանները, տոկոսադրույքների հաշվարկման կարգը, հնարավոր միջնորդավճարները և օրենսդրությամբ սահմանված այլ իրավական տեղեկություններ։
+            </p>
+            <ul className="list-disc list-inside space-y-3 text-gray-700 text-sm">
+              <li>Ուշադրություն՝ վարկը չվճարելու դեպքում ձեր գույքը կարող է օրենքով սահմանված կարգով առգրավվել։</li>
+              <li>Վարկային տոկոսները հաշվարկվում են վարկի մնացորդի նկատմամբ։</li>
+              <li>Տարեկան փաստացի տոկոսադրույքը ցույց է տալիս, թե որքան կարժենա վարկը ձեզ համար։</li>
+            </ul>
+          </div>
+        )}
+
       </div>
     </div>
   );

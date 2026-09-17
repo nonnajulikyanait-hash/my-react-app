@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Ընդունում ենք setActiveTab-ը որպես props
 function Header({ setActiveTab }) {
   return (
     <header className="w-full font-sans bg-white border-b border-gray-200">
@@ -8,9 +7,7 @@ function Header({ setActiveTab }) {
       <div className="hidden lg:flex justify-between items-center px-10 py-3 text-sm text-gray-600 border-b border-gray-100">
         <div className="flex space-x-6">
           <span 
-            onClick={() => {
-              setActiveTab('home'); // Եթե սեղմեն Անհատ, վերադառնում ենք գլխավոր էջ
-            }}
+            onClick={() => setActiveTab('home')}
             className="font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5 cursor-pointer"
           >
             Անհատ
@@ -34,7 +31,7 @@ function Header({ setActiveTab }) {
 
       {/* Հիմնական նավիգացիա (Լոգո և հիմնական բաժիններ) */}
       <div className="flex justify-between items-center px-6 lg:px-10 py-5">
-        {/* Լոգո (Սեղմելիս գնում է գլխավոր էջ) */}
+        {/* Լոգո */}
         <div className="flex items-center cursor-pointer" onClick={() => setActiveTab('home')}>
           <h1 className="text-4xl font-black text-neutral-800 tracking-tighter m-0">evoca</h1>
         </div>
@@ -44,7 +41,7 @@ function Header({ setActiveTab }) {
           <button 
             onClick={(e) => {
               e.preventDefault();
-              setActiveTab('varker'); // Հենց սեղմում են, ակտիվանում է վարկերի էջը
+              setActiveTab('varker');
             }}
             className="hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium text-neutral-800"
           >
