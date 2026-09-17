@@ -12,8 +12,9 @@ import EvocaCalculator from './components/evocacalculator';
 import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
 import Varker from './components/varker';
-import DepositsComponent from './components/avandner'; // Ներմուծում ենք Ավանդների կոմպոնենտը
-import HashivnerComponent from './components/hashivner'; // Ներմուծում ենք Հաշիվների կոմպոնենտը
+import DepositsComponent from './components/avandner'; 
+import HashivnerComponent from './components/hashivner';
+import Pahatuper from './components/pahatuper'; 
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -72,6 +73,11 @@ function App() {
         {/* Եթե սեղմել են Հաշիվներ */}
         {activeTab === 'hashivner' && (
           <HashivnerComponent setActiveTab={setActiveTab} />
+        )}
+
+        {/* Եթե սեղմել են Պահատուփեր */}
+        {activeTab === 'pahatuper' && (
+          <Pahatuper setActiveTab={setActiveTab} />
         )}
 
         {/* Եթե սեղմել են Հայտարարություններ */}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import EvocaOnlineMobile from './evocaonlinemobile';
 import Footer from './footer';
+import Pahatuper from './pahatuper'; // Ներմուծում ենք Պահատուփերի կոմպոնենտը
 
 function HashivnerComponent({ setActiveTab }) {
   const [activeSubTab, setActiveSubTab] = useState('opening'); // 'opening', 'metal', 'nonresident', 'safe'
@@ -420,7 +421,7 @@ function HashivnerComponent({ setActiveTab }) {
               </p>
 
               <div className="bg-purple-50 border-l-4 border-purple-700 p-4 rounded-r-xl text-purple-900 font-medium text-sm lg:text-base">
-                Ոշադրություն. Ավանդների հատուցումը երաշխավորող հիմնադրամը չի հատուցում մետաղական հաշիվները:
+                Ուշադրություն. Ավանդների հատուցումը երաշխավորող հիմնադրամը չի հատուցում մետաղական հաշիվները:
               </div>
             </div>
 
@@ -514,11 +515,16 @@ function HashivnerComponent({ setActiveTab }) {
           </div>
         )}
 
-        {/* Evoca Online & Mobile բաժին */}
+        {/* ՊԱՀԱՏՈՒՓԵՐ (Safe) */}
+        {activeSubTab === 'safe' && (
+          <Pahatuper />
+        )}
+
+        {/* Evoca Online & Mobile բաժին (Ցուցադրվում է բոլոր ներդիրների տակ) */}
         <EvocaOnlineMobile />
       </div>
 
-      {/* Ստորին հատված (Footer) - Միայն մեկ հատ */}
+      {/* ՄԻԱԿ ԵՎ ՎԵՐՋԻՆ FOOTER-Ը */}
       <Footer setActiveTab={setActiveTab} />
     </div>
   );
