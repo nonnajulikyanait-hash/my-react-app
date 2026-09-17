@@ -116,7 +116,7 @@ const cardsData = [
   { 
     id: 19, 
     name: "Evoca Student Card", 
-    text: "Ուսանողական հատուկ զեղչեր և հարմարավետ ֆինանսական գործիքներ երիտասարդների համար:",
+    text: "Ոսանողական հատուկ զեղչեր և հարմարավետ ֆինանսական գործիքներ երիտասարդների համար:",
     img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" 
   },
   { 
@@ -138,32 +138,32 @@ function EvocaCardsSlider() {
   const swiperRef = useRef(null);
 
   return (
-    <section className="relative bg-[#f0f7fe] py-24 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row items-center justify-start gap-12">
+    <section className="relative bg-[#f0f7fe] py-10 lg:py-14 overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
         
-        {/* Ձախ մաս՝ Ուղղահայաց Swiper սլայդեր (ավելի լայն քարտերով) */}
+        {/* Ձախ մաս՝ Ուղղահայաց Swiper սլայդեր */}
         <div className="flex flex-col items-center w-full lg:w-2/12">
           
           {/* Վերևի սլաք */}
           <button 
             onClick={() => swiperRef.current?.slidePrev()}
-            className="p-2 text-[#6400DC] hover:scale-125 transition-transform mb-1 focus:outline-none cursor-pointer z-10"
+            className="p-1 text-[#6400DC] hover:scale-110 transition-transform mb-1 focus:outline-none cursor-pointer z-10"
             aria-label="Previous card"
           >
-            <svg className="w-6 h-6 transform rotate-180" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
-          {/* Swiper բլոկ */}
-          <div className="h-[420px] w-full max-w-[200px] overflow-hidden relative flex justify-center">
+          {/* Swiper բլոկ (ավելի փոքր բարձրությամբ) */}
+          <div className="h-[320px] w-full max-w-[170px] overflow-hidden relative flex justify-center">
             <Swiper
               direction={'vertical'}
               slidesPerView={3}
               centeredSlides={true}
               loop={true}
               mousewheel={true}
-              spaceBetween={6} 
+              spaceBetween={4} 
               modules={[Mousewheel, Navigation]}
               onBeforeInit={(swiper) => {
                 swiperRef.current = swiper;
@@ -174,19 +174,19 @@ function EvocaCardsSlider() {
               {cardsData.map((card, index) => {
                 const isCenter = activeIndex === index;
                 return (
-                  <SwiperSlide key={card.id} className="flex flex-col justify-center items-center py-1">
+                  <SwiperSlide key={card.id} className="flex flex-col justify-center items-center py-0.5">
                     <div 
                       onClick={() => swiperRef.current?.slideToLoop(index)}
-                      className={`cursor-pointer transition-all duration-300 rounded-lg overflow-hidden shadow-sm bg-white ${
+                      className={`cursor-pointer transition-all duration-300 rounded-md overflow-hidden shadow-sm bg-white ${
                         isCenter 
-                          ? "scale-100 opacity-100 border-2 border-[#6400DC] z-10 w-[180px]" 
-                          : "scale-75 opacity-40 w-[130px]"
+                          ? "scale-100 opacity-100 border-2 border-[#6400DC] z-10 w-[150px]" 
+                          : "scale-75 opacity-40 w-[110px]"
                       }`}
                     >
                       <img src={card.img} alt={card.name} className="w-full h-auto object-cover" />
                     </div>
                     {/* Քարտի անունը տակից */}
-                    <span className={`text-[11px] font-medium text-center mt-1 transition-opacity duration-300 ${isCenter ? 'opacity-100 text-neutral-900 font-bold' : 'opacity-0'}`}>
+                    <span className={`text-[10px] font-medium text-center mt-0.5 transition-opacity duration-300 ${isCenter ? 'opacity-100 text-neutral-900 font-bold' : 'opacity-0'}`}>
                       {card.name}
                     </span>
                   </SwiperSlide>
@@ -198,41 +198,43 @@ function EvocaCardsSlider() {
           {/* Ներքևի սլաք */}
           <button 
             onClick={() => swiperRef.current?.slideNext()}
-            className="p-2 text-[#6400DC] hover:scale-125 transition-transform mt-1 focus:outline-none cursor-pointer z-10"
+            className="p-1 text-[#6400DC] hover:scale-110 transition-transform mt-1 focus:outline-none cursor-pointer z-10"
             aria-label="Next card"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
         </div>
 
-        {/* Աջ մաս՝ Մեծացված հսկա քարտ և ավելի ձախ տեղաշարժված տեքստ */}
-        <div className="w-full lg:w-9/12 flex flex-col lg:flex-row items-center justify-start gap-12">
+        {/* Աջ մաս՝ Մեծ քարտ և տեքստեր */}
+        <div className="w-full lg:w-10/12 flex flex-col lg:flex-row items-center justify-between gap-8">
           
-          {/* Մեծ քարտի նկար (առավելագույնս մեծացված, ինչպես բնօրինակում) */}
+          {/* Մեծ քարտի նկար (չափերը հավասարեցված են բնօրինակին) */}
           <div className="w-full lg:w-7/12 flex justify-center">
             <img 
               src={cardsData[activeIndex]?.img} 
               alt={cardsData[activeIndex]?.name} 
-              className="w-full max-w-[560px] h-[340px] object-contain drop-shadow-2xl transition-all duration-500"
+              className="w-full max-w-[440px] h-[260px] object-contain drop-shadow-xl transition-all duration-500"
             />
           </div>
 
-          {/* Անուն, տեքստ և կոճակ՝ ավելի ձախ հավասարեցված */}
-          <div className="w-full lg:w-5/12 text-left flex flex-col items-start">
-            <h3 className="text-3xl lg:text-4xl font-black text-neutral-900 mb-4">
+          {/* Անուն, տեքստ և կոճակ */}
+          <div className="w-full lg:w-5/12 text-left flex flex-col items-start space-y-3">
+            <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900">
               {cardsData[activeIndex]?.name}
             </h3>
-            <p className="text-base text-neutral-600 mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
               {cardsData[activeIndex]?.text}
             </p>
-            <a 
-              href="#details"
-              className="inline-block bg-[#6400DC] hover:bg-[#5200b3] text-white font-bold px-9 py-4 rounded-full shadow-lg transition-transform hover:scale-105"
-            >
-              Մանրամասն
-            </a>
+            <div className="pt-2">
+              <a 
+                href="#details"
+                className="inline-block bg-[#6400DC] hover:bg-[#5200b3] text-white font-semibold text-sm sm:text-base px-7 py-3 rounded-full shadow-md transition-transform hover:scale-105"
+              >
+                Մանրամասն
+              </a>
+            </div>
           </div>
 
         </div>
