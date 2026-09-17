@@ -391,10 +391,7 @@ const loansData = [
   }
 ];
 
-export default function Varker({ loansData = [] }) {
-  // 1. Սահմանում ենք dataToUse-ը, որպեսզի ReferenceError չլինի
-  const dataToUse = loansData;
-
+function Varker({ loansData = [] }) {
   const [activeSubTab, setActiveSubTab] = useState('teghekatvutyun');
   const [selectedFilter, setSelectedFilter] = useState('all');
 
@@ -408,9 +405,9 @@ export default function Varker({ loansData = [] }) {
     { id: 'Online', label: 'Օնլայն վարկեր' }
   ];
 
-  const filteredLoans = selectedFilter === 'all' 
-    ? dataToUse 
-    : dataToUse.filter(loan => loan.category === selectedFilter);
+const filteredLoans = selectedFilter === 'all' 
+  ? dataToUse 
+  : dataToUse.filter(loan => loan.category && loan.category.toLowerCase() === selectedFilter.toLowerCase());
 
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col justify-between">
@@ -488,8 +485,7 @@ export default function Varker({ loansData = [] }) {
                           <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">{loan.description}</p>
                         </div>
                         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6 border-t border-b border-gray-100 py-4">
-                          {/* 2. Ավելացվել է անվտանգ ստուգում (loan.details?), որպեսզի դատարկ զանգվածների դեպքում սխալ չտա */}
-                          {loan.details && loan.details.map((detail, idx) => (
+                          {loan.details.map((detail, idx) => (
                             <div key={idx}>
                               <p className="text-[#6400dc] font-bold text-lg sm:text-xl">{detail.value}</p>
                               <p className="text-xs text-gray-500 mt-0.5">{detail.label}</p>
@@ -683,3 +679,5 @@ export default function Varker({ loansData = [] }) {
     </div>
   );
 }
+
+export default Varker;
