@@ -1,6 +1,6 @@
+
 import React, { useState } from 'react';
 import EvocaOnlineMobile from './evocaonlinemobile';
-import Footer from './footer';
 import Pahatuper from './pahatuper'; // Ներմուծում ենք Պահատուփերի կոմպոնենտը
 
 function HashivnerComponent({ setActiveTab }) {
@@ -517,15 +517,13 @@ function HashivnerComponent({ setActiveTab }) {
 
         {/* ՊԱՀԱՏՈՒՓԵՐ (Safe) */}
         {activeSubTab === 'safe' && (
-          <Pahatuper />
+          <Pahatuper setActiveTab={setActiveTab} />
         )}
 
-        {/* Evoca Online & Mobile բաժին (Ցուցադրվում է բոլոր ներդիրների տակ) */}
+        {/* Evoca Online & Mobile բաժին */}
         <EvocaOnlineMobile />
       </div>
-
-      {/* ՄԻԱԿ ԵՎ ՎԵՐՋԻՆ FOOTER-Ը */}
-      <Footer setActiveTab={setActiveTab} />
+      {/* ԱՅՍՏԵՂԻՑ ՀԱՆՎԱՑ Է ԵՐԿՐՈՐԴ FOOTER-Ը */}
     </div>
   );
 }
