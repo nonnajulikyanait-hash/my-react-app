@@ -13,7 +13,7 @@ import Hachaxord from './components/hachaxord';
 import Footer from './components/footer';
 import Varker from './components/varker';
 import DepositsComponent from './components/avandner'; 
-import HashivnerComponent from './components/hashivner';
+import HashivnerComponent from './components/hashivner'; 
 import Pahatuper from './components/pahatuper'; 
 
 function App() {
@@ -60,27 +60,22 @@ function App() {
           </>
         )}
 
-        {/* Եթե սեղմել են Վարկեր */}
         {activeTab === 'varker' && (
           <Varker />
         )}
 
-        {/* Եթե սեղմել են Ավանդներ */}
         {activeTab === 'deposits' && (
           <DepositsComponent setActiveTab={setActiveTab} />
         )}
 
-        {/* Եթե սեղմել են Հաշիվներ */}
         {activeTab === 'hashivner' && (
           <HashivnerComponent setActiveTab={setActiveTab} />
         )}
 
-        {/* Եթե սեղմել են Պահատուփեր */}
         {activeTab === 'pahatuper' && (
           <Pahatuper setActiveTab={setActiveTab} />
         )}
 
-        {/* Եթե սեղմել են Հայտարարություններ */}
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
             {/* Հայտարարությունների բովանդակություն */}
@@ -88,7 +83,7 @@ function App() {
         )}
       </div>
 
-      {/* Ստորին հատված (Footer) */}
+      {/* ՄԻԱԿ ԵՎ ՎԵՐՋԻՆ FOOTER-Ը ԱՄԵՆԱՎԵՐՋՈՒՄ */}
       <Footer setActiveTab={setActiveTab} />
     </div>
   );
