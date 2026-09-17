@@ -11,6 +11,7 @@ import Gortsynkerner from './components/gortsynkerner';
 import EvocaCalculator from './components/evocacalculator';
 import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
+import Varker from './components/varker'; // 1. Ներմուծում ենք Varker բաղադրիչը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -67,16 +68,17 @@ function App() {
           </>
         )}
 
+        {/* Եթե սեղմել են Վարկեր */}
+        {activeTab === 'varker' && (
+          <Varker />
+        )}
+
         {/* Եթե սեղմել են Հայտարարություններ */}
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
             {/* <Haytararutyun /> */}
           </main>
         )}
-
-        {/* Այլ էջերի կամ հիմնական բովանդակության համար */}
-        <main className="p-10">
-        </main>
       </div>
 
       {/* Ստորին հատված (Footer) */}

@@ -3,7 +3,7 @@ import React from 'react';
 function Header() {
   return (
     <header className="w-full font-sans bg-white border-b border-gray-200">
-      {/* Վերին փոքր մենյու (ტառերը փոքր-ինչ մեծացված՝ text-sm) */}
+      {/* Վերին փոքր մենյու */}
       <div className="hidden lg:flex justify-between items-center px-10 py-3 text-sm text-gray-600 border-b border-gray-100">
         <div className="flex space-x-6">
           <span className="font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5 cursor-pointer">Անհատ</span>
@@ -31,9 +31,9 @@ function Header() {
           <h1 className="text-4xl font-black text-neutral-800 tracking-tighter m-0">evoca</h1>
         </div>
         
-        {/* Հիմնական մենյուի հղումներ (ավելի մեծ տառեր՝ text-lg) */}
+        {/* Հիմնական մենյուի հղումներ */}
         <nav className="hidden xl:flex space-x-7 text-lg font-medium text-neutral-800">
-          <a href="#loans" className="hover:text-purple-700 transition-colors">Վարկեր</a>
+          <a href="#varker" className="hover:text-purple-700 transition-colors">Վարկեր</a>
           <a href="#cards" className="hover:text-purple-700 transition-colors">Քարտեր</a>
           <a href="#deposits" className="hover:text-purple-700 transition-colors">Ավանդներ</a>
           <a href="#accounts" className="hover:text-purple-700 transition-colors">Հաշիվներ</a>
