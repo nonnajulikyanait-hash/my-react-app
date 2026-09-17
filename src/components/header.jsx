@@ -9,7 +9,7 @@ function Header({ activeTab, setActiveTab }) {
           <span 
             onClick={() => setActiveTab('home')}
             className={`cursor-pointer transition-colors ${
-              activeTab === 'home' || activeTab === 'varker' || activeTab === 'deposits' || activeTab === 'hashivner' || activeTab === 'poxancumner' || activeTab === 'pahatuper'
+              activeTab === 'home' || activeTab === 'varker' || activeTab === 'deposits' || activeTab === 'hashivner' || activeTab === 'poxancumner' || activeTab === 'pahatuper' || activeTab === 'arjetxter'
                 ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
                 : 'hover:text-black'
             }`}
@@ -87,7 +87,17 @@ function Header({ activeTab, setActiveTab }) {
           >
             Փոխանցումներ
           </button>
-          <a href="#securities" className="hover:text-purple-700 transition-colors">Արժեթղթեր</a>
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab('arjetxter');
+            }}
+            className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
+              activeTab === 'arjetxter' ? 'text-purple-700 font-bold' : 'text-neutral-800'
+            }`}
+          >
+            Արժեթղթեր
+          </button>
           <a href="#salary" className="hover:text-purple-700 transition-colors">EvocaSALARY</a>
           <a href="#touch" className="hover:text-purple-700 transition-colors">EvocaTOUCH</a>
         </nav>
