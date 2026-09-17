@@ -410,7 +410,7 @@ export default function Varker({ loansData = [] }) {
 
   const filteredLoans = selectedFilter === 'all' 
     ? dataToUse 
-    : dataToUse.filter(loan => loan.category && loan.category.toLowerCase() === selectedFilter.toLowerCase());
+    : dataToUse.filter(loan => loan.category === selectedFilter);
 
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col justify-between">
