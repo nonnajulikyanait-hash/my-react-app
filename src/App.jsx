@@ -1,4 +1,4 @@
-]import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
@@ -16,7 +16,7 @@ import DepositsComponent from './components/avandner';
 import HashivnerComponent from './components/hashivner'; 
 import Pahatuper from './components/pahatuper'; 
 import Poxancumner from './components/poxancumner'; 
-import Arjetxter from './components/arjetxter'; // Ներմուծում ենք Արժեթղթերի կոմպոնենտը
+import Arjetxter from './components/arjetxter';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -82,7 +82,6 @@ function App() {
           <Poxancumner setActiveTab={setActiveTab} />
         )}
 
-        {/* Եթե սեղմել են Արժեթղթեր */}
         {activeTab === 'arjetxter' && (
           <Arjetxter setActiveTab={setActiveTab} />
         )}
