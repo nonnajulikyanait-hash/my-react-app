@@ -29,13 +29,13 @@ function BiometricSection() {
     <section className="py-20 lg:py-32 bg-white overflow-hidden mt-6">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex flex-col lg:flex-row items-center justify-between">
         
-        {/* Ձախ մաս (Դեմքի նկարը և հետնամասի ճիշտ շրջված եռանկյունին) */}
+        {/* Ձախ մաս (Մեծ եռանկյուն և դեմքի նկար) */}
         <div className="lg:w-1/2 flex justify-center items-center relative mb-12 lg:mb-0">
-          <div className="relative flex justify-center items-center w-[380px] h-[380px]">
+          <div className="relative flex justify-center items-center w-[420px] h-[420px]">
             
-            {/* Հետնամասի մանուշակագույն շրջված եռանկյունի (Evoca ոճով) */}
+            {/* Հետնամասի մեծ մանուշակագույն շրջված եռանկյունի */}
             <div 
-              className="absolute w-[300px] h-[300px] bg-[#6400DC] rounded-[36px] pointer-events-none"
+              className="absolute w-[380px] h-[380px] bg-[#6400DC] rounded-[42px] pointer-events-none"
               style={{
                 clipPath: "polygon(50% 100%, 0% 0%, 100% 0%)"
               }}
@@ -45,14 +45,14 @@ function BiometricSection() {
             <img 
               src={faces[faceIndex]} 
               alt="Biometric Identification" 
-              className={`w-full max-w-[340px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
+              className={`w-full max-w-[380px] h-auto object-contain relative z-10 transition-opacity duration-500 ${
                 isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
               }`}
             />
           </div>
         </div>
 
-        {/* Աջ մաս (Վերնագիր, նկարագրություն, մեծացված QR կոդ և կոճակ) */}
+        {/* Աջ մաս (Վերնագիր, նկարագրություն, QR կոդ և կոճակ) */}
         <div className="lg:w-1/2 space-y-6 text-left">
           <h2 className="text-3xl lg:text-5xl font-black text-neutral-950 tracking-tight leading-tight">
             Դարձիր Evocabank-ի հաճախորդ բիոմետրիկ նույնականացմամբ
@@ -62,7 +62,7 @@ function BiometricSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-8 pt-4">
-            {/* Մեծացված QR կոդի բլոկ */}
+            {/* QR կոդի բլոկ */}
             <div className="bg-white p-3 rounded-3xl shadow-md border border-neutral-100">
               <img 
                 src="https://www.evoca.am/img/biometric-section-QR-Code.png" 
