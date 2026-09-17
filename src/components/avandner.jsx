@@ -4,17 +4,11 @@ import Footer from './footer';
 
 function DepositsComponent({ setActiveTab }) {
   const [activeSubTab, setActiveSubTab] = useState('deposits');
-  // Որ ավանդի մանրամասն էջն է բացված (null-ի դեպքում ցույց է տալիս ընդհանուր ցանկը)
   const [selectedDeposit, setSelectedDeposit] = useState(null);
-  // Մանրամասն էջի ներդիրները՝ 'about' կամ 'terms'
   const [detailTab, setDetailTab] = useState('about');
 
-  // Սլայդերի համար նախատեսված 3 տարբերակները
+  // Սլայդերի տարբերակները
   const sliderItems = [
-    {
-      title: "Դասական ավանդ",
-      image: "https://www.evoca.am/images-cache/deposits/1/1613390220029/415x261.jpg"
-    },
     {
       title: "Ավանդ Evoca Online",
       image: "https://www.evoca.am/images-cache/deposits/1/16133900122121/415x261.jpg"
@@ -22,8 +16,26 @@ function DepositsComponent({ setActiveTab }) {
     {
       title: "Մանկական ավանդ",
       image: "https://www.evoca.am/images-cache/deposits/1/16133900414285/415x261.jpg"
+    },
+    {
+      title: "Դասական ավանդ",
+      image: "https://www.evoca.am/images-cache/deposits/1/1613390220029/415x261.jpg"
+    },
+    {
+      title: "Ավանդ Evoca Online",
+      image: "https://www.evoca.am/images-cache/deposits/1/16133900122121/415x261.jpg"
     }
   ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % sliderItems.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? sliderItems.length - 1 : prevIndex - 1));
+  };
 
   const depositsList = [
     {
@@ -91,12 +103,10 @@ function DepositsComponent({ setActiveTab }) {
         {/* Եթե բացված է կոնկրետ ավանդի մանրամասն էջը */}
         {selectedDeposit ? (
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-16">
-            {/* Հացհատիկ (Breadcrumbs) */}
             <div className="text-xs text-gray-400 mb-2">
               Անհատ  &gt;  Ավանդներ  &gt;  Ավանդներ  &gt;  <span className="text-gray-600">{selectedDeposit.title}</span>
             </div>
 
-            {/* Վերադառնալու կոճակ */}
             <button 
               onClick={() => setSelectedDeposit(null)}
               className="text-sm text-purple-700 hover:text-purple-900 font-semibold mb-4 flex items-center space-x-1 cursor-pointer"
@@ -106,7 +116,6 @@ function DepositsComponent({ setActiveTab }) {
 
             <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-6">{selectedDeposit.title}</h2>
 
-            {/* Ներդիրներ մանրամասն էջի համար */}
             <div className="flex space-x-8 border-b border-gray-200 mb-8">
               <button 
                 onClick={() => setDetailTab('about')}
@@ -156,8 +165,6 @@ function DepositsComponent({ setActiveTab }) {
             ) : (
               <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 space-y-8 text-sm text-gray-700 overflow-x-auto">
                 <h3 className="text-xl font-bold text-neutral-800 mb-4">Ընդունման ժամկետներն ըստ օրերի քանակի և տոկոսադրույքներ</h3>
-                
-                {/* Աղյուսակ */}
                 <table className="w-full text-left border-collapse min-w-[700px]">
                   <thead>
                     <tr className="border-b border-gray-200 text-xs text-gray-500">
@@ -206,19 +213,10 @@ function DepositsComponent({ setActiveTab }) {
                     </tr>
                   </tbody>
                 </table>
-
-                {/* Լրացուցիչ պայմանների տեքստ */}
-                <div className="space-y-4 pt-4 border-t border-gray-100 text-gray-600">
-                  <p>1. Ավանդն ընդունվում է ֆիզիկական և իրավաբանական անձանցից, ինչպես Բանկի գործունեության վայրում, այնպես էլ՝ «EvocaTouch» կամ «EvocaOnline» հեռակառավարման համակարգերի միջոցով:</p>
-                  <p>2. Ավանդատուն կարող է համալրել (ավելացնել) իր Ավանդի գումարը սկսած նվազագույնը 40,000 ՀՀ դրամից, 100 ԱՄՆ դոլարից, 100 Եվրոյից կամ 10,000 ՌԴ ռուբլուց...</p>
-                  <p>3. Ավանդի գումարի մասնակի նվազեցում չի թույլատրվում:</p>
-                  <p>4. Ավանդատուի պահանջով ավանդային պայմանագիրը ժամկետից շուտ լուծելու դեպքում Բանկն իրականացնում է Ավանդի տոկոսագումարների վերահաշվարկ...</p>
-                </div>
               </div>
             )}
           </div>
         ) : (
-          /* Հիմնական ցանկը կամ կարևոր տեղեկատվությունը */
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6">
             <div className="text-xs text-gray-400 mb-2">
               Անհատ  &gt;  Ավանդներ  &gt;  <span className="text-gray-600">Ավանդներ</span>
@@ -277,37 +275,55 @@ function DepositsComponent({ setActiveTab }) {
                 <p className="text-gray-600 leading-relaxed mb-4">
                   ՀՀ օրենսդրության համաձայն՝ ֆիզիկական անձանց բանկային ավանդների հատուցումը երաշխավորված է «Ֆիզիկական անձանց բանկային ավանդների հատուցումը երաշխավորելու մասին» ՀՀ օրենքով:
                 </p>
-                <ul className="list-disc list-inside text-gray-600 space-y-2">
-                  <li>Դրամային ավանդների դեպքում երաշխավորված ավանդի առավելագույն չափը 16 միլիոն ՀՀ դրամ է։</li>
-                  <li>Արտարժութային ավանդների դեպքում երաշխավորված ավանդի առավելագույն չափը 7 միլիոն ՀՀ դրամ է։</li>
-                  <li>Ավանդների տոկոսագումարները հաշվեգրվում են պայմանագրով սահմանված կարգով։</li>
-                </ul>
               </div>
             )}
           </div>
         )}
 
-        {/* «Այլ ավանդներ» Սլայդեր (EvocaOnlineMobile-ից անմիջապես առաջ) */}
+        {/* Այլ ավանդներ Սլայդեր */}
         <div className="max-w-7xl mx-auto px-6 lg:px-10 mt-16 mb-12">
           <h3 className="text-2xl font-extrabold text-neutral-800 mb-6">Այլ ավանդներ</h3>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sliderItems.map((item, index) => (
-              <div key={index} className="bg-white rounded-2xl p-4 shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition-shadow">
-                <div className="w-full h-40 rounded-xl overflow-hidden mb-4 bg-purple-50 flex items-center justify-center p-4">
-                  <img src={item.image} alt={item.title} className="max-h-full object-contain rounded-lg" />
-                </div>
-                <h4 className="text-lg font-bold text-neutral-800 mb-2 text-center">{item.title}</h4>
-                <button 
-                  onClick={() => {
-                    const found = depositsList.find(d => d.title === item.title);
-                    if(found) { setSelectedDeposit(found); setActiveSubTab('deposits'); window.scrollTo(0, 0); }
-                  }}
-                  className="text-purple-700 hover:text-purple-900 font-semibold text-sm mt-auto cursor-pointer"
-                >
-                  Դիտել մանրամասն ›
-                </button>
+          
+          <div className="relative flex items-center">
+            {/* Ձախ սլաք */}
+            <button 
+              onClick={prevSlide}
+              className="absolute -left-4 lg:-left-6 z-10 bg-white shadow-md border border-gray-200 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              ‹
+            </button>
+
+            {/* Սլայդերի կոնտեյներ */}
+            <div className="overflow-hidden w-full">
+              <div 
+                className="flex transition-transform duration-300 ease-in-out gap-6"
+                style={{ transform: `translateX(-${currentIndex * (100 / 3)}%)` }}
+              >
+                {sliderItems.map((item, index) => (
+                  <div 
+                    key={index} 
+                    className="min-w-[100%] sm:min-w-[50%] lg:min-w-[32%] flex-shrink-0 bg-white rounded-2xl p-5 shadow-sm border border-gray-100 flex flex-col items-center hover:shadow-md transition-shadow cursor-pointer"
+                    onClick={() => {
+                      const found = depositsList.find(d => d.title === item.title);
+                      if(found) { setSelectedDeposit(found); setActiveSubTab('deposits'); window.scrollTo(0, 0); }
+                    }}
+                  >
+                    <div className="w-full h-44 rounded-xl overflow-hidden mb-4 bg-purple-900 flex items-center justify-center p-4">
+                      <img src={item.image} alt={item.title} className="max-h-full object-contain rounded-lg" />
+                    </div>
+                    <h4 className="text-base font-bold text-neutral-800 text-center">{item.title}</h4>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Աջ սլաք */}
+            <button 
+              onClick={nextSlide}
+              className="absolute -right-4 lg:-right-6 z-10 bg-white shadow-md border border-gray-200 w-10 h-10 rounded-full flex items-center justify-center text-gray-700 hover:bg-gray-100 cursor-pointer"
+            >
+              ›
+            </button>
           </div>
         </div>
 
