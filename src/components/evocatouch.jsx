@@ -10,15 +10,15 @@ function EvocaTouch() {
   const documentItems = [
     {
       title: "Համալիր բանկային ծառայությունների մատուցման պայմաններ 16.05.2025",
-      fileUrl: "https://www.evoca.am"
+      fileUrl: "https://www.evoca.am/files/global_files/1/provision-terms-for-general-banking-services-arm.pdf"
     },
     {
       title: "SWIFT Transfers (20.03.2026)",
-      fileUrl: "https://www.evoca.am"
+      fileUrl: "https://www.evoca.am/files/global_files/1/evocatouch-eng.pdf"
     },
     {
       title: "SWIFT переводы в РФ (20.03.2026)",
-      fileUrl: "https://www.evoca.am"
+      fileUrl: "https://www.evoca.am/files/global_files/1/evocatouch-rus.pdf"
     }
   ];
 
