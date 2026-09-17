@@ -9,6 +9,7 @@ import EvocaCardsSlider from './components/evocacardsslider';
 import EvocaOnlineMobile from './components/evocaonlinemobile';
 import Gortsynkerner from './components/gortsynkerner';
 import EvocaCalculator from './components/evocacalculator';
+import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
 
 function App() {
@@ -58,6 +59,9 @@ function App() {
             {/* Գործընկերներ բլոկ */}
             <Gortsynkerner />
 
+            {/* Հաճախորդների կարծիքներ (Սլայդերով և կողային շարժվող ձեռքերով) */}
+            <Hachaxord />
+
             {/* Արտարժույթի փոխարժեքներ և հասցեներ */}
             <EvocaCalculator />
           </>
@@ -66,7 +70,7 @@ function App() {
         {/* Եթե սեղմել են Հայտարարություններ */}
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
-            <Haytararutyun />
+            {/* <Haytararutyun /> */}
           </main>
         )}
 
