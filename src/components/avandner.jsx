@@ -331,8 +331,6 @@ function DepositsComponent({ setActiveTab }) {
         <EvocaOnlineMobile />
       </div>
 
-      {/* Ստորին հատված (Footer) */}
-      <Footer setActiveTab={setActiveTab} />
     </div>
   );
 }

@@ -13,6 +13,7 @@ import Hachaxord from './components/hachaxord';
 import Footer from './components/footer';
 import Varker from './components/varker';
 import DepositsComponent from './components/avandner'; // Ներմուծում ենք Ավանդների կոմպոնենտը
+import HashivnerComponent from './components/hashivner'; // Ներմուծում ենք Հաշիվների կոմպոնենտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -66,6 +67,11 @@ function App() {
         {/* Եթե սեղմել են Ավանդներ */}
         {activeTab === 'deposits' && (
           <DepositsComponent setActiveTab={setActiveTab} />
+        )}
+
+        {/* Եթե սեղմել են Հաշիվներ */}
+        {activeTab === 'hashivner' && (
+          <HashivnerComponent setActiveTab={setActiveTab} />
         )}
 
         {/* Եթե սեղմել են Հայտարարություններ */}
