@@ -31,7 +31,7 @@ function BiometricTriangle() {
 
           {/* Հստակ անտիկ արձանի նկարը */}
           <img 
-            src="https://images.unsplash.com/photo-1561214115-f2f134cc4912?q=80&w=800&auto=format&fit=crop" 
+            src="https://www.evoca.am/img/statue-1.png" 
             alt="Evocabank Statue" 
             className="relative z-10 h-[460px] object-contain filter drop-shadow-2xl"
           />

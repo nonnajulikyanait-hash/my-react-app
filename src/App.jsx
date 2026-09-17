@@ -4,7 +4,8 @@ import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
-import BiometricTriangle from './components/biometrictriangle'; // Ներմուծում ենք BiometricTriangle-ը
+import BiometricTriangle from './components/biometrictriangle';
+import EvocaCardsSlider from './components/evocacardsslider'; // Ներմուծում ենք EvocaCardsSlider-ը
 
 function App() {
   useEffect(() => {
@@ -37,6 +38,9 @@ function App() {
 
       {/* Biometric Triangle */}
       <BiometricTriangle />
+
+      {/* Evoca Cards Slider */}
+      <EvocaCardsSlider />
 
       {/* Հիմնական բովանդակություն */}
       <main className="p-10">
