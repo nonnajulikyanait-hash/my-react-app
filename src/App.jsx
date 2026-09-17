@@ -5,7 +5,8 @@ import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BiometricTriangle from './components/biometrictriangle';
-import EvocaCardsSlider from './components/evocacardsslider'; // Ներմուծում ենք EvocaCardsSlider-ը
+import EvocaCardsSlider from './components/evocacardsslider';
+import Calculator from './components/calculator'; // Ներմուծում ենք հաշվիչը
 
 function App() {
   useEffect(() => {
@@ -41,6 +42,9 @@ function App() {
 
       {/* Evoca Cards Slider */}
       <EvocaCardsSlider />
+
+      {/* Հաշվիչներ (Վարկ / Ավանդ) */}
+      <Calculator />
 
       {/* Հիմնական բովանդակություն */}
       <main className="p-10">
