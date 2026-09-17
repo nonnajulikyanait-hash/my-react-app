@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import EvocaOnlineMobile from './evocaonlinemobile';
 
 function Poxancumner() {
   const [activeSubTab, setActiveSubTab] = useState('transfers'); // 'transfers' կամ 'systems'
