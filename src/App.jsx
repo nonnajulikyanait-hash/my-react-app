@@ -12,7 +12,7 @@ import EvocaCalculator from './components/evocacalculator';
 import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
 import Varker from './components/varker';
-import DepositsComponent from './avandner'; // Ներմուծում ենք Ավանդների կոմպոնենտը
+import DepositsComponent from './components/avandner'; // Ներմուծում ենք Ավանդների կոմպոնենտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
