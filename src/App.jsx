@@ -3,6 +3,7 @@ import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
+import Demqer from './components/demqer'; // Ներմուծում ենք Demqer բաղադրիչը
 
 function App() {
   useEffect(() => {
@@ -29,6 +30,9 @@ function App() {
 
       {/* Hero Slider */}
       <HeroSlider />
+
+      {/* Բիոմետրիկ նույնականացման հատված (Demqer) */}
+      <Demqer />
 
       {/* Հիմնական բովանդակություն */}
       <main className="p-10">
