@@ -405,9 +405,9 @@ function Varker({ loansData = [] }) {
     { id: 'Online', label: 'Օնլայն վարկեր' }
   ];
 
-  const filteredLoans = selectedFilter === 'all' 
-    ? loansData 
-    : loansData.filter(loan => loan.category === selectedFilter);
+const filteredLoans = selectedFilter === 'all' 
+  ? dataToUse 
+  : dataToUse.filter(loan => loan.category && loan.category.toLowerCase() === selectedFilter.toLowerCase());
 
   return (
     <div className="w-full min-h-screen bg-gray-50 flex flex-col justify-between">
