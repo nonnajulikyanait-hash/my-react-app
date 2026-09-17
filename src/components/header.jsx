@@ -5,11 +5,11 @@ export default function Header() {
   return (
     <header className="w-full font-sans select-none">
       {/* --- ՎԵՐԻՆ ՄՈՒԳ ՇԵՐՏ (Top Bar) --- */}
-      <div className="bg-[#1f103f] text-white text-xs md:text-sm px-4 lg:px-12 py-2 flex items-center justify-between">
-        {/* Ձախ մաս՝ Հիմնական տեսակներ */}
+      <div className="bg-[#181235] text-white text-xs md:text-sm px-4 lg:px-12 py-2 flex items-center justify-between">
+        {/* Ձախ մաս՝ Հիմնական տեսակներ (Առանց հետևի ֆոնային վանդակների/գույների) */}
         <nav className="flex items-center space-x-6">
-          {/* Անհատ բաժինը՝ ակտիվ գծով վերևում */}
-          <div className="relative py-1">
+          {/* Անհատ բաժինը՝ միայն վերևի բարակ գծով, առանց հետևի գույնի */}
+          <div className="relative pt-1">
             <span className="absolute top-0 left-0 right-0 h-[2px] bg-white"></span>
             <a href="#anhat" className="text-white font-medium">Անհատ</a>
           </div>
@@ -23,19 +23,16 @@ export default function Header() {
 
         {/* Աջ մաս՝ Հայտեր, Կապ և Գործիքներ */}
         <div className="flex items-center space-x-5 lg:space-x-6">
-          {/* Առցանց հայտեր */}
           <div className="relative group cursor-pointer flex items-center space-x-1 text-gray-200 hover:text-white">
             <span>Առցանց հայտեր</span>
             <ChevronDown size={14} />
           </div>
 
-          {/* Հետադարձ կապ */}
           <div className="relative group cursor-pointer hidden sm:flex items-center space-x-1 text-gray-200 hover:text-white">
             <span>Հետադարձ կապ</span>
             <ChevronDown size={14} />
           </div>
 
-          {/* Գործիքների նշաններ */}
           <div className="flex items-center space-x-4 text-gray-300">
             <button aria-label="Մասնաճյուղեր" className="hover:text-white transition">
               <MapPin size={18} />
@@ -60,21 +57,21 @@ export default function Header() {
         <div className="flex items-center space-x-8">
           <a href="/" className="flex items-center">
             <div className="text-2xl font-extrabold tracking-tight flex items-center">
-              <span className="text-[#3b1c75] lowercase">evoca</span>
-              <span className="w-2 h-2 rounded-full bg-[#6500dc] ml-0.5 mb-2"></span>
+              <span className="text-[#1a103c] lowercase">evoca</span>
+              <span className="w-2 h-2 rounded-full bg-[#1a103c] ml-0.5 mb-2"></span>
             </div>
           </a>
 
-          {/* Միջնամաս՝ Ծառայությունների մենյու (Desktop) */}
+          {/* Միջնամաս՝ Ծառայությունների մենյու */}
           <nav className="hidden lg:flex items-center space-x-6 text-sm font-medium text-gray-800">
-            <a href="#varker" className="hover:text-[#6500dc] transition">Վարկեր</a>
-            <a href="#qarter" className="hover:text-[#6500dc] transition">Քարտեր</a>
-            <a href="#avandner" className="hover:text-[#6500dc] transition">Ավանդներ</a>
-            <a href="#hashivner" className="hover:text-[#6500dc] transition">Հաշիվներ</a>
-            <a href="#poxancumner" className="hover:text-[#6500dc] transition">Փոխանցումներ</a>
-            <a href="#arjeptxter" className="hover:text-[#6500dc] transition">Արժեթղթեր</a>
-            <a href="#evocasalary" className="hover:text-[#6500dc] transition">EvocaSALARY</a>
-            <a href="#evocatouch" className="hover:text-[#6500dc] transition">EvocaTOUCH</a>
+            <a href="#varker" className="hover:text-[#1a103c] transition">Վարկեր</a>
+            <a href="#qarter" className="hover:text-[#1a103c] transition">Քարտեր</a>
+            <a href="#avandner" className="hover:text-[#1a103c] transition">Ավանդներ</a>
+            <a href="#hashivner" className="hover:text-[#1a103c] transition">Հաշիվներ</a>
+            <a href="#poxancumner" className="hover:text-[#1a103c] transition">Փոխանցումներ</a>
+            <a href="#arjeptxter" className="hover:text-[#1a103c] transition">Արժեթղթեր</a>
+            <a href="#evocasalary" className="hover:text-[#1a103c] transition">EvocaSALARY</a>
+            <a href="#evocatouch" className="hover:text-[#1a103c] transition">EvocaTOUCH</a>
           </nav>
         </div>
 
@@ -82,7 +79,7 @@ export default function Header() {
         <div>
           <a
             href="#online"
-            className="bg-[#6500dc] hover:bg-[#5200b3] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md transition duration-200 flex items-center justify-center"
+            className="bg-[#181235] hover:bg-[#251c50] text-white text-sm font-medium px-6 py-2.5 rounded-xl shadow-md transition duration-200 flex items-center justify-center"
           >
             EvocaONLINE
           </a>
