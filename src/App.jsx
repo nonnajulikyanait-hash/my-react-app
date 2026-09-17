@@ -6,9 +6,9 @@ import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BiometricTriangle from './components/biometrictriangle';
 import EvocaCardsSlider from './components/evocacardsslider';
-import EvocaCalculator from './components/evocacalculator'; // <-- Ներմուծում ենք նոր հաշվիչը/փոխարժեքը
 import EvocaOnlineMobile from './components/evocaonlinemobile';
 import Gortsynkerner from './components/gortsynkerner';
+import EvocaCalculator from './components/evocacalculator'; // <-- Առաջին հաշվիչը/փոխարժեքը տեղափոխված է ամենավերջ
 
 function App() {
   useEffect(() => {
@@ -45,14 +45,14 @@ function App() {
       {/* Evoca Cards Slider */}
       <EvocaCardsSlider />
 
-      {/* Արտարժույթի փոխարժեքներ և հասցեներ */}
-      <EvocaCalculator />
-
       {/* Օնլայն և մոբայլ բանկինգ բլոկ */}
       <EvocaOnlineMobile />
 
       {/* Գործընկերներ բլոկ */}
       <Gortsynkerner />
+
+      {/* Արտարժույթի փոխարժեքներ և հասցեներ (Առաջին հաշվիչը՝ ամենավերջում) */}
+      <EvocaCalculator />
 
       {/* Հիմնական բովանդակություն */}
       <main className="p-10">
