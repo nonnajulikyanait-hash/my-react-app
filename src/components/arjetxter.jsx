@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function Arjetxter() {
-  const [activeSubTab, setActiveSubTab] = useState('investment'); // 'investment', 'bonds', 'hfc', 'repo', 'invest'
+  const [activeSubTab, setActiveSubTab] = useState('hfc'); // 'investment', 'bonds', 'hfc', 'repo', 'invest'
   const [openAccordion, setOpenAccordion] = useState(null);
   const [openBondsAccordion, setOpenBondsAccordion] = useState(null);
 
@@ -10,7 +10,7 @@ function Arjetxter() {
   };
 
   const toggleBondsAccordion = (index) => {
-    setOpenBondsAccordion(openBondsAccordion === index ? null : index);
+    setOpenBondsAccordion(setOpenBondsAccordion === index ? null : index); // թողնում ենք ճիշտ տրամաբանությամբ
   };
 
   const investmentAccordionItems = [
@@ -116,7 +116,6 @@ function Arjetxter() {
     }
   ];
 
-  // Helper renderer for bonds prospect/download buttons
   const renderBondsFiles = () => (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
       <a 
@@ -155,7 +154,6 @@ function Arjetxter() {
     </div>
   );
 
-  // Helper renderer for table creation
   const renderBondsTable = (headers, rows, note) => (
     <div className="space-y-6 text-sm lg:text-base text-gray-700">
       <h4 className="font-extrabold text-neutral-900 text-center tracking-wide uppercase text-lg mb-4">
@@ -361,30 +359,6 @@ function Arjetxter() {
     }
   ];
 
-  const newsList = [
-    {
-      id: 1,
-      category: 'Կենսակերպ',
-      title: 'Դիլիջան, մենք գալիս ենք',
-      date: '11.09.2026',
-      img: 'https://www.evoca.am/images-cache/news/1/17891134831451/439x320.png',
-    },
-    {
-      id: 2,
-      category: 'Կենսակերպ',
-      title: 'Evocabank-ը՝ Retro Fest-ի ֆինանսական գործընկեր',
-      date: '03.09.2026',
-      img: 'https://www.evoca.am/images-cache/news/1/17884237814941/439x320.png',
-    },
-    {
-      id: 3,
-      category: 'Պրոդուկտներ',
-      title: 'Դեպի նոր ուսումնական տարի՝ մինչև 23% cashback-ով',
-      date: '31.08.2026',
-      img: 'https://www.evoca.am/images-cache/news/1/17873217684586/439x320.png',
-    },
-  ];
-
   return (
     <div className="w-full font-sans bg-gray-50 min-h-screen flex flex-col justify-between">
       <div>
@@ -437,12 +411,10 @@ function Arjetxter() {
         {/* Հիմնական բովանդակություն ըստ activeSubTab-ի */}
         {activeSubTab === 'investment' && (
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
-            {/* Հացհատիկ (Breadcrumbs) */}
             <div className="text-xs text-gray-400 mb-2">
               Անհատ  &gt;  Արժեթղթեր  &gt;  <span className="text-gray-600">Ներդրումային ծառայություններ</span>
             </div>
 
-            {/* Վերնագիր և Նկար */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               <div className="space-y-4">
                 <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
@@ -462,7 +434,6 @@ function Arjetxter() {
               </div>
             </div>
 
-            {/* Հիմնական տեքստ */}
             <div className="bg-white rounded-2xl p-6 lg:p-10 shadow-sm border border-gray-100 space-y-6 text-sm lg:text-base text-gray-700 leading-relaxed">
               <p>
                 Բանկն իր հաճախորդներին ներդրումային ծառայություններ է մատուցում ինչպես տեղական, այնպես էլ՝ միջազգային շուկաներում: Բանկի կողմից առաջարկվող ծառայությունները հասանելի են իրավաբանական և ֆիզիկական անձ հանդիսացող հաճախորդներին:
@@ -496,7 +467,6 @@ function Arjetxter() {
               </div>
             </div>
 
-            {/* ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ (Ակորդեոններ) */}
             <div className="space-y-4">
               <h3 className="text-2xl lg:text-3xl font-extrabold text-neutral-900">ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ</h3>
               <div className="space-y-3">
@@ -523,12 +493,10 @@ function Arjetxter() {
 
         {activeSubTab === 'bonds' && (
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
-            {/* Հացհատիկ (Breadcrumbs) */}
             <div className="text-xs text-gray-400 mb-2">
               Անհատ  &gt;  Արժեթղթեր  &gt;  <span className="text-gray-600">Պարտատոմսեր</span>
             </div>
 
-            {/* Վերնագիր և Նկար */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               <div className="space-y-4">
                 <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
@@ -548,7 +516,6 @@ function Arjetxter() {
               </div>
             </div>
 
-            {/* Հիմնական տեքստ */}
             <div className="bg-white rounded-2xl p-6 lg:p-10 shadow-sm border border-gray-100 space-y-6 text-sm lg:text-base text-gray-700 leading-relaxed">
               <p>
                 Առաջին անգամ հայաստանյան ֆինանսական համակարգում Evocabank-ը, որպես նորարար և ժամանակակից Բանկ, իրականացրել է իր կողմից թողարկված պարտատոմսերի օնլայն տեղաբաշխում՝ EvocaTOUCH հավելվածի միջոցով։
@@ -569,7 +536,6 @@ function Arjetxter() {
               </div>
             </div>
 
-            {/* ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ (Պարտատոմսեր) */}
             <div className="space-y-4">
               <h3 className="text-2xl lg:text-3xl font-extrabold text-neutral-900">ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ</h3>
               <div className="space-y-3">
@@ -595,9 +561,64 @@ function Arjetxter() {
         )}
 
         {activeSubTab === 'hfc' && (
-          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-12">
-            <h2 className="text-3xl font-extrabold text-neutral-900 mb-4">ՀԿԾ ծառայություններ</h2>
-            <p className="text-gray-700">Հաշվետերերի և հսկողության ծառայություններ արժեթղթերի շուկայում:</p>
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Արժեթղթեր  &gt;  <span className="text-gray-600">ՀԿԾ ծառայություններ</span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div className="space-y-4">
+                <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+                  Հայաստանի կենտրոնական դեպոզիտարիայի (ՀԿԴ) ծառայություններ
+                </h1>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  Evocabank-ը հանդիսանում է ՀՀ Կենտրոնական Դեպոզիտարիայի Հաշվի Օպերատոր՝ միջնորդավորելով ՀՀ Կենտրոնական Դեպոզիտարիայի կողմից մատուցվող ռեեստրավարման և արժեթղթերի պահառության հետ կապված բոլոր ծառայությունները:
+                </p>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <img 
+                  src="https://www.evoca.am/images-cache/menu/1/16783474498811/780x585.jpg" 
+                  alt="ՀԿԾ ծառայություններ" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="bg-white rounded-2xl p-6 lg:p-10 shadow-sm border border-gray-100 space-y-6 text-sm lg:text-base text-gray-700 leading-relaxed">
+              <p>
+                ՀՀ Կենտրոնական Դեպոզիտարիան հաճախորդների սպասարկումը իրականացնում է բացառապես Հաշվի Օպերատորների միջնորդությամբ:
+              </p>
+              <p>
+                Հաշվի Օպերատորը ՀՀ Կենտրոնական Դեպոզիտարիայի հետ կնքած պայմանագրի հիման վրա միջնորդավորում է ՀՀ Կենտրոնական Դեպոզիտարիայի կողմից մատուցվող ծառայությունները:
+              </p>
+              <p>
+                Evocabank-ը, որպես ՀՀ Կենտրոնական Դեպոզիտարիայի Հաշվի Օպերատոր և կարգավորվող շուկայի հաշվարկային համակարգի անդամ (ԿՇՀՀԱ), մատուցում է ռեեստրավարման և պահառության ծառայություններ՝ ապահովելով դրանց մատուցումը ինչպես Բանկի Գլխամասային գրասենյակում, այնպես էլ՝ մասնաճյուղերում։
+              </p>
+
+              <div className="space-y-3 pt-4 border-t border-gray-100">
+                <div>
+                  <a 
+                    href="https://www.evoca.am/file_manager/PDF-FILES/CDA/%D5%80%D4%BF%D4%B4-%D5%AE%D5%A1%D5%BC%D5%A1%D5%B5%D5%B8%D6%82%D5%A9%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%82%D5%B1-%D5%B4%D5%AB%D5%BB%D5%B6%D5%B8%D6%82%D5%A4%D5%A1%D5%BE%D5%B8%D6%82%D5%B4%D5%A1%D5%B6-%D5%A3%D5%B8%D6%82%D5%B6%D5%A5%D5%B8%D6%82%D5%B5%D5%A1%D5%B6-%D5%BD%D5%A1%D5%AF%D5%A1%D5%B3%D5%A5%D6%82%D5%B6.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-purple-700 underline font-semibold hover:text-purple-950 block"
+                  >
+                    Հայաստանի կենտրոնական դեպոզիտարիայի կողմից մատուցվող ծառայությունների միջնորդավորման գործունեության սակագներ
+                  </a>
+                </div>
+                <div>
+                  <a 
+                    href="https://www.evoca.am/file_manager/PDF-FILES/Investment%20Services/%D5%80%D5%A1%D5%B5%D5%A1%D5%BD%D5%BF%D5%A1%D5%BD%D5%AB%20%D5%BA%D5%A5%D5%B6%D5%BF%D6%80%D5%B8%D5%B6%D5%A1%D5%AF%D5%A1%D5%BD%20%D5%A4%D5%BA%D5%B0%D5%B8%D5%A6%D5%AB%D5%BF%D5%A1%D6%82%D5%B1%D5%AB%20%D5%AF%D5%B8%D5%B5%D5%B6%D5%B5%D6%81%20%D5%A1%D5%BF%D5%B8%D6%82%D6%81%D5%BE%D5%B8%D6%82%D6%81%D5%BE%D5%B8%D6%82%20%D5%AE%D5%A1%D5%BC%D5%A1%D5%B5%D5%B8%D6%82%D5%B5%D5%B8%D6%82%D5%B5%D5%B8%D6%82%D5%B6%D5%B6%D5%A5%D6%82%20%D5%B4%D5%AB%D5%BB%D5%B6%D5%B8%D6%82%D5%A4%D5%A1%D5%BE%D5%B8%D6%82%D5%B4%D5%A1%D5%B6-%D5%A3%D5%B8%D6%82%D5%B6%D5%A5%D5%B8%D6%82%D5%B5%D5%A1%D5%B6-%D5%BA%D5%A1%D5%B0%D5%B8%D6%82%D5%B5%D5%B6%D5%A5%D6%80.pdf" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-purple-700 underline font-semibold hover:text-purple-950 block"
+                  >
+                    Հայաստանի կենտրոնական դեպոզիտարիայի կողմից մատուցվող ծառայությունների միջնորդավորման գործունեության կանոններ
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
@@ -614,46 +635,6 @@ function Arjetxter() {
             <p className="text-gray-700">Ներդրումային հարթակ արագ և հարմարավետ առցանց առևտրի համար:</p>
           </div>
         )}
-
-        {/* Վերջին նորությունների բաժին (Ընդհանուր էջի ներքևի մասում) */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-8 pt-8 pb-16 border-t border-gray-200 mt-12">
-          <div className="flex justify-between items-center">
-            <h2 className="text-3xl font-bold text-neutral-900">Վերջին նորությունները</h2>
-            <button className="bg-purple-100 text-[#6400dc] px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-purple-200 transition-colors cursor-pointer">
-              Բոլոր նորությունները &gt;
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {newsList.map((news) => (
-              <div 
-                key={news.id}
-                className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer group"
-              >
-                <div className="relative overflow-hidden aspect-[4/3] bg-gray-100">
-                  <img 
-                    src={news.img} 
-                    alt={news.title} 
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-                <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
-                  <div className="space-y-2">
-                    <span className="text-xs font-semibold text-purple-600 uppercase tracking-wider">
-                      | {news.category}
-                    </span>
-                    <h3 className="text-lg font-bold text-neutral-900 group-hover:text-[#6400dc] transition-colors leading-snug">
-                      {news.title}
-                    </h3>
-                  </div>
-                  <p className="text-xs text-gray-400 pt-4 border-t border-gray-100">
-                    {news.date}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
