@@ -10,7 +10,6 @@ import EvocaOnlineMobile from './components/evocaonlinemobile';
 import Gortsynkerner from './components/gortsynkerner';
 import EvocaCalculator from './components/evocacalculator';
 import Footer from './components/footer';
-import Haytararutyun from './components/haytararutyun'; // Օրինակ՝ հայտարարությունների բաղադրիչը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
