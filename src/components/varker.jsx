@@ -392,7 +392,7 @@ const loansData = [
 ];
 
 function Varker({ loansData = [] }) {
-  const [activeSubTab, setActiveSubTab] = useState('teghekatvutyun'); // Դրված է 'teghekatvutyun', որ հենց սեղմեք կամ բացվի, գնա այդ էջը
+  const [activeSubTab, setActiveSubTab] = useState('teghekatvutyun');
   const [selectedFilter, setSelectedFilter] = useState('all');
 
   const filterButtons = [
@@ -512,13 +512,11 @@ function Varker({ loansData = [] }) {
             <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 space-y-8 text-gray-800 leading-relaxed">
               <h1 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 mb-6">Վարկային պատմություն և սքոր</h1>
               
-              {/* Կարևոր տեղեկատվություն */}
               <div className="bg-purple-50 border-l-4 border-[#6400dc] p-5 rounded-r-2xl">
                 <h4 className="font-bold text-[#6400dc] mb-1">Կարևոր տեղեկատվություն վարկային պատմության վերաբերյալ</h4>
                 <p className="text-sm text-gray-700">Վարկային պարտավորությունները չկատարելը կամ ոչ պատշաճ կատարելը կազդի Ձեր ՎԱՐԿԱՅԻՆ ՊԱՏՄՈՒԹՅԱՆ վրա:</p>
               </div>
 
-              {/* Ինչ է վարկային պատմությունը */}
               <section className="space-y-3">
                 <h2 className="text-2xl font-bold text-neutral-900">Ինչ է վարկային պատմությունը</h2>
                 <p className="text-gray-600">
@@ -529,15 +527,13 @@ function Varker({ loansData = [] }) {
                 </p>
               </section>
 
-              {/* Որոնք են վարկային պատմության ձևավորման աղբյուրները */}
               <section className="space-y-3">
                 <h2 className="text-2xl font-bold text-neutral-900">Որոնք են վարկային պատմության ձևավորման աղբյուրները</h2>
                 <p className="text-gray-600">
-                  Վարկային պատմության ձևավորման աղբյուրներն են ԱՔՌԱ գործընկերները (բանկերը, վարկային կազմակերպությունները, ապահովագրական ընկերությունները, հետաձգված վճարումներով գործարքներ իրականացնող կազմակերպությունները, ինչպես նաև՝ հանրային տվյալների բազաներից ՀՀ կառավարության սահմանած կարգով վարկային բյուրոյին անձանց վերաբերյալ տեղեկություններ տրամադրող պետական մարմինները), որոնք տրամադրում են վարկային տեղեկատվության սուբյեկտի վերաբերյալ տեղեկություններ(տվյալներ):
+                  Վարկային պատմության ձևավորման աղբյուրներն են ԱՔՌԱ գործընկերները (բանկերը, վարկային կազմակերպությունները, ապահովագրական ընկերությունները, հետաձգված վճարումներով գործարքներ իրականացնող կազմակերպությունները, ինչպես նաև՝ հանրային տվյալների բազաներից ՀՀ կառավարության սահմանած կարգով վարկային բյուրոյին անձանց վերաբերյալ տեղեկություններ տրամադրող պետական մարմինները), որոնք տրամադրում են վարկային տեղեկատվության սուբյեկտի վերաբերյալ տեղեկություններ (տվյալներ):
                 </p>
               </section>
 
-              {/* Ինչ է վարկային բյուրոն */}
               <section className="space-y-3">
                 <h2 className="text-2xl font-bold text-neutral-900">Ինչ է վարկային բյուրոն</h2>
                 <p className="text-gray-600">
@@ -550,7 +546,6 @@ function Varker({ loansData = [] }) {
                 </ul>
               </section>
 
-              {/* Ինչ է վարկային զեկույցը */}
               <section className="space-y-3">
                 <h2 className="text-2xl font-bold text-neutral-900">Ինչ է վարկային զեկույցը</h2>
                 <p className="text-gray-600">
@@ -561,7 +556,6 @@ function Varker({ loansData = [] }) {
                 </p>
               </section>
 
-              {/* Որքան ժամանակ է պահպանվում վարկային պատմությունը */}
               <section className="space-y-3">
                 <h2 className="text-2xl font-bold text-neutral-900">Որքան ժամանակ է պահպանվում վարկային պատմությունը</h2>
                 <p className="text-gray-600">
@@ -569,7 +563,6 @@ function Varker({ loansData = [] }) {
                 </p>
               </section>
 
-              {/* Ինչպես բարելավել վարկային պատմությունը */}
               <section className="space-y-3">
                 <h2 className="text-2xl font-bold text-neutral-900">Ինչպես բարելավել վարկային պատմությունը</h2>
                 <p className="text-gray-600">
@@ -577,9 +570,8 @@ function Varker({ loansData = [] }) {
                 </p>
               </section>
 
-              {/* Ուր դիմել */}
               <section className="space-y-3">
-                <h2 className="text-2xl font-bold text-neutral-900">Ուր դիմել, եթե վարկային պատմությունը սխալ է</h2>
+                <h2 className="text-2xl font-bold text-neutral-900">Որր դիմել, եթե վարկային պատմությունը սխալ է</h2>
                 <p className="text-gray-600">
                   Եթե վարկառուի վարկային պատմության մեջ առկա են սխալ կամ թերի տվյալներ, ապա պարզաբանման և ուղղման նպատակով վարկառուն կարող է այդ մասին տեղեկացնել վարկային բյուրոյին կամ ուղղակիորեն դիմել տեղեկատվություն տրամադրող սուբյեկտներին՝ գրավոր դիմումի կամ «Իմ ԱՔՌԱ» առցանց անձնական գրասենյակի միջոցով:
                 </p>
