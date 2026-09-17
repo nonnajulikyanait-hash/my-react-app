@@ -6,7 +6,8 @@ import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
 import BiometricTriangle from './components/biometrictriangle';
 import EvocaCardsSlider from './components/evocacardsslider';
-import Calculator from './components/calculator'; // Ներմուծում ենք հաշվիչը
+import Calculator from './components/calculator';
+import EvocaOnlineMobile from './components/evocaonlinemobile'; // <-- Փոքրատառերով ներմուծում
 
 function App() {
   useEffect(() => {
@@ -45,6 +46,9 @@ function App() {
 
       {/* Հաշվիչներ (Վարկ / Ավանդ) */}
       <Calculator />
+
+      {/* Օնլայն և մոբայլ բանկինգ բլոկ */}
+      <EvocaOnlineMobile />
 
       {/* Հիմնական բովանդակություն */}
       <main className="p-10">
