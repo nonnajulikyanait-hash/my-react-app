@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import EvocaCardsSlider from './components/evocacardsslider';
-import EvocaOnlineMobile from './components/evocaonlinemobile';
+import EvocaCardsSlider from './evocacardsslider';
+import EvocaOnlineMobile from './evocaonlinemobile';
 import Footer from './footer';
 
 function DepositsComponent({ setActiveTab }) {
