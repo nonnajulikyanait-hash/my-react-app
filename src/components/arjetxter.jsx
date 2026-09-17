@@ -3,9 +3,14 @@ import React, { useState } from 'react';
 function Arjetxter() {
   const [activeSubTab, setActiveSubTab] = useState('investment'); // 'investment', 'bonds', 'hfc', 'repo', 'invest'
   const [openAccordion, setOpenAccordion] = useState(null);
+  const [openBondsAccordion, setOpenBondsAccordion] = useState(null);
 
   const toggleAccordion = (index) => {
     setOpenAccordion(openAccordion === index ? null : index);
+  };
+
+  const toggleBondsAccordion = (index) => {
+    setOpenBondsAccordion(openBondsAccordion === index ? null : index);
   };
 
   const investmentAccordionItems = [
@@ -111,6 +116,251 @@ function Arjetxter() {
     }
   ];
 
+  // Helper renderer for bonds prospect/download buttons
+  const renderBondsFiles = () => (
+    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-6">
+      <a 
+        href="https://www.evoca.am/file_manager/News-Bonds/prospectous-bonds.png" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="bg-gray-50 border border-gray-200 rounded-2xl p-4 text-center hover:bg-purple-50 hover:border-purple-200 transition-all group flex flex-col items-center justify-center space-y-2"
+      >
+        <span className="text-xs font-bold text-purple-700 uppercase tracking-wider group-hover:underline">ԾՐԱԳՐԱՅԻՆ ԱԶԴԱԳԻՐ</span>
+        <div className="w-12 h-16 bg-white border border-gray-200 rounded shadow-sm flex items-center justify-center text-gray-400 group-hover:text-purple-700">
+          📄
+        </div>
+      </a>
+      <a 
+        href="https://www.evoca.am/file_manager/News-Bonds/prospectous-bonds-amd.png" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="bg-gray-50 border border-gray-200 rounded-2xl p-4 text-center hover:bg-purple-50 hover:border-purple-200 transition-all group flex flex-col items-center justify-center space-y-2"
+      >
+        <span className="text-xs font-bold text-purple-700 uppercase tracking-wider group-hover:underline">ՊԱՅՄԱՆՆԵՐ ՀՀ ԴՐԱՄՈՎ</span>
+        <div className="w-12 h-16 bg-white border border-gray-200 rounded shadow-sm flex items-center justify-center text-gray-400 group-hover:text-purple-700">
+          📄
+        </div>
+      </a>
+      <a 
+        href="https://www.evoca.am/file_manager/News-Bonds/prospectous-bonds-dollar.png" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="bg-gray-50 border border-gray-200 rounded-2xl p-4 text-center hover:bg-purple-50 hover:border-purple-200 transition-all group flex flex-col items-center justify-center space-y-2"
+      >
+        <span className="text-xs font-bold text-purple-700 uppercase tracking-wider group-hover:underline">ՊԱՅՄԱՆՆԵՐ ԱՄՆ ԴՈԼԱՐՈՎ</span>
+        <div className="w-12 h-16 bg-white border border-gray-200 rounded shadow-sm flex items-center justify-center text-gray-400 group-hover:text-purple-700">
+          📄
+        </div>
+      </a>
+    </div>
+  );
+
+  // Helper renderer for table creation
+  const renderBondsTable = (headers, rows, note) => (
+    <div className="space-y-6 text-sm lg:text-base text-gray-700">
+      <h4 className="font-extrabold text-neutral-900 text-center tracking-wide uppercase text-lg mb-4">
+        ԹՈՂԱՐԿՎԱԾ ՊԱՐՏԱՏՈՄՍԵՐԻ ՊԱՅՄԱՆՆԵՐ
+      </h4>
+      <div className="overflow-x-auto border border-gray-200 rounded-2xl shadow-sm">
+        <table className="w-full text-left border-collapse">
+          <thead>
+            <tr className="bg-purple-900 text-white">
+              <th className="p-3.5 border-b border-purple-800 font-bold">Դաս</th>
+              <th colSpan={headers.length} className="p-3.5 border-b border-purple-800 font-bold text-center">
+                Անվանական արժեկտրոնային
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, idx) => (
+              <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900 w-1/3">{row.label}</td>
+                {row.values.map((val, vIdx) => (
+                  <td key={vIdx} className="p-3.5 border-b border-gray-100 text-gray-600 text-center">{val}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      {note && <p className="text-xs text-gray-500 italic mt-2">{note}</p>}
+      {renderBondsFiles()}
+    </div>
+  );
+
+  const bondsAccordionItems = [
+    {
+      title: "Պարտատոմսերի թողարկում",
+      content: renderBondsTable(
+        ["ՀՀ դրամ", "ԱՄՆ դոլար"],
+        [
+          { label: "Անվանական արժեք", values: ["10,000 ՀՀ դրամ", "100 ԱՄՆ դոլար"] },
+          { label: "Ընդհանուր ծավալ", values: ["3,000,000,000 ՀՀ դրամ", "15,000,000 ԱՄՆ դոլար"] },
+          { label: "Թողարկվող պարտատոմսերի քանակ", values: ["300,000 հատ", "150,000 հատ"] },
+          { label: "Շրջանառության ժամկետ", values: ["36 ամիս", "36 ամիս"] },
+          { label: "Արժեկտրոնային տարեկան տոկոսադրույք", values: ["10%", "5%"] },
+          { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
+          { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
+        ],
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 03.07.2024թ-ի թիվ 1/254Ա որոշմամբ:"
+      )
+    },
+    {
+      title: "ՏԱՍՆԵՐԿՈՒԵՐՈՐԴ ԵՎ ՏԱՍՆԵՐԵՔԵՐՈՐԴ",
+      content: renderBondsTable(
+        ["ՀՀ դրամ", "ԱՄՆ դոլար"],
+        [
+          { label: "Անվանական արժեք", values: ["10,000 ՀՀ դրամ", "100 ԱՄՆ դոլար"] },
+          { label: "Ընդհանուր ծավալ", values: ["3,000,000,000 ՀՀ դրամ", "15,000,000 ԱՄՆ դոլար"] },
+          { label: "Թողարկվող պարտատոմսերի քանակ", values: ["300,000 հատ", "150,000 հատ"] },
+          { label: "Շրջանառության ժամկետ", values: ["36 ամիս", "36 ամիս"] },
+          { label: "Արժեկտրոնային տարեկան տոկոսադրույք", values: ["10.25%", "5.25%"] },
+          { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
+          { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
+        ],
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 03.07.2024թ-ի թիվ 1/254Ա որոշմամբ:"
+      )
+    },
+    {
+      title: "ՏԱՍԵՐՈՐԴ ԵՎ ՏԱՍՆՄԵԿԵՐՈՐԴ",
+      content: renderBondsTable(
+        ["ՀՀ դրամ", "ԱՄՆ դոլար"],
+        [
+          { label: "Անվանական արժեք", values: ["10,000 ՀՀ դրամ", "100 ԱՄՆ դոլար"] },
+          { label: "Ընդհանուր ծավալ", values: ["2,000,000,000 ՀՀ դրամ", "10,000,000 ԱՄՆ դոլար"] },
+          { label: "Թողարկվող պարտատոմսերի քանակ", values: ["200,000 հատ", "100,000 հատ"] },
+          { label: "Շրջանառության ժամկետ", values: ["30 ամիս", "30 ամիս"] },
+          { label: "Արժեկտրոնային տարեկան տոկոսադրույք", values: ["11%", "5%"] },
+          { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
+          { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
+        ],
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.03.2023թ-ի թիվ 1/87Ա որոշմամբ:"
+      )
+    },
+    {
+      title: "ՅՈԹԵՐՈՐԴ, ՈՒԹԵՐՈՐԴ ԵՎ ԻՆՆԵՐՈՐԴ ԹՈՂԱՐԿՈՒՄ",
+      content: (
+        <div className="space-y-6 text-sm lg:text-base text-gray-700">
+          <h4 className="font-extrabold text-neutral-900 text-center tracking-wide uppercase text-lg mb-4">
+            ԹՈՂԱՐԿՎԱԾ ՊԱՐՏԱՏՈՄՍԵՐԻ ՊԱՅՄԱՆՆԵՐ
+          </h4>
+          <div className="overflow-x-auto border border-gray-200 rounded-2xl shadow-sm">
+            <table className="w-full text-left border-collapse">
+              <thead>
+                <tr className="bg-purple-900 text-white">
+                  <th className="p-3.5 border-b border-purple-800 font-bold">Դաս</th>
+                  <th colSpan={3} className="p-3.5 border-b border-purple-800 font-bold text-center">
+                    Անվանական արժեկտրոնային
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="bg-white">
+                  <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900">Անվանական արժեք</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">10,000 ՀՀ դրամ</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">100 ԱՄՆ դոլար</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">100 Եվրո</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900">Ընդհանուր ծավալ</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">2,000,000,000 ՀՀ դրամ</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">10,000,000 ԱՄՆ դոլար</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">7,000,000 Եվրո</td>
+                </tr>
+                <tr className="bg-white">
+                  <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900">Թողարկվող պարտատոմսերի քանակ</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">200,000 հատ</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">100,000 հատ</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">70,000 հատ</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900">Շրջանառության ժամկետ</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">30 ամիս</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">39 ամիս</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">39 ամիս</td>
+                </tr>
+                <tr className="bg-white">
+                  <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900">Արժեկտրոնային տարեկան տոկոսադրույք</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">11%</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">5.25%</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">4%</td>
+                </tr>
+                <tr className="bg-gray-50">
+                  <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900">Արժեկտրոնների վճարման պարբերականություն</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">Եռամսյակային</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">Եռամսյակային</td>
+                  <td className="p-3.5 border-b border-gray-100 text-gray-600 text-center">Եռամսյակային</td>
+                </tr>
+                <tr className="bg-white">
+                  <td className="p-3.5 border-b border-gray-100 font-medium text-neutral-900">Տեղաբաշխող</td>
+                  <td colSpan={3} className="p-3.5 border-b border-gray-100 text-gray-600 text-center">«Էվոկաբանկ» ԲԲԸ</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="text-xs text-gray-500 italic mt-2">Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.03.2023թ-ի թիվ 1/87Ա որոշմամբ:</p>
+          {renderBondsFiles()}
+        </div>
+      )
+    },
+    {
+      title: "ՀԻՆԳԵՐՈՐԴ ԵՎ ՎԵՑԵՐՈՐԴ ԹՈՂԱՐԿՈՒՄ",
+      content: renderBondsTable(
+        ["ՀՀ դրամ", "ԱՄՆ դոլար"],
+        [
+          { label: "Անվանական արժեք", values: ["10,000 ՀՀ դրամ", "100 ԱՄՆ դոլար"] },
+          { label: "Ընդհանուր ծավալ", values: ["2,000,000,000 ՀՀ դրամ", "10,000,000 ԱՄՆ դոլար"] },
+          { label: "Թողարկվող պարտատոմսերի քանակ", values: ["200,000 հատ", "100,000 հատ"] },
+          { label: "Շրջանառության ժամկետ", values: ["30 ամիս", "30 ամիս"] },
+          { label: "Արժեկտրոնային տարեկան տոկոսադրույք", values: ["11%", "5%"] },
+          { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
+          { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
+        ],
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 11.03.2022թ. թիվ 1/106 Ա որոշմամբ:"
+      )
+    },
+    {
+      title: "ԵՐՐՈՐԴ ԵՎ ՉՈՐՐՈՐԴ ԹՈՂԱՐԿՈՒՄ",
+      content: renderBondsTable(
+        ["ՀՀ դրամ", "ԱՄՆ դոլար"],
+        [
+          { label: "Անվանական արժեք", values: ["10,000 ՀՀ դրամ", "100 ԱՄՆ դոլար"] },
+          { label: "Ընդհանուր ծավալ", values: ["500,000,000 ՀՀ դրամ", "5,000,000 ԱՄՆ դոլար"] },
+          { label: "Թողարկվող պարտատոմսերի քանակ", values: ["50,000 հատ", "50,000 հատ"] },
+          { label: "Շրջանառության ժամկետ", values: ["30 ամիս", "30 ամիս"] },
+          { label: "Արժեկտրոնային տարեկան տոկոսադրույք", values: ["10%", "5.5%"] },
+          { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
+          { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
+        ],
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.10.2020թ. թիվ 1/562 Ա որոշմամբ:"
+      )
+    },
+    {
+      title: "ԱՌԱՋԻՆ ԵՎ ԵՐԿՐՈՐԴ ԹՈՂԱՐԿՈՒՄ",
+      content: renderBondsTable(
+        ["ՀՀ դրամ", "ԱՄՆ դոլար"],
+        [
+          { label: "Անվանական արժեք", values: ["10,000 ՀՀ դրամ", "100 ԱՄՆ դոլար"] },
+          { label: "Ընդհանուր ծավալ", values: ["500,000,000 ՀՀ դրամ", "5,000,000 ԱՄՆ դոլար"] },
+          { label: "Թողարկվող պարտատոմսերի քանակ", values: ["50,000 հատ", "50,000 հատ"] },
+          { label: "Շրջանառության ժամկետ", values: ["30 ամիս", "30 ամիս"] },
+          { label: "Արժեկտրոնային տարեկան տոկոսադրույք", values: ["10%", "5.5%"] },
+          { label: "Արժեկտրոնների վճարման պարբերականություն", values: ["Եռամսյակային", "Եռամսյակային"] },
+          { label: "Տեղաբաշխող", values: ["«Էվոկաբանկ» ԲԲԸ", "«Էվոկաբանկ» ԲԲԸ"] },
+        ],
+        "Պարտատոմսերի ծրագրային ազդագիրը գրանցվել է ՀՀ ԿԲ նախագահի 07.10.2020թ. թիվ 1/562 Ա որոշմամբ:"
+      )
+    },
+    {
+      title: "Հաճախ տրվող հարցեր պարտատոմսերի մասին",
+      content: (
+        <div className="space-y-4 text-gray-600 text-sm lg:text-base leading-relaxed">
+          <p>Այստեղ կարող եք գտնել պարտատոմսերի ձեռքբերման, մարման և շրջանառության հետ կապված հաճախ տրվող հարցերի պատասխանները:</p>
+        </div>
+      )
+    }
+  ];
+
   const newsList = [
     {
       id: 1,
@@ -187,13 +437,12 @@ function Arjetxter() {
         {/* Հիմնական բովանդակություն ըստ activeSubTab-ի */}
         {activeSubTab === 'investment' && (
           <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
-            
             {/* Հացհատիկ (Breadcrumbs) */}
             <div className="text-xs text-gray-400 mb-2">
               Անհատ  &gt;  Արժեթղթեր  &gt;  <span className="text-gray-600">Ներդրումային ծառայություններ</span>
             </div>
 
-            {/* Վերնագիր և Նկար (Flex շարվածք) */}
+            {/* Վերնագիր և Նկար */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               <div className="space-y-4">
                 <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
@@ -269,54 +518,79 @@ function Arjetxter() {
                 ))}
               </div>
             </div>
-
-            {/* Վերջին նորությունների բաժին */}
-            <div className="space-y-8 pt-8 border-t border-gray-200">
-              <div className="flex justify-between items-center">
-                <h2 className="text-3xl font-bold text-neutral-900">Վերջին նորությունները</h2>
-                <button className="bg-purple-100 text-[#6400dc] px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-purple-200 transition-colors cursor-pointer">
-                  Բոլոր նորությունները &gt;
-                </button>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {newsList.map((news) => (
-                  <div 
-                    key={news.id}
-                    className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer group"
-                  >
-                    <div className="relative overflow-hidden aspect-[4/3] bg-gray-100">
-                      <img 
-                        src={news.img} 
-                        alt={news.title} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
-                      <div className="space-y-2">
-                        <span className="text-xs font-semibold text-purple-600 uppercase tracking-wider">
-                          | {news.category}
-                        </span>
-                        <h3 className="text-lg font-bold text-neutral-900 group-hover:text-[#6400dc] transition-colors leading-snug">
-                          {news.title}
-                        </h3>
-                      </div>
-                      <p className="text-xs text-gray-400 pt-4 border-t border-gray-100">
-                        {news.date}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
           </div>
         )}
 
         {activeSubTab === 'bonds' && (
-          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-12">
-            <h2 className="text-3xl font-extrabold text-neutral-900 mb-4">Պարտատոմսեր</h2>
-            <p className="text-gray-700">Ծանոթացեք Evocabank-ի կողմից առաջարկվող բարձր եկամտաբեր պարտատոմսերին:</p>
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12 space-y-12">
+            {/* Հացհատիկ (Breadcrumbs) */}
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Արժեթղթեր  &gt;  <span className="text-gray-600">Պարտատոմսեր</span>
+            </div>
+
+            {/* Վերնագիր և Նկար */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div className="space-y-4">
+                <h1 className="text-3xl lg:text-4xl font-extrabold text-neutral-900 tracking-tight">
+                  Պարտատոմսեր
+                </h1>
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  Evocabank-ը հնարավորություն է տալիս ձեռք բերել պարտատոմսեր և ստանալ բարձր եկամուտներ։ Մենք ցանկանում ենք դառնալ Ձեր բարեկեցիկ ապագայի մի մասնիկը։
+                </p>
+              </div>
+
+              <div className="rounded-2xl overflow-hidden shadow-sm border border-gray-100">
+                <img 
+                  src="https://www.evoca.am/images-cache/menu/1/16783548543339/780x585.jpg" 
+                  alt="Պարտատոմսեր" 
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Հիմնական տեքստ */}
+            <div className="bg-white rounded-2xl p-6 lg:p-10 shadow-sm border border-gray-100 space-y-6 text-sm lg:text-base text-gray-700 leading-relaxed">
+              <p>
+                Առաջին անգամ հայաստանյան ֆինանսական համակարգում Evocabank-ը, որպես նորարար և ժամանակակից Բանկ, իրականացրել է իր կողմից թողարկված պարտատոմսերի օնլայն տեղաբաշխում՝ EvocaTOUCH հավելվածի միջոցով։
+              </p>
+              
+              <div className="space-y-3 pt-2">
+                <p className="font-semibold text-neutral-900">
+                  Պարտատոմսերը պահանջված և բարձր եկամտաբեր ֆինանսական գործիքներ են: Դրանք ապահով են և ունեն մի շարք առավելություններ՝
+                </p>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>
+                    Անվանական պարտատոմսերով ներգրավված դրամական միջոցները համարվում են երաշխավորված բանկային ավանդ և ՀՀ օրենսդրությամբ սահմանված չափերով երաշխավորված են «Ավանդների հատուցումը երաշխավորող հիմնադրամ»-ի կողմից:
+                  </li>
+                  <li>
+                    ՀՀ Ֆոնդային Բորսայում ցուցակված պարտատոմսերից ստացված եկամուտները ազատվում են եկամտային հարկից և ոչ ռեզիդենտի շահութահարկից՝ ապահովելով ավելի բարձր եկամտաբերություն:
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            {/* ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ (Պարտատոմսեր) */}
+            <div className="space-y-4">
+              <h3 className="text-2xl lg:text-3xl font-extrabold text-neutral-900">ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ</h3>
+              <div className="space-y-3">
+                {bondsAccordionItems.map((item, index) => (
+                  <div key={index} className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                    <button 
+                      onClick={() => toggleBondsAccordion(index)}
+                      className="w-full px-6 py-4 text-left font-bold text-neutral-800 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors"
+                    >
+                      <span>{item.title}</span>
+                      <span className="text-purple-700 font-bold text-lg">{openBondsAccordion === index ? '−' : '+'}</span>
+                    </button>
+                    {openBondsAccordion === index && (
+                      <div className="px-6 pb-6 border-t border-gray-100 pt-4 leading-relaxed">
+                        {item.content}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
@@ -340,6 +614,46 @@ function Arjetxter() {
             <p className="text-gray-700">Ներդրումային հարթակ արագ և հարմարավետ առցանց առևտրի համար:</p>
           </div>
         )}
+
+        {/* Վերջին նորությունների բաժին (Ընդհանուր էջի ներքևի մասում) */}
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-8 pt-8 pb-16 border-t border-gray-200 mt-12">
+          <div className="flex justify-between items-center">
+            <h2 className="text-3xl font-bold text-neutral-900">Վերջին նորությունները</h2>
+            <button className="bg-purple-100 text-[#6400dc] px-5 py-2.5 rounded-xl font-bold text-sm hover:bg-purple-200 transition-colors cursor-pointer">
+              Բոլոր նորությունները &gt;
+            </button>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {newsList.map((news) => (
+              <div 
+                key={news.id}
+                className="bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between cursor-pointer group"
+              >
+                <div className="relative overflow-hidden aspect-[4/3] bg-gray-100">
+                  <img 
+                    src={news.img} 
+                    alt={news.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6 space-y-3 flex-1 flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <span className="text-xs font-semibold text-purple-600 uppercase tracking-wider">
+                      | {news.category}
+                    </span>
+                    <h3 className="text-lg font-bold text-neutral-900 group-hover:text-[#6400dc] transition-colors leading-snug">
+                      {news.title}
+                    </h3>
+                  </div>
+                  <p className="text-xs text-gray-400 pt-4 border-t border-gray-100">
+                    {news.date}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
