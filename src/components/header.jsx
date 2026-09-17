@@ -9,7 +9,7 @@ function Header({ activeTab, setActiveTab }) {
           <span 
             onClick={() => setActiveTab('home')}
             className={`cursor-pointer transition-colors ${
-              activeTab === 'home' || activeTab === 'varker' || activeTab === 'deposits' || activeTab === 'hashivner' || activeTab === 'poxancumner' || activeTab === 'pahatuper' || activeTab === 'arjetxter' || activeTab === 'evocasalary'
+              activeTab === 'home' || activeTab === 'varker' || activeTab === 'deposits' || activeTab === 'hashivner' || activeTab === 'poxancumner' || activeTab === 'pahatuper' || activeTab === 'arjetxter' || activeTab === 'evocasalary' || activeTab === 'evocatouch'
                 ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
                 : 'hover:text-black'
             }`}
@@ -53,7 +53,9 @@ function Header({ activeTab, setActiveTab }) {
           >
             Վարկեր
           </button>
+          
           <a href="#cards" className="hover:text-purple-700 transition-colors">Քարտեր</a>
+          
           <button 
             onClick={(e) => {
               e.preventDefault();
@@ -65,6 +67,7 @@ function Header({ activeTab, setActiveTab }) {
           >
             Ավանդներ
           </button>
+          
           <button 
             onClick={(e) => {
               e.preventDefault();
@@ -76,6 +79,7 @@ function Header({ activeTab, setActiveTab }) {
           >
             Հաշիվներ
           </button>
+          
           <button 
             onClick={(e) => {
               e.preventDefault();
@@ -87,6 +91,7 @@ function Header({ activeTab, setActiveTab }) {
           >
             Փոխանցումներ
           </button>
+          
           <button 
             onClick={(e) => {
               e.preventDefault();
@@ -99,7 +104,6 @@ function Header({ activeTab, setActiveTab }) {
             Արժեթղթեր
           </button>
           
-          {/* EvocaSALARY կոճակը հիմա աշխատում է setActiveTab-ով */}
           <button 
             onClick={(e) => {
               e.preventDefault();
@@ -112,7 +116,18 @@ function Header({ activeTab, setActiveTab }) {
             EvocaSALARY
           </button>
 
-          <a href="#touch" className="hover:text-purple-700 transition-colors">EvocaTOUCH</a>
+          {/* EvocaTOUCH կոճակը հիմա աշխատում է setActiveTab-ով */}
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab('evocatouch');
+            }}
+            className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
+              activeTab === 'evocatouch' ? 'text-purple-700 font-bold' : 'text-neutral-800'
+            }`}
+          >
+            EvocaTOUCH
+          </button>
         </nav>
 
         {/* EvocaONLINE կոճակ */}
