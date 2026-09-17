@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
+import EvocaCardsSlider from './components/evocacardsslider';
+import EvocaOnlineMobile from './components/evocaonlinemobile';
+import Footer from './components/footer';
 
-function DepositsComponent() {
+function DepositsComponent({ setActiveTab }) {
   const [activeSubTab, setActiveSubTab] = useState('deposits');
+  // Որ ավանդի մանրամասն էջն է բացված (null-ի դեպքում ցույց է տալիս ընդհանուր ցանկը)
+  const [selectedDeposit, setSelectedDeposit] = useState(null);
+  // Մանրամասն էջի ներդիրները՝ 'about' կամ 'terms'
+  const [detailTab, setDetailTab] = useState('about');
 
-  // Ավանդների տվյալները՝ հիմնված տրամադրված տեղեկատվության և նկարների վրա
   const depositsList = [
     {
       id: 1,
@@ -43,98 +49,240 @@ function DepositsComponent() {
   ];
 
   return (
-    <div className="w-full font-sans bg-gray-50 min-h-screen pb-16">
-      {/* Մանուշակագույն Ենթամենյու (Subheader) */}
-      <div className="w-full bg-purple-800 text-white px-6 lg:px-10 shadow-inner">
-        <div className="flex space-x-8 text-sm font-medium">
-          <button 
-            onClick={() => setActiveSubTab('deposits')}
-            className={`py-3 cursor-pointer transition-colors border-b-2 ${
-              activeSubTab === 'deposits' ? 'border-white font-bold' : 'border-transparent text-purple-200 hover:text-white'
-            }`}
-          >
-            Ավանդներ
-          </button>
-          <button 
-            onClick={() => setActiveSubTab('info')}
-            className={`py-3 cursor-pointer transition-colors border-b-2 ${
-              activeSubTab === 'info' ? 'border-white font-bold' : 'border-transparent text-purple-200 hover:text-white'
-            }`}
-          >
-            Կարևոր տեղեկատվություն
-          </button>
-        </div>
-      </div>
-
-      {/* Հացհատիկ (Breadcrumbs) և Էջի Վերնագիր */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6">
-        <div className="text-xs text-gray-400 mb-2">
-          Անհատ  &gt;  Ավանդներ  &gt;  <span className="text-gray-600">Ավանդներ</span>
-        </div>
-        <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-8">Ավանդներ</h2>
-      </div>
-
-      {/* Բովանդակություն ըստ ենթամենյուի */}
-      {activeSubTab === 'deposits' ? (
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 space-y-8">
-          {depositsList.map((deposit) => (
-            <div 
-              key={deposit.id} 
-              className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-8 transition-all hover:shadow-md"
+    <div className="w-full font-sans bg-gray-50 min-h-screen flex flex-col justify-between">
+      <div>
+        {/* Մանուշակագույն Ենթամենյու (Subheader) */}
+        <div className="w-full bg-purple-800 text-white px-6 lg:px-10 shadow-inner">
+          <div className="flex space-x-8 text-sm font-medium">
+            <button 
+              onClick={() => { setActiveSubTab('deposits'); setSelectedDeposit(null); }}
+              className={`py-3 cursor-pointer transition-colors border-b-2 ${
+                activeSubTab === 'deposits' ? 'border-white font-bold' : 'border-transparent text-purple-200 hover:text-white'
+              }`}
             >
-              {/* Նկար */}
-              <div className="w-full lg:w-1/3 flex-shrink-0">
-                <img 
-                  src={deposit.image} 
-                  alt={deposit.title} 
-                  className="w-full h-48 lg:h-52 object-cover rounded-xl shadow-sm"
-                />
-              </div>
+              Ավանդներ
+            </button>
+            <button 
+              onClick={() => { setActiveSubTab('info'); setSelectedDeposit(null); }}
+              className={`py-3 cursor-pointer transition-colors border-b-2 ${
+                activeSubTab === 'info' ? 'border-white font-bold' : 'border-transparent text-purple-200 hover:text-white'
+              }`}
+            >
+              Կարևոր տեղեկատվություն
+            </button>
+          </div>
+        </div>
 
-              {/* Տեղեկատվություն և Բնութագրեր */}
-              <div className="w-full lg:w-2/3 flex flex-col justify-between">
-                <div>
-                  <h3 className="text-2xl font-bold text-neutral-800 mb-3">{deposit.title}</h3>
-                  <p className="text-gray-600 text-sm lg:text-base leading-relaxed mb-6">
-                    {deposit.description}
-                  </p>
-                </div>
-
-                {/* Ցուցանիշների վանդակներ */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-gray-100">
-                  {deposit.details.map((item, idx) => (
-                    <div key={idx} className="flex flex-col">
-                      <span className="text-xs text-gray-400 mb-1">{item.sub}</span>
-                      <span className="text-lg lg:text-xl font-bold text-neutral-800">{item.value}</span>
-                      <span className="text-xs text-gray-500 mt-0.5">{item.label}</span>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Մանրամասն կոճակ */}
-                <div className="mt-6 flex justify-end">
-                  <button className="bg-purple-100 hover:bg-purple-200 text-purple-700 font-semibold px-5 py-2 rounded-full text-sm transition-colors cursor-pointer flex items-center space-x-1">
-                    <span>Մանրամասն</span>
-                    <span>›</span>
-                  </button>
-                </div>
-              </div>
+        {/* Եթե բացված է կոնկրետ ավանդի մանրամասն էջը */}
+        {selectedDeposit ? (
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-16">
+            {/* Հացհատիկ (Breadcrumbs) */}
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Ավանդներ  &gt;  Ավանդներ  &gt;  <span className="text-gray-600">{selectedDeposit.title}</span>
             </div>
-          ))}
+
+            {/* Վերադառնալու կոճակ */}
+            <button 
+              onClick={() => setSelectedDeposit(null)}
+              className="text-sm text-purple-700 hover:text-purple-900 font-semibold mb-4 flex items-center space-x-1 cursor-pointer"
+            >
+              <span>‹ Վերադառնալ</span>
+            </button>
+
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-6">{selectedDeposit.title}</h2>
+
+            {/* Ներդիրներ մանրամասն էջի համար */}
+            <div className="flex space-x-8 border-b border-gray-200 mb-8">
+              <button 
+                onClick={() => setDetailTab('about')}
+                className={`pb-3 font-semibold text-sm cursor-pointer border-b-2 transition-colors ${
+                  detailTab === 'about' ? 'border-purple-800 text-purple-800' : 'border-transparent text-gray-500 hover:text-neutral-800'
+                }`}
+              >
+                Ավանդի մասին
+              </button>
+              <button 
+                onClick={() => setDetailTab('terms')}
+                className={`pb-3 font-semibold text-sm cursor-pointer border-b-2 transition-colors ${
+                  detailTab === 'terms' ? 'border-purple-800 text-purple-800' : 'border-transparent text-gray-500 hover:text-neutral-800'
+                }`}
+              >
+                Պայմաններ և սակագներ
+              </button>
+            </div>
+
+            {detailTab === 'about' ? (
+              <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-8">
+                <div className="w-full lg:w-1/3 flex-shrink-0">
+                  <img 
+                    src={selectedDeposit.image} 
+                    alt={selectedDeposit.title} 
+                    className="w-full h-48 lg:h-52 object-cover rounded-xl shadow-sm"
+                  />
+                </div>
+                <div className="w-full lg:w-2/3 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-neutral-800 mb-3">{selectedDeposit.title}</h3>
+                    <p className="text-gray-600 text-sm lg:text-base leading-relaxed mb-6">
+                      {selectedDeposit.description} Որպես Բանկի ավանդատու՝ Դուք կստանաք նաև միջազգային քարտ՝ բացարձակ անվճար, որին ցանկության դեպքում կփոխանցվեն Ձեր ավանդի տոկոսագումարները։
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-gray-100">
+                    {selectedDeposit.details.map((item, idx) => (
+                      <div key={idx} className="flex flex-col">
+                        <span className="text-xs text-gray-400 mb-1">{item.sub}</span>
+                        <span className="text-lg lg:text-xl font-bold text-neutral-800">{item.value}</span>
+                        <span className="text-xs text-gray-500 mt-0.5">{item.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 space-y-8 text-sm text-gray-700 overflow-x-auto">
+                <h3 className="text-xl font-bold text-neutral-800 mb-4">Ընդունման ժամկետներն ըստ օրերի քանակի և տոկոսադրույքներ</h3>
+                
+                {/* Աղյուսակ */}
+                <table className="w-full text-left border-collapse min-w-[700px]">
+                  <thead>
+                    <tr className="border-b border-gray-200 text-xs text-gray-500">
+                      <th className="py-3 px-2">Նվազագույն գումար և արժույթ</th>
+                      <th className="py-3 px-2">Տոկոսների վճարման եղանակը</th>
+                      <th className="py-3 px-2">31 - 90 օր</th>
+                      <th className="py-3 px-2">91 - 180 օր</th>
+                      <th className="py-3 px-2">181 - 270 օր</th>
+                      <th className="py-3 px-2">271 - 365 օր</th>
+                      <th className="py-3 px-2">366 - 549 օր</th>
+                      <th className="py-3 px-2">550 - 730 օր</th>
+                      <th className="py-3 px-2">731 - 1825 օր</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-gray-100 text-xs">
+                    <tr>
+                      <td className="py-3 px-2 font-bold" rowSpan="3">100,000 ՀՀ դրամ</td>
+                      <td className="py-3 px-2">Տոկոսները ժամկետի վերջում վճարմամբ</td>
+                      <td className="py-3 px-2">4.50 %</td>
+                      <td className="py-3 px-2">6.00 %</td>
+                      <td className="py-3 px-2">7.00 %</td>
+                      <td className="py-3 px-2">8.00 %</td>
+                      <td className="py-3 px-2">9.50 %</td>
+                      <td className="py-3 px-2">10.00 %</td>
+                      <td className="py-3 px-2">10.50 %</td>
+                    </tr>
+                    <tr>
+                      <td className="py-3 px-2">Ամենամսյա տոկոսների վճարմամբ</td>
+                      <td className="py-3 px-2">4.00 %</td>
+                      <td className="py-3 px-2">5.50 %</td>
+                      <td className="py-3 px-2">6.50 %</td>
+                      <td className="py-3 px-2">7.50 %</td>
+                      <td className="py-3 px-2">9.00 %</td>
+                      <td className="py-3 px-2">9.50 %</td>
+                      <td className="py-3 px-2">10.00 %</td>
+                    </tr>
+                    <tr>
+                      <td className="py-3 px-2">Տոկոսները եռամսյա վճարմամբ</td>
+                      <td className="py-3 px-2">-</td>
+                      <td className="py-3 px-2">5.50 %</td>
+                      <td className="py-3 px-2">6.50 %</td>
+                      <td className="py-3 px-2">7.50 %</td>
+                      <td className="py-3 px-2">9.00 %</td>
+                      <td className="py-3 px-2">9.50 %</td>
+                      <td className="py-3 px-2">10.00 %</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+                {/* Լրացուցիչ պայմանների տեքստ */}
+                <div className="space-y-4 pt-4 border-t border-gray-100 text-gray-600">
+                  <p>1. Ավանդն ընդունվում է ֆիզիկական և իրավաբանական անձանցից, ինչպես Բանկի գործունեության վայրում, այնպես էլ՝ «EvocaTouch» կամ «EvocaOnline» հեռակառավարման համակարգերի միջոցով:</p>
+                  <p>2. Ավանդատուն կարող է համալրել (ավելացնել) իր Ավանդի գումարը սկսած նվազագույնը 40,000 ՀՀ դրամից, 100 ԱՄՆ դոլարից, 100 Եվրոյից կամ 10,000 ՌԴ ռուբլուց...</p>
+                  <p>3. Ավանդի գումարի մասնակի նվազեցում չի թույլատրվում:</p>
+                  <p>4. Ավանդատուի պահանջով ավանդային պայմանագիրը ժամկետից շուտ լուծելու դեպքում Բանկն իրականացնում է Ավանդի տոկոսագումարների վերահաշվարկ...</p>
+                </div>
+              </div>
+            )}
+          </div>
+        ) : (
+          /* Հիմնական ցանկը կամ կարևոր տեղեկատվությունը */
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6">
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Ավանդներ  &gt;  <span className="text-gray-600">Ավանդներ</span>
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-8">Ավանդներ</h2>
+
+            {activeSubTab === 'deposits' ? (
+              <div className="space-y-8">
+                {depositsList.map((deposit) => (
+                  <div 
+                    key={deposit.id} 
+                    className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-8 transition-all hover:shadow-md"
+                  >
+                    <div className="w-full lg:w-1/3 flex-shrink-0">
+                      <img 
+                        src={deposit.image} 
+                        alt={deposit.title} 
+                        className="w-full h-48 lg:h-52 object-cover rounded-xl shadow-sm"
+                      />
+                    </div>
+
+                    <div className="w-full lg:w-2/3 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-2xl font-bold text-neutral-800 mb-3">{deposit.title}</h3>
+                        <p className="text-gray-600 text-sm lg:text-base leading-relaxed mb-6">
+                          {deposit.description}
+                        </p>
+                      </div>
+
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-gray-100">
+                        {deposit.details.map((item, idx) => (
+                          <div key={idx} className="flex flex-col">
+                            <span className="text-xs text-gray-400 mb-1">{item.sub}</span>
+                            <span className="text-lg lg:text-xl font-bold text-neutral-800">{item.value}</span>
+                            <span className="text-xs text-gray-500 mt-0.5">{item.label}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="mt-6 flex justify-end">
+                        <button 
+                          onClick={() => setSelectedDeposit(deposit)}
+                          className="bg-purple-100 hover:bg-purple-200 text-purple-700 font-semibold px-5 py-2 rounded-full text-sm transition-colors cursor-pointer flex items-center space-x-1"
+                        >
+                          <span>Մանրամասն</span>
+                          <span>›</span>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 mb-12">
+                <h3 className="text-2xl font-bold text-neutral-800 mb-4">Կարևոր տեղեկատվություն ավանդների վերաբերյալ</h3>
+                <p className="text-gray-600 leading-relaxed mb-4">
+                  ՀՀ օրենսդրության համաձայն՝ ֆիզիկական անձանց բանկային ավանդների հատուցումը երաշխավորված է «Ֆիզիկական անձանց բանկային ավանդների հատուցումը երաշխավորելու մասին» ՀՀ օրենքով:
+                </p>
+                <ul className="list-disc list-inside text-gray-600 space-y-2">
+                  <li>Դրամային ավանդների դեպքում երաշխավորված ավանդի առավելագույն չափը 16 միլիոն ՀՀ դրամ է։</li>
+                  <li>Արտարժութային ավանդների դեպքում երաշխավորված ավանդի առավելագույն չափը 7 միլիոն ՀՀ դրամ է։</li>
+                  <li>Ավանդների տոկոսագումարները հաշվեգրվում են պայմանագրով սահմանված կարգով։</li>
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Քարտերի սլայդեր (EvocaCardsSlider) */}
+        <div className="mt-16">
+          <EvocaCardsSlider />
         </div>
-      ) : (
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
-          <h3 className="text-2xl font-bold text-neutral-800 mb-4">Կարևոր տեղեկատվություն ավանդների վերաբերյալ</h3>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            ՀՀ օրենսդրության համաձայն՝ ֆիզիկական անձանց բանկային ավանդների հատուցումը երաշխավորված է «Ֆիզիկական անձանց բանկային ավանդների հատուցումը երաշխավորելու մասին» ՀՀ օրենքով:
-          </p>
-          <ul className="list-disc list-inside text-gray-600 space-y-2">
-            <li>Դրամային ավանդների դեպքում երաշխավորված ավանդի առավելագույն չափը 16 միլիոն ՀՀ դրամ է։</li>
-            <li>Արտարժութային ավանդների դեպքում երաշխավորված ավանդի առավելագույն չափը 7 միլիոն ՀՀ դրամ է։</li>
-            <li>Ավանդների տոկոսագումարները հաշվեգրվում են պայմանագրով սահմանված կարգով։</li>
-          </ul>
-        </div>
-      )}
+
+        {/* Evoca Online & Mobile բաժին */}
+        <EvocaOnlineMobile />
+      </div>
+
+      {/* Ստորին հատված (Footer) */}
+      <Footer setActiveTab={setActiveTab} />
     </div>
   );
 }
