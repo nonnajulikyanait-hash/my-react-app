@@ -3,7 +3,8 @@ import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
-import Demqer from './components/demqer'; // Ներմուծում ենք Demqer բաղադրիչը
+import Demqer from './components/demqer';
+import BiometricSection from './components/biometricsection'; // Ներմուծում ենք BiometricSection-ը
 
 function App() {
   useEffect(() => {
@@ -33,6 +34,9 @@ function App() {
 
       {/* Բիոմետրիկ նույնականացման հատված (Demqer) */}
       <Demqer />
+
+      {/* Biometric Section */}
+      <BiometricSection />
 
       {/* Հիմնական բովանդակություն */}
       <main className="p-10">
