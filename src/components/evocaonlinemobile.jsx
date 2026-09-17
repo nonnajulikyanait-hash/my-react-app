@@ -4,12 +4,12 @@ function EvocaOnlineMobile() {
   const [isPlaying, setIsPlaying] = useState(false);
 
   return (
-    <section className="relative bg-white py-6 overflow-hidden">
-      {/* Լրիվ լայնությամբ կոնտեյներ՝ կողային փոքրիկ բացվածքներով */}
-      <div className="max-w-[1300px] mx-auto px-4 lg:px-6">
+    <section className="relative bg-white py-6 overflow-hidden w-full">
+      {/* Ամբողջ էջի լայնությամբ կոնտեյներ՝ առանց կողային բացվածքների */}
+      <div className="w-full px-2 sm:px-4">
         
-        {/* Մանուշակագույն կոր բլոկ */}
-        <div className="relative bg-[#6400dc] rounded-t-[100px] sm:rounded-t-[140px] rounded-b-[40px] pt-8 pb-10 px-6 lg:px-16 text-white overflow-hidden shadow-2xl">
+        {/* Մանուշակագույն կոր բլոկ (ձգված է մինչև վերջ) */}
+        <div className="relative bg-[#6400dc] rounded-t-[100px] sm:rounded-t-[140px] rounded-b-[40px] pt-8 pb-10 px-6 sm:px-12 lg:px-20 text-white overflow-hidden shadow-2xl w-full">
           
           {/* Ֆոնային դեկորատիվ տարրեր */}
           <div className="absolute top-8 left-12 w-5 h-5 bg-[#ffcc00] transform rotate-12 rounded-xs opacity-90 hidden sm:block"></div>
@@ -18,12 +18,12 @@ function EvocaOnlineMobile() {
             <svg viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 22 21 2 21" /></svg>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-[1400px] mx-auto">
             
             {/* Ձախ մաս՝ Նոթբուք և Հեռախոս */}
             <div className="w-full lg:w-7/12 flex items-center justify-center relative py-4">
               
-              {/* Կոմպյուտերի նկար / Վիդեո բլոկ (ավելի կոմպակտ բարձրությամբ) */}
+              {/* Կոմպյուտերի նկար / Վիդեո բլոկ */}
               <div className="relative w-full max-w-[440px]">
                 {!isPlaying ? (
                   <div className="relative cursor-pointer group" onClick={() => setIsPlaying(true)}>
@@ -55,7 +55,7 @@ function EvocaOnlineMobile() {
                 )}
               </div>
 
-              {/* Հեռախոսի նկար՝ ավելի աջ տեղափոխված (հեռացված կոմպյուտերից) */}
+              {/* Հեռախոսի նկար */}
               <div className="absolute right-4 sm:right-12 bottom-[-15px] sm:bottom-[-5px] w-[85px] sm:w-[105px] drop-shadow-2xl z-10">
                 <img 
                   src="https://www.evoca.am/images-cache/banners/1/16153622710205/140x300.jpg" 
