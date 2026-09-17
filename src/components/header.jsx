@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header({ setActiveTab }) {
+function Header({ activeTab, setActiveTab }) {
   return (
     <header className="w-full font-sans bg-white border-b border-gray-200">
       {/* Վերին փոքր մենյու */}
@@ -8,7 +8,11 @@ function Header({ setActiveTab }) {
         <div className="flex space-x-6">
           <span 
             onClick={() => setActiveTab('home')}
-            className="font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5 cursor-pointer"
+            className={`cursor-pointer transition-colors ${
+              activeTab === 'home' || activeTab === 'varker' || activeTab === 'deposits'
+                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
+                : 'hover:text-black'
+            }`}
           >
             Անհատ
           </span>
@@ -43,12 +47,24 @@ function Header({ setActiveTab }) {
               e.preventDefault();
               setActiveTab('varker');
             }}
-            className="hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium text-neutral-800"
+            className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
+              activeTab === 'varker' ? 'text-purple-700 font-bold' : 'text-neutral-800'
+            }`}
           >
             Վարկեր
           </button>
           <a href="#cards" className="hover:text-purple-700 transition-colors">Քարտեր</a>
-          <a href="#deposits" className="hover:text-purple-700 transition-colors">Ավանդներ</a>
+          <button 
+            onClick={(e) => {
+              e.preventDefault();
+              setActiveTab('deposits');
+            }}
+            className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
+              activeTab === 'deposits' ? 'text-purple-700 font-bold' : 'text-neutral-800'
+            }`}
+          >
+            Ավանդներ
+          </button>
           <a href="#accounts" className="hover:text-purple-700 transition-colors">Հաշիվներ</a>
           <a href="#transfers" className="hover:text-purple-700 transition-colors">Փոխանցումներ</a>
           <a href="#securities" className="hover:text-purple-700 transition-colors">Արժեթղթեր</a>

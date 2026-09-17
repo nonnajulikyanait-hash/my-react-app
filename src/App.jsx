@@ -12,6 +12,7 @@ import EvocaCalculator from './components/evocacalculator';
 import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
 import Varker from './components/varker';
+import DepositsComponent from './avandner'; // Ներմուծում ենք Ավանդների կոմպոնենտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -40,8 +41,8 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        {/* Evoca բանկի վերնամասը */}
-        <Header setActiveTab={setActiveTab} />
+        {/* Evoca բանկի վերնամասը (փոխանցում ենք activeTab և setActiveTab) */}
+        <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
         {/* Էջերի պայմանական ռենդեր ըստ activeTab-ի */}
         {activeTab === 'home' && (
@@ -60,6 +61,11 @@ function App() {
         {/* Եթե սեղմել են Վարկեր */}
         {activeTab === 'varker' && (
           <Varker />
+        )}
+
+        {/* Եթե սեղմել են Ավանդներ */}
+        {activeTab === 'deposits' && (
+          <DepositsComponent />
         )}
 
         {/* Եթե սեղմել են Հայտարարություններ */}
