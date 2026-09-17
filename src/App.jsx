@@ -7,7 +7,8 @@ import BiometricSection from './components/biometricsection';
 import BiometricTriangle from './components/biometrictriangle';
 import EvocaCardsSlider from './components/evocacardsslider';
 import Calculator from './components/calculator';
-import EvocaOnlineMobile from './components/evocaonlinemobile'; // <-- Փոքրատառերով ներմուծում
+import EvocaOnlineMobile from './components/evocaonlinemobile';
+import Gortsynkerner from './components/gortsynkerner'; // <-- Ներմուծում ենք գործընկերների բաղադրիչը
 
 function App() {
   useEffect(() => {
@@ -49,6 +50,9 @@ function App() {
 
       {/* Օնլայն և մոբայլ բանկինգ բլոկ */}
       <EvocaOnlineMobile />
+
+      {/* Գործընկերներ բլոկ */}
+      <Gortsynkerner />
 
       {/* Հիմնական բովանդակություն */}
       <main className="p-10">
