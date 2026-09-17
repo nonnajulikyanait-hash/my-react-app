@@ -17,6 +17,7 @@ import HashivnerComponent from './components/hashivner';
 import Pahatuper from './components/pahatuper'; 
 import Poxancumner from './components/poxancumner'; 
 import Arjetxter from './components/arjetxter';
+import EvocaSalary from './components/evocasalary'; // Ներմուծում ենք EvocaSalary կոմպոնենտը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -84,6 +85,10 @@ function App() {
 
         {activeTab === 'arjetxter' && (
           <Arjetxter setActiveTab={setActiveTab} />
+        )}
+
+        {activeTab === 'evocasalary' && (
+          <EvocaSalary setActiveTab={setActiveTab} />
         )}
 
         {activeTab === 'haytararutyun' && (
