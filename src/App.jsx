@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        {/* Evoca բանկի վերնամասը (փոխանցում ենք activeTab և setActiveTab) */}
+        {/* Evoca բանկի վերնամասը */}
         <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
         {/* Էջերի պայմանական ռենդեր ըստ activeTab-ի */}
@@ -65,7 +65,7 @@ function App() {
 
         {/* Եթե սեղմել են Ավանդներ */}
         {activeTab === 'deposits' && (
-          <DepositsComponent />
+          <DepositsComponent setActiveTab={setActiveTab} />
         )}
 
         {/* Եթե սեղմել են Հայտարարություններ */}
