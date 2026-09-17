@@ -619,7 +619,7 @@ function Varker() {
                   Բանկի ներքին սքոր գնահատականի վրա ազդող հիմնական գործոններն են՝ ՖԱՅԿՈ սքորը (բարձր ՖԱՅԿՈ սքոր - դրական ազդեցություն), գործող վարկերի քանակը (գործող վարկերի քանակի ավելացում – բացասական ազդեցություն), վարկային բեռը (բարձր վարկային բեռ – բացասական ազդեցություն), վարկային պարտավորությունների ժամանակին կատարման փաստը (ժամկետանցների առկայություն – բացասական ազդեցություն), նոր վարկային հայտեր ներկայացնելու հաճախականությունը (հայտերի քանակի ավելացում – բացասական ազդեցություն), հաճախորդի աշխատանքային փորձը (քիչ փորձառություն – բացասական ազդեցություն), եկամուտների մեծությունը (բարձր եկամուտների առկայություն – դրական ազդեցություն)։
                 </p>
                 <p className="text-gray-600">
-                  Վարկային պատմությունը և/կամ սքոր գնահատականը հնարավոր է բարելավվել վարկն առանց ժամկետանցների մարելու, նպատակային օգտագործելու, վարկերի մնացորդային գումարը և քանակը նվազեցնելու, տրված երաշխավորությունների գծով պարտավորությունները ժամանակին կատարելու դեպքում։
+                  Վարկային պատմությունը և/կամ սքոր գնահատականն հնարավոր է բարելավվել վարկն առանց ժամկետանցների մարելու, նպատակային օգտագործելու, վարկերի մնացորդային գումարը և քանակը նվազեցնելու, տրված երաշխավորությունների գծով պարտավորությունները ժամանակին կատարելու դեպքում։
                 </p>
                 <p className="text-gray-600">
                   Վարկային պատմության և սքոր վատթարացումից խուսափելու նպատակով հաճախորդները չպետք է ունենան ժամկետանցներ, անհիմն ավելացնեն վարկային ծանրաբեռնվածությունը, վարկերի քանակը, հաճախակի վարկավորման հարցումներ ուղարկեն տարբեր կազմակերպություններին, հանդիսանան երաշխավոր անվստահելի անձանց համար։
@@ -648,40 +648,6 @@ function Varker() {
 
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-neutral-900 text-gray-400 py-12 px-6 lg:px-12 mt-16 border-t border-neutral-800">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          <div>
-            <h3 className="text-white font-bold text-lg mb-4">Evocabank</h3>
-            <p className="text-sm text-gray-400 leading-relaxed">Արագ, նորարարական և հարմարավետ բանկային ծառայություններ բոլորի համար։</p>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm">Անհատների համար</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#varker" className="hover:text-white transition-colors">Վարկեր</a></li>
-              <li><a href="#varker" className="hover:text-white transition-colors">Քարտեր</a></li>
-              <li><a href="#varker" className="hover:text-white transition-colors">Ավանդներ</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm">Բիզնեսի համար</h4>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#varker" className="hover:text-white transition-colors">Բիզնես վարկեր</a></li>
-              <li><a href="#varker" className="hover:text-white transition-colors">Հաշիվներ և փոխանցումներ</a></li>
-              <li><a href="#varker" className="hover:text-white transition-colors">Բիզնես քարտեր</a></li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-white font-semibold mb-3 text-sm">Կապ</h4>
-            <p className="text-sm mb-2">Հեռ․՝ +374 10 60 55 55</p>
-            <p className="text-sm">Էլ․ հասցե՝ info@evocabank.am</p>
-          </div>
-        </div>
-        <div className="max-w-7xl mx-auto pt-6 border-t border-neutral-800 text-center text-xs text-gray-500">
-          © {new Date().getFullYear()} Evocabank. Բոլոր իրավունքները պաշտպանված են։
-        </div>
-      </footer>
     </div>
   );
 }
