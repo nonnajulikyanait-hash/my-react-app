@@ -164,77 +164,159 @@ function HashivnerComponent({ setActiveTab }) {
           </div>
         </div>
 
-        {/* Բովանդակություն */}
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12">
-          {/* Հացհատիկ (Breadcrumbs) */}
-          <div className="text-xs text-gray-400 mb-2">
-            Անհատ  &gt;  Հաշիվներ  &gt;  <span className="text-gray-600">Հաշիվների բացում և սպասարկում</span>
-          </div>
+        {/* Բովանդակություն ըստ activeSubTab-ի */}
+        {activeSubTab === 'opening' && (
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12">
+            {/* Հացհատիկ (Breadcrumbs) */}
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Հաշիվներ  &gt;  <span className="text-gray-600">Հաշիվների բացում և սպասարկում</span>
+            </div>
 
-          <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-8">Հաշիվների բացում և սպասարկում</h2>
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-8">Հաշիվների բացում և սպասարկում</h2>
 
-          {/* Ներածական տեքստ և պատկեր */}
-          <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-8 mb-10">
-            <div className="w-full lg:w-1/2 flex flex-col justify-between">
-              <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
-                Առաջարկում ենք բացել դրամային և արտարժութային ընթացիկ բանկային հաշիվներ, որոնց սպասարկումն իրականացնում ենք մեր սակագների համաձայն: Մեզ մոտ հաշիվներ կարող են բացել Հայաստանի ռեզիդենտ և ոչ ռեզիդենտ ֆիզիկական անձիք:
+            {/* Ներածական տեքստ և պատկեր */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-8 mb-10">
+              <div className="w-full lg:w-1/2 flex flex-col justify-between">
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  Առաջարկում ենք բացել դրամային և արտարժութային ընթացիկ բանկային հաշիվներ, որոնց սպասարկումն իրականացնում ենք մեր սակագների համաձայն: Մեզ մոտ հաշիվներ կարող են բացել Հայաստանի ռեզիդենտ և ոչ ռեզիդենտ ֆիզիկական անձիք:
+                </p>
+              </div>
+              <div className="w-full lg:w-1/2 flex-shrink-0">
+                <img 
+                  src="https://www.evoca.am/images-cache/menu/1/16111691720299/780x585.jpg" 
+                  alt="Հաշիվների բացում և սպասարկում" 
+                  className="w-full h-52 lg:h-60 object-cover rounded-xl shadow-sm"
+                />
+              </div>
+            </div>
+
+            {/* Պայմանագրային փոխհարաբերությունների մասին տեքստ */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 mb-10 text-sm lg:text-base text-gray-700 space-y-4">
+              <p>
+                Մեր և ձեր պայմանագրային փոխհարաբերությունները կարգավորվում են <strong>ՀԱՄԱԼԻՐ ԲԱՆԿԱՅԻՆ ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԻ ՄԱՏՈՒՑՄԱՆ ՊԱՅՄԱՆՆԵՐՈՎ</strong>, որը հրապարակային առաջարկ (օֆերտա) է և ձեր կողմից համարվում է ընդունված այն պահից, երբ առձեռն կամ հեռակառավարման համակարգերի միջոցով մեզ եք ներկայացնում պատշաճ լրացված և վավերացված՝ բանկային ծառայություններից օգտվելու հայտ/դիմում: Համալիր բանկային ծառայությունների մատուցման պայմաններին կարող եք ծանոթանալ <span className="text-purple-700 font-semibold cursor-pointer underline">այստեղ</span>:
               </p>
             </div>
-            <div className="w-full lg:w-1/2 flex-shrink-0">
-              <img 
-                src="https://www.evoca.am/images-cache/menu/1/16111691720299/780x585.jpg" 
-                alt="Հաշիվների բացում և սպասարկում" 
-                className="w-full h-52 lg:h-60 object-cover rounded-xl shadow-sm"
-              />
-            </div>
-          </div>
 
-          {/* Պայմանագրային փոխհարաբերությունների մասին տեքստ */}
-          <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 mb-10 text-sm lg:text-base text-gray-700 space-y-4">
-            <p>
-              Մեր և ձեր պայմանագրային փոխհարաբերությունները կարգավորվում են <strong>ՀԱՄԱԼԻՐ ԲԱՆԿԱՅԻՆ ԾԱՌԱՅՈՒԹՅՈՒՆՆԵՐԻ ՄԱՏՈՒՑՄԱՆ ՊԱՅՄԱՆՆԵՐՈՎ</strong>, որը հրապարակային առաջարկ (օֆերտա) է և ձեր կողմից համարվում է ընդունված այն պահից, երբ առձեռն կամ հեռակառավարման համակարգերի միջոցով մեզ եք ներկայացնում պատշաճ լրացված և վավերացված՝ բանկային ծառայություններից օգտվելու հայտ/դիմում: Համալիր բանկային ծառայությունների մատուցման պայմաններին կարող եք ծանոթանալ <span className="text-purple-700 font-semibold cursor-pointer underline">այստեղ</span>:
-            </p>
-          </div>
+            {/* Մասնաճյուղերի մասին երկար նկարով բլոկ */}
+            <div className="relative rounded-2xl overflow-hidden mb-12 shadow-sm border border-gray-100 bg-purple-900 text-white min-h-[220px] lg:min-h-[260px] flex items-center justify-center text-center p-8">
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src="https://www.evoca.am/images-cache/menu/1/16111710051163/1920x530.jpg" 
+                  alt="Background" 
+                  className="w-full h-full object-cover opacity-30"
+                />
+              </div>
+              <div className="relative z-10 max-w-3xl">
+                <h3 className="text-xl lg:text-2xl font-extrabold leading-snug">
+                  Հաշիվներ բացելու նպատակով կարող եք դիմել մեր Գլխամասային գրասենյակ կամ ցանկացած մասնաճյուղ (բացառությամբ «Էրեբունի»-ի):
+                </h3>
+              </div>
+            </div>
 
-          {/* Մասնաճյուղերի մասին երկար նկարով բլոկ */}
-          <div className="relative rounded-2xl overflow-hidden mb-12 shadow-sm border border-gray-100 bg-purple-900 text-white min-h-[220px] lg:min-h-[260px] flex items-center justify-center text-center p-8">
-            <div className="absolute inset-0 z-0">
-              <img 
-                src="https://www.evoca.am/images-cache/menu/1/16111710051163/1920x530.jpg" 
-                alt="Background" 
-                className="w-full h-full object-cover opacity-30"
-              />
-            </div>
-            <div className="relative z-10 max-w-3xl">
-              <h3 className="text-xl lg:text-2xl font-extrabold leading-snug">
-                Հաշիվներ բացելու նպատակով կարող եք դիմել մեր Գլխամասային գրասենյակ կամ ցանկացած մասնաճյուղ (բացառությամբ «Էրեբունի»-ի):
-              </h3>
+            {/* ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ (Ակորդեոններ) */}
+            <div className="mb-16">
+              <h3 className="text-2xl lg:text-3xl font-extrabold text-neutral-800 mb-6">ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ</h3>
+              <div className="space-y-3">
+                {accordionItems.map((item, index) => (
+                  <div key={index} className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
+                    <button 
+                      onClick={() => toggleAccordion(index)}
+                      className="w-full px-6 py-4 text-left font-bold text-neutral-800 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors"
+                    >
+                      <span>{item.title}</span>
+                      <span className="text-purple-700 font-bold text-lg">{openAccordion === index ? '−' : '+'}</span>
+                    </button>
+                    {openAccordion === index && (
+                      <div className="px-6 pb-5 text-gray-600 border-t border-gray-100 pt-4 leading-relaxed">
+                        {item.content}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
+        )}
 
-          {/* ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ (Ակորդեոններ) */}
-          <div className="mb-16">
-            <h3 className="text-2xl lg:text-3xl font-extrabold text-neutral-800 mb-6">ԱՆՀՐԱԺԵՇՏ ՏԵՂԵԿԱՏՎՈՒԹՅՈՒՆ</h3>
-            <div className="space-y-3">
-              {accordionItems.map((item, index) => (
-                <div key={index} className="bg-white rounded-xl border border-gray-200 overflow-hidden shadow-sm">
-                  <button 
-                    onClick={() => toggleAccordion(index)}
-                    className="w-full px-6 py-4 text-left font-bold text-neutral-800 flex justify-between items-center cursor-pointer hover:bg-gray-50 transition-colors"
-                  >
-                    <span>{item.title}</span>
-                    <span className="text-purple-700 font-bold text-lg">{openAccordion === index ? '−' : '+'}</span>
-                  </button>
-                  {openAccordion === index && (
-                    <div className="px-6 pb-5 text-gray-600 border-t border-gray-100 pt-4 leading-relaxed">
-                      {item.content}
-                    </div>
-                  )}
-                </div>
-              ))}
+        {/* ԱՌԱՐԿԱՅԱԶՈՒՐԿ ՄԵՏԱՂԱԿԱՆ ՀԱՇԻՎՆԵՐ */}
+        {activeSubTab === 'metal' && (
+          <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-6 pb-12">
+            {/* Հացհատիկ (Breadcrumbs) */}
+            <div className="text-xs text-gray-400 mb-2">
+              Անհատ  &gt;  Հաշիվներ  &gt;  <span className="text-gray-600">Առարկայազուրկ մետաղական հաշիվներ</span>
+            </div>
+
+            <h2 className="text-3xl lg:text-4xl font-extrabold text-neutral-800 mb-8">Առարկայազուրկ մետաղական հաշիվներ</h2>
+
+            {/* Ներածական տեքստ և պատկեր */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-8 mb-10">
+              <div className="w-full lg:w-1/2 flex flex-col justify-between">
+                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">
+                  Առաջարկում ենք բացել առարկայազուրկ մետաղական հաշիվներ, որոնք նախատեսված են անկանխիկ ոսկու հաշվառման համար: Այս ցպահանջ հաշիվները հնարավորություն են ընձեռում խնայողություններ կատարել անկանխիկ ոսկով, ինչպես նաև ավելացնել դրանք՝ միջազգային շուկայում ոսկու գնի բարձրացման շնորհիվ:
+                </p>
+              </div>
+              <div className="w-full lg:w-1/2 flex-shrink-0">
+                <img 
+                  src="https://www.evoca.am/images-cache/menu/1/17092121924185/780x585.png" 
+                  alt="Առարկայազուրկ մետաղական հաշիվներ" 
+                  className="w-full h-52 lg:h-60 object-cover rounded-xl shadow-sm"
+                />
+              </div>
+            </div>
+
+            {/* Հիմնական պայմաններ */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 mb-10 text-gray-700 space-y-6">
+              <h3 className="text-2xl font-bold text-neutral-800">Հիմնական պայմաններ</h3>
+              
+              <ul className="list-disc pl-5 space-y-3 text-sm lg:text-base">
+                <li>Հաշիվներ ենք բացում ռեզիդենտ և ոչ ռեզիդենտ հաճախորդների համար, միայն 999.9 հարգի ոսկով, առանց նվազագույն մնացորդի պահանջի: Մեզ մոտ կարելի է գնել անկանխիկ ոսկի՝ սկսած 31 գրամից (ոսկու գնանշումը կատարվում է գրամով): Մեր կայքում հրապարակվում են ոսկու գնանշման օրական տվյալները, որոնք փոփոխվում են՝ կախված միջազգային շուկաներում ոսկու գնից:</li>
+                <li>Հաշիվներում անկանխիկ ոսկին հաշվառում ենք դրամով` ՀՀ Կենտրոնական բանկի հայտարարած հաշվարկային գնով և կշռային (գրամային) արտահայտությամբ՝ 0.01 գրամ ճշտությամբ կամ տրոյական ունցիաներով՝ 0.001 տրոյական ունցիա ճշտությամբ (մեկ տրոյական ունցիան հավասար է 31.10348 գրամի):</li>
+                <li>Մետաղական հաշիվ/ներ բացելիս ղեկավարվում ենք ՀՀ օրենսդրությամբ, ՀՀ Կենտրոնական բանկի նորմատիվ ակտերով, որոշումներով, մեր ներքին իրավական ակտերով:</li>
+                <li>Այս հաշիվներով կարող ենք իրականացնել հետևյալ գործառնությունները՝
+                  <ul className="list-disc pl-5 mt-2 space-y-1">
+                    <li>հաշվի համալրում՝ բանկից անկանխիկ ոսկի գնելու և այն հաշվին մուտքագրելու, ինչպես նաև ձեր կամ այլ անձի՝ նույն բանկում կամ այլ բանկում առկա մետաղական հաշվից անկանխիկ ոսկի փոխանցելու միջոցով,</li>
+                    <li>հաշվի ելքագրում՝ հաշվին առկա անկանխիկ ոսկին բանկին վաճառելու, ինչպես նաև ձեր կամ այլ անձի՝ նույն բանկում կամ այլ բանկում առկա մետաղական հաշվին անկանխիկ ոսկի փոխանցելու միջոցով:</li>
+                  </ul>
+                </li>
+                <li>Մետաղական հաշիվները կարող են գրավադրվել:</li>
+              </ul>
+
+              <div className="space-y-3 pt-2">
+                <h4 className="font-bold text-neutral-800">Հաշիվ բացելու համար անհրաժեշտ փաստաթղթերը՝</h4>
+                <ul className="list-disc pl-5 space-y-1 text-sm lg:text-base">
+                  <li>Դիմում՝ մեր ձևանմուշի համաձայն:</li>
+                  <li>Անձնագիր և սոցիալական քարտ կամ այն չունենալու մասին տեղեկանք, կամ միայն նույնականացման քարտ:</li>
+                  <li>Մեր պահանջով այլ փաստաթղթեր:</li>
+                </ul>
+              </div>
+
+              <p className="text-sm lg:text-base pt-2">
+                Հաշիվներ բացելու համար կարող եք դիմել մեր Գլխամասային գրասենյակ և ցանկացած մասնաճյուղ: Մետաղական հաշիվների սպասարկման, գործառնությունների կատարման սակագներին և պայմաններին կարող եք ծանոթանալ <span className="text-purple-700 font-semibold cursor-pointer underline">այստեղ</span>:
+              </p>
+
+              <p className="text-sm lg:text-base pt-2">
+                Evocabank-ում նաև կարող եք ձեռք բերել ոսկու գրավով վարկեր՝ ամենահարմար պայմաններով։ Ոսկու գրավով վարկը տրամադրվում է ոսկյա իրերի գրավադրմամբ անձնական, ընտանեկան, տնային կամ այլ օգտագործման համար նախատեսված, ձեռնարկատիրական գործունեության հետ չկապված, ապրանքների (աշխատանքների, ծառայությունների) պատվիրման կամ ձեռքբերման նպատակով:
+              </p>
+
+              <div className="bg-purple-50 border-l-4 border-purple-700 p-4 rounded-r-xl text-purple-900 font-medium text-sm lg:text-base">
+                Ուշադրություն. Ավանդների հատուցումը երաշխավորող հիմնադրամը չի հատուցում մետաղական հաշիվները:
+              </div>
+            </div>
+
+            {/* Փաստաթղթեր բաժին */}
+            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-sm border border-gray-100 mb-12">
+              <h3 className="text-2xl font-extrabold text-neutral-800 mb-6">Փաստաթղթեր</h3>
+              <div className="space-y-4">
+                <a href="#doc1" className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-medium text-sm lg:text-base transition-colors">
+                  <span className="text-xl">📄</span> Տեղեկատվական ամփոփագիր (Բանկային հաշիվներ) 06.06.26
+                </a>
+                <a href="#doc2" className="flex items-center gap-3 text-purple-700 hover:text-purple-900 font-medium text-sm lg:text-base transition-colors">
+                  <span className="text-xl">📄</span> Համալիր բանկային ծառայությունների մատուցման պայմաններ 16.05.2025
+                </a>
+              </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Evoca Online & Mobile բաժին */}
         <EvocaOnlineMobile />
