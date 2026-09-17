@@ -3,7 +3,6 @@ import { db } from './firebase';
 import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
-import Demqer from './components/demqer';
 import BiometricSection from './components/biometricsection'; // Ներմուծում ենք BiometricSection-ը
 
 function App() {
@@ -31,9 +30,6 @@ function App() {
 
       {/* Hero Slider */}
       <HeroSlider />
-
-      {/* Բիոմետրիկ նույնականացման հատված (Demqer) */}
-      <Demqer />
 
       {/* Biometric Section */}
       <BiometricSection />
