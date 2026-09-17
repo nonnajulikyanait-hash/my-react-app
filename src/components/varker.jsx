@@ -392,7 +392,7 @@ const loansData = [
 ];
 
 function Varker() {
-  const [activeSubTab, setActiveSubTab] = useState('varker');
+  const [activeSubTab, setActiveSubTab] = useState('patmutyun'); // Դրված է 'patmutyun', որ ուղղակիորեն տեսնես Ձեր ուղարկած տեքստերը
   const [selectedFilter, setSelectedFilter] = useState('all');
 
   const filterButtons = [
@@ -410,131 +410,278 @@ function Varker() {
     : loansData.filter(loan => loan.category === selectedFilter);
 
   return (
-    <div id="varker" className="w-full min-h-screen bg-gray-50 pb-16">
-      {/* Վերին մանուշակագույն ենթամենյու */}
-      <div className="bg-[#6400dc] text-white py-4 px-6 lg:px-12 flex space-x-8 text-sm font-medium">
-        <button 
-          onClick={() => setActiveSubTab('varker')}
-          className={`cursor-pointer pb-1 border-b-2 transition-colors ${activeSubTab === 'varker' ? 'border-white font-bold' : 'border-transparent text-gray-200 hover:text-white'}`}
-        >
-          Վարկեր
-        </button>
-        <button 
-          onClick={() => setActiveSubTab('patmutyun')}
-          className={`cursor-pointer pb-1 border-b-2 transition-colors ${activeSubTab === 'patmutyun' ? 'border-white font-bold' : 'border-transparent text-gray-200 hover:text-white'}`}
-        >
-          Վարկային պատմություն և սքոր
-        </button>
-        <button 
-          onClick={() => setActiveSubTab('teghekatvutyun')}
-          className={`cursor-pointer pb-1 border-b-2 transition-colors ${activeSubTab === 'teghekatvutyun' ? 'border-white font-bold' : 'border-transparent text-gray-200 hover:text-white'}`}
-        >
-          Կարևոր տեղեկատվություն
-        </button>
+    <div className="w-full min-h-screen bg-gray-50 flex flex-col justify-between">
+      <div>
+        {/* Վերին մանուշակագույն ենթամենյու */}
+        <div className="bg-[#6400dc] text-white py-4 px-6 lg:px-12 flex space-x-8 text-sm font-medium">
+          <button 
+            onClick={() => setActiveSubTab('varker')}
+            className={`cursor-pointer pb-1 border-b-2 transition-colors ${activeSubTab === 'varker' ? 'border-white font-bold' : 'border-transparent text-gray-200 hover:text-white'}`}
+          >
+            Վարկեր
+          </button>
+          <button 
+            onClick={() => setActiveSubTab('patmutyun')}
+            className={`cursor-pointer pb-1 border-b-2 transition-colors ${activeSubTab === 'patmutyun' ? 'border-white font-bold' : 'border-transparent text-gray-200 hover:text-white'}`}
+          >
+            Վարկային պատմություն և սքոր
+          </button>
+          <button 
+            onClick={() => setActiveSubTab('teghekatvutyun')}
+            className={`cursor-pointer pb-1 border-b-2 transition-colors ${activeSubTab === 'teghekatvutyun' ? 'border-white font-bold' : 'border-transparent text-gray-200 hover:text-white'}`}
+          >
+            Կարևոր տեղեկատվություն
+          </button>
+        </div>
+
+        {/* Էջի հիմնական բովանդակություն */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          
+          {activeSubTab === 'varker' && (
+            <>
+              <div className="text-xs text-gray-500 mb-6 flex items-center space-x-2">
+                <span>🏠</span>
+                <span>›</span>
+                <span>Անհատ</span>
+                <span>›</span>
+                <span>Վարկեր</span>
+                <span>›</span>
+                <span className="text-gray-800 font-medium">Վարկեր</span>
+              </div>
+
+              <h1 className="text-4xl font-extrabold text-neutral-900 mb-8">Վարկեր</h1>
+
+              {/* Զտման կոճակներ */}
+              <div className="flex flex-wrap gap-3 mb-10">
+                {filterButtons.map((btn) => (
+                  <button
+                    key={btn.id}
+                    onClick={() => setSelectedFilter(btn.id)}
+                    className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors cursor-pointer shadow-sm ${
+                      selectedFilter === btn.id
+                        ? 'bg-[#6400dc] text-white'
+                        : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+                    }`}
+                  >
+                    {btn.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Վարկերի ցանկ */}
+              <div className="space-y-8">
+                {filteredLoans.length > 0 ? (
+                  filteredLoans.map((loan) => (
+                    <div 
+                      key={loan.id} 
+                      className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition-shadow"
+                    >
+                      <div className="w-full md:w-5/12 h-64 rounded-2xl overflow-hidden bg-purple-50 flex items-center justify-center relative">
+                        <img src={loan.image} alt={loan.title} className="w-full h-full object-cover" />
+                      </div>
+                      <div className="w-full md:w-7/12 flex flex-col justify-between">
+                        <div>
+                          <h2 className="text-2xl font-bold text-neutral-900 mb-3">{loan.title}</h2>
+                          <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">{loan.description}</p>
+                        </div>
+                        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6 border-t border-b border-gray-100 py-4">
+                          {loan.details.map((detail, idx) => (
+                            <div key={idx}>
+                              <p className="text-[#6400dc] font-bold text-lg sm:text-xl">{detail.value}</p>
+                              <p className="text-xs text-gray-500 mt-0.5">{detail.label}</p>
+                            </div>
+                          ))}
+                        </div>
+                        <div>
+                          <button className="inline-flex items-center space-x-2 text-[#6400dc] bg-purple-50 hover:bg-purple-100 font-semibold px-6 py-2.5 rounded-full transition-colors cursor-pointer text-sm">
+                            <span>Մանրամասն</span>
+                            <span>›</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-center text-gray-500 py-10 text-lg">Այս բաժնում վարկեր չեն գտնվել:</p>
+                )}
+              </div>
+            </>
+          )}
+
+          {activeSubTab === 'patmutyun' && (
+            <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-sm border border-gray-100 space-y-8 text-gray-800 leading-relaxed">
+              
+              <h1 className="text-3xl sm:text-4xl font-extrabold text-neutral-900 mb-6">Վարկային պատմություն և սքոր</h1>
+
+              {/* Կարևոր տեղեկատվություն */}
+              <div className="bg-purple-50 border-l-4 border-[#6400dc] p-5 rounded-r-2xl">
+                <h4 className="font-bold text-[#6400dc] mb-1">Կարևոր տեղեկատվություն վարկային պատմության վերաբերյալ</h4>
+                <p className="text-sm text-gray-700">Վարկային պարտավորությունները չկատարելը կամ ոչ պատշաճ կատարելը կազդի Ձեր ՎԱՐԿԱՅԻՆ ՊԱՏՄՈՒԹՅԱՆ վրա:</p>
+              </div>
+
+              {/* Ինչ է վարկային պատմությունը */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Ինչ է վարկային պատմությունը</h2>
+                <p className="text-gray-600">
+                  «Վարկային տեղեկատվության շրջանառության և վարկային բյուրոների գործունեության մասին» ՀՀ օրենքի համաձայն վարկային տեղեկատվությունը վարկային տեղեկատվության սուբյեկտի կողմից ստանձնած պարտավորությունների վերաբերյալ տեղեկատվությունն է, որը ցույց է տալիս վարկային տեղեկատվության սուբյեկտի պարտքերը, վճարումները, վճարումների սովորությունները կամ պարտավորությունների կամ դրանց կատարման վերաբերյալ տեղեկատվություններ:
+                </p>
+                <p className="text-gray-600">
+                  Այն, որպես կանոն, օգտագործվում է ֆինանսական կազմակերպությունների կողմից վարկերի տրամադրման, ինչպես նաև արտադրող և վաճառող կամ ծառայություններ մատուցող կազմակերպությունների կողմից՝ տարաժամկետ վճարման սկզբունքով («ապառիկ») ապրանքների/ծառայությունների իրացման վերաբերյալ որոշում կայացնելու ընթացքում:
+                </p>
+              </section>
+
+              {/* Որոնք են վարկային պատմության ձևավորման աղբյուրները */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Որոնք են վարկային պատմության ձևավորման աղբյուրները</h2>
+                <p className="text-gray-600">
+                  Վարկային պատմության ձևավորման աղբյուրներն են ԱՔՌԱ գործընկերները (բանկերը, վարկային կազմակերպությունները, ապահովագրական ընկերությունները, հետաձգված վճարումներով գործարքներ իրականացնող կազմակերպությունները, ինչպես նաև՝ հանրային տվյալների բազաներից ՀՀ կառավարության սահմանած կարգով վարկային բյուրոյին անձանց վերաբերյալ տեղեկություններ տրամադրող պետական մարմինները), որոնք տրամադրում են վարկային տեղեկատվության սուբյեկտի վերաբերյալ տեղեկություններ(տվյալներ):
+                </p>
+              </section>
+
+              {/* Ինչ է վարկային բյուրոն */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Ինչ է վարկային բյուրոն</h2>
+                <p className="text-gray-600">
+                  Վարկային բյուրոն իրականացնում է իրավաբանական և ֆիզիկական անձանց ֆինանսական պարտավորությունների կատարման վերաբերյալ տեղեկության (վարկային տեղեկատվության) հավաքագրում, մշակում, պահպանում, տրամադրում, ինչպես նաև դրանց հիման վրա վարկային զեկույցի պատրաստման գործունեություն:
+                </p>
+                <p className="text-gray-600 font-medium">Վարկային բյուրոյի ծառայությունների շնորհիվ յուրաքանչյուր իրավաբանական կամ ֆիզիկական անձ հնարավորություն է ստանում՝</p>
+                <ul className="list-disc list-inside space-y-2 text-gray-600 pl-4 marker:text-[#6400dc]">
+                  <li>ժամանակին կատարելով իր ֆինանսական պարտավորությունները՝ կերտել դրական վարկային պատմություն և օգտագործել այն որպես ծանրակշիռ ակտիվ ֆինանսական ծառայություններից արտոնյալ պայմաններով օգտվելու համար,</li>
+                  <li>ճիշտ կառավարել սեփական ֆինանսական պարտավորությունները և մշտապես տեղեկացված լինել սեփական ֆինանսական պարտավորությունների կատարման ընդհանուր պատկերից:</li>
+                </ul>
+                <p className="text-gray-600 pt-2">
+                  Վարկային բյուրոյի ծառայությունները թույլ են տալիս վարկատուներին (բանկեր, վարկային կազմակերպություններ), ինչպես նաև տարաժամկետ վճարման սկզբունքով («ապառիկ») ապրանքներ վաճառող կամ ծառայություններ մատուցող կազմակերպություններին կանխելու վարկառուների/հաճախորդների կողմից ավելորդ պարտավորությունների ստանձնումը, կրճատելու անհուսալի պարտավորությունները և աջակցելու պարտավորությունների ժամանակին կատարմանը:
+                </p>
+              </section>
+
+              {/* Ինչ է վարկային զեկույցը */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Ինչ է վարկային զեկույցը</h2>
+                <p className="text-gray-600">
+                  Վարկային զեկույցը գրավոր կամ էլեկտրոնային փաստաթուղթ է, որը պարունակում է վարկային տեղեկատվության սուբյեկտի (ֆիզիկական կամ իրավաբանական) և նրա կողմից ստանձնած տնտեսվարող կազմակերպությունների նկատմամբ ֆինանսական պարտավորությունների կատարման վերաբերյալ տեղեկատվություն:
+                </p>
+                <p className="text-gray-600">
+                  Զեկույցը կազմված է ԱՔՌԱ գործընկեր կազմակերպություններից ստացված տվյալների հիման վրա և արտացոլում է հարցման պահից վերջին 5 տարվա վարկային տվյալները:
+                </p>
+              </section>
+
+              {/* Որքան ժամանակ է պահպանվում վարկային պատմությունը */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Որքան ժամանակ է պահպանվում վարկային պատմությունը</h2>
+                <p className="text-gray-600">
+                  Համաձայն «Վարկային տեղեկատվության շրջանառության և վարկային բյուրոների գործունեության մասին» ՀՀ օրենքի 11-րդ հոդվածի դրույթների, «վարկային բյուրոյի կողմից տրամադրվող վարկային զեկույցներում չպետք է ներառվի վարկային զեկույցի տրամադրման պահին նախորդող հինգ տարուց ավելի վարկային տեղեկատվություն»:
+                </p>
+              </section>
+
+              {/* Ինչպես բարելավել վարկային պատմությունը */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Ինչպես բարելավել վարկային պատմությունը</h2>
+                <p className="text-gray-600">
+                  Նախ, անհրաժեշտ է լիովին մարել նախկինում գոյացած ժամկետանց պարտավորությունների վճարումները: Բացի այդ, ներկա պահին գործող վարկերի մասով անհրաժեշտ է բացառել ժամկետանց՝ նույնիսկ մեկ օրվա կտրվածքով պարտավորությունների գոյացումը:
+                </p>
+              </section>
+
+              {/* Որր դիմել եթե վարկային պատմությունը սխալ է */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Որր դիմել եթե վարկային պատմությունը սխալ է</h2>
+                <p className="text-gray-600">
+                  Եթե վարկառուի վարկային պատմության մեջ առկա են սխալ կամ թերի տվյալներ, ապա պարզաբանման և ուղղման նպատակով վարկառուն՝ համաձայն «Վարկային տեղեկատվության շրջանառության և վարկային բյուրոների գործունեության մասին» ՀՀ օրենքի 20-րդ հոդվածի դրույթների, կարող է այդ մասին տեղեկացնել վարկային բյուրոյին կամ ուղղակիորեն դիմել տեղեկատվություն տրամադրող սուբյեկտներին (վարկային տեղեկատվության աղբյուրին): Տեղեկացումը կարող է իրականացվել համապատասխան գրավոր դիմում վարկային բյուրոյին ներկայացնելու միջոցով կամ էլեկտրոնային եղանակով՝ առցանց ռեժիմում Իմ ԱՔՌԱ անձնական գրասենյակից: ԱՔՌԱ-ի կողմից տրամադրված վարկային զեկույցների վերաբերյալ հաճախորդների բողոքների ընդունման/ստացման, քննարկման և վերջիններիս արձագանքման գործընթացը, գործողությունների հաջորդականությունը սահմանվում է «ԱՔՌԱ Քրեդիտ Ռեփորթինգ» ՓԲԸ-ի «Վեճերի լուծման ընթացակարգ»-ով:
+                </p>
+              </section>
+
+              {/* Վարկի տրամադրման վերաբերյալ որոշման կայացման չափանիշները */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Վարկի տրամադրման վերաբերյալ որոշման կայացման չափանիշները</h2>
+                <p className="font-semibold text-gray-800">Դրական որոշման կայացման չափանիշները`</p>
+                <ul className="list-disc list-inside space-y-1.5 text-gray-600 pl-4 marker:text-[#6400dc]">
+                  <li>Մեր կողմից ընդունելի գրավադրվող գույքը և երաշխավորությունները,</li>
+                  <li>Մշտական բնակության վայրը,</li>
+                  <li>Կայուն եկամտի աղբյուրը,</li>
+                  <li>Դրական կամ չեզոք վարկային պատմությունը,</li>
+                  <li>Արժանահավատ և լիարժեք փաստաթղթերը:</li>
+                </ul>
+                <p className="font-semibold text-gray-800 pt-2">Բացասական որոշման կայացման չափանիշները`</p>
+                <ul className="list-disc list-inside space-y-1.5 text-gray-600 pl-4 marker:text-[#6400dc]">
+                  <li>Ոչ արժանահավատ փաստաթղթերը ներկայացնելը,</li>
+                  <li>Բացասական վարկային պատմությունը,</li>
+                  <li>Եկամտի աղբյուրի ռիսկայնությունը (անկայուն եկամուտներ, ոչ հստակ պարբերականությամբ եկամուտներ),</li>
+                  <li>Գրավի պայմանագրի կամ երաշխավորության համաձայնագրերի կնքման համար անհրաժեշտ փաստաթղթեր չներկայացնելը:</li>
+                </ul>
+              </section>
+
+              {/* Վարկային սքոր */}
+              <section className="space-y-3">
+                <h2 className="text-2xl font-bold text-neutral-900">Վարկային սքոր</h2>
+                <p className="text-gray-600">
+                  Բանկը կիրառում է իր կողմից մշակված վարկային սքորը վարկավորման վերաբերյալ որոշումների կայացման ժամանակ։ Վարկային սքորը հաճախորդի վարկային պատմության և որոկական ցուցանիշների ուսումնասիրության հիման վրա ձևավորվող վիճակագրական գնահատականն է, որն արտահայտում է հավանականությունը հայցվող վարկը ժամանակին և պատշաճ մարելու գծով։ Վարկային պատմությունը ներառվում է սքորի հաշվարկի մեջ դիմելու պահից վերջին 5 տարվա վաղեմությամբ։
+                </p>
+                <p className="text-gray-600">
+                  Բանկի ներքին սքոր գնահատականի վրա ազդող հիմնական գործոններն են՝ ՖԱՅԿՈ սքորը (բարձր ՖԱՅԿՈ սքոր - դրական ազդեցություն), գործող վարկերի քանակը (գործող վարկերի քանակի ավելացում – բացասական ազդեցություն), վարկային բեռը (բարձր վարկային բեռ – բացասական ազդեցություն), վարկային պարտավորությունների ժամանակին կատարման փաստը (ժամկետանցների առկայություն – բացասական ազդեցություն), նոր վարկային հայտեր ներկայացնելու հաճախականությունը (հայտերի քանակի ավելացում – բացասական ազդեցություն), հաճախորդի աշխատանքային փորձը (քիչ փորձառություն – բացասական ազդեցություն), եկամուտների մեծությունը (բարձր եկամուտների առկայություն – դրական ազդեցություն)։
+                </p>
+                <p className="text-gray-600">
+                  Վարկային պատմությունը և/կամ սքոր գնահատականը հնարավոր է բարելավվել վարկն առանց ժամկետանցների մարելու, նպատակային օգտագործելու, վարկերի մնացորդային գումարը և քանակը նվազեցնելու, տրված երաշխավորությունների գծով պարտավորությունները ժամանակին կատարելու դեպքում։
+                </p>
+                <p className="text-gray-600">
+                  Վարկային պատմության և սքոր վատթարացումից խուսափելու նպատակով հաճախորդները չպետք է ունենան ժամկետանցներ, անհիմն ավելացնեն վարկային ծանրաբեռնվածությունը, վարկերի քանակը, հաճախակի վարկավորման հարցումներ ուղարկեն տարբեր կազմակերպություններին, հանդիսանան երաշխավոր անվստահելի անձանց համար։
+                </p>
+                <p className="text-gray-600">
+                  Վարկային պատմության և ՖԱՅԿՈ սքորի վերաբերյալ առավել մանրամասն տեղեկատվություն կարելի է ստանալ այցելելով՝ <a href="https://www.abcfinance.am" target="_blank" rel="noreferrer" className="text-[#6400dc] underline font-medium">https://www.abcfinance.am</a>, Հաճախ տրվող հարցեր - ԱՔՌԱ (<a href="https://www.acra.am" target="_blank" rel="noreferrer" className="text-[#6400dc] underline font-medium">acra.am</a>) և <a href="https://www.acra.am" target="_blank" rel="noreferrer" className="text-[#6400dc] underline font-medium">www.acra.am</a> կայքեր։
+                </p>
+              </section>
+
+            </div>
+          )}
+
+          {activeSubTab === 'teghekatvutyun' && (
+            <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
+              <h1 className="text-3xl font-extrabold text-neutral-900 mb-4">Կարևոր տեղեկատվություն</h1>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Այս բաժնում ներկայացված են վարկավորման ընդհանուր պայմանները, տոկոսադրույքների հաշվարկման կարգը, հնարավոր միջնորդավճարները և օրենսդրությամբ սահմանված այլ իրավական տեղեկություններ։
+              </p>
+              <ul className="list-disc list-inside space-y-3 text-gray-700 text-sm marker:text-[#6400dc]">
+                <li>Ուշադրություն՝ վարկը չվճարելու դեպքում ձեր գույքը կարող է օրենքով սահմանված կարգով առգրավվել։</li>
+                <li>Վարկային տոկոսները հաշվարկվում են վարկի մնացորդի նկատմամբ։</li>
+                <li>Տարեկան փաստացի տոկոսադրույքը ցույց է տալիս, թե որքան կարժենա վարկը ձեզ համար։</li>
+              </ul>
+            </div>
+          )}
+
+        </div>
       </div>
 
-      {/* Էջի հիմնական բովանդակություն */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        
-        {activeSubTab === 'varker' && (
-          <>
-            <div className="text-xs text-gray-500 mb-6 flex items-center space-x-2">
-              <span>🏠</span>
-              <span>›</span>
-              <span>Անհատ</span>
-              <span>›</span>
-              <span>Վարկեր</span>
-              <span>›</span>
-              <span className="text-gray-800 font-medium">Վարկեր</span>
-            </div>
-
-            <h1 className="text-4xl font-extrabold text-neutral-900 mb-8">Վարկեր</h1>
-
-            {/* Զտման կոճակներ */}
-            <div className="flex flex-wrap gap-3 mb-10">
-              {filterButtons.map((btn) => (
-                <button
-                  key={btn.id}
-                  onClick={() => setSelectedFilter(btn.id)}
-                  className={`px-5 py-2.5 rounded-full text-sm font-medium transition-colors cursor-pointer shadow-sm ${
-                    selectedFilter === btn.id
-                      ? 'bg-[#6400dc] text-white'
-                      : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-                  }`}
-                >
-                  {btn.label}
-                </button>
-              ))}
-            </div>
-
-            {/* Վարկերի ցանկ */}
-            <div className="space-y-8">
-              {filteredLoans.length > 0 ? (
-                filteredLoans.map((loan) => (
-                  <div 
-                    key={loan.id} 
-                    className="bg-white rounded-3xl p-6 sm:p-8 shadow-sm border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-8 hover:shadow-md transition-shadow"
-                  >
-                    <div className="w-full md:w-5/12 h-64 rounded-2xl overflow-hidden bg-purple-50 flex items-center justify-center relative">
-                      <img src={loan.image} alt={loan.title} className="w-full h-full object-cover" />
-                    </div>
-                    <div className="w-full md:w-7/12 flex flex-col justify-between">
-                      <div>
-                        <h2 className="text-2xl font-bold text-neutral-900 mb-3">{loan.title}</h2>
-                        <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">{loan.description}</p>
-                      </div>
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6 border-t border-b border-gray-100 py-4">
-                        {loan.details.map((detail, idx) => (
-                          <div key={idx}>
-                            <p className="text-[#6400dc] font-bold text-lg sm:text-xl">{detail.value}</p>
-                            <p className="text-xs text-gray-500 mt-0.5">{detail.label}</p>
-                          </div>
-                        ))}
-                      </div>
-                      <div>
-                        <button className="inline-flex items-center space-x-2 text-[#6400dc] bg-purple-50 hover:bg-purple-100 font-semibold px-6 py-2.5 rounded-full transition-colors cursor-pointer text-sm">
-                          <span>Մանրամասն</span>
-                          <span>›</span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              ) : (
-                <p className="text-center text-gray-500 py-10 text-lg">Այս բաժնում վարկեր չեն գտնվել:</p>
-              )}
-            </div>
-          </>
-        )}
-
-        {activeSubTab === 'patmutyun' && (
-          <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-            <h1 className="text-3xl font-extrabold text-neutral-900 mb-4">Վարկային պատմություն և սքոր</h1>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Ձեր վարկային պատմությունը կարևոր գործոն է բանկում ցանկացած վարկ ստանալիս։ Այն ներառում է տեղեկատվություն ձեր նախկին և գործող վարկերի, վճարային կարգապահության և սքոր միավորների մասին։
-            </p>
-            <div className="bg-purple-50 p-6 rounded-2xl border border-purple-100">
-              <h3 className="text-lg font-bold text-[#6400dc] mb-2">Ինչպ՞ս ստուգել վարկային պատմությունը</h3>
-              <p className="text-gray-700 text-sm">Դուք կարող եք ցանկացած պահին ստանալ ձեր վարկային հաշվետվությունը EvocaTOUCH հավելվածի միջոցով կամ այցելելով բանկի մասնաճյուղ։</p>
-            </div>
+      {/* Footer */}
+      <footer className="bg-neutral-900 text-gray-400 py-12 px-6 lg:px-12 mt-16 border-t border-neutral-800">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+          <div>
+            <h3 className="text-white font-bold text-lg mb-4">Evocabank</h3>
+            <p className="text-sm text-gray-400 leading-relaxed">Արագ, նորարարական և հարմարավետ բանկային ծառայություններ բոլորի համար։</p>
           </div>
-        )}
-
-        {activeSubTab === 'teghekatvutyun' && (
-          <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100">
-            <h1 className="text-3xl font-extrabold text-neutral-900 mb-4">Կարևոր տեղեկատվություն</h1>
-            <p className="text-gray-600 leading-relaxed mb-6">
-              Այս բաժնում ներկայացված են վարկավորման ընդհանուր պայմանները, տոկոսադրույքների հաշվարկման կարգը, հնարավոր միջնորդավճարները և օրենսդրությամբ սահմանված այլ իրավական տեղեկություններ։
-            </p>
-            <ul className="list-disc list-inside space-y-3 text-gray-700 text-sm">
-              <li>Ուշադրություն՝ վարկը չվճարելու դեպքում ձեր գույքը կարող է օրենքով սահմանված կարգով առգրավվել։</li>
-              <li>Վարկային տոկոսները հաշվարկվում են վարկի մնացորդի նկատմամբ։</li>
-              <li>Տարեկան փաստացի տոկոսադրույքը ցույց է տալիս, թե որքան կարժենա վարկը ձեզ համար։</li>
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">Անհատների համար</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#varker" className="hover:text-white transition-colors">Վարկեր</a></li>
+              <li><a href="#varker" className="hover:text-white transition-colors">Քարտեր</a></li>
+              <li><a href="#varker" className="hover:text-white transition-colors">Ավանդներ</a></li>
             </ul>
           </div>
-        )}
-
-      </div>
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">Բիզնեսի համար</h4>
+            <ul className="space-y-2 text-sm">
+              <li><a href="#varker" className="hover:text-white transition-colors">Բիզնես վարկեր</a></li>
+              <li><a href="#varker" className="hover:text-white transition-colors">Հաշիվներ և փոխանցումներ</a></li>
+              <li><a href="#varker" className="hover:text-white transition-colors">Բիզնես քարտեր</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-white font-semibold mb-3 text-sm">Կապ</h4>
+            <p className="text-sm mb-2">Հեռ․՝ +374 10 60 55 55</p>
+            <p className="text-sm">Էլ․ հասցե՝ info@evocabank.am</p>
+          </div>
+        </div>
+        <div className="max-w-7xl mx-auto pt-6 border-t border-neutral-800 text-center text-xs text-gray-500">
+          © {new Date().getFullYear()} Evocabank. Բոլոր իրավունքները պաշտպանված են։
+        </div>
+      </footer>
     </div>
   );
 }
