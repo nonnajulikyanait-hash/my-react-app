@@ -42,7 +42,6 @@ function App() {
     addData();
   }, []);
 
-  // Էջը փոխվելիս բարձրացնում ենք վերև
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [activeTab]);
@@ -50,10 +49,8 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        {/* Evoca բանկի վերնամասը */}
         <Header activeTab={activeTab} setActiveTab={setActiveTab} />
 
-        {/* Էջերի պայմանական ռենդեր ըստ activeTab-ի */}
         {activeTab === 'home' && (
           <>
             <HeroSlider />
@@ -67,51 +64,17 @@ function App() {
           </>
         )}
 
-        {activeTab === 'varker' && (
-          <Varker />
-        )}
-
-        {activeTab === 'business-varker' && (
-          <BusinessVarker setActiveTab={setActiveTab} />
-        )}
-
-        {/* Լիզինգի էջը */}
-        {activeTab === 'business-leasing' && (
-          <Leasing setActiveTab={setActiveTab} />
-        )}
-
-        {/* Բիզնես հաշիվների և մետաղական հաշիվների էջը */}
-        {activeTab === 'business-hashivner' && (
-          <BusinessHashivner setActiveTab={setActiveTab} />
-        )}
-
-        {activeTab === 'deposits' && (
-          <DepositsComponent setActiveTab={setActiveTab} />
-        )}
-
-        {activeTab === 'hashivner' && (
-          <HashivnerComponent setActiveTab={setActiveTab} />
-        )}
-
-        {activeTab === 'pahatuper' && (
-          <Pahatuper setActiveTab={setActiveTab} />
-        )}
-
-        {activeTab === 'poxancumner' && (
-          <Poxancumner setActiveTab={setActiveTab} />
-        )}
-
-        {activeTab === 'arjetxter' && (
-          <Arjetxter setActiveTab={setActiveTab} />
-        )}
-
-        {activeTab === 'evocasalary' && (
-          <EvocaSalary setActiveTab={setActiveTab} />
-        )}
-
-        {activeTab === 'evocatouch' && (
-          <EvocaTouch setActiveTab={setActiveTab} />
-        )}
+        {activeTab === 'varker' && <Varker />}
+        {activeTab === 'business-varker' && <BusinessVarker setActiveTab={setActiveTab} />}
+        {activeTab === 'business-leasing' && <Leasing setActiveTab={setActiveTab} />}
+        {activeTab === 'business-hashivner' && <BusinessHashivner setActiveTab={setActiveTab} />}
+        {activeTab === 'deposits' && <DepositsComponent setActiveTab={setActiveTab} />}
+        {activeTab === 'hashivner' && <HashivnerComponent setActiveTab={setActiveTab} />}
+        {activeTab === 'pahatuper' && <Pahatuper setActiveTab={setActiveTab} />}
+        {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />}
+        {activeTab === 'arjetxter' && <Arjetxter setActiveTab={setActiveTab} />}
+        {activeTab === 'evocasalary' && <EvocaSalary setActiveTab={setActiveTab} />}
+        {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />}
 
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
@@ -120,7 +83,7 @@ function App() {
         )}
       </div>
 
-      {/* ՄԻԱԿ ԵՎ ՎԵՐՋԻՆ FOOTER-Ը ԱՄԵՆԱՎԵՐՋՈՒՄ */}
+      {/* ՄԻԱԿ ԵՎ ՎԵՐՋԻՆ FOOTER-Ը */}
       <Footer setActiveTab={setActiveTab} />
     </div>
   );
