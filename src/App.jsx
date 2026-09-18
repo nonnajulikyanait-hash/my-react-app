@@ -22,7 +22,6 @@ import EvocaSalary from './components/evocasalary';
 import EvocaTouch from './components/evocatouch';
 import Leasing from './components/leasing'; 
 import BusinessHashivner from './components/businesshashivner'; 
-import BusinessArjetxter from './components/businessarjetxter'; // 👈 Ներմուծում ենք բիզնես մետաղական հաշիվների բաղադրիչը (եթե առկա է)
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
