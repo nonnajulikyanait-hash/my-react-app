@@ -31,9 +31,9 @@ function Header({ activeTab, setActiveTab }) {
             Անհատ
           </span>
 
-          {/* Բիզնես կոճակ */}
+          {/* Բիզնես կոճակ - Հիմա սեղմելիս միանգամից գնում է 'business-varker' */}
           <span 
-            onClick={() => setActiveTab('business')}
+            onClick={() => setActiveTab('business-varker')}
             className={`cursor-pointer transition-colors ${
               isBusinessTab
                 ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
@@ -62,7 +62,7 @@ function Header({ activeTab, setActiveTab }) {
       {/* Հիմնական նավիգացիա (Լոգո և հիմնական բաժիններ) */}
       <div className="flex justify-between items-center px-6 lg:px-10 py-5">
         {/* Լոգո */}
-        <div className="flex items-center cursor-pointer" onClick={() => setActiveTab(isBusinessTab ? 'business' : 'home')}>
+        <div className="flex items-center cursor-pointer" onClick={() => setActiveTab(isBusinessTab ? 'business-varker' : 'home')}>
           <h1 className="text-4xl font-black text-neutral-800 tracking-tighter m-0">evoca</h1>
         </div>
         
