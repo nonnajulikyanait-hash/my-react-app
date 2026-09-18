@@ -238,7 +238,7 @@ export default function BusinessAvandner() {
       {/* Evoca Online / Mobile բաժին */}
       <EvocaOnlineMobile />
 
-      {/* Footer բաժին */}
+      {/* Footer բաժին (Միակ և վերջին ֆութերը այս էջում) */}
       <Footer />
     </div>
   );
