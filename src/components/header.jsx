@@ -171,11 +171,11 @@ function Header({ activeTab, setActiveTab }) {
               Ավանդներ
             </button>
             
-            {/* Այստեղ սեղմելիս գնում է business-arjetxter */}
+            {/* Այստեղ արդեն գնում էղնում է 'arjetxter', որպեսզի բացի նույնջ էջը */}
             <button 
-              onClick={(e) => { e.preventDefault(); setActiveTab('business-arjetxter'); }}
+              onClick={(e) => { e.preventDefault(); setActiveTab('arjetxter'); }}
               className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
-                activeTab === 'business-arjetxter' ? 'text-purple-700 font-bold' : 'text-neutral-800'
+                activeTab === 'arjetxter' ? 'text-purple-700 font-bold' : 'text-neutral-800'
               }`}
             >
               Արժեթղթերի շուկա
