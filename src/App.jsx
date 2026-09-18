@@ -20,7 +20,9 @@ import Poxancumner from './components/poxancumner';
 import Arjetxter from './components/arjetxter';
 import EvocaSalary from './components/evocasalary'; 
 import EvocaTouch from './components/evocatouch';
-import Leasing from './components/leasing'; // 👈 Ներմուծում ենք Leasing բաղադրիչը
+import Leasing from './components/leasing'; 
+import BusinessHashivner from './components/businesshashivner'; 
+import BusinessArjetxter from './components/businessarjetxter'; // 👈 Ներմուծում ենք բիզնես մետաղական հաշիվների բաղադրիչը (եթե առկա է)
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -77,6 +79,16 @@ function App() {
         {/* Լիզինգի էջը */}
         {activeTab === 'business-leasing' && (
           <Leasing setActiveTab={setActiveTab} />
+        )}
+
+        {/* Բիզնես հաշիվների էջը */}
+        {activeTab === 'business-hashivner' && (
+          <BusinessHashivner setActiveTab={setActiveTab} />
+        )}
+
+        {/* Բիզնես մետաղական հաշիվների էջը */}
+        {activeTab === 'business-arjetxter' && (
+          <BusinessArjetxter setActiveTab={setActiveTab} />
         )}
 
         {activeTab === 'deposits' && (
