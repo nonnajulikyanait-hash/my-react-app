@@ -90,7 +90,7 @@ export default function BusinessAvandner() {
           </ul>
         </div>
 
-        {/* Պայմաններ և սակագներ (Աղյուսակներ - փոքր և կոկիկ) */}
+        {/* Պայմաններ և սակագներ */}
         <div className="bg-white p-6 rounded-xl shadow-sm space-y-6">
           <h2 className="text-xl font-bold text-purple-900 border-b pb-2">Պայմաններ և սակագներ</h2>
           
@@ -144,10 +144,6 @@ export default function BusinessAvandner() {
                 </tbody>
               </table>
             </div>
-            <ul className="list-disc list-inside text-xs text-gray-500 space-y-1 pt-2">
-              <li>Ավանդն ընդունվում է ֆիզիկական և իրավաբանական անձանցից, ինչպես Բանկի գործունեության վայրում, այնպես էլ «EvocaTouch» կամ «EvocaOnline» համակարգերով:</li>
-              <li>Տոկոսների պարբերաբար վճարման դեպքում գործում է 0.5% (ՀՀ դրամ) և 0.25% (արտարժույթ) պակաս տոկոսադրույք:</li>
-            </ul>
           </div>
 
           <div className="space-y-2 pt-4">
