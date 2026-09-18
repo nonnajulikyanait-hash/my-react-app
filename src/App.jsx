@@ -80,14 +80,9 @@ function App() {
           <Leasing setActiveTab={setActiveTab} />
         )}
 
-        {/* Բիզնես հաշիվների էջը */}
+        {/* Բիզնես հաշիվների և մետաղական հաշիվների էջը */}
         {activeTab === 'business-hashivner' && (
           <BusinessHashivner setActiveTab={setActiveTab} />
-        )}
-
-        {/* Բիզնես մետաղական հաշիվների էջը */}
-        {activeTab === 'business-arjetxter' && (
-          <BusinessArjetxter setActiveTab={setActiveTab} />
         )}
 
         {activeTab === 'deposits' && (
