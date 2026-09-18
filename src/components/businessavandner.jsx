@@ -1,6 +1,5 @@
 import React from 'react';
 import EvocaOnlineMobile from './evocaonlinemobile';
-import Footer from './footer';
 
 export default function BusinessAvandner() {
   return (
@@ -237,9 +236,6 @@ export default function BusinessAvandner() {
 
       {/* Evoca Online / Mobile բաժին */}
       <EvocaOnlineMobile />
-
-      {/* Footer բաժին (Միակ և վերջին ֆութերը այս էջում) */}
-      <Footer />
     </div>
   );
 }
