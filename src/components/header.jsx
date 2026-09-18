@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header({ activeTab, setActiveTab }) {
-  // Ստուգում ենք արդյոք գտնվում ենք Բիզնես բաժնում թե Անհատ
+  // Stugum enq ardyoq gtnvum enq Biznes bazhnum te Anhat
   const isBusinessTab = [
     'business', 
     'business-varker', 
@@ -16,10 +16,10 @@ function Header({ activeTab, setActiveTab }) {
 
   return (
     <header className="w-full font-sans bg-white border-b border-gray-200">
-      {/* Վերին փոքր մենյու */}
+      {/* Verin poqr menyu */}
       <div className="hidden lg:flex justify-between items-center px-10 py-3 text-sm text-gray-600 border-b border-gray-100">
         <div className="flex space-x-6">
-          {/* Անհատ կոճակ */}
+          {/* Anhat kochak */}
           <span 
             onClick={() => setActiveTab('home')}
             className={`cursor-pointer transition-colors ${
@@ -31,7 +31,7 @@ function Header({ activeTab, setActiveTab }) {
             Անհատ
           </span>
 
-          {/* Բիզնես կոճակ - Հիմա սեղմելիս միանգամից գնում է 'business-varker' */}
+          {/* Biznes kochak - Sexmelis miangamic gnum e 'business-varker' */}
           <span 
             onClick={() => setActiveTab('business-varker')}
             className={`cursor-pointer transition-colors ${
@@ -59,16 +59,16 @@ function Header({ activeTab, setActiveTab }) {
         </div>
       </div>
 
-      {/* Հիմնական նավիգացիա (Լոգո և հիմնական բաժիններ) */}
+      {/* Himnakan navigacia (Logo ev himnakan bazhinner) */}
       <div className="flex justify-between items-center px-6 lg:px-10 py-5">
-        {/* Լոգո */}
+        {/* Logo */}
         <div className="flex items-center cursor-pointer" onClick={() => setActiveTab(isBusinessTab ? 'business-varker' : 'home')}>
           <h1 className="text-4xl font-black text-neutral-800 tracking-tighter m-0">evoca</h1>
         </div>
         
-        {/* Հիմնական մենյուի հղումներ (Կախված բաժնից՝ Անհատ կամ Բիզնես) */}
+        {/* Himnakan menyui hxumner */}
         {!isBusinessTab ? (
-          /* ԱՆՀԱՏ ՄԵՆՅՈՒ */
+          /* ANHAT MENYU */
           <nav className="hidden xl:flex space-x-7 text-lg font-medium text-neutral-800">
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('varker'); }}
@@ -136,7 +136,7 @@ function Header({ activeTab, setActiveTab }) {
             </button>
           </nav>
         ) : (
-          /* ԲԻԶՆԵՍ ՄԵՆՅՈՒ */
+          /* BIZNES MENYU */
           <nav className="hidden xl:flex space-x-7 text-lg font-medium text-neutral-800">
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-varker'); }}
@@ -205,7 +205,7 @@ function Header({ activeTab, setActiveTab }) {
           </nav>
         )}
 
-        {/* EvocaONLINE կոճակ */}
+        {/* EvocaONLINE kochak */}
         <div className="flex items-center space-x-4">
           <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold text-base px-7 py-3 rounded-full transition-colors cursor-pointer shadow-sm">
             EvocaONLINE

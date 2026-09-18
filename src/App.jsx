@@ -12,7 +12,7 @@ import EvocaCalculator from './components/evocacalculator';
 import Hachaxord from './components/hachaxord'; 
 import Footer from './components/footer';
 import Varker from './components/varker';
-import BusinessVarker from './components/businessvarker'; // Ներմուծում ենք BusinessVarker բաղադրիչը
+import BusinessVarker from './components/businessvarker'; 
 import DepositsComponent from './components/avandner'; 
 import HashivnerComponent from './components/hashivner'; 
 import Pahatuper from './components/pahatuper'; 
@@ -20,6 +20,7 @@ import Poxancumner from './components/poxancumner';
 import Arjetxter from './components/arjetxter';
 import EvocaSalary from './components/evocasalary'; 
 import EvocaTouch from './components/evocatouch';
+import Leasing from './components/leasing'; // 👈 Ներմուծում ենք Leasing բաղադրիչը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -71,6 +72,11 @@ function App() {
 
         {activeTab === 'business-varker' && (
           <BusinessVarker setActiveTab={setActiveTab} />
+        )}
+
+        {/* Լիզինգի էջը */}
+        {activeTab === 'business-leasing' && (
+          <Leasing setActiveTab={setActiveTab} />
         )}
 
         {activeTab === 'deposits' && (
