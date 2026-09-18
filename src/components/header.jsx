@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header({ activeTab, setActiveTab }) {
-  // Stugum enq ardyoq gtnvum enq Biznes bazhnum te Anhat
+  // Ստուգում ենք արդյոք գտնվում ենք Բիզնես բաժնում, թե Անհատ
   const isBusinessTab = [
     'business', 
     'business-varker', 
@@ -16,10 +16,10 @@ function Header({ activeTab, setActiveTab }) {
 
   return (
     <header className="w-full font-sans bg-white border-b border-gray-200">
-      {/* Verin poqr menyu */}
+      {/* Վերին փոքր մենյու */}
       <div className="hidden lg:flex justify-between items-center px-10 py-3 text-sm text-gray-600 border-b border-gray-100">
         <div className="flex space-x-6">
-          {/* Anhat kochak */}
+          {/* Անհատ կոճակ */}
           <span 
             onClick={() => setActiveTab('home')}
             className={`cursor-pointer transition-colors ${
@@ -31,7 +31,7 @@ function Header({ activeTab, setActiveTab }) {
             Անհատ
           </span>
 
-          {/* Biznes kochak - Sexmelis miangamic gnum e 'business-varker' */}
+          {/* Բիզնես կոճակ */}
           <span 
             onClick={() => setActiveTab('business-varker')}
             className={`cursor-pointer transition-colors ${
@@ -59,16 +59,16 @@ function Header({ activeTab, setActiveTab }) {
         </div>
       </div>
 
-      {/* Himnakan navigacia (Logo ev himnakan bazhinner) */}
+      {/* Հիմնական նավիգացիա (Logo և հիմնական բաժիններ) */}
       <div className="flex justify-between items-center px-6 lg:px-10 py-5">
-        {/* Logo */}
+        {/* Լոգո */}
         <div className="flex items-center cursor-pointer" onClick={() => setActiveTab(isBusinessTab ? 'business-varker' : 'home')}>
           <h1 className="text-4xl font-black text-neutral-800 tracking-tighter m-0">evoca</h1>
         </div>
         
-        {/* Himnakan menyui hxumner */}
+        {/* Հիմնական մենյուի հղումներ */}
         {!isBusinessTab ? (
-          /* ANHAT MENYU */
+          /* ԱՆՀԱՏ ՄԵՆՅՈՒ */
           <nav className="hidden xl:flex space-x-7 text-lg font-medium text-neutral-800">
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('varker'); }}
@@ -136,7 +136,7 @@ function Header({ activeTab, setActiveTab }) {
             </button>
           </nav>
         ) : (
-          /* BIZNES MENYU */
+          /* ԲԻԶՆԵՍ ՄԵՆՅՈՒ */
           <nav className="hidden xl:flex space-x-7 text-lg font-medium text-neutral-800">
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-varker'); }}
@@ -162,8 +162,6 @@ function Header({ activeTab, setActiveTab }) {
             >
               Հաշիվներ
             </button>
-            
-            {/* Այստեղ ավելացվեց բիզնես ավանդների հղումը */}
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-avandner'); }}
               className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
@@ -172,7 +170,8 @@ function Header({ activeTab, setActiveTab }) {
             >
               Ավանդներ
             </button>
-
+            
+            {/* Այստեղ սեղմելիս գնում է business-arjetxter */}
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-arjetxter'); }}
               className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
@@ -181,6 +180,7 @@ function Header({ activeTab, setActiveTab }) {
             >
               Արժեթղթերի շուկա
             </button>
+
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-arevtur'); }}
               className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
@@ -208,7 +208,7 @@ function Header({ activeTab, setActiveTab }) {
           </nav>
         )}
 
-        {/* EvocaONLINE kochak */}
+        {/* EvocaONLINE կոճակ */}
         <div className="flex items-center space-x-4">
           <button className="bg-purple-700 hover:bg-purple-800 text-white font-bold text-base px-7 py-3 rounded-full transition-colors cursor-pointer shadow-sm">
             EvocaONLINE
