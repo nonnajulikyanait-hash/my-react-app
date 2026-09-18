@@ -152,7 +152,7 @@ function Header({ activeTab, setActiveTab }) {
                 activeTab === 'business-leasing' ? 'text-purple-700 font-bold' : 'text-neutral-800'
               }`}
             >
-              Լինգ
+              Լիզինգ
             </button>
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-hashivner'); }}
