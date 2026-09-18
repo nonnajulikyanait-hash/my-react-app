@@ -162,6 +162,8 @@ function Header({ activeTab, setActiveTab }) {
             >
               Հաշիվներ
             </button>
+            
+            {/* Այստեղ ավելացվեց բիզնես ավանդների հղումը */}
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-avandner'); }}
               className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
@@ -170,6 +172,7 @@ function Header({ activeTab, setActiveTab }) {
             >
               Ավանդներ
             </button>
+
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('business-arjetxter'); }}
               className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
