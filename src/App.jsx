@@ -14,6 +14,7 @@ import Footer from './components/footer';
 import Varker from './components/varker';
 import BusinessVarker from './components/businessvarker'; 
 import DepositsComponent from './components/avandner'; 
+import BusinessAvandner from './components/businessavandner'; // Նոր ավելացված բաղադրիչը
 import HashivnerComponent from './components/hashivner'; 
 import Pahatuper from './components/pahatuper'; 
 import Poxancumner from './components/poxancumner'; 
@@ -69,6 +70,10 @@ function App() {
         {activeTab === 'business-leasing' && <Leasing setActiveTab={setActiveTab} />}
         {activeTab === 'business-hashivner' && <BusinessHashivner setActiveTab={setActiveTab} />}
         {activeTab === 'deposits' && <DepositsComponent setActiveTab={setActiveTab} />}
+        
+        {/* Բիզնես ավանդների էջը (BusinessAvandner) */}
+        {activeTab === 'business-deposits' && <BusinessAvandner setActiveTab={setActiveTab} />}
+
         {activeTab === 'hashivner' && <HashivnerComponent setActiveTab={setActiveTab} />}
         {activeTab === 'pahatuper' && <Pahatuper setActiveTab={setActiveTab} />}
         {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />}
