@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 
 const Vcharumner = ({ setActiveTab }) => {
-  // Պահպանում ենք ընտրված քայլը/էջը
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [selectedLoanAction, setSelectedLoanAction] = useState(null);
+  // Ավելացվել է state ուղղակի մուտքային էջերի (account/card replenishment) համար
+  const [selectedDirectAction, setSelectedDirectAction] = useState(null);
 
   const paymentCategories = [
     {
@@ -33,11 +34,13 @@ const Vcharumner = ({ setActiveTab }) => {
           id: 'account_replenishment',
           title: 'Հաշվի համալրում',
           icon: 'https://resource.evoca.am/images/webPayment/Account-Replenishment.png',
+          inputPlaceholder: 'Հաշվեհամար',
         },
         {
           id: 'card_replenishment',
           title: 'Քարտի համալրում',
           icon: 'https://resource.evoca.am/images/webPayment/cardtocard.png',
+          inputPlaceholder: 'Քարտի համար',
         },
       ],
     },
@@ -73,19 +76,6 @@ const Vcharumner = ({ setActiveTab }) => {
     },
   ];
 
-  // Վերադարձի ֆունկցիա
-  const handleBack = () => {
-    if (selectedLoanAction) {
-      setSelectedLoanAction(null);
-    } else if (selectedSubCategory) {
-      setSelectedSubCategory(null);
-    } else if (selectedCategory) {
-      setSelectedCategory(null);
-    } else if (setActiveTab) {
-      setActiveTab('home');
-    }
-  };
-
   return (
     <div className="bg-gray-50 min-h-screen font-sans flex flex-col justify-between">
       <div>
@@ -94,6 +84,7 @@ const Vcharumner = ({ setActiveTab }) => {
           <div className="flex items-center space-x-6">
             <div 
               onClick={() => {
+                setSelectedDirectAction(null);
                 setSelectedLoanAction(null);
                 setSelectedSubCategory(null);
                 setSelectedCategory(null);
@@ -117,10 +108,39 @@ const Vcharumner = ({ setActiveTab }) => {
         {/* Բովանդակություն */}
         <main className="max-w-6xl mx-auto px-4 pt-10 pb-12">
           
-          {/* 1. ԵԹԵ ԲԱՑՎԱԾ է ԿՈՆԿՐԵՏ ՎԱՐԿԱՅԻՆ ԳՈՐԾՈՂՈՒԹՅԱՆ ԷՋԸ (INPUT-ՈՎ) */}
-          {selectedLoanAction ? (
+          {/* 1. ՀԱՇՎԻ ՀԱՄԱԼՐՈՒՄ ԿԱՄ ՔԱՐՏԻ ՀԱՄԱԼՐՈՒՄ ԷՋ (INPUT-ՈՎ) */}
+          {selectedDirectAction ? (
             <div>
-              {/* Breadcrumbs */}
+              <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8 flex-wrap">
+                <button onClick={() => { setSelectedDirectAction(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
+                <span>/</span>
+                <button onClick={() => setSelectedDirectAction(null)} className="hover:text-purple-600 font-medium">EVOCABANK</button>
+                <span>/</span>
+                <span className="text-gray-400 font-medium">{selectedDirectAction.title}</span>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-10">
+                {selectedDirectAction.title}
+              </h1>
+
+              <div className="bg-white max-w-xl mx-auto rounded-3xl p-8 shadow-sm border border-gray-100">
+                <label className="block text-sm text-gray-600 mb-2 font-medium">
+                  {selectedDirectAction.inputPlaceholder}
+                </label>
+                <input 
+                  type="text" 
+                  placeholder={selectedDirectAction.inputPlaceholder === 'Հաշվեհամար' ? 'Հաշվեհամար' : 'Քարտի համար'} 
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-600 text-gray-800 mb-6"
+                />
+                <button className="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3.5 rounded-xl transition shadow-md">
+                  Շարունակել
+                </button>
+              </div>
+            </div>
+
+          ) : selectedLoanAction ? (
+            /* 2. ՎԱՐԿԱՅԻՆ ԳՈՐԾՈՂՈՒԹՅԱՆ ԷՋ */
+            <div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8 flex-wrap">
                 <button onClick={() => { setSelectedLoanAction(null); setSelectedSubCategory(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
                 <span>/</span>
@@ -135,7 +155,6 @@ const Vcharumner = ({ setActiveTab }) => {
                 {selectedLoanAction.title}
               </h1>
 
-              {/* Վճարման ձևաթուղթ / Ֆորմա */}
               <div className="bg-white max-w-xl mx-auto rounded-3xl p-8 shadow-sm border border-gray-100">
                 <label className="block text-sm text-gray-600 mb-2 font-medium">
                   * Վարկային պայմանագրի համար
@@ -152,7 +171,7 @@ const Vcharumner = ({ setActiveTab }) => {
             </div>
 
           ) : selectedSubCategory ? (
-            /* 2. ԵԹԵ ԲԱՑՎԱԾ Է «ՎԱՐԿԻ ՄԱՐՈՒՄ» ԵՆԹԱԲԱԺԻՆԸ (2 ՔԱՐՏԵՐՈՎ) */
+            /* 3. «ՎԱՐԿԻ ՄԱՐՈՒՄ» ԵՆԹԱԲԱԺԻՆԸ */
             <div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8">
                 <button onClick={() => { setSelectedSubCategory(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
@@ -185,7 +204,7 @@ const Vcharumner = ({ setActiveTab }) => {
             </div>
 
           ) : selectedCategory && selectedCategory.id === 'evocabank' ? (
-            /* 3. ԵԹԵ ԲԱՑՎԱԾ Է EVOCABANK-Ի ՀԻՄՆԱԿԱՆ 3 ՔԱՐՏԵՐԸ */
+            /* 4. EVOCABANK-Ի ՀԻՄՆԱԿԱՆ 3 ՔԱՐՏԵՐԸ */
             <div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8">
                 <button onClick={() => setSelectedCategory(null)} className="hover:text-purple-600 font-medium">Գլխավոր</button>
@@ -204,6 +223,8 @@ const Vcharumner = ({ setActiveTab }) => {
                     onClick={() => {
                       if (sub.actions) {
                         setSelectedSubCategory(sub);
+                      } else {
+                        setSelectedDirectAction(sub);
                       }
                     }}
                     className="bg-white w-full max-w-xs rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer min-h-[250px] group hover:bg-purple-50/60"
@@ -220,7 +241,7 @@ const Vcharumner = ({ setActiveTab }) => {
             </div>
 
           ) : (
-            /* 4. ԱՄԵՆԱԱՌԱՋԻՆ ԳԼԽԱՎՈՐ ԷՋԸ */
+            /* 5. ԱՄԵՆԱԱՌԱՋԻՆ ԳԼԽԱՎՈՐ ԷՋԸ */
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
                 Գլխավոր
@@ -258,7 +279,7 @@ const Vcharumner = ({ setActiveTab }) => {
       </div>
 
       {/* Ֆուտեր */}
-      {(selectedCategory || selectedSubCategory || selectedLoanAction) && (
+      {(selectedCategory || selectedSubCategory || selectedLoanAction || selectedDirectAction) && (
         <footer className="bg-white border-t border-gray-100 py-6 px-6 text-xs text-gray-500">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
