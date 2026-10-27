@@ -5,7 +5,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
-import BiometricTriangle from "./biometrictriangle";
+import BiometricTriangle from './components/biometrictriangle'; // 👈 Ուղղվեց ճանապարհը
 import EvocaCardsSlider from './components/evocacardsslider';
 import EvocaOnlineMobile from './components/evocaonlinemobile';
 import Gortsynkerner from './components/gortsynkerner';
@@ -24,6 +24,7 @@ import EvocaSalary from './components/evocasalary';
 import EvocaTouch from './components/evocatouch';
 import Leasing from './components/leasing'; 
 import BusinessHashivner from './components/businesshashivner'; 
+import Vcharumner from './components/vcharumner'; // 👈 Ավելացվեց վճարումների բաղադրիչը
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -81,6 +82,9 @@ function App() {
         {activeTab === 'arjetxter' && <Arjetxter setActiveTab={setActiveTab} />}
         {activeTab === 'evocasalary' && <EvocaSalary setActiveTab={setActiveTab} />}
         {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />}
+        
+        {/* 👈 Վճարումների էջի պայմանը */}
+        {activeTab === 'vcharumner' && <Vcharumner setActiveTab={setActiveTab} />}
 
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
