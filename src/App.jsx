@@ -5,7 +5,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
-import BiometricTriangle from './components/biometrictriangle'; // 👈 Ուղղվեց ճանապարհը
+import BiometricTriangle from './components/biometrictriangle';
 import EvocaCardsSlider from './components/evocacardsslider';
 import EvocaOnlineMobile from './components/evocaonlinemobile';
 import Gortsynkerner from './components/gortsynkerner';
@@ -24,10 +24,18 @@ import EvocaSalary from './components/evocasalary';
 import EvocaTouch from './components/evocatouch';
 import Leasing from './components/leasing'; 
 import BusinessHashivner from './components/businesshashivner'; 
-import Vcharumner from './components/vcharumner'; // 👈 Ավելացվեց վճարումների բաղադրիչը
+import Vcharumner from './components/vcharumner'; 
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
+
+  // 1. Ստուգում ենք URL-ը, որ եթե նոր տաբով է բացվել (?tab=vcharumner), միանգամից բացվի վճարումների էջը
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.get('tab') === 'vcharumner') {
+      setActiveTab('vcharumner');
+    }
+  }, []);
 
   useEffect(() => {
     const addData = async () => {
@@ -52,7 +60,10 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+        {/* 2. Header-ը չենք ցուցադրում, եթե գտնվում ենք վճարումների էջում */}
+        {activeTab !== 'vcharumner' && (
+          <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+        )}
 
         {activeTab === 'home' && (
           <>
@@ -72,10 +83,7 @@ function App() {
         {activeTab === 'business-leasing' && <Leasing setActiveTab={setActiveTab} />}
         {activeTab === 'business-hashivner' && <BusinessHashivner setActiveTab={setActiveTab} />}
         {activeTab === 'deposits' && <DepositsComponent setActiveTab={setActiveTab} />}
-        
-        {/* Այստեղ ուղղվեց՝ business-deposits-ը դարձավ business-avandner */}
         {activeTab === 'business-avandner' && <BusinessAvandner setActiveTab={setActiveTab} />}
-
         {activeTab === 'hashivner' && <HashivnerComponent setActiveTab={setActiveTab} />}
         {activeTab === 'pahatuper' && <Pahatuper setActiveTab={setActiveTab} />}
         {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />}
@@ -83,7 +91,7 @@ function App() {
         {activeTab === 'evocasalary' && <EvocaSalary setActiveTab={setActiveTab} />}
         {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />}
         
-        {/* 👈 Վճարումների էջի պայմանը */}
+        {/* Վճարումների էջ */}
         {activeTab === 'vcharumner' && <Vcharumner setActiveTab={setActiveTab} />}
 
         {activeTab === 'haytararutyun' && (
@@ -93,7 +101,7 @@ function App() {
         )}
       </div>
 
-      {/* ՄԻԱԿ ԵՎ ՎԵՐՋԻՆ FOOTER-Ը */}
+      {/* Footer */}
       <Footer setActiveTab={setActiveTab} />
     </div>
   );
