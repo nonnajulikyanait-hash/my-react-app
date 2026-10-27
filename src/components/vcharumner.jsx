@@ -1,101 +1,131 @@
-// trigger build
-import React, { useState, useEffect } from 'react';
-import { db } from './firebase';
-import { collection, addDoc } from 'firebase/firestore';
-import Header from './components/header';
-import HeroSlider from './components/heroslider';
-import BiometricSection from './components/biometricsection';
-import EvocaCardsSlider from './components/evocacardsslider';
-import EvocaOnlineMobile from './components/evocaonlinemobile';
-import Gortsynkerner from './components/gortsynkerner';
-import EvocaCalculator from './components/evocacalculator';
-import Hachaxord from './components/hachaxord'; 
-import Footer from './components/footer';
-import Varker from './components/varker';
-import BusinessVarker from './components/businessvarker'; 
-import DepositsComponent from './components/avandner'; 
-import BusinessAvandner from './components/businessavandner'; 
-import HashivnerComponent from './components/hashivner'; 
-import Pahatuper from './components/pahatuper'; 
-import Poxancumner from './components/poxancumner'; 
-import Arjetxter from './components/arjetxter';
-import EvocaSalary from './components/evocasalary'; 
-import EvocaTouch from './components/evocatouch';
-import Leasing from './components/leasing'; 
-import BusinessHashivner from './components/businesshashivner'; 
-import Vcharumner from './components/vcharumner'; // 👈 Ավելացվեց վճարումների բաղադրիչը
+import React from 'react';
 
-function App() {
-  const [activeTab, setActiveTab] = useState('home');
-
-  useEffect(() => {
-    const addData = async () => {
-      try {
-        await addDoc(collection(db, "testCollection"), {
-          message: "Hello from React & Firebase!",
-          time: new Date()
-        });
-        console.log("Document successfully written!");
-      } catch (e) {
-        console.error("Error writing document: ", e);
-      }
-    };
-
-    addData();
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [activeTab]);
+const Vcharumner = ({ setActiveTab }) => {
+  const paymentCategories = [
+    {
+      id: 'evocabank',
+      title: 'EVOCABANK',
+      icon: (
+        <svg className="w-16 h-16 text-purple-600" viewBox="0 0 100 100" fill="currentColor">
+          <path d="M20 20 L50 80 L80 20 L50 50 Z" />
+        </svg>
+      ),
+      bgGradient: 'from-purple-100 to-indigo-50',
+    },
+    {
+      id: 'international_mobile',
+      title: 'Միջազգային բջջային օպերատորներ',
+      icon: (
+        <div className="w-20 h-20 relative flex items-center justify-center">
+          <span className="text-4xl">🌐</span>
+        </div>
+      ),
+      bgGradient: 'from-purple-100 to-pink-50',
+    },
+    {
+      id: 'utility',
+      title: 'Կոմունալ վճարումներ',
+      icon: (
+        <div className="w-20 h-20 relative flex items-center justify-center">
+          <span className="text-4xl">💡</span>
+        </div>
+      ),
+      bgGradient: 'from-purple-100 to-indigo-50',
+    },
+    {
+      id: 'internet_tv',
+      title: 'Ինտերնետ և TV',
+      icon: (
+        <div className="w-20 h-20 relative flex items-center justify-center">
+          <span className="text-4xl">📺</span>
+        </div>
+      ),
+      bgGradient: 'from-purple-100 to-pink-50',
+    },
+    {
+      id: 'road_police',
+      title: 'ՃՈ վճարներ',
+      icon: (
+        <div className="w-20 h-20 relative flex items-center justify-center">
+          <span className="text-4xl">🚘</span>
+        </div>
+      ),
+      bgGradient: 'from-purple-100 to-indigo-50',
+    },
+    {
+      id: 'loan_organizations',
+      title: 'Վարկային կազմակերպություններ',
+      icon: (
+        <div className="w-20 h-20 relative flex items-center justify-center">
+          <span className="text-4xl">💰</span>
+        </div>
+      ),
+      bgGradient: 'from-purple-100 to-pink-50',
+    },
+    {
+      id: 'events',
+      title: 'Միջոցառումներ',
+      icon: (
+        <div className="w-20 h-20 relative flex items-center justify-center">
+          <span className="text-4xl">🎟️</span>
+        </div>
+      ),
+      bgGradient: 'from-purple-100 to-indigo-50',
+    },
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
-      <div>
-        <Header activeTab={activeTab} setActiveTab={setActiveTab} />
+    <div className="bg-gray-50 min-h-screen font-sans pb-16">
+      {/* Վերին նավիգացիոն հատված / Header (Վճարումների էջի համար) */}
+      <header className="bg-white border-b border-gray-100 py-4 px-6 md:px-12 flex items-center justify-between">
+        <div className="flex items-center space-x-6">
+          <div 
+            onClick={() => setActiveTab && setActiveTab('home')}
+            className="text-2xl font-extrabold tracking-tight cursor-pointer text-gray-900"
+          >
+            evoca <span className="text-purple-600 font-normal text-sm ml-2 hidden sm:inline">Online payment</span>
+          </div>
+        </div>
 
-        {activeTab === 'home' && (
-          <>
-            <HeroSlider />
-            <BiometricSection />
-            <BiometricTriangle />
-            <EvocaCardsSlider />
-            <EvocaOnlineMobile />
-            <Gortsynkerner />
-            <EvocaCalculator />
-            <Hachaxord />
-          </>
-        )}
+        <div className="flex items-center space-x-4">
+          <span className="text-gray-600 text-sm hidden md:inline">+374 10 605555</span>
+          <button className="p-1 rounded-full hover:bg-gray-100 transition">
+            🌐
+          </button>
+          <button className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-5 py-2 rounded-full transition shadow-sm">
+            Պատմություն
+          </button>
+        </div>
+      </header>
 
-        {activeTab === 'varker' && <Varker />}
-        {activeTab === 'business-varker' && <BusinessVarker setActiveTab={setActiveTab} />}
-        {activeTab === 'business-leasing' && <Leasing setActiveTab={setActiveTab} />}
-        {activeTab === 'business-hashivner' && <BusinessHashivner setActiveTab={setActiveTab} />}
-        {activeTab === 'deposits' && <DepositsComponent setActiveTab={setActiveTab} />}
-        
-        {/* Այստեղ ուղղվեց՝ business-deposits-ը դարձավ business-avandner */}
-        {activeTab === 'business-avandner' && <BusinessAvandner setActiveTab={setActiveTab} />}
+      {/* Էջի վերնագիր */}
+      <main className="max-w-6xl mx-auto px-4 pt-12 pb-8">
+        <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
+          Գլխավոր
+        </h1>
 
-        {activeTab === 'hashivner' && <HashivnerComponent setActiveTab={setActiveTab} />}
-        {activeTab === 'pahatuper' && <Pahatuper setActiveTab={setActiveTab} />}
-        {activeTab === 'poxancumner' && <Poxancumner setActiveTab={setActiveTab} />}
-        {activeTab === 'arjetxter' && <Arjetxter setActiveTab={setActiveTab} />}
-        {activeTab === 'evocasalary' && <EvocaSalary setActiveTab={setActiveTab} />}
-        {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />}
-        
-        {/* 👈 Վճարումների էջի պայմանը */}
-        {activeTab === 'vcharumner' && <Vcharumner setActiveTab={setActiveTab} />}
+        {/* Քարտերի ցանց (Grid) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
+          {paymentCategories.map((item) => (
+            <div
+              key={item.id}
+              className="bg-white w-full max-w-sm rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer min-h-[260px]"
+            >
+              {/* Իկոնայի ֆոն/տուփ */}
+              <div className={`w-28 h-28 rounded-full bg-gradient-to-tr ${item.bgGradient} flex items-center justify-center mb-6 shadow-inner`}>
+                {item.icon}
+              </div>
 
-        {activeTab === 'haytararutyun' && (
-          <main className="max-w-7xl mx-auto px-4 py-10">
-            {/* Հայտարարությունների բովանդակություն */}
-          </main>
-        )}
-      </div>
-
-      {/* ՄԻԱԿ ԵՎ ՎԵՐՋԻՆ FOOTER-Ը */}
-      <Footer setActiveTab={setActiveTab} />
+              {/* Անվանում */}
+              <h3 className="text-lg font-medium text-gray-800 text-center leading-snug">
+                {item.title}
+              </h3>
+            </div>
+          ))}
+        </div>
+      </main>
     </div>
   );
-}
+};
 
-export default App;
+export default Vcharumner;
