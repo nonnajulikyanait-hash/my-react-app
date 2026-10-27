@@ -5,72 +5,37 @@ const Vcharumner = ({ setActiveTab }) => {
     {
       id: 'evocabank',
       title: 'EVOCABANK',
-      icon: (
-        <svg className="w-16 h-16 text-purple-600" viewBox="0 0 100 100" fill="currentColor">
-          <path d="M20 20 L50 80 L80 20 L50 50 Z" />
-        </svg>
-      ),
-      bgGradient: 'from-purple-100 to-indigo-50',
+      icon: 'https://resource.evoca.am/images/WebPayment/evoca.png',
     },
     {
       id: 'international_mobile',
       title: 'Միջազգային բջջային օպերատորներ',
-      icon: (
-        <div className="w-20 h-20 relative flex items-center justify-center">
-          <span className="text-4xl">🌐</span>
-        </div>
-      ),
-      bgGradient: 'from-purple-100 to-pink-50',
+      icon: 'https://resource.evoca.am/images/WebPayment/international.png',
     },
     {
       id: 'utility',
       title: 'Կոմունալ վճարումներ',
-      icon: (
-        <div className="w-20 h-20 relative flex items-center justify-center">
-          <span className="text-4xl">💡</span>
-        </div>
-      ),
-      bgGradient: 'from-purple-100 to-indigo-50',
+      icon: 'https://resource.evoca.am/images/WebPayment/utility.png',
     },
     {
       id: 'internet_tv',
       title: 'Ինտերնետ և TV',
-      icon: (
-        <div className="w-20 h-20 relative flex items-center justify-center">
-          <span className="text-4xl">📺</span>
-        </div>
-      ),
-      bgGradient: 'from-purple-100 to-pink-50',
+      icon: 'https://resource.evoca.am/images/WebPayment/internettv.png',
     },
     {
       id: 'road_police',
       title: 'ՃՈ վճարներ',
-      icon: (
-        <div className="w-20 h-20 relative flex items-center justify-center">
-          <span className="text-4xl">🚘</span>
-        </div>
-      ),
-      bgGradient: 'from-purple-100 to-indigo-50',
+      icon: 'https://resource.evoca.am/images/WebPayment/roadpolice.png',
     },
     {
       id: 'loan_organizations',
       title: 'Վարկային կազմակերպություններ',
-      icon: (
-        <div className="w-20 h-20 relative flex items-center justify-center">
-          <span className="text-4xl">💰</span>
-        </div>
-      ),
-      bgGradient: 'from-purple-100 to-pink-50',
+      icon: 'https://resource.evoca.am/images/WebPayment/loan.png',
     },
     {
       id: 'events',
       title: 'Միջոցառումներ',
-      icon: (
-        <div className="w-20 h-20 relative flex items-center justify-center">
-          <span className="text-4xl">🎟️</span>
-        </div>
-      ),
-      bgGradient: 'from-purple-100 to-indigo-50',
+      icon: 'https://resource.evoca.am/images/WebPayment/event.png',
     },
   ];
 
@@ -106,22 +71,33 @@ const Vcharumner = ({ setActiveTab }) => {
 
         {/* Քարտերի ցանց (Grid) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 justify-items-center">
-          {paymentCategories.map((item) => (
-            <div
-              key={item.id}
-              className="bg-white w-full max-w-sm rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer min-h-[260px]"
-            >
-              {/* Իկոնայի ֆոն/տուփ */}
-              <div className={`w-28 h-28 rounded-full bg-gradient-to-tr ${item.bgGradient} flex items-center justify-center mb-6 shadow-inner`}>
-                {item.icon}
-              </div>
+          {paymentCategories.map((item, index) => {
+            // Եթե սա վերջին տարրն է (7-րդը), այն լայն էկրանների վրա դնում ենք մեջտեղում (col-span-full և flex ցանցով կենտրոնացում)
+            const isLast = index === paymentCategories.length - 1;
 
-              {/* Անվանում */}
-              <h3 className="text-lg font-medium text-gray-800 text-center leading-snug">
-                {item.title}
-              </h3>
-            </div>
-          ))}
+            return (
+              <div
+                key={item.id}
+                className={`bg-white w-full max-w-sm rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer min-h-[260px] group hover:bg-purple-50/60 ${
+                  isLast ? 'sm:col-span-2 lg:col-span-3 justify-self-center' : ''
+                }`}
+              >
+                {/* Իկոնայի ֆոն/տուփ (Hover-ի ժամանակ փոխվում է ավելի հագեցած բաց մանուշակագույնի) */}
+                <div className="w-28 h-28 rounded-full bg-purple-50 group-hover:bg-purple-100/80 flex items-center justify-center mb-6 shadow-inner transition-colors duration-300 p-4">
+                  <img 
+                    src={item.icon} 
+                    alt={item.title} 
+                    className="w-16 h-16 object-contain" 
+                  />
+                </div>
+
+                {/* Անվանում */}
+                <h3 className="text-lg font-medium text-gray-800 text-center leading-snug group-hover:text-purple-950 transition-colors">
+                  {item.title}
+                </h3>
+              </div>
+            );
+          })}
         </div>
       </main>
     </div>

@@ -43,17 +43,23 @@ function Header({ activeTab, setActiveTab }) {
             Բիզնես
           </span>
 
-          {/* 👈 ԱԿՆԹԱՐԹԱՅԻՆ ՎՃԱՐՈՒՄՆԵՐԻ ԿՈՃԱԿ */}
-          <span 
-            onClick={() => setActiveTab('vcharumner')}
-            className={`cursor-pointer transition-colors ${
-              activeTab === 'vcharumner'
-                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5'
-                : 'hover:text-black'
-            }`}
+          {/* 👈 ԱԿՆԹԱՐԹԱՅԻՆ ՎՃԱՐՈՒՄՆԵՐ՝ ԲԱՑՎՈՒՄ Է ՆՈՐ ՏԱԲՈՒՄ */}
+          <a
+            href="/vcharumner"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => {
+              // Եթե React-ի single page state եք օգտագործում, ապա այսպես.
+              e.preventDefault();
+              const newWindow = window.open('', '_blank');
+              if (newWindow) {
+                newWindow.location.href = window.location.origin + '?tab=vcharumner';
+              }
+            }}
+            className="cursor-pointer transition-colors hover:text-black"
           >
             Ակնթարթային վճարումներ
-          </span>
+          </a>
 
           <span className="cursor-pointer hover:text-black transition-colors">Մեր մասին</span>
           <span className="cursor-pointer hover:text-black transition-colors">Նորություններ</span>
