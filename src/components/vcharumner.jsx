@@ -4,8 +4,11 @@ const Vcharumner = ({ setActiveTab }) => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [selectedSubCategory, setSelectedSubCategory] = useState(null);
   const [selectedLoanAction, setSelectedLoanAction] = useState(null);
-  // Ավելացվել է state ուղղակի մուտքային էջերի (account/card replenishment) համար
   const [selectedDirectAction, setSelectedDirectAction] = useState(null);
+  
+  // Ավելացվել է state միջազգային օպերատորների ենթաբաժինների և վերջնական ինպուտով էջերի համար
+  const [selectedMobileSub, setSelectedMobileSub] = useState(null);
+  const [selectedMobileAction, setSelectedMobileAction] = useState(null);
 
   const paymentCategories = [
     {
@@ -48,6 +51,58 @@ const Vcharumner = ({ setActiveTab }) => {
       id: 'international_mobile',
       title: 'Միջազգային բջջային օպերատորներ',
       icon: 'https://resource.evoca.am/images/WebPayment/international.png',
+      subCategories: [
+        {
+          id: 'goodline',
+          title: 'Goodline',
+          icon: 'https://resource.evoca.am/images/webPayment/goodline.png',
+          inputPlaceholder: 'Հեռախոսահամար',
+        },
+        {
+          id: 'yota',
+          title: 'Yota',
+          icon: 'https://resource.evoca.am/images/webPayment/yota.png',
+          inputPlaceholder: 'Հեռախոսահամար',
+        },
+        {
+          id: 'georgian',
+          title: 'Վրացական',
+          icon: 'https://resource.evoca.am/images/WebPayment/georgian.png',
+          actions: [
+            {
+              id: 'geocell',
+              title: 'Ջնուսել',
+              icon: 'https://resource.evoca.am/images/webPayment/geocell.png',
+              inputPlaceholder: 'Հեռախոսահամար',
+            },
+            {
+              id: 'magti_bank',
+              title: 'Մագթի Բանկի',
+              icon: 'https://resource.evoca.am/images/webPayment/magti.png',
+              inputPlaceholder: 'Հեռախոսահամար',
+            },
+            {
+              id: 'magti',
+              title: 'Մագթի',
+              icon: 'https://resource.evoca.am/images/webPayment/magti.png',
+              inputPlaceholder: 'Հեռախոսահամար',
+            },
+          ]
+        },
+        {
+          id: 'russian',
+          title: 'Ռուսական',
+          icon: 'https://resource.evoca.am/images/WebPayment/russian.png',
+          actions: [
+            {
+              id: 'beeline_ru',
+              title: 'Բիլայն Ռուսաստան',
+              icon: 'https://resource.evoca.am/images/webPayment/loan.png', // կամ team նկարը
+              inputPlaceholder: 'Հեռախոսահամար',
+            }
+          ]
+        },
+      ],
     },
     {
       id: 'utility',
@@ -76,6 +131,16 @@ const Vcharumner = ({ setActiveTab }) => {
     },
   ];
 
+  const resetAll = () => {
+    setSelectedCategory(null);
+    setSelectedSubCategory(null);
+    setSelectedLoanAction(null);
+    setSelectedDirectAction(null);
+    setSelectedMobileSub(null);
+    setSelectedMobileAction(null);
+    if (setActiveTab) setActiveTab('home');
+  };
+
   return (
     <div className="bg-gray-50 min-h-screen font-sans flex flex-col justify-between">
       <div>
@@ -83,13 +148,7 @@ const Vcharumner = ({ setActiveTab }) => {
         <header className="bg-white border-b border-gray-100 py-4 px-6 md:px-12 flex items-center justify-between">
           <div className="flex items-center space-x-6">
             <div 
-              onClick={() => {
-                setSelectedDirectAction(null);
-                setSelectedLoanAction(null);
-                setSelectedSubCategory(null);
-                setSelectedCategory(null);
-                if (setActiveTab) setActiveTab('home');
-              }}
+              onClick={resetAll}
               className="text-2xl font-extrabold tracking-tight cursor-pointer text-gray-900"
             >
               evoca <span className="text-purple-600 font-normal text-sm ml-2 hidden sm:inline">Online payment</span>
@@ -108,8 +167,122 @@ const Vcharumner = ({ setActiveTab }) => {
         {/* Բովանդակություն */}
         <main className="max-w-6xl mx-auto px-4 pt-10 pb-12">
           
-          {/* 1. ՀԱՇՎԻ ՀԱՄԱԼՐՈՒՄ ԿԱՄ ՔԱՐՏԻ ՀԱՄԱԼՐՈՒՄ ԷՋ (INPUT-ՈՎ) */}
-          {selectedDirectAction ? (
+          {/* 1. ՄԻՋԱԶԳԱՅԻՆ ՕՊԵՐԱՏՈՐՆԵՐԻ ՎԵՐՋՆԱԿԱՆ ԷՋ (INPUT-ՈՎ) */}
+          {selectedMobileAction ? (
+            <div>
+              <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8 flex-wrap">
+                <button onClick={() => { setSelectedMobileAction(null); setSelectedMobileSub(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
+                <span>/</span>
+                <button onClick={() => { setSelectedMobileAction(null); setSelectedMobileSub(null); }} className="hover:text-purple-600 font-medium">Միջազգային բջջային օպերատորներ</button>
+                {selectedMobileSub.id !== 'goodline' && selectedMobileSub.id !== 'yota' && (
+                  <>
+                    <span>/</span>
+                    <button onClick={() => setSelectedMobileAction(null)} className="hover:text-purple-600 font-medium">{selectedMobileSub.title}</button>
+                  </>
+                )}
+                <span>/</span>
+                <span className="text-gray-400 font-medium">{selectedMobileAction.title}</span>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-10">
+                {selectedMobileAction.title}
+              </h1>
+
+              <div className="bg-white max-w-xl mx-auto rounded-3xl p-8 shadow-sm border border-gray-100">
+                <label className="block text-sm text-gray-600 mb-2 font-medium">
+                  * Հեռախոսահամար
+                </label>
+                <input 
+                  type="text" 
+                  placeholder="Հեռախոսահամար" 
+                  className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-600 text-gray-800 mb-6"
+                />
+                <button className="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3.5 rounded-xl transition shadow-md">
+                  Շարունակել
+                </button>
+              </div>
+            </div>
+
+          ) : selectedMobileSub && selectedMobileSub.actions ? (
+            /* 2. ՎՐԱՑԱԿԱՆ / ՌՈՒՍԱԿԱՆ ԵՆԹԱԲԱԺԻՆՆԵՐԻ ՔԱՐՏԵՐԸ */
+            <div>
+              <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8">
+                <button onClick={() => { setSelectedMobileSub(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
+                <span>/</span>
+                <button onClick={() => setSelectedMobileSub(null)} className="hover:text-purple-600 font-medium">Միջազգային բջջային օպերատորներ</button>
+                <span>/</span>
+                <span className="text-gray-400 font-medium">{selectedMobileSub.title}</span>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-12">
+                {selectedMobileSub.title}
+              </h1>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 justify-items-center max-w-4xl mx-auto">
+                {selectedMobileSub.actions.map((act) => (
+                  <div
+                    key={act.id}
+                    onClick={() => {
+                      if (act.id === 'beeline_ru') {
+                        // Եթե Ռուսականից սեղմում ենք Բիզնես/Team-ի վրա, բացում ենք 6-րդ նկարի համապատասխան էջը
+                        setSelectedMobileAction({ title: 'Բիլայն Ռուսաստան' });
+                      } else {
+                        setSelectedMobileAction(act);
+                      }
+                    }}
+                    className="bg-white w-full max-w-xs rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer min-h-[250px] group hover:bg-purple-50/60"
+                  >
+                    <div className="w-24 h-24 rounded-full bg-purple-50 group-hover:bg-purple-100/80 flex items-center justify-center mb-6 transition-colors duration-300 p-3">
+                      <img src={act.icon} alt={act.title} className="w-16 h-16 object-contain" />
+                    </div>
+                    <h3 className="text-lg font-medium text-gray-800 text-center leading-snug group-hover:text-purple-950 transition-colors">
+                      {act.title}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          ) : selectedCategory && selectedCategory.id === 'international_mobile' ? (
+            /* 3. ՄԻՋԱԶԳԱՅԻՆ ԲՋՋԱՅԻՆ ՕՊԵՐԱՏՈՐՆԵՐԻ ՀԻՄՆԱԿԱՆ 4 ՔԱՐՏԵՐԸ */
+            <div>
+              <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8">
+                <button onClick={() => setSelectedCategory(null)} className="hover:text-purple-600 font-medium">Գլխավոր</button>
+                <span>/</span>
+                <span className="text-gray-400 font-medium">Միջազգային բջջային օպերատորներ</span>
+              </div>
+
+              <h1 className="text-3xl md:text-4xl font-extrabold text-center text-gray-800 mb-12">
+                Միջազգային բջջային օպերատորներ
+              </h1>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 justify-items-center max-w-4xl mx-auto">
+                {selectedCategory.subCategories.map((sub) => (
+                  <div
+                    key={sub.id}
+                    onClick={() => {
+                      if (sub.actions) {
+                        setSelectedMobileSub(sub);
+                      } else {
+                        setSelectedMobileSub(sub);
+                        setSelectedMobileAction(sub);
+                      }
+                    }}
+                    className="bg-white w-full max-w-xs rounded-3xl p-8 flex flex-col items-center justify-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-gray-100 cursor-pointer min-h-[250px] group hover:bg-purple-50/60"
+                  >
+                    <div className="w-24 h-24 rounded-full bg-purple-50 group-hover:bg-purple-100/80 flex items-center justify-center mb-6 transition-colors duration-300 p-3">
+                      <img src={sub.icon} alt={sub.title} className="w-16 h-16 object-contain" />
+                    </div>
+                    <h3 className="text-lg font-medium text-gray-800 text-center leading-snug group-hover:text-purple-950 transition-colors">
+                      {sub.title}
+                    </h3>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          ) : selectedDirectAction ? (
+            /* Հաշվի / Քարտի համալրում */
             <div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8 flex-wrap">
                 <button onClick={() => { setSelectedDirectAction(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
@@ -129,7 +302,7 @@ const Vcharumner = ({ setActiveTab }) => {
                 </label>
                 <input 
                   type="text" 
-                  placeholder={selectedDirectAction.inputPlaceholder === 'Հաշվեհամար' ? 'Հաշվեհամար' : 'Քարտի համար'} 
+                  placeholder={selectedDirectAction.inputPlaceholder} 
                   className="w-full border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:border-purple-600 text-gray-800 mb-6"
                 />
                 <button className="w-full bg-purple-700 hover:bg-purple-800 text-white font-bold py-3.5 rounded-xl transition shadow-md">
@@ -139,7 +312,6 @@ const Vcharumner = ({ setActiveTab }) => {
             </div>
 
           ) : selectedLoanAction ? (
-            /* 2. ՎԱՐԿԱՅԻՆ ԳՈՐԾՈՂՈՒԹՅԱՆ ԷՋ */
             <div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8 flex-wrap">
                 <button onClick={() => { setSelectedLoanAction(null); setSelectedSubCategory(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
@@ -171,7 +343,6 @@ const Vcharumner = ({ setActiveTab }) => {
             </div>
 
           ) : selectedSubCategory ? (
-            /* 3. «ՎԱՐԿԻ ՄԱՐՈՒՄ» ԵՆԹԱԲԱԺԻՆԸ */
             <div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8">
                 <button onClick={() => { setSelectedSubCategory(null); setSelectedCategory(null); }} className="hover:text-purple-600 font-medium">Գլխավոր</button>
@@ -204,7 +375,6 @@ const Vcharumner = ({ setActiveTab }) => {
             </div>
 
           ) : selectedCategory && selectedCategory.id === 'evocabank' ? (
-            /* 4. EVOCABANK-Ի ՀԻՄՆԱԿԱՆ 3 ՔԱՐՏԵՐԸ */
             <div>
               <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 mb-8">
                 <button onClick={() => setSelectedCategory(null)} className="hover:text-purple-600 font-medium">Գլխավոր</button>
@@ -241,7 +411,7 @@ const Vcharumner = ({ setActiveTab }) => {
             </div>
 
           ) : (
-            /* 5. ԱՄԵՆԱԱՌԱՋԻՆ ԳԼԽԱՎՈՐ ԷՋԸ */
+            /* ԱՄԵՆԱԱՌԱՋԻՆ ԳԼԽԱՎՈՐ ԷՋԸ */
             <div>
               <h1 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-12">
                 Գլխավոր
@@ -279,7 +449,7 @@ const Vcharumner = ({ setActiveTab }) => {
       </div>
 
       {/* Ֆուտեր */}
-      {(selectedCategory || selectedSubCategory || selectedLoanAction || selectedDirectAction) && (
+      {(selectedCategory || selectedSubCategory || selectedLoanAction || selectedDirectAction || selectedMobileSub) && (
         <footer className="bg-white border-t border-gray-100 py-6 px-6 text-xs text-gray-500">
           <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
             <div>
