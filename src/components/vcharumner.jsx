@@ -5,7 +5,7 @@ import { collection, addDoc } from 'firebase/firestore';
 import Header from './components/header';
 import HeroSlider from './components/heroslider';
 import BiometricSection from './components/biometricsection';
-import BiometricTriangle from './components/biometrictriangle';
+import BiometricTriangle from "./biometrictriangle";
 import EvocaCardsSlider from './components/evocacardsslider';
 import EvocaOnlineMobile from './components/evocaonlinemobile';
 import Gortsynkerner from './components/gortsynkerner';
