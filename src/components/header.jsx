@@ -43,7 +43,18 @@ function Header({ activeTab, setActiveTab }) {
             Բիզնես
           </span>
 
-          <span className="cursor-pointer hover:text-black transition-colors">Ակնթարթային վճարումներ</span>
+          {/* 👈 ԱԿՆԹԱՐԹԱՅԻՆ ՎՃԱՐՈՒՄՆԵՐԻ ԿՈՃԱԿ */}
+          <span 
+            onClick={() => setActiveTab('vcharumner')}
+            className={`cursor-pointer transition-colors ${
+              activeTab === 'vcharumner'
+                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5'
+                : 'hover:text-black'
+            }`}
+          >
+            Ակնթարթային վճարումներ
+          </span>
+
           <span className="cursor-pointer hover:text-black transition-colors">Մեր մասին</span>
           <span className="cursor-pointer hover:text-black transition-colors">Նորություններ</span>
           <span className="cursor-pointer hover:text-black transition-colors">Բլոգ</span>
@@ -171,7 +182,6 @@ function Header({ activeTab, setActiveTab }) {
               Ավանդներ
             </button>
             
-            {/* Այստեղ արդեն գնում էղնում է 'arjetxter', որպեսզի բացի նույնջ էջը */}
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('arjetxter'); }}
               className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
@@ -219,4 +229,4 @@ function Header({ activeTab, setActiveTab }) {
   );
 }
 
-export default Header; 
+export default Header;
