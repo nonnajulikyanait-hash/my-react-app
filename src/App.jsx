@@ -24,7 +24,8 @@ import EvocaSalary from './components/evocasalary';
 import EvocaTouch from './components/evocatouch';
 import Leasing from './components/leasing'; 
 import BusinessHashivner from './components/businesshashivner'; 
-import Vcharumner from './components/vcharumner'; 
+import Vcharumner from './components/vcharumner';
+import Norutyunner from './components/norutyunner'; // 👈 ԱՎԵԼԱՑՎԵՑ ՆՈՐՈՒԹՅՈՒՆՆԵՐԻ ԻՄՊՈՐՏԸ
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -93,6 +94,9 @@ function App() {
         
         {/* Վճարումների էջ */}
         {activeTab === 'vcharumner' && <Vcharumner setActiveTab={setActiveTab} />}
+
+        {/* 👈 ՆՈՐՈՒԹՅՈՒՆՆԵՐԻ ԷՋԻ ԿԱՆՉԸ */}
+        {activeTab === 'norutyunner' && <Norutyunner setActiveTab={setActiveTab} />}
 
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
