@@ -60,7 +60,7 @@ function Header({ activeTab, setActiveTab }) {
             Ակնթարթային վճարումներ
           </a>
 
-          {/* 👈 «ՄԵՐ ՄԱՍԻՆ» ԿՈՃԱԿ */}
+          {/* «Մեր մասին» կոճակ */}
           <span 
             onClick={() => setActiveTab('mermasin')}
             className={`cursor-pointer transition-colors ${
@@ -117,7 +117,15 @@ function Header({ activeTab, setActiveTab }) {
               Վարկեր
             </button>
             
-            <a href="#cards" className="hover:text-purple-700 transition-colors">Քարտեր</a>
+            {/* 👈 ՔԱՐՏԵՐԻ ԿՈՃԱԿ */}
+            <button 
+              onClick={(e) => { e.preventDefault(); setActiveTab('cards'); }}
+              className={`hover:text-purple-700 transition-colors cursor-pointer bg-transparent border-none text-lg font-medium ${
+                activeTab === 'cards' ? 'text-purple-700 font-bold' : 'text-neutral-800'
+              }`}
+            >
+              Քարտեր
+            </button>
             
             <button 
               onClick={(e) => { e.preventDefault(); setActiveTab('deposits'); }}

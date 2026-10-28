@@ -28,7 +28,8 @@ import Vcharumner from './components/vcharumner';
 import Norutyunner from './components/norutyunner';
 import MerMasin from './components/mermasin';
 import Bajneterer from './components/bajneterer';
-import Karucvacq from './components/karucvacq'; // 👈 ԱՎԵԼԱՑՎԵՑ «ԿԱՌՈՒՑՎԱԾՔ» ԲԱՂԱԴՐԻՉԻ ԻՄՊՈՐՏԸ
+import Karucvacq from './components/karucvacq';
+import Qarter from './components/qarter'; // 👈 ԱՎԵԼԱՑՎԵՑ «ՔԱՐՏԵՐ» ԲԱՂԱԴՐԻՉԻ ԻՄՊՈՐՏԸ
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -83,6 +84,10 @@ function App() {
         )}
 
         {activeTab === 'varker' && <Varker />}
+        
+        {/* 👈 «ՔԱՐՏԵՐ» ԷՋԻ ԿԱՆՉԸ */}
+        {activeTab === 'cards' && <Qarter setActiveTab={setActiveTab} />}
+
         {activeTab === 'business-varker' && <BusinessVarker setActiveTab={setActiveTab} />}
         {activeTab === 'business-leasing' && <Leasing setActiveTab={setActiveTab} />}
         {activeTab === 'business-hashivner' && <BusinessHashivner setActiveTab={setActiveTab} />}
@@ -107,7 +112,7 @@ function App() {
         {/* «Բայներեր» էջ */}
         {activeTab === 'bajneterer' && <Bajneterer setActiveTab={setActiveTab} />}
 
-        {/* 👈 «ԿԱՌՈՒՑՎԱԾՔ» ԷՋԻ ԿԱՆՉԸ */}
+        {/* «Կառուցվածք» էջ */}
         {activeTab === 'karucvacq' && <Karucvacq setActiveTab={setActiveTab} />}
 
         {activeTab === 'haytararutyun' && (
