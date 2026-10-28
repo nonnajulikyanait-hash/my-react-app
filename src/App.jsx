@@ -30,7 +30,7 @@ import MerMasin from './components/mermasin';
 import Bajneterer from './components/bajneterer';
 import Karucvacq from './components/karucvacq';
 import Qarter from './components/qarter';
-import FloatingWidget from './components/FloatingWidget'; // 👈 ԱՎԵԼԱՑՎԵՑ ՉԱՏԻ ԵՎ ԶԱՆԳԻ ՎԻՋԵԹԻ ԻՄՊՈՐՏԸ
+import FloatWidget from './components/floatwidget'; // 👈 ԱՎԵԼԱՑՎԵՑ ՉԱՏԻ ԵՎ ԶԱՆԳԻ ՎԻՋԵԹԻ ԻՄՊՈՐՏԸ
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -104,7 +104,7 @@ function App() {
       <Footer setActiveTab={setActiveTab} />
 
       {/* 👈 ԱՅՍՏԵՂ ԿԱՆՉՎՈՒՄ Է ԼՈՂԱՑՈՂ ՉԱՏԻ ԵՎ ԶԱՆԳԻ ՎԻՋԵԹԸ */}
-      <FloatingWidget />
+      <FloatWidget />
     </div>
   );
 }
