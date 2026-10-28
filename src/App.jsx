@@ -26,7 +26,8 @@ import Leasing from './components/leasing';
 import BusinessHashivner from './components/businesshashivner'; 
 import Vcharumner from './components/vcharumner';
 import Norutyunner from './components/norutyunner';
-import MerMasin from './components/mermasin'; // 👈 ԱՎԵԼԱՑՎԵՑ «ՄԵՐ ՄԱՍԻՆ» ԲԱՂԱԴՐԻՉԻ ԻՄՊՈՐՏԸ
+import MerMasin from './components/mermasin';
+import Bajneterer from './components/bajneterer'; // 👈 ԱՎԵԼԱՑՎԵՑ «ԲԱՅՆԵՏԵՐԵՐ» ԲԱՂԱԴՐԻՉԻ ԻՄՊՈՐՏԸ
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
@@ -99,8 +100,11 @@ function App() {
         {/* Նորությունների էջ */}
         {activeTab === 'norutyunner' && <Norutyunner setActiveTab={setActiveTab} />}
 
-        {/* 👈 «ՄԵՐ ՄԱՍԻՆ» ԷՋԻ ԿԱՆՉԸ */}
+        {/* «Մեր մասին» էջ */}
         {activeTab === 'mermasin' && <MerMasin setActiveTab={setActiveTab} />}
+
+        {/* 👈 «ԲԱՅՆԵՏԵՐԵՐ» ԷՋԻ ԿԱՆՉԸ */}
+        {activeTab === 'bajneterer' && <Bajneterer setActiveTab={setActiveTab} />}
 
         {activeTab === 'haytararutyun' && (
           <main className="max-w-7xl mx-auto px-4 py-10">
