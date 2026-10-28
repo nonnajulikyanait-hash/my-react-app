@@ -33,7 +33,7 @@ import Qarter from './components/qarter';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
-  const [selectedCard, setSelectedCard] = useState(null); // 👈 ԱՎԵԼԱՑՎԵՑ ԸՆՏՐՎԱԾ ՔԱՐՏԻ STATE-Ը
+  const [selectedCard, setSelectedCard] = useState(null);
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
@@ -55,10 +55,13 @@ function App() {
 
         {activeTab === 'home' && (
           <>
-            <HeroSlider />
+            {/* 👈 ԱՅՍՏԵՂ ԱՎԵԼԱՑՎԵՑԻՆ props-ՆԵՐԸ HeroSlider-Ի ՀԱՄԱՐ */}
+            <HeroSlider 
+              setActiveTab={setActiveTab} 
+              setSelectedCard={setSelectedCard} 
+            />
             <BiometricSection />
             <BiometricTriangle />
-            {/* 👈 ՓՈԽԱՆՑՈՒՄ ԵՆՔ SETACTIVETAB ԵՎ SETSELECTEDCARD */}
             <EvocaCardsSlider 
               setActiveTab={setActiveTab} 
               setSelectedCard={setSelectedCard} 
@@ -72,7 +75,6 @@ function App() {
 
         {activeTab === 'varker' && <Varker />}
         
-        {/* 👈 ՔԱՐՏԵՐԻ ԷՋԻՆ ՓՈԽԱՆՑՈՒՄ ԵՆՔ ԸՆՏՐՎԱԾ ՔԱՐՏԸ */}
         {activeTab === 'cards' && (
           <Qarter 
             setActiveTab={setActiveTab} 
