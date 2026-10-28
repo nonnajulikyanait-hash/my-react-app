@@ -18,7 +18,7 @@ const Norutyunner = ({ setActiveTab }) => {
     'Բոլորը'
   ];
 
-  // «Գլխավոր» բաժնի հուշագրի նորությունը
+  // «Գլխավոր» բաժնի նորությունը
   const mainNewsDetail = {
     id: 'norakaruyc-signing',
     title: 'Evocabank-ը և Norakaruyc.am-ը համագործակցության հուշագիր են ստորագրել',
@@ -31,50 +31,143 @@ const Norutyunner = ({ setActiveTab }) => {
       'Համագործակցության արդյունքում Norakaruyc.am-ի օգտատերերը կկարողանան ոչ միայն ծանոթանալ նորակառույց շենքերի բնակարանների մասին ամբողջական տեղեկատվությանը, այլ նաև անմիջապես հարթակից կապ հաստատել կառուցապատողի և Բանկի հետ, ստանալ խորհրդատվություն և ներկայացնել հիփոթեքային վարկի հայտ։',
       'Հարթակում ներկայացված են բնակարանների հատակագծերը, ֆինանսավորման հնարավոր տարբերակները, ամսական վճարների չափը և մարման գրաֆիկները։ Օգտատերերը, լրացնելով անհրաժեշտ տվյալները, կարող են իրենց հայտն ավտոմատ կերպով փոխանցել ինչպես կառուցապատողին, այնպես էլ Evocabank-ին։',
       '«Այս նորարարական լուծումը հնարավորություն է տալիս մեկտեղել անշարժ գույքի ընտրության ու ֆինանսավորման բոլոր փուլերը մեկ միասնական թվային հարթակում: Դրա շնորհիվ մենք կարողանում ենք առավելագույնս կրճատել թե՛ հաճախորդի ծախսած ժամանակը, և թե՛ թղթաբանությունը։ Մեր այս նախաձեռնությունը միտված է հենց դրան՝ փոխելու շուկայի մոտեցումները և բնակարանի գնման ողջ գործընթացը՝ այն հաճախորդի համար դարձնելով անհամեմատ ավելի արագ, հարմարավետ և ամբողջովին թվայնացված:\nNorakaruyc.am-ի հետ համագործակցությունը հնարավորություն է տալիս մեկ հարթակում ինտեգրել Բանկի բոլոր հիփոթեքային պրոդուկտները, որպեսզի յուրաքանչյուր հաճախորդ կարողանա ընտրել իր կարիքներին և հնարավորություններին առավել համապատասխան տարբերակը»,- նշել է Evocabank-ի Սպառողական վարչության ղեկավար Ստեփան Ավետիսյանը:',
-      '«Այսուհետ Norakaruyc.am հարթակի օրական ավելի քան 2,500 օգտատերեր կկարողանան մեկ հարթակում ընտրել իրենց նախընտրած բնակարանը, անցնել նույնականացման գործընթացը և անմիջապես առցանց դիմել հիփոթեքային վարկի համար։\nՍկսած 2019թ.-ից՝ մեր փորձը ցույց է տալիս, որ, ավելացնելով թվային միջավայրի գործիքակազմը, մեզ հետ համագործակցող կառուցապատողների հետ հասնում ենք ավելի արդյունավետ և արագ վաճառքների։ Նախաձեռնությունը միտված է պարզեցնելու և արագացնելու բնակարանի գնման գործընթացը՝ նվազեցնելով այցելությունների և փաստաթղթաշրջանառության ծավալը, ինչպես նաև ապահովելով ավելի հարմար և ժամանակակից սպասարկում հաճախորդների համար»,- նշել է Norakaruyc.am հարթակի հիմնադիր Սերգեյ Խաչատրյանը։',
+      '«Այսուհետ Norakaruyc.am հարթակի օրական ավելի քան 2,500 օգտատերեր կկարողանան մեկ հարթակում ընտրել իրենց նախընտրած բնակարանը, անցնել նույնականացման գործընթացը և անմիջապես առցանց դիմել հիփոթեքային վարկի համար։\nՍկսած 2019թ.-ից՝ մեր փորձը ցույց է տալիս, որ, ավելացնելով թվային միջավայրի գործիքակազմը, մեզ հետ համագործակցող կառուցապատողների հետ հասնում ենք ավելի արդյունավետ և արագ վաճառքների։ Նախաեռնությունը միտված է պարզեցնելու և արագացնելու բնակարանի գնման գործընթացը՝ նվազեցնելով այցելությունների և փաստաթղթաշրջանառության ծավալը, ինչպես նաև ապահովելով ավելի հարմար և ժամանակակից սպասարկում հաճախորդների համար»,- նշել է Norakaruyc.am հարթակի հիմնադիր Սերգեյ Խաչատրյանը։',
       'Նոր թվային լուծումը հնարավորություն կտա բնակարան ընտրել և հիփոթեքի հայտ ներկայացնել մեկ հարթակից:',
       'Evocabank-ի և Norakaruyc.am-ի համատեղ թվային լուծումը ևս մեկ քայլ է դեպի Հայաստանի անշարժ գույքի շուկայի թվայնացում:'
     ]
   };
 
-  // Բանկային բաժնի 117 նկարներով և վերնագրերով տվյալների զանգված
-  const bankingNews = Array.from({ length: 117 }, (_, index) => {
+  // 117 ԱՌԱՆՁԻՆ ՆԿԱՐՆԵՐԻ ՀՂՈՒՄՆԵՐԸ
+  const imageUrls = [
+    "https://www.evoca.am/images-cache/news/1/17930164747919/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17908437653512/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17852444643548/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17870544210976/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17864472573391/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17854167235525/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17842875742396/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17806626445767/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17800482277397/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17785839458922/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17780463751358/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/1776162446379/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17757342882486/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17746129517291/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17707319421286/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17683825017248/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/1765801881883/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17649374043883/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17624341580743/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17623251404538/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17611221350351/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17610618951769/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17604369402663/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17600922901514/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17587062793679/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/1755691060325/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17556116751548/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17540357468511/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17543142671349/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17501430419171/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17472925002048/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/1740120458201/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17386587462914/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17373763573222/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17371104329802/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17369249643186/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17340172368299/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17339403687437/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17338293917613/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17337479879173/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17332069569872/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17325417143896/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17283954133829/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17313236323207/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17304388351704/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17279603303089/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17273569939811/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17271616844358/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/1723534469539/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/1725277850499/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17225181707938/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17222414491934/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17217242754328/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17198345573851/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17198345573851/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17182807965555/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17111163408005/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17255457525076/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17065349106759/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17008349940521/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/17008145898933/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/17000469131451/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16964027775467/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/169590947043/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16956433417196/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16903727089801/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16902075440877/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16801705777805/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/1680009514293/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16796664377463/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16751514125779/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16739643337781/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16698094822872/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16644550079199/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16603095118151/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16599446337235/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16584991069785/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16564205795872/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16536583638942/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16535697338703/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16527058751379/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16526888102013/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16524458685351/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16521720469586/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16480274613347/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/1642501519511/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16383421382899/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16366388551494/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/1620735937822/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16170289183574/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16170289363375/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16178798192635/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16098750729028/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16100042278431/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/161038217147/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16183858492287/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16104325455044/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16183879270733/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/1610620440257/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16106099043041/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16120953971318/510x383.jpg",
+    "https://www.evoca.am/images-cache/news/1/16106932022056/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16107181805155/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16107208220542/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16183887871112/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16184703522597/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16184011238938/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16108088469328/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16108142158282/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16108654865257/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16109032298506/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16109033604138/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16109039688796/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16115052068736/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16119976718751/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16119985899372/510x383.png",
+    "https://www.evoca.am/images-cache/news/1/16120154872134/510x383.png"
+  ];
+
+  // 117 ՅՈՒՐԱՔԱՆՉՅՈՒՐ ՆՈՐՈՒԹՅՈՒՆ ԻՐ ԱՌԱՆՁԻՆ ՆԿԱՐՈՎ
+  const bankingNews = imageUrls.map((imgUrl, index) => {
     const id = index + 1;
-    let imageUrl = '';
-    
-    // Որոշակի նկարների հղումներ ըստ ձեր ցանկի
-    const urls = {
-      1: "https://www.evoca.am/images-cache/news/1/17930164747919/510x383.png",
-      2: "https://www.evoca.am/images-cache/news/1/17908437653512/510x383.png",
-      3: "https://www.evoca.am/images-cache/news/1/17852444643548/510x383.png",
-      4: "https://www.evoca.am/images-cache/news/1/17870544210976/510x383.png",
-      5: "https://www.evoca.am/images-cache/news/1/17864472573391/510x383.png",
-      6: "https://www.evoca.am/images-cache/news/1/17854167235525/510x383.png",
-      7: "https://www.evoca.am/images-cache/news/1/17842875742396/510x383.png",
-      8: "https://www.evoca.am/images-cache/news/1/17806626445767/510x383.jpg",
-      9: "https://www.evoca.am/images-cache/news/1/17800482277397/510x383.png",
-      10: "https://www.evoca.am/images-cache/news/1/17785839458922/510x383.png",
-      11: "https://www.evoca.am/images-cache/news/1/17780463751358/510x383.png",
-      12: "https://www.evoca.am/images-cache/news/1/1776162446379/510x383.png",
-      13: "https://www.evoca.am/images-cache/news/1/17757342882486/510x383.png",
-      14: "https://www.evoca.am/images-cache/news/1/17746129517291/510x383.png",
-      15: "https://www.evoca.am/images-cache/news/1/17707319421286/510x383.png",
-      16: "https://www.evoca.am/images-cache/news/1/17683825017248/510x383.jpg",
-      17: "https://www.evoca.am/images-cache/news/1/1765801881883/510x383.png",
-      18: "https://www.evoca.am/images-cache/news/1/17649374043883/510x383.png",
-      19: "https://www.evoca.am/images-cache/news/1/17624341580743/510x383.png",
-      20: "https://www.evoca.am/images-cache/news/1/17623251404538/510x383.png",
-    };
-
-    imageUrl = urls[id] || `https://www.evoca.am/images-cache/news/1/17930164747919/510x383.png`;
-
     return {
       id: `banking-${id}`,
       title: `Evocabank-ի բանկային նորություն թիվ ${id}`,
       shortDesc: `Սա բանկային բաժնի հերթական կարևոր նորությունն է, որը վերաբերում է Բանկի կողմից մատուցվող ծառայություններին և պրոդուկտներին (${id})։`,
       date: '26.10.2026',
       category: 'Բանկային',
-      image: imageUrl,
+      image: imgUrl,
       fullText: [
         `Սա Evocabank-ի բանկային բաժնի թիվ ${id} նորության ամբողջական տեքստն է։`,
         'Բանկը շարունակում է զարգացնել իր թվային հարթակներն ու առաջարկել նորարարական լուծումներ իր հաճախորդներին:',
@@ -207,7 +300,7 @@ const Norutyunner = ({ setActiveTab }) => {
                   </section>
                 </div>
               ) : activeCategory === 'Բանկային' ? (
-                /* «ԲԱՆԿԱՅԻՆ» ՖԻԼՏՐԻ ՆՈՐՈՒԹՅՈՒՆՆԵՐ (117 հատ, 20-ական բացվող) */
+                /* «ԲԱՆԿԱՅԻՆ» ՖԻԼՏՐԻ ՆՈՐՈՒԹՅՈՒՆՆԵՐ (117 հատ, ամեն 20-ը մեկ) */
                 <div>
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
                     {bankingNews.slice(0, visibleCount).map((item) => (
@@ -238,7 +331,7 @@ const Norutyunner = ({ setActiveTab }) => {
                     ))}
                   </div>
 
-                  {/* Բեռնել ավելին (Load More) կոճակ ամեն 20 նկարը մեկ */}
+                  {/* Բեռնել ավելին (Load More) կոճակ 20-ական բաժանումով */}
                   {visibleCount < bankingNews.length && (
                     <div className="text-center mt-8">
                       <button
