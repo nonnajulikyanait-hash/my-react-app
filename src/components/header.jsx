@@ -23,7 +23,7 @@ function Header({ activeTab, setActiveTab }) {
           <span 
             onClick={() => setActiveTab('home')}
             className={`cursor-pointer transition-colors ${
-              !isBusinessTab
+              !isBusinessTab && activeTab === 'home'
                 ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5' 
                 : 'hover:text-black'
             }`}
@@ -60,9 +60,19 @@ function Header({ activeTab, setActiveTab }) {
             Ակնթարթային վճարումներ
           </a>
 
-          <span className="cursor-pointer hover:text-black transition-colors">Մեր մասին</span>
+          {/* 👈 «ՄԵՐ ՄԱՍԻՆ» ԿՈՃԱԿ */}
+          <span 
+            onClick={() => setActiveTab('mermasin')}
+            className={`cursor-pointer transition-colors ${
+              activeTab === 'mermasin'
+                ? 'font-bold text-purple-700 border-b-2 border-purple-700 pb-0.5'
+                : 'hover:text-black'
+            }`}
+          >
+            Մեր մասին
+          </span>
 
-          {/* 👈 ՆՈՐՈՒԹՅՈՒՆՆԵՐԻ ԿՈՃԱԿ */}
+          {/* Նորություններ */}
           <span 
             onClick={() => setActiveTab('norutyunner')}
             className={`cursor-pointer transition-colors ${
