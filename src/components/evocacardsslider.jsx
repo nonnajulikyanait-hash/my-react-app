@@ -133,9 +133,16 @@ const cardsData = [
   }
 ];
 
-function EvocaCardsSlider() {
+function EvocaCardsSlider({ setActiveTab }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
+
+  const handleDetailsClick = (e) => {
+    e.preventDefault();
+    if (setActiveTab) {
+      setActiveTab('cards');
+    }
+  };
 
   return (
     <section className="relative bg-[#f0f7fe] py-10 lg:py-14 overflow-hidden">
@@ -155,7 +162,7 @@ function EvocaCardsSlider() {
             </svg>
           </button>
 
-          {/* Swiper բլոկ (ավելի փոքր բարձրությամբ) */}
+          {/* Swiper բլոկ */}
           <div className="h-[320px] w-full max-w-[170px] overflow-hidden relative flex justify-center">
             <Swiper
               direction={'vertical'}
@@ -185,7 +192,6 @@ function EvocaCardsSlider() {
                     >
                       <img src={card.img} alt={card.name} className="w-full h-auto object-cover" />
                     </div>
-                    {/* Քարտի անունը տակից */}
                     <span className={`text-[10px] font-medium text-center mt-0.5 transition-opacity duration-300 ${isCenter ? 'opacity-100 text-neutral-900 font-bold' : 'opacity-0'}`}>
                       {card.name}
                     </span>
@@ -210,30 +216,30 @@ function EvocaCardsSlider() {
         {/* Աջ մաս՝ Մեծ քարտ և տեքստեր */}
         <div className="w-full lg:w-10/12 flex flex-col lg:flex-row items-center justify-between gap-8">
           
-          {/* Մեծ քարտի նկար (չափերը հավասարեցված են բնօրինակին) */}
           <div className="w-full lg:w-7/12 flex justify-center">
             <img 
               src={cardsData[activeIndex]?.img} 
               alt={cardsData[activeIndex]?.name} 
-              className="w-full max-w-[440px] h-[260px] object-contain drop-shadow-xl transition-all duration-500"
+              className="w-full max-w-[440px] h-[260px] object-contain drop-shadow-xl transition-all duration-500 cursor-pointer"
+              onClick={handleDetailsClick}
             />
           </div>
 
-          {/* Անուն, տեքստ և կոճակ */}
           <div className="w-full lg:w-5/12 text-left flex flex-col items-start space-y-3">
-            <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900">
+            <h3 className="text-2xl sm:text-3xl font-bold text-neutral-900 cursor-pointer hover:text-[#6400DC] transition" onClick={handleDetailsClick}>
               {cardsData[activeIndex]?.name}
             </h3>
             <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
               {cardsData[activeIndex]?.text}
             </p>
             <div className="pt-2">
-              <a 
-                href="#details"
-                className="inline-block bg-[#6400DC] hover:bg-[#5200b3] text-white font-semibold text-sm sm:text-base px-7 py-3 rounded-full shadow-md transition-transform hover:scale-105"
+              {/* 👈 ԿՈՃԱԿԸ, ՈՐԸ ՏԱՆՈՒՄ Է ՔԱՐՏԵՐԻ ԷՋ */}
+              <button 
+                onClick={handleDetailsClick}
+                className="inline-block bg-[#6400DC] hover:bg-[#5200b3] text-white font-semibold text-sm sm:text-base px-7 py-3 rounded-full shadow-md transition-transform hover:scale-105 cursor-pointer border-none"
               >
                 Մանրամասն
-              </a>
+              </button>
             </div>
           </div>
 
