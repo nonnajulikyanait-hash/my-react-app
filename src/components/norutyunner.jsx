@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 const Norutyunner = ({ setActiveTab }) => {
   const [activeCategory, setActiveCategory] = useState('Բոլորը');
   const [selectedNews, setSelectedNews] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(20);
 
   const categories = [
     'Գլխավոր',
@@ -17,7 +18,7 @@ const Norutyunner = ({ setActiveTab }) => {
     'Բոլորը'
   ];
 
-  // «Գլխավոր» բաժնի մանրամասն նորությունը
+  // «Գլխավոր» բաժնի հուշագրի նորությունը
   const mainNewsDetail = {
     id: 'norakaruyc-signing',
     title: 'Evocabank-ը և Norakaruyc.am-ը համագործակցության հուշագիր են ստորագրել',
@@ -36,12 +37,58 @@ const Norutyunner = ({ setActiveTab }) => {
     ]
   };
 
+  // Բանկային բաժնի 117 նկարներով և վերնագրերով տվյալների զանգված
+  const bankingNews = Array.from({ length: 117 }, (_, index) => {
+    const id = index + 1;
+    let imageUrl = '';
+    
+    // Որոշակի նկարների հղումներ ըստ ձեր ցանկի
+    const urls = {
+      1: "https://www.evoca.am/images-cache/news/1/17930164747919/510x383.png",
+      2: "https://www.evoca.am/images-cache/news/1/17908437653512/510x383.png",
+      3: "https://www.evoca.am/images-cache/news/1/17852444643548/510x383.png",
+      4: "https://www.evoca.am/images-cache/news/1/17870544210976/510x383.png",
+      5: "https://www.evoca.am/images-cache/news/1/17864472573391/510x383.png",
+      6: "https://www.evoca.am/images-cache/news/1/17854167235525/510x383.png",
+      7: "https://www.evoca.am/images-cache/news/1/17842875742396/510x383.png",
+      8: "https://www.evoca.am/images-cache/news/1/17806626445767/510x383.jpg",
+      9: "https://www.evoca.am/images-cache/news/1/17800482277397/510x383.png",
+      10: "https://www.evoca.am/images-cache/news/1/17785839458922/510x383.png",
+      11: "https://www.evoca.am/images-cache/news/1/17780463751358/510x383.png",
+      12: "https://www.evoca.am/images-cache/news/1/1776162446379/510x383.png",
+      13: "https://www.evoca.am/images-cache/news/1/17757342882486/510x383.png",
+      14: "https://www.evoca.am/images-cache/news/1/17746129517291/510x383.png",
+      15: "https://www.evoca.am/images-cache/news/1/17707319421286/510x383.png",
+      16: "https://www.evoca.am/images-cache/news/1/17683825017248/510x383.jpg",
+      17: "https://www.evoca.am/images-cache/news/1/1765801881883/510x383.png",
+      18: "https://www.evoca.am/images-cache/news/1/17649374043883/510x383.png",
+      19: "https://www.evoca.am/images-cache/news/1/17624341580743/510x383.png",
+      20: "https://www.evoca.am/images-cache/news/1/17623251404538/510x383.png",
+    };
+
+    imageUrl = urls[id] || `https://www.evoca.am/images-cache/news/1/17930164747919/510x383.png`;
+
+    return {
+      id: `banking-${id}`,
+      title: `Evocabank-ի բանկային նորություն թիվ ${id}`,
+      shortDesc: `Սա բանկային բաժնի հերթական կարևոր նորությունն է, որը վերաբերում է Բանկի կողմից մատուցվող ծառայություններին և պրոդուկտներին (${id})։`,
+      date: '26.10.2026',
+      category: 'Բանկային',
+      image: imageUrl,
+      fullText: [
+        `Սա Evocabank-ի բանկային բաժնի թիվ ${id} նորության ամբողջական տեքստն է։`,
+        'Բանկը շարունակում է զարգացնել իր թվային հարթակներն ու առաջարկել նորարարական լուծումներ իր հաճախորդներին:',
+        'Մանրամասների համար կարող եք կապ հաստատել մեզ հետ կամ այցելել մոտակա մասնաճյուղ:'
+      ]
+    };
+  });
+
   return (
     <div className="bg-gray-50 min-h-screen font-sans flex flex-col justify-between">
       <div>
         <main className="max-w-7xl mx-auto px-4 md:px-12 pt-10 pb-16">
           
-          {/* ԵԹԵ ԸՆՏՐՎԱԾ Է ԱՌԱՆՁԻՆ ՆՈՐՈՒԹՅԱՆ ՄԱՆՐԱՄԱՍՆ ԷՋԸ (3-րդ և 4-րդ նկարների էջը) */}
+          {/* ԵԹԵ ԸՆՏՐՎԱԾ Է ԱՌԱՆՁԻՆ ՆՈՐՈՒԹՅԱՆ ՄԱՆՐԱՄԱՍՆ ԷՋԸ */}
           {selectedNews ? (
             <div>
               <div className="flex items-center justify-between mb-8">
@@ -55,8 +102,6 @@ const Norutyunner = ({ setActiveTab }) => {
                   <span onClick={() => { setSelectedNews(null); setActiveTab && setActiveTab('home'); }} className="cursor-pointer hover:text-purple-600">Գլխավոր</span>
                   <span>/</span>
                   <span onClick={() => setSelectedNews(null)} className="cursor-pointer hover:text-purple-600">Նորություններ</span>
-                  <span>/</span>
-                  <span onClick={() => setSelectedNews(null)} className="cursor-pointer hover:text-purple-600">Գլխավոր</span>
                   <span>/</span>
                   <span className="text-gray-600 font-medium truncate max-w-xs">{selectedNews.title}</span>
                 </div>
@@ -86,7 +131,6 @@ const Norutyunner = ({ setActiveTab }) => {
                   </div>
                 </div>
 
-                {/* Ամբողջական տեքստը */}
                 <div className="space-y-6 text-gray-700 leading-relaxed pt-6 border-t border-gray-100 text-sm md:text-base">
                   {selectedNews.fullText.map((paragraph, index) => (
                     <p key={index} className={paragraph.startsWith('«') ? 'italic bg-purple-50/50 p-4 rounded-xl border-l-4 border-purple-600' : ''}>
@@ -103,10 +147,10 @@ const Norutyunner = ({ setActiveTab }) => {
                 <span onClick={() => setActiveTab && setActiveTab('home')} className="cursor-pointer hover:text-purple-600">Գլխավոր</span>
                 <span>/</span>
                 <span className="text-gray-600 font-medium">Նորություններ</span>
-                {activeCategory === 'Գլխավոր' && (
+                {activeCategory !== 'Բոլորը' && (
                   <>
                     <span>/</span>
-                    <span className="text-gray-600 font-medium">Գլխավոր</span>
+                    <span className="text-gray-600 font-medium">{activeCategory}</span>
                   </>
                 )}
               </div>
@@ -120,7 +164,7 @@ const Norutyunner = ({ setActiveTab }) => {
                 {categories.map((cat, idx) => (
                   <button
                     key={idx}
-                    onClick={() => setActiveCategory(cat)}
+                    onClick={() => { setActiveCategory(cat); setVisibleCount(20); }}
                     className={`px-6 py-2.5 rounded-full text-sm font-medium transition shadow-sm cursor-pointer ${
                       activeCategory === cat
                         ? 'bg-purple-700 text-white shadow-purple-200'
@@ -161,154 +205,55 @@ const Norutyunner = ({ setActiveTab }) => {
                       </div>
                     </div>
                   </section>
-
-                  {/* Փոքր քարտ ներքևում (2-րդ նկարից) */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-                    <div 
-                      onClick={() => setSelectedNews(mainNewsDetail)}
-                      className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between cursor-pointer hover:shadow-lg transition"
-                    >
-                      <div>
-                        <img src="https://www.evoca.am/images-cache/news/1/1782137837549/780x585.jpg" alt="News" className="w-full h-48 object-cover rounded-2xl mb-4" />
-                        <span className="text-purple-700 text-xs font-bold">Գլխավոր</span>
-                        <h4 className="font-bold text-lg text-neutral-900 mt-2 mb-3">Evocabank-ը և Norakaruyc.am-ը համագործակցության հուշագիր են ստորագրել</h4>
-                      </div>
-                      <span className="text-xs text-gray-400">22.06.2026</span>
-                    </div>
-                  </div>
                 </div>
-              ) : (
-                /* ՍՏԱՆԴԱՐՏ ՆՈՐՈՒԹՅՈՒՆՆԵՐԻ ՑԱՆԿԸ */
+              ) : activeCategory === 'Բանկային' ? (
+                /* «ԲԱՆԿԱՅԻՆ» ՖԻԼՏՐԻ ՆՈՐՈՒԹՅՈՒՆՆԵՐ (117 հատ, 20-ական բացվող) */
                 <div>
-                  {/* 1-ԻՆ ԲԱԺԻՆ */}
-                  <section className="mb-20 bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                      <div>
-                        <span className="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full mb-4">
-                          Բանկային
-                        </span>
-                        <h2 className="text-2xl md:text-4xl font-bold text-neutral-900 leading-snug mb-6">
-                          Evocabank-ը և IFC-ն մեկնարկում են բնապահպանական առաջին ծրագիրը
-                        </h2>
-                        <p className="text-gray-600 leading-relaxed mb-6">
-                          IFC-ն Evocabank-ին տրամադրել է 10 մլն դոլարի վարկ` Հայաստանում ՄՓՄՁ-ներին աջակցելու, աշխատատեղեր ստեղծելու և բնապահպանական ծրագրեր ֆինանսավորելու համար։
-                        </p>
-                        <div className="text-sm text-gray-400 font-medium">26.10.2026</div>
-                      </div>
-                      <div className="overflow-hidden rounded-2xl shadow-inner">
-                        <img 
-                          src="https://www.evoca.am/images-cache/news/1/17930164747919/780x585.png" 
-                          alt="Evocabank and IFC" 
-                          className="w-full h-auto object-cover transform hover:scale-105 transition duration-500"
-                        />
-                      </div>
-                    </div>
-                  </section>
-
-                  {/* 2-ՐԴ ԲԱԺԻՆ */}
-                  <section className="mb-20">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                      <div className="lg:col-span-2 bg-white rounded-3xl p-6 md:p-8 shadow-sm border border-gray-100 flex flex-col justify-between">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                    {bankingNews.slice(0, visibleCount).map((item) => (
+                      <div
+                        key={item.id}
+                        onClick={() => setSelectedNews(item)}
+                        className="bg-white rounded-3xl p-5 shadow-sm border border-gray-100 flex flex-col justify-between cursor-pointer hover:shadow-lg transition transform hover:-translate-y-1 duration-300"
+                      >
                         <div>
-                          <div className="overflow-hidden rounded-2xl mb-6 shadow-inner">
-                            <img 
-                              src="https://www.evoca.am/images-cache/news/1/17815943976247/616x462.png" 
-                              alt="AMX Awards" 
-                              className="w-full h-64 md:h-80 object-cover transform hover:scale-105 transition duration-500"
-                            />
+                          <div className="overflow-hidden rounded-2xl mb-4 h-48 bg-gray-100">
+                            <img src={item.image} alt={item.title} className="w-full h-full object-cover transform hover:scale-105 transition duration-500" />
                           </div>
-                          <span className="inline-block text-purple-700 text-xs font-bold uppercase tracking-wider mb-2">
-                            Մրցանակներ
+                          <span className="inline-block bg-purple-50 text-purple-700 text-xs font-bold px-2.5 py-1 rounded-full mb-2">
+                            Բանկային
                           </span>
-                          <h3 className="text-2xl font-bold text-neutral-900 mb-4">
-                            Evocabank-ը՝ AMX AWARDS 2026-ի մրցանակակիր
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed mb-6">
-                            Evocabank-ը AMX AWARDS 2026-ի ընթացքում արժանացել է «Դեպոզիտարիայի ավտոմատացված համակարգերի կիրառման լավագույն գործընկեր» մրցանակին։
+                          <h4 className="font-bold text-base text-neutral-900 mb-2 line-clamp-2 hover:text-purple-700 transition">
+                            {item.title}
+                          </h4>
+                          <p className="text-gray-600 text-xs line-clamp-3 mb-4">
+                            {item.shortDesc}
                           </p>
                         </div>
-                        <div className="text-sm text-gray-400">16.06.2026</div>
-                      </div>
-
-                      <div className="flex flex-col space-y-6">
-                        <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-                          <div>
-                            <img src="https://www.evoca.am/images-cache/news/1/17784860353078/450x295.png" alt="News" className="w-full h-40 object-cover rounded-xl mb-4" />
-                            <span className="text-purple-700 text-xs font-bold">Մրցանակներ</span>
-                            <h4 className="font-bold text-lg text-neutral-900 mt-1 mb-2">Evocabank. Լավագույն ՄՓՄՁ բանկը Հայաստանում՝ երկրորդ...</h4>
-                          </div>
-                          <span className="text-xs text-gray-400 mt-4">08.05.2026</span>
-                        </div>
-
-                        <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-                          <div>
-                            <img src="https://www.evoca.am/images-cache/news/1/17722002491716/450x295.png" alt="News" className="w-full h-40 object-cover rounded-xl mb-4" />
-                            <span className="text-purple-700 text-xs font-bold">Պրոդուկտներ</span>
-                            <h4 className="font-bold text-lg text-neutral-900 mt-1 mb-2">Քո Crypto հաշիվը՝ արդեն EvocaTOUCH-ում</h4>
-                          </div>
-                          <span className="text-xs text-gray-400 mt-4">27.02.2026</span>
+                        <div className="text-xs text-gray-400 pt-3 border-t border-gray-100 flex justify-between items-center">
+                          <span>{item.date}</span>
+                          <span className="text-purple-600 font-medium hover:underline">Կարդալ ավելին →</span>
                         </div>
                       </div>
+                    ))}
+                  </div>
+
+                  {/* Բեռնել ավելին (Load More) կոճակ ամեն 20 նկարը մեկ */}
+                  {visibleCount < bankingNews.length && (
+                    <div className="text-center mt-8">
+                      <button
+                        onClick={() => setVisibleCount((prev) => Math.min(prev + 20, bankingNews.length))}
+                        className="bg-purple-700 hover:bg-purple-800 text-white font-bold text-sm px-8 py-3.5 rounded-full transition shadow-md cursor-pointer"
+                      >
+                        Բեռնել ավելին ({bankingNews.length - visibleCount} մնացած)
+                      </button>
                     </div>
-                  </section>
-
-                  {/* 3-ՐԴ ԲԱԺԻՆ (Կարևոր) */}
-                  <section className="mb-20 bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100">
-                    <h2 className="text-3xl font-extrabold text-neutral-900 mb-8">Կարևոր</h2>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                      <div className="overflow-hidden rounded-2xl shadow-inner bg-neutral-900 flex items-center justify-center p-6">
-                        <img 
-                          src="https://www.evoca.am/images-cache/news/1/17852444643548/780x585.png" 
-                          alt="Գործարքների արգելափակում" 
-                          className="w-full h-auto object-contain transform hover:scale-105 transition duration-500"
-                        />
-                      </div>
-                      <div>
-                        <span className="inline-block bg-purple-100 text-purple-800 text-xs font-bold px-3 py-1 rounded-full mb-4">
-                          Բանկային
-                        </span>
-                        <h3 className="text-2xl md:text-3xl font-bold text-neutral-900 leading-snug mb-6">
-                          Գործարքների արգելափակում 1 կոճակով
-                        </h3>
-                        <p className="text-gray-600 leading-relaxed mb-6">
-                          Հուլիսի 1-ից EvocaTOUCH հավելվածում ու EvocaONLINE համակարգում հասանելի կլինի նոր՝ «Գործարքների արգելափակում» ֆունկցիոնալը։
-                        </p>
-                        <div className="text-sm text-gray-400 font-medium">01.06.2026</div>
-                      </div>
-                    </div>
-                  </section>
-
-                  {/* 4-ՐԴ ԲԱԺԻՆ */}
-                  <section className="mb-10">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-                        <div>
-                          <img src="https://www.evoca.am/images-cache/news/1/17812556342544/438x328.png" alt="News" className="w-full h-48 object-cover rounded-2xl mb-4" />
-                          <span className="text-purple-700 text-xs font-bold">Կենսակերպ</span>
-                          <h4 className="font-bold text-lg text-neutral-900 mt-2 mb-3">Evocabank-ը նոր գույներ է տալիս մեր քաղաքին</h4>
-                        </div>
-                        <span className="text-xs text-gray-400">12.06.2026</span>
-                      </div>
-
-                      <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-                        <div>
-                          <img src="https://www.evoca.am/images-cache/news/1/17757342882486/438x328.png" alt="News" className="w-full h-48 object-cover rounded-2xl mb-4" />
-                          <span className="text-purple-700 text-xs font-bold">Բանկային</span>
-                          <h4 className="font-bold text-lg text-neutral-900 mt-2 mb-3">ESG կառավարման համակարգը Evocabank-ում</h4>
-                        </div>
-                        <span className="text-xs text-gray-400">31.05.2026</span>
-                      </div>
-
-                      <div className="bg-white rounded-3xl p-6 shadow-sm border border-gray-100 flex flex-col justify-between">
-                        <div>
-                          <img src="https://www.evoca.am/images-cache/news/1/17707319421286/438x328.png" alt="News" className="w-full h-48 object-cover rounded-2xl mb-4" />
-                          <span className="text-purple-700 text-xs font-bold">Բանկային</span>
-                          <h4 className="font-bold text-lg text-neutral-900 mt-2 mb-3">Evocabank-ը միացել է AmCham Armenia-ին</h4>
-                        </div>
-                        <span className="text-xs text-gray-400">10.02.2026</span>
-                      </div>
-                    </div>
-                  </section>
+                  )}
+                </div>
+              ) : (
+                /* ՄՅՈՒՍ ԿԱՏԵԳՈՐԻԱՆԵՐԻ ՑԱՆԿԸ */
+                <div className="bg-white rounded-3xl p-12 text-center text-gray-500 shadow-sm border border-gray-100">
+                  <p className="text-lg">Այս կատեգորիայում նորություններն ավելացման փուլում են:</p>
                 </div>
               )}
             </div>
