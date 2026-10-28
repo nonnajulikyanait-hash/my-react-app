@@ -13,13 +13,13 @@ const cardsData = [
   },
   { 
     id: 2, 
-    name: "Evoca Digital Card", 
+    name: "Mastercard World Digital", 
     text: "Պատվիրիր թվային քարտը հիմա և այն հասանելի կլինի քո հավելվածում հաշված րոպեների ընթացքում:",
     img: "https://www.evoca.am/images-cache/cards/1/17798007931247/415x261.png" 
   },
   { 
     id: 3, 
-    name: "Evoca Touch", 
+    name: "Wilco Visa Infinite", 
     text: "Արագ և ապահով վճարումներ քո ամենօրյա գնումների համար:",
     img: "https://www.evoca.am/images-cache/cards/1/17815131185095/415x261.png" 
   },
@@ -31,19 +31,19 @@ const cardsData = [
   },
   { 
     id: 5, 
-    name: "Visa Infinite", 
-    text: "Բացառիր սահմանափակումները Visa Infinite-ի հետ։ Վայելիր պրեմիում դասի սպասարկում ամբողջ աշխարհում:",
+    name: "Digital Gift Card", 
+    text: "Բացառիր սահմանափակումները Digital Gift Card-ի հետ։ Վայելիր պրեմիում դասի սպասարկում ամբողջ աշխարհում:",
     img: "https://www.evoca.am/images-cache/cards/1/17282986912132/415x261.png" 
   },
   { 
     id: 6, 
-    name: "Visa Signature", 
+    name: "Visa Infinite", 
     text: "Նախագծված է հատուկ քո ճկուն և բարձրակարգ ոճին համապատասխան։",
     img: "https://www.evoca.am/images-cache/cards/1/1772717001933/415x261.png" 
   },
   { 
     id: 7, 
-    name: "Mastercard World Black Edition", 
+    name: "Visa Vision", 
     text: "Ընտրիր բացառիկ հնարավորություններ, ճանապարհորդական ապահովագրություն և VIP սրահների հասանելիություն։",
     img: "https://www.evoca.am/images-cache/cards/1/1714986482757/415x261.png" 
   },
@@ -55,90 +55,103 @@ const cardsData = [
   },
   { 
     id: 9, 
-    name: "Mastercard Gold", 
-    text: "Ոսկեդարյան հնարավորություններ և հուսալիություն Mastercard-ից։",
+    name: "UnionPay Business Platinum", 
+    text: "Ոսկեդարյան հնարավորություններ և հուսալիություն UnionPay-ից։",
     img: "https://www.evoca.am/images-cache/cards/1/17249401821904/415x261.png" 
   },
   { 
     id: 10, 
-    name: "Visa Gold", 
-    text: "Ընդգծիր քո կարգավիճակը և վայելիր հատուկ արտոնություններ Visa Gold-ի միջոցով։",
+    name: "MyLer Gift Card", 
+    text: "Մեկ քարտ, անսահմանափակ արկածներ:)",
     img: "https://www.evoca.am/images-cache/cards/1/17655348192361/415x261.png" 
   },
   { 
     id: 11, 
-    name: "Visa Classic", 
+    name: "UnionPay Gold", 
     text: "Ամենօրյա հարմարավետ և ապահով վճարային գործիք ամբողջ աշխարհում:",
     img: "https://www.evoca.am/images-cache/cards/1/17262129422977/415x261.png" 
   },
   { 
     id: 12, 
-    name: "Mastercard Standard", 
+    name: "4U.am Gift card", 
     text: "Վստահելի և արագ վճարումներ ցանկացված վայրում:",
     img: "https://www.evoca.am/images-cache/cards/1/17485032554482/415x261.png" 
   },
   { 
     id: 13, 
-    name: "Visa Business", 
-    text: "Հարմարավետ գործիք ձեր բիզնես ծախսերի կառավարման համար:",
+    name: "Mastercard Gold", 
+    text: "Հարմարավետ գործիք ձեր ծախսերի կառավարման համար:",
     img: "https://www.evoca.am/images-cache/cards/1/17149865321136/415x261.png" 
   },
   { 
     id: 14, 
-    name: "Mastercard Business", 
-    text: "Վստահելի լուծումներ ձեր բիզնեսի առօրյա ֆինանսների համար:",
+    name: "Mastercard Standard", 
+    text: "Վստահելի լուծումներ ձեր առօրյա ֆինանսների համար:",
     img: "https://www.evoca.am/images-cache/cards/1/17149866652788/415x261.png" 
   },
   { 
     id: 15, 
-    name: "ArCa Business", 
-    text: "Տեղական բիզնես քարտ՝ հուսալի և արագ գործարքների համար:",
+    name: "Visa Digital", 
+    text: "Թվային քարտ՝ հուսալի և արագ գործարքների համար:",
     img: "https://www.evoca.am/images-cache/cards/1/17485025148319/415x261.png" 
   },
   { 
     id: 16, 
-    name: "ArCa Classic", 
+    name: "Visa Classic", 
     text: "Տեղական հուսալի քարտ Հայաստանում անհոգ գնումների և գործարքների համար:",
     img: "https://www.evoca.am/images-cache/cards/1/1714986642953/415x261.png" 
   },
   { 
     id: 17, 
-    name: "Evoca Pension", 
-    text: "Հատուկ պայմաններ և հարմարավետություն թոշակառուների համար:",
+    name: "Arca Classic", 
+    text: "Հատուկ պայմաններ և հարմարավետություն:",
     img: "https://www.evoca.am/images-cache/cards/1/17404717644263/415x261.png" 
   },
   { 
     id: 18, 
-    name: "Digital Gift Card", 
-    text: "Անակնկալիր մտերիմներին ակնթարթորեն առաքվող թվային նվեր քարտով:",
-    img: "https://www.evoca.am/images-cache/cards/1/17149865475676/415x261.png" 
+    name: "Arca-UnionPay", 
+    text: "Անակնկալիր մտերիմներին ակնթարթորեն առաքվող քարտով:",
+    img: "https://www.evoca.am/images-cache/cards/1/17881574661708/415x261.png" 
   },
   { 
     id: 19, 
-    name: "Evoca Student Card", 
-    text: "Ոսանողական հատուկ զեղչեր և հարմարավետ ֆինանսական գործիքներ երիտասարդների համար:",
+    name: "Dalma Gift Card", 
+    text: "Նվեր ընտրելն այլևս դժվար չէ:)",
     img: "https://www.evoca.am/images-cache/cards/1/17404717113297/415x261.png" 
   },
   { 
     id: 20, 
-    name: "Evoca Junior", 
-    text: "Հատուկ քարտ երեխաների և դեռահասների ֆինանսական գրագիտության համար:",
+    name: "Rio Gift Card", 
+    text: "Ամեն ինչ մեկ նվեր քարտում",
     img: "https://www.evoca.am/images-cache/cards/1/17404717289057/415x261.png" 
   },
   { 
     id: 21, 
-    name: "Evoca Card Special", 
+    name: "Visa Gold", 
     text: "Ժամանակակից և նորարարական լուծումներ ձեր առօրյայի համար։",
     img: "https://www.evoca.am/images-cache/cards/1/17149865646885/415x261.png" 
   }
 ];
 
-function EvocaCardsSlider({ setActiveTab }) {
+function EvocaCardsSlider({ setActiveTab, setSelectedCard }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const swiperRef = useRef(null);
 
+  // 👈 ՍԵՂՄԵԼԻՍ ԲԱՑՈՒՄ Է ՀԵՆՑ ԱՅԴ ՔԱՐՏԻ ԷՋԸ
   const handleDetailsClick = (e) => {
     e.preventDefault();
+    const currentCard = cardsData[activeIndex];
+    
+    if (setSelectedCard) {
+      setSelectedCard({
+        id: currentCard.id,
+        title: currentCard.name,
+        image: currentCard.img,
+        desc: currentCard.text,
+        features: []
+      });
+    }
+
     if (setActiveTab) {
       setActiveTab('cards');
     }
@@ -148,21 +161,17 @@ function EvocaCardsSlider({ setActiveTab }) {
     <section className="relative bg-[#f0f7fe] py-10 lg:py-14 overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-8">
         
-        {/* Ձախ մաս՝ Ուղղահայաց Swiper սլայդեր */}
+        {/* Swiper */}
         <div className="flex flex-col items-center w-full lg:w-2/12">
-          
-          {/* Վերևի սլաք */}
           <button 
             onClick={() => swiperRef.current?.slidePrev()}
             className="p-1 text-[#6400DC] hover:scale-110 transition-transform mb-1 focus:outline-none cursor-pointer z-10"
-            aria-label="Previous card"
           >
             <svg className="w-5 h-5 transform rotate-180" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
             </svg>
           </button>
 
-          {/* Swiper բլոկ */}
           <div className="h-[320px] w-full max-w-[170px] overflow-hidden relative flex justify-center">
             <Swiper
               direction={'vertical'}
@@ -201,11 +210,9 @@ function EvocaCardsSlider({ setActiveTab }) {
             </Swiper>
           </div>
 
-          {/* Ներքևի սլաք */}
           <button 
             onClick={() => swiperRef.current?.slideNext()}
             className="p-1 text-[#6400DC] hover:scale-110 transition-transform mt-1 focus:outline-none cursor-pointer z-10"
-            aria-label="Next card"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="3" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
@@ -213,14 +220,13 @@ function EvocaCardsSlider({ setActiveTab }) {
           </button>
         </div>
 
-        {/* Աջ մաս՝ Մեծ քարտ և տեքստեր */}
+        {/* Աջ մաս */}
         <div className="w-full lg:w-10/12 flex flex-col lg:flex-row items-center justify-between gap-8">
-          
           <div className="w-full lg:w-7/12 flex justify-center">
             <img 
               src={cardsData[activeIndex]?.img} 
               alt={cardsData[activeIndex]?.name} 
-              className="w-full max-w-[440px] h-[260px] object-contain drop-shadow-xl transition-all duration-500 cursor-pointer"
+              className="w-full max-w-[440px] h-[260px] object-contain drop-shadow-xl transition-all duration-500 cursor-pointer hover:scale-105"
               onClick={handleDetailsClick}
             />
           </div>
@@ -233,7 +239,6 @@ function EvocaCardsSlider({ setActiveTab }) {
               {cardsData[activeIndex]?.text}
             </p>
             <div className="pt-2">
-              {/* 👈 ԿՈՃԱԿԸ, ՈՐԸ ՏԱՆՈՒՄ Է ՔԱՐՏԵՐԻ ԷՋ */}
               <button 
                 onClick={handleDetailsClick}
                 className="inline-block bg-[#6400DC] hover:bg-[#5200b3] text-white font-semibold text-sm sm:text-base px-7 py-3 rounded-full shadow-md transition-transform hover:scale-105 cursor-pointer border-none"
@@ -242,7 +247,6 @@ function EvocaCardsSlider({ setActiveTab }) {
               </button>
             </div>
           </div>
-
         </div>
 
       </div>

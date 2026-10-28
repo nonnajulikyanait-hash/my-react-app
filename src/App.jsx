@@ -29,12 +29,12 @@ import Norutyunner from './components/norutyunner';
 import MerMasin from './components/mermasin';
 import Bajneterer from './components/bajneterer';
 import Karucvacq from './components/karucvacq';
-import Qarter from './components/qarter'; // 👈 ԱՎԵԼԱՑՎԵՑ «ՔԱՐՏԵՐ» ԲԱՂԱԴՐԻՉԻ ԻՄՊՈՐՏԸ
+import Qarter from './components/qarter';
 
 function App() {
   const [activeTab, setActiveTab] = useState('home');
+  const [selectedCard, setSelectedCard] = useState(null); // 👈 ԱՎԵԼԱՑՎԵՑ ԸՆՏՐՎԱԾ ՔԱՐՏԻ STATE-Ը
 
-  // 1. Ստուգում ենք URL-ը, որ եթե նոր տաբով է բացվել (?tab=vcharumner), միանգամից բացվի վճարումների էջը
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
     if (searchParams.get('tab') === 'vcharumner') {
@@ -43,29 +43,12 @@ function App() {
   }, []);
 
   useEffect(() => {
-    const addData = async () => {
-      try {
-        await addDoc(collection(db, "testCollection"), {
-          message: "Hello from React & Firebase!",
-          time: new Date()
-        });
-        console.log("Document successfully written!");
-      } catch (e) {
-        console.error("Error writing document: ", e);
-      }
-    };
-
-    addData();
-  }, []);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
-  }, [activeTab]);
+  }, [activeTab, selectedCard]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col justify-between">
       <div>
-        {/* 2. Header-ը չենք ցուցադրում, եթե գտնվում ենք վճարումների էջում */}
         {activeTab !== 'vcharumner' && (
           <Header activeTab={activeTab} setActiveTab={setActiveTab} />
         )}
@@ -75,7 +58,11 @@ function App() {
             <HeroSlider />
             <BiometricSection />
             <BiometricTriangle />
-            <EvocaCardsSlider />
+            {/* 👈 ՓՈԽԱՆՑՈՒՄ ԵՆՔ SETACTIVETAB ԵՎ SETSELECTEDCARD */}
+            <EvocaCardsSlider 
+              setActiveTab={setActiveTab} 
+              setSelectedCard={setSelectedCard} 
+            />
             <EvocaOnlineMobile />
             <Gortsynkerner />
             <EvocaCalculator />
@@ -85,8 +72,14 @@ function App() {
 
         {activeTab === 'varker' && <Varker />}
         
-        {/* 👈 «ՔԱՐՏԵՐ» ԷՋԻ ԿԱՆՉԸ */}
-        {activeTab === 'cards' && <Qarter setActiveTab={setActiveTab} />}
+        {/* 👈 ՔԱՐՏԵՐԻ ԷՋԻՆ ՓՈԽԱՆՑՈՒՄ ԵՆՔ ԸՆՏՐՎԱԾ ՔԱՐՏԸ */}
+        {activeTab === 'cards' && (
+          <Qarter 
+            setActiveTab={setActiveTab} 
+            selectedCard={selectedCard} 
+            setSelectedCard={setSelectedCard} 
+          />
+        )}
 
         {activeTab === 'business-varker' && <BusinessVarker setActiveTab={setActiveTab} />}
         {activeTab === 'business-leasing' && <Leasing setActiveTab={setActiveTab} />}
@@ -99,30 +92,13 @@ function App() {
         {activeTab === 'arjetxter' && <Arjetxter setActiveTab={setActiveTab} />}
         {activeTab === 'evocasalary' && <EvocaSalary setActiveTab={setActiveTab} />}
         {activeTab === 'evocatouch' && <EvocaTouch setActiveTab={setActiveTab} />}
-        
-        {/* Վճարումների էջ */}
         {activeTab === 'vcharumner' && <Vcharumner setActiveTab={setActiveTab} />}
-
-        {/* Նորությունների էջ */}
         {activeTab === 'norutyunner' && <Norutyunner setActiveTab={setActiveTab} />}
-
-        {/* «Մեր մասին» էջ */}
         {activeTab === 'mermasin' && <MerMasin setActiveTab={setActiveTab} />}
-
-        {/* «Բայներեր» էջ */}
         {activeTab === 'bajneterer' && <Bajneterer setActiveTab={setActiveTab} />}
-
-        {/* «Կառուցվածք» էջ */}
         {activeTab === 'karucvacq' && <Karucvacq setActiveTab={setActiveTab} />}
-
-        {activeTab === 'haytararutyun' && (
-          <main className="max-w-7xl mx-auto px-4 py-10">
-            {/* Հայտարարությունների բովանդակություն */}
-          </main>
-        )}
       </div>
 
-      {/* Footer */}
       <Footer setActiveTab={setActiveTab} />
     </div>
   );

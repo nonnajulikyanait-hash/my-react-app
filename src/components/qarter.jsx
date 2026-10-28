@@ -1,12 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Qarter = ({ setActiveTab }) => {
-  const [selectedCard, setSelectedCard] = useState(null);
+const Qarter = ({ setActiveTab, selectedCard: externalSelectedCard, setSelectedCard: setExternalSelectedCard }) => {
+  const [selectedCard, setSelectedCard] = useState(externalSelectedCard || null);
   const [activeFilter, setActiveFilter] = useState('Բոլորը');
   const [currentPage, setCurrentPage] = useState(1);
   const cardsPerPage = 20;
 
-  // ԲՈԼՈՐ 22 ՔԱՐՏԵՐԻ ՏՎՅԱԼՆԵՐԸ ԿԱՏԵԳՈՐԻԱՆԵՐՈՎ
+  useEffect(() => {
+    if (externalSelectedCard) {
+      setSelectedCard(externalSelectedCard);
+    }
+  }, [externalSelectedCard]);
+
+  const handleBack = () => {
+    setSelectedCard(null);
+    if (setExternalSelectedCard) {
+      setExternalSelectedCard(null);
+    }
+  };
+
   const cardsList = [
     {
       id: 1,
@@ -52,7 +64,7 @@ const Qarter = ({ setActiveTab }) => {
       id: 5,
       title: "Digital Gift Card",
       image: "https://www.evoca.am/images-cache/cards/1/17282986912132/415x261.png",
-      desc: "Սիրելի մարդկանց համար նվեր ընտրելը պատասխանատու ու հաճելի գործ է, բայց նաև ժամանակատար ու նյարդայնացնող, հատկապես երբ չգիտես՝ կհավանի՞, թե՞ ոչ։ Մենք առաջարկում ենք իդեալական նվերի տարբերակ։",
+      desc: "Սիրելի մարդկանց համար նվեր ընտրելը պատասխանատու ու հաճելի գործ է, բայց նաև ժամանակատար ու նյարդայնացնող:",
       categories: ['Նվեր քարտեր', 'Թվային քարտեր', 'Mastercard'],
       features: []
     },
@@ -81,11 +93,11 @@ const Qarter = ({ setActiveTab }) => {
       id: 8,
       title: "Mastercard World Digital",
       image: "https://www.evoca.am/images-cache/cards/1/17639683196125/415x261.png",
-      desc: "Mastercard World Digital քարտն արդեն հասանելի է EvocaTOUCH հավելվածում։ Պատվիրիր թվային քարտը հիմա և այն հասանելի կլինի քո հավելվածում հաշված րոպեների ընթացքում։",
+      desc: "Mastercard World Digital քարտն արդեն հասանելի է EvocaTOUCH հավելվածում։",
       categories: ['Թվային քարտեր', 'Mastercard'],
       features: [
         { label: "Կանխիկացում բանկի բանկոմատներից", value: "2%" },
-        { label: "Կանխիկացում ԱրՔա համակարգի անդամ հանդիսացող ՀՀ բանկերի բանկոմատներից և POS տերմինալների միջոցով", value: "2.5%" }
+        { label: "Կանխիկացում ԱրՔա համակարգի անդամ հանդիսացող ՀՀ բանկերի բանկոմատներից", value: "2.5%" }
       ]
     },
     {
@@ -97,8 +109,7 @@ const Qarter = ({ setActiveTab }) => {
       features: [
         { label: "Կանխիկացում", value: "0.5%" },
         { label: "Քարտի ժամկետ", value: "5 տարի" },
-        { label: "Տարեկան սպասարկման վճար", value: "15,000 ֏" },
-        { label: "Կիրառություն", value: "Ամենուր" }
+        { label: "Տարեկան սպասարկման վճար", value: "15,000 ֏" }
       ]
     },
     {
@@ -137,8 +148,6 @@ const Qarter = ({ setActiveTab }) => {
       categories: ['Mastercard'],
       features: [
         { label: "Կանխիկացում բանկի կանխիկացման կետերում մինչև 2 մլն ֏", value: "0%" },
-        { label: "Կանխիկացում ԱրՔա անդամ բանկերի կանխիկացման կետերում", value: "0.8%" },
-        { label: "Կանխիկացում ԱրՔա անդամ չհանդիսացող բանկերի կանխիկացման կետերում", value: "1%", prefix: "min 1,500 ֏" },
         { label: "Տարեկան սպասարկում", value: "15․000 ֏" }
       ]
     },
@@ -149,9 +158,6 @@ const Qarter = ({ setActiveTab }) => {
       desc: "Աշխարհի ցանկացած կետում, որտեղ էլ լինես, քո ֆինանսական միջոցները 24/7 սկզբունքով հասանելի կլինեն։",
       categories: ['Mastercard'],
       features: [
-        { label: "Կանխիկացում բանկի կանխիկացման կետերում մինչև 1 մլն ֏", value: "0%" },
-        { label: "Կանխիկացում ԱրՔա անդամ բանկերի կանխիկացման կետերում", value: "0.8%" },
-        { label: "Կանխիկացում ԱրՔա անդամ չհանդիսացող բանկերի կանխիկացման կետերում", value: "1%", prefix: "min 1,500 ֏" },
         { label: "Քարտի տարեկան սպասարկում", value: "5000 ֏" }
       ]
     },
@@ -159,25 +165,19 @@ const Qarter = ({ setActiveTab }) => {
       id: 15,
       title: "Visa Digital",
       image: "https://www.evoca.am/images-cache/cards/1/17485025148319/415x261.png",
-      desc: "Պատվիրիր Evoca Digital քարտը հիմա EvocaTOUCH հավելվածով, և քարտը կակտիվանա րոպեների ընթացքում:",
+      desc: "Պատվիրիր Evoca Digital քարտը հիմա EvocaTOUCH հավելվածով:",
       categories: ['Թվային քարտեր', 'VISA'],
       features: [
-        { label: "Կանխիկացում բանկի բանկոմատներից", value: "2%" },
-        { label: "Քարտային հաշվի դրական մնացորդի նկատմամբ հաշվարկվող տարեկան տոկոսադրույք", value: "4%", prefix: "մինչև" },
-        { label: "Տարեկան սպասարկում", value: "1000 ֏" },
-        { label: "Քեշբեք", value: "0.5%", prefix: "մինչև" }
+        { label: "Տարեկան սպասարկում", value: "1000 ֏" }
       ]
     },
     {
       id: 16,
       title: "Visa Classic",
       image: "https://www.evoca.am/images-cache/cards/1/1714986642953/415x261.png",
-      desc: "Կատարիր մինչև 20,000 ՀՀ դրամի անհպում գործարքներ Visa Classic քարտով՝ առանց PIN կոդի մուտքագրման:",
+      desc: "Կատարիր մինչև 20,000 ՀՀ դրամի անհպում գործարքներ Visa Classic քարտով:",
       categories: ['VISA'],
       features: [
-        { label: "Կանխիկացում բանկի կանխիկացման կետերում", value: "0.2%" },
-        { label: "Կանխիկացում ԱրՔա անդամ բանկերի կանխիկացման կետերում", value: "0.8%" },
-        { label: "Կանխիկացում ԱրՔա անդամ չհանդիսացող բանկերի կանխիկացման կետերում", value: "1%", prefix: "min 1,500 ֏" },
         { label: "Տարեկան սպասարկում", value: "5,000 ֏" }
       ]
     },
@@ -188,9 +188,6 @@ const Qarter = ({ setActiveTab }) => {
       desc: "Evocabank-ի հետ ցանկացած գնում և վճարում ապահով է և հուսալի։",
       categories: ['arca'],
       features: [
-        { label: "Քարտերով կանխիկի տրամադրում Բանկի ATM-ով", value: "0.5%", prefix: "Արտարժույթ" },
-        { label: "Քարտերով կանխիկի տրամադրում Բանկի ATM-ով", value: "0.2%", prefix: "մինչև 300,000 ֏` անվճար" },
-        { label: "Քարտերով կանխիկի տրամադրում «ԱրՔա» համակարգի այլ բանկերի ATM-ով և POS-ով", value: "1%" },
         { label: "Տարեկան սպասարկում", value: "1500 ֏" }
       ]
     },
@@ -198,13 +195,10 @@ const Qarter = ({ setActiveTab }) => {
       id: 18,
       title: "Arca-UnionPay",
       image: "https://www.evoca.am/images-cache/cards/1/17881574661708/415x261.png",
-      desc: "Մեկ քարտ, բազմաթիվ հնարավորություններ. Arca՝ ամենօրյա գնումների և UnionPay՝ ճամփորդությունների և միջազգային գնումների համար։",
+      desc: "Մեկ քարտ, բազմաթիվ հնարավորություններ:",
       categories: ['arca', 'UnionPay'],
       features: [
-        { label: "տարեկան (ամսական՝ 250֏)", value: "2,500֏", prefix: "Սակագին" },
-        { label: "տեղական գործարքներից", value: "2%", prefix: "Cashback" },
-        { label: "անվճար կանխիկացում Բանկի ATM-ով", value: "1,000,000֏", prefix: "Մինչև" },
-        { label: "երկրում քարտով գործարքներ կատարելու հնարավորություն", value: "189", prefix: "Ավելի քան" }
+        { label: "տարեկան (ամսական՝ 250֏)", value: "2,500֏" }
       ]
     },
     {
@@ -213,12 +207,7 @@ const Qarter = ({ setActiveTab }) => {
       image: "https://www.evoca.am/images-cache/cards/1/17149865475676/415x261.png",
       desc: "Գործուղման մեկնելիս Ձեր ներկայացուցչական ծախսերը կարող եք հոգալ Visa Business քարտով։",
       categories: ['VISA'],
-      features: [
-        { label: "Կանխիկացում բանկի կանխիկացման կետերում", value: "0.2%" },
-        { label: "Կանխիկացում ԱրՔա անդամ բանկերի կանխիկացման կետերում", value: "0.8%" },
-        { label: "Կանխիկացում ԱրՔա անդամ չհանդիսացող բանկերի կանխիկացման կետերում", value: "1%", prefix: "min 1,500 ֏" },
-        { label: "Բանկի տարածքում քարտային հաշվից կանխիկի տրամադրում", value: "0.2%" }
-      ]
+      features: []
     },
     {
       id: 20,
@@ -243,15 +232,16 @@ const Qarter = ({ setActiveTab }) => {
       desc: "Նոր քարտերի թողարկումը դադարեցված է 25.11.2024 թվականից",
       categories: ['VISA'],
       features: [
-        { label: "Կանխիկացում բանկի կանխիկացման կետերում", value: "0.2%" },
-        { label: "Կանխիկացում ԱրՔա անդամ բանկերի կանխիկացման կետերում", value: "0.8%" },
-        { label: "Կանխիկացում ԱրՔա անդամ չհանդիսացող բանկերի կանխիկացման կետերում", value: "1%", prefix: "min 1,500 ֏" },
         { label: "Տարեկան սպասարկում", value: "15,000 ֏" }
       ]
     }
   ];
 
-  // FILTRAR
+  // Գտնում ենք քարտի ամբողջական տվյալները, եթե Swiper-ից է եկել
+  const activeCardData = selectedCard
+    ? (cardsList.find(c => c.title.toLowerCase() === selectedCard.title.toLowerCase() || c.id === selectedCard.id) || selectedCard)
+    : null;
+
   const filteredCards = activeFilter === 'Բոլորը'
     ? cardsList
     : cardsList.filter(card => card.categories && card.categories.includes(activeFilter));
@@ -261,21 +251,7 @@ const Qarter = ({ setActiveTab }) => {
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const currentCards = filteredCards.slice(indexOfFirstCard, indexOfLastCard);
 
-  const filterButtons = [
-    'Բոլորը',
-    'Պրեմիում',
-    'Նվեր քարտեր',
-    'Թվային քարտեր',
-    'arca',
-    'VISA',
-    'Mastercard',
-    'UnionPay'
-  ];
-
-  const handleFilterClick = (filter) => {
-    setActiveFilter(filter);
-    setCurrentPage(1);
-  };
+  const filterButtons = ['Բոլորը', 'Պրեմիում', 'Նվեր քարտեր', 'Թվային քարտեր', 'arca', 'VISA', 'Mastercard', 'UnionPay'];
 
   return (
     <div className="bg-gray-50 min-h-screen font-sans flex flex-col justify-between">
@@ -290,36 +266,37 @@ const Qarter = ({ setActiveTab }) => {
         </div>
 
         <main className="max-w-7xl mx-auto px-4 md:px-12 pt-8 pb-16">
-          {selectedCard ? (
+          {activeCardData ? (
+            /* ԱՌԱՆՁԻՆ ՔԱՐՏԻ ԷՋԸ */
             <div>
               <div className="flex items-center justify-between mb-8">
                 <button
-                  onClick={() => setSelectedCard(null)}
+                  onClick={handleBack}
                   className="flex items-center space-x-2 text-sm text-gray-600 hover:text-purple-700 font-medium transition cursor-pointer"
                 >
                   <span>← Վերադառնալ</span>
                 </button>
                 <div className="text-sm text-gray-400 flex items-center space-x-2">
-                  <span onClick={() => { setSelectedCard(null); setActiveTab && setActiveTab('home'); }} className="cursor-pointer hover:text-purple-600">Անհատ</span>
+                  <span onClick={() => { handleBack(); setActiveTab && setActiveTab('home'); }} className="cursor-pointer hover:text-purple-600">Անհատ</span>
                   <span>/</span>
-                  <span onClick={() => setSelectedCard(null)} className="cursor-pointer hover:text-purple-600">Քարտեր</span>
+                  <span onClick={handleBack} className="cursor-pointer hover:text-purple-600">Քարտեր</span>
                   <span>/</span>
-                  <span className="text-gray-600 font-medium">{selectedCard.title}</span>
+                  <span className="text-gray-600 font-medium">{activeCardData.title || activeCardData.name}</span>
                 </div>
               </div>
 
               <div className="bg-white rounded-3xl p-6 md:p-12 shadow-sm border border-gray-100 max-w-5xl mx-auto mb-16">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
                   <div className="flex justify-center">
-                    <img src={selectedCard.image} alt={selectedCard.title} className="w-full max-w-md h-auto object-contain drop-shadow-xl" />
+                    <img src={activeCardData.image || activeCardData.img} alt={activeCardData.title || activeCardData.name} className="w-full max-w-md h-auto object-contain drop-shadow-xl" />
                   </div>
                   <div>
-                    <h1 className="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-4">{selectedCard.title}</h1>
-                    <p className="text-gray-600 text-base leading-relaxed mb-8">{selectedCard.desc}</p>
+                    <h1 className="text-3xl md:text-4xl font-extrabold text-neutral-900 mb-4">{activeCardData.title || activeCardData.name}</h1>
+                    <p className="text-gray-600 text-base leading-relaxed mb-8">{activeCardData.desc || activeCardData.text}</p>
                     
-                    {selectedCard.features.length > 0 && (
+                    {activeCardData.features && activeCardData.features.length > 0 && (
                       <div className="grid grid-cols-2 gap-6 mb-8 bg-gray-50 p-6 rounded-2xl">
-                        {selectedCard.features.map((feat, idx) => (
+                        {activeCardData.features.map((feat, idx) => (
                           <div key={idx}>
                             {feat.prefix && <span className="text-xs text-gray-400 block">{feat.prefix}</span>}
                             <div className="text-xl font-bold text-purple-700">{feat.value}</div>
@@ -337,6 +314,7 @@ const Qarter = ({ setActiveTab }) => {
               </div>
             </div>
           ) : (
+            /* ՑԱՆԿԻ ԷՋԸ */
             <div>
               <div className="text-sm text-gray-400 mb-4 flex items-center space-x-2">
                 <span onClick={() => setActiveTab && setActiveTab('home')} className="cursor-pointer hover:text-purple-600">Անհատ</span>
@@ -348,12 +326,11 @@ const Qarter = ({ setActiveTab }) => {
                 Քարտեր
               </h1>
 
-              {/* FILTER BUTTONS */}
               <div className="flex flex-wrap gap-3 mb-12">
                 {filterButtons.map((btn) => (
                   <button
                     key={btn}
-                    onClick={() => handleFilterClick(btn)}
+                    onClick={() => { setActiveFilter(btn); setCurrentPage(1); }}
                     className={`px-6 py-2.5 rounded-full text-sm font-medium transition cursor-pointer ${
                       activeFilter === btn
                         ? 'bg-purple-700 text-white shadow-sm'
@@ -365,84 +342,36 @@ const Qarter = ({ setActiveTab }) => {
                 ))}
               </div>
 
-              {/* CARD LIST */}
-              {currentCards.length > 0 ? (
-                <div className="space-y-12 mb-16">
-                  {currentCards.map((card) => (
-                    <div key={card.id} className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-10 hover:shadow-md transition">
-                      <div 
-                        onClick={() => setSelectedCard(card)} 
-                        className="w-full lg:w-1/3 flex justify-center cursor-pointer transform hover:scale-105 transition duration-300"
-                      >
-                        <img src={card.image} alt={card.title} className="w-full max-w-sm h-auto object-contain drop-shadow-md" />
-                      </div>
-                      
-                      <div className="w-full lg:w-2/3">
-                        <h3 
-                          onClick={() => setSelectedCard(card)} 
-                          className="text-2xl md:text-3xl font-extrabold text-neutral-900 mb-4 hover:text-purple-700 transition cursor-pointer"
-                        >
-                          {card.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">{card.desc}</p>
-                        
-                        {card.features.length > 0 && (
-                          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
-                            {card.features.map((feat, fIdx) => (
-                              <div key={fIdx}>
-                                {feat.prefix && <span className="text-xs text-gray-400 block">{feat.prefix}</span>}
-                                <div className="text-lg md:text-xl font-bold text-purple-700">{feat.value}</div>
-                                <div className="text-xs text-gray-500 mt-0.5">{feat.label}</div>
-                              </div>
-                            ))}
-                          </div>
-                        )}
-
-                        <button
-                          onClick={() => setSelectedCard(card)}
-                          className="inline-flex items-center space-x-1 bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold text-sm px-6 py-2.5 rounded-full transition cursor-pointer"
-                        >
-                          <span>Մանրամասն</span>
-                          <span>›</span>
-                        </button>
-                      </div>
+              <div className="space-y-12 mb-16">
+                {currentCards.map((card) => (
+                  <div key={card.id} className="bg-white rounded-3xl p-6 md:p-10 shadow-sm border border-gray-100 flex flex-col lg:flex-row items-center gap-10 hover:shadow-md transition">
+                    <div 
+                      onClick={() => setSelectedCard(card)} 
+                      className="w-full lg:w-1/3 flex justify-center cursor-pointer transform hover:scale-105 transition duration-300"
+                    >
+                      <img src={card.image} alt={card.title} className="w-full max-w-sm h-auto object-contain drop-shadow-md" />
                     </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="bg-white rounded-3xl p-12 text-center text-gray-500 shadow-sm border border-gray-100 mb-16">
-                  <p className="text-lg">Այս կատեգորիայում քարտեր չեն գտնվել:</p>
-                </div>
-              )}
+                    
+                    <div className="w-full lg:w-2/3">
+                      <h3 
+                        onClick={() => setSelectedCard(card)} 
+                        className="text-2xl md:text-3xl font-extrabold text-neutral-900 mb-4 hover:text-purple-700 transition cursor-pointer"
+                      >
+                        {card.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">{card.desc}</p>
 
-              {/* PAGINATION */}
-              {totalPages > 1 && (
-                <div className="flex justify-center items-center space-x-4 my-10">
-                  <button
-                    onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-                    disabled={currentPage === 1}
-                    className={`w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-lg font-bold transition ${
-                      currentPage === 1 ? 'opacity-40 cursor-not-allowed bg-gray-100' : 'hover:bg-purple-700 hover:text-white cursor-pointer bg-white'
-                    }`}
-                  >
-                    ←
-                  </button>
-
-                  <span className="text-sm font-medium text-gray-600">
-                    Էջ <strong className="text-purple-700">{currentPage}</strong> / {totalPages}
-                  </span>
-
-                  <button
-                    onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-                    disabled={currentPage === totalPages}
-                    className={`w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-lg font-bold transition ${
-                      currentPage === totalPages ? 'opacity-40 cursor-not-allowed bg-gray-100' : 'hover:bg-purple-700 hover:text-white cursor-pointer bg-white'
-                    }`}
-                  >
-                    →
-                  </button>
-                </div>
-              )}
+                      <button
+                        onClick={() => setSelectedCard(card)}
+                        className="inline-flex items-center space-x-1 bg-purple-100 hover:bg-purple-200 text-purple-800 font-bold text-sm px-6 py-2.5 rounded-full transition cursor-pointer"
+                      >
+                        <span>Մանրամասն</span>
+                        <span>›</span>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           )}
         </main>
